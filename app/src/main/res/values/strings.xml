@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Boilerplate-Android</string>
+
+    <!--region Fragments Label-->
+    <string name="fragment_label_home">Home</string>
+    <!--endregion-->
+
+
 </resources>
