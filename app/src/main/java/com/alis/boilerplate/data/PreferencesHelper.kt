@@ -8,7 +8,7 @@ class PreferencesHelper(context: Context) {
     private val preferences: SharedPreferences =
         context.getSharedPreferences("boilerplate.preferences", Context.MODE_PRIVATE)
 
-    fun remove(key: String) {
+    private fun remove(key: String) {
         preferences.edit().remove(key).apply()
     }
 }
