@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data.repository
+package com.alis.boilerplate.data.repositories
 
 import com.alis.boilerplate.data.network.API
 
