@@ -3,8 +3,8 @@ package com.alis.boilerplate
 import android.app.Application
 import com.alis.boilerplate.servicelocator.localModule
 import com.alis.boilerplate.servicelocator.networkModule
-import com.alis.boilerplate.servicelocator.repositoryModule
-import com.alis.boilerplate.servicelocator.viewModelModule
+import com.alis.boilerplate.servicelocator.repositoriesModule
+import com.alis.boilerplate.servicelocator.viewModelsModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -14,7 +14,7 @@ class App : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@App)
-            modules(viewModelModule, repositoryModule, localModule, networkModule)
+            modules(viewModelsModule, repositoriesModule, localModule, networkModule)
         }
     }
 }
