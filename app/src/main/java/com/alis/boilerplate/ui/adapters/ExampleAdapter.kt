@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alis.boilerplate.databinding.ItemExampleBinding
-import com.alis.boilerplate.models.TitleDescription
+import com.alis.boilerplate.models.Example
 
 class ExampleAdapter : RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>() {
 
-    private val list = mutableListOf<TitleDescription>()
+    private val list = mutableListOf<Example>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
         return ExampleViewHolder(
@@ -27,10 +27,10 @@ class ExampleAdapter : RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>() 
     inner class ExampleViewHolder(private val binding: ItemExampleBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(titleDescription: TitleDescription) {
+        fun onBind(example: Example) {
             binding.apply {
-                textExampleTitle.text = titleDescription.title
-                textExampleDescription.text = titleDescription.description
+                textExampleTitle.text = example.title
+                textExampleDescription.text = example.description
             }
         }
     }
