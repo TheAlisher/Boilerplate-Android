@@ -1,10 +1,10 @@
-package com.alis.boilerplate
+package com.alis.boilerplate.app.koin
 
 import android.app.Application
-import com.alis.boilerplate.servicelocator.localModule
-import com.alis.boilerplate.servicelocator.networkModule
-import com.alis.boilerplate.servicelocator.repositoriesModule
-import com.alis.boilerplate.servicelocator.viewModelsModule
+import com.alis.boilerplate.servicelocator.koin.localModule
+import com.alis.boilerplate.servicelocator.koin.networkModule
+import com.alis.boilerplate.servicelocator.koin.repositoriesModule
+import com.alis.boilerplate.servicelocator.koin.viewModelsModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

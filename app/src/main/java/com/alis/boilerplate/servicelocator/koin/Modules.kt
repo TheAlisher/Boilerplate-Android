@@ -1,4 +1,4 @@
-package com.alis.boilerplate.servicelocator
+package com.alis.boilerplate.servicelocator.koin
 
 import com.alis.boilerplate.data.PreferencesHelper
 import com.alis.boilerplate.data.network.RetrofitClient
