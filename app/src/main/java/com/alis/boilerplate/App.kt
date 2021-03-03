@@ -1,4 +1,4 @@
-package com.alis.boilerplate.app.koin
+package com.alis.boilerplate
 
 import android.app.Application
 import com.alis.boilerplate.servicelocator.koin.localModule
@@ -12,6 +12,10 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        /**
+         * Koin
+         */
         startKoin {
             androidContext(this@App)
             modules(viewModelsModule, repositoriesModule, localModule, networkModule)
