@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data.network
+package com.alis.boilerplate.data.network.retrofit
 
 import com.alis.boilerplate.utils.Constants
 import okhttp3.OkHttpClient
