@@ -1,4 +1,4 @@
-package com.alis.boilerplate.extensions.permission
+package com.alis.boilerplate.extensions.permissions
 
 object PermissionsConstants {
 
