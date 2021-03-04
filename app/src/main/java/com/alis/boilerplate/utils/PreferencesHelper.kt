@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data
+package com.alis.boilerplate.utils
 
 import android.content.Context
 import android.content.SharedPreferences
