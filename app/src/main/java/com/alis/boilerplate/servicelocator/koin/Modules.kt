@@ -2,7 +2,7 @@ package com.alis.boilerplate.servicelocator.koin
 
 import com.alis.boilerplate.utils.PreferencesHelper
 import com.alis.boilerplate.data.network.retrofit.RetrofitClient
-import com.alis.boilerplate.data.repositories.Repository
+import com.alis.boilerplate.data.repositories.KoinRepository
 import com.alis.boilerplate.ui.fragments.home.HomeViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -13,7 +13,7 @@ val viewModelsModule = module {
 }
 
 val repositoriesModule = module {
-    factory { Repository(get()) }
+    factory { KoinRepository(get()) }
 }
 
 val localModule = module {
