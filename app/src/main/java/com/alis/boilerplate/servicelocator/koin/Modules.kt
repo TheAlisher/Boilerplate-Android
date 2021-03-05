@@ -18,7 +18,6 @@ val repositoriesModule = module {
 }
 
 val localModule = module {
-    single { PreferencesHelper(androidContext()) }
     single { RoomClient(androidContext()).provideDao() }
 }
 
