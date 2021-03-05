@@ -1,6 +1,6 @@
 package com.alis.boilerplate.data.network.retrofit
 
-import com.alis.boilerplate.utils.Constants
+import com.alis.boilerplate.constants.NetworkConstants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -27,7 +27,7 @@ class RetrofitClient {
     private val provideRetrofit = Retrofit.Builder()
         .addConverterFactory(ScalarsConverterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(Constants.BASE_URL)
+        .baseUrl(NetworkConstants.BASE_URL)
         .client(okHttpClient)
         .build()
 
