@@ -4,11 +4,11 @@ import android.content.Context
 import androidx.room.Room
 import com.alis.boilerplate.data.local.Dao
 
-class RoomClient(context: Context) {
+class RoomClient {
 
-    private val roomDatabase: RoomDatabase = Room
+    fun provideRoom(context: Context) = Room
         .databaseBuilder(context, RoomDatabase::class.java, "boilerplate.db")
         .build()
 
-    fun provideDao(): Dao = roomDatabase.dao()
+    fun provideDao(roomDatabase: RoomDatabase): Dao = roomDatabase.dao()
 }
