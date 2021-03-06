@@ -3,7 +3,6 @@ package com.alis.boilerplate.aDeprecated
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.alis.boilerplate.constants.PermissionsConstants
 
 @Deprecated("", ReplaceWith("", ""), DeprecationLevel.WARNING)
 fun Fragment.hasPermission(permission: String, requestCode: Int): Boolean {

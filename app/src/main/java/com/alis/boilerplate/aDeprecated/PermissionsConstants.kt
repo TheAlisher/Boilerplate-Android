@@ -1,4 +1,4 @@
-package com.alis.boilerplate.constants
+package com.alis.boilerplate.aDeprecated
 
 object PermissionsConstants {
 
