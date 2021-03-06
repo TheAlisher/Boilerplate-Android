@@ -23,7 +23,7 @@ fun Fragment.isGranted(grantResults: IntArray, permission: String): Int {
         PackageManager.PERMISSION_GRANTED
     } else {
         if (!shouldShowRequestPermissionRationale(permission)) {
-            PermissionsConstants.PERMISSION_DENIED_WITH_DO_NOT_ASK_AGAIN
+            PermissionsConstantsDeprecated.PERMISSION_DENIED_WITH_DO_NOT_ASK_AGAIN
         } else {
             PackageManager.PERMISSION_DENIED
         }
