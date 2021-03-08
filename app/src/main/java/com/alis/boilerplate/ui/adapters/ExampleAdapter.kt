@@ -24,8 +24,9 @@ class ExampleAdapter : RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>() 
 
     override fun getItemCount(): Int = list.size
 
-    inner class ExampleViewHolder(private val binding: ItemExampleBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class ExampleViewHolder(
+        private val binding: ItemExampleBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(exampleData: ExampleData) {
             binding.apply {
