@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data.network.okhttp.interceptors
+package com.alis.boilerplate.data.network.interceptors
 
 import okhttp3.Interceptor
 import okhttp3.Response

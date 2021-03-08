@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data.network.okhttp.authenticator
+package com.alis.boilerplate.data.network
 
 import okhttp3.Authenticator
 import okhttp3.Request
