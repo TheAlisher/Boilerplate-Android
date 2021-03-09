@@ -6,6 +6,8 @@ plugins {
     id 'kotlin-kapt'
     // Safe Args
     id 'androidx.navigation.safeargs.kotlin'
+    // Hilt
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -111,4 +113,8 @@ dependencies {
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     // | for AndroidX Fragment features
     implementation "org.koin:koin-androidx-fragment:$koin_version"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 }
