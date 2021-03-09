@@ -109,4 +109,6 @@ dependencies {
     implementation "org.koin:koin-androidx-scope:$koin_version"
     // | for AndroidX ViewModel features
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    // | for AndroidX Fragment features
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
 }
