@@ -13,7 +13,7 @@ val viewModelsModule = module {
 }
 
 val repositoriesModule = module {
-    factory { KoinRepository(get()) }
+    factory { KoinRepository(get(), get()) }
 }
 
 val localModule = module {
