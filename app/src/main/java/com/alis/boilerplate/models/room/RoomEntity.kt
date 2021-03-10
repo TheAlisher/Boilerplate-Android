@@ -1,4 +1,4 @@
-package com.alis.boilerplate.models
+package com.alis.boilerplate.models.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,4 +7,5 @@ import androidx.room.PrimaryKey
 data class RoomEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
+    val subRoomEntity: SubRoomEntity
 )
