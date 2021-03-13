@@ -25,10 +25,10 @@ class RetrofitClient {
     }
 
     private val provideRetrofit = Retrofit.Builder()
-        .addConverterFactory(ScalarsConverterFactory.create())
-        .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(NetworkConstants.BASE_URL)
         .client(okHttpClient)
+        .addConverterFactory(ScalarsConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create())
         .build()
 
     fun provideAPI(): API = provideRetrofit.create(API::class.java)
