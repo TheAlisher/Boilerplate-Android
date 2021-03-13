@@ -118,4 +118,11 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     // | Kapt
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    // Ktor
+    def ktor_version = '1.5.2'
+    // | Core
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    // | Gson
+    implementation "io.ktor:ktor-client-gson:$ktor_version"
 }
