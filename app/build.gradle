@@ -123,6 +123,8 @@ dependencies {
     def ktor_version = '1.5.2'
     // | Core
     implementation "io.ktor:ktor-client-core:$ktor_version"
+    // | Engine -> OkHttp
+    implementation "io.ktor:ktor-client-okhttp:$ktor_version"
     // | Gson
     implementation "io.ktor:ktor-client-gson:$ktor_version"
 }
