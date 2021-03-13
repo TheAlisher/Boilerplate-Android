@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data.network
+package com.alis.boilerplate.utils
 
 import android.util.Log
 
