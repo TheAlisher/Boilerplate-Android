@@ -10,14 +10,14 @@ import io.ktor.http.*
 class KtorClient {
 
     private val client = HttpClient {
-        install(JsonFeature) {
-            serializer = GsonSerializer()
-        }
         defaultRequest {
             host = NetworkConstants.HOST
             url {
                 protocol = URLProtocol.HTTPS
             }
+        }
+        install(JsonFeature) {
+            serializer = GsonSerializer()
         }
     }
 
