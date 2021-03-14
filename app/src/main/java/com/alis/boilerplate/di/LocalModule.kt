@@ -17,13 +17,13 @@ object LocalModule {
 
     @Singleton
     @Provides
-    fun provideRoom(@ApplicationContext context: Context): RoomDatabase {
-        return RoomClient().provideRoom(context)
-    }
+    fun provideRoom(
+        @ApplicationContext context: Context
+    ): RoomDatabase = RoomClient().provideRoom(context)
 
     @Singleton
     @Provides
-    fun provideRoomDao(roomDatabase: RoomDatabase): RoomDao {
-        return RoomClient().provideRoomDao(roomDatabase)
-    }
+    fun provideRoomDao(
+        roomDatabase: RoomDatabase
+    ): RoomDao = RoomClient().provideRoomDao(roomDatabase)
 }
