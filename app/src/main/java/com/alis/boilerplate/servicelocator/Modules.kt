@@ -18,7 +18,7 @@ val repositoriesModule = module {
     factory { KoinRepository(get(), get(), get()) }
 }
 
-val localModule = module {
+val databaseModule = module {
     single { RoomClient().provideRoom(androidContext()) }
     single { RoomClient().provideRoomDao(get()) }
 }
