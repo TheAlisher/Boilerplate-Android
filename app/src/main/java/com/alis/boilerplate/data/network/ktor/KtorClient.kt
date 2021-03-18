@@ -1,6 +1,6 @@
 package com.alis.boilerplate.data.network.ktor
 
-import com.alis.boilerplate.constants.NetworkConstants
+import com.alis.boilerplate.constants.Constants
 import com.alis.boilerplate.data.network.okhttp.interceptors.LoggingInterceptor
 import io.ktor.client.*
 import io.ktor.client.engine.okhttp.*
@@ -14,7 +14,7 @@ class KtorClient {
 
     private val client = HttpClient(OkHttp) {
         defaultRequest {
-            host = NetworkConstants.HOST
+            host = Constants.HOST
             url {
                 protocol = URLProtocol.HTTPS
             }
