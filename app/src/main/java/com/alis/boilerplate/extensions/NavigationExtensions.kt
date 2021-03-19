@@ -1,6 +1,7 @@
 package com.alis.boilerplate.extensions
 
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
@@ -14,7 +15,7 @@ fun View.navigate(directions: NavDirections) {
     setOnClickListener(Navigation.createNavigateOnClickListener(directions))
 }
 
-fun Fragment.overrideOnBackPressed(onBackPressed: () -> Unit) {
+fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback. () -> Unit) {
     requireActivity().onBackPressedDispatcher.addCallback(this) {
         onBackPressed()
     }
