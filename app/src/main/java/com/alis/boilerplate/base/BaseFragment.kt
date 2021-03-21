@@ -6,11 +6,12 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<Binding : ViewBinding>(
+abstract class BaseFragment<Binding : ViewBinding, ViewModel : BaseViewModel>(
     @LayoutRes layoutId: Int
 ) : Fragment(layoutId) {
 
     protected abstract val binding: Binding
+    protected abstract val viewModel: ViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
