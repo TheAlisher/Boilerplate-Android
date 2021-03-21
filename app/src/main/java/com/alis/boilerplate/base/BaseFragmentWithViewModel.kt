@@ -8,7 +8,7 @@ abstract class BaseFragmentWithViewModel<ViewModel : BaseViewModel>(
     @LayoutRes layoutId: Int
 ) : BaseFragment(layoutId) {
 
-    protected lateinit var viewModel: ViewModel
+    protected abstract val viewModel: ViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
