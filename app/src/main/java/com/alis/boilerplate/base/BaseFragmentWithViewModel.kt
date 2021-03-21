@@ -1,10 +1,11 @@
 package com.alis.boilerplate.base
 
 import androidx.annotation.LayoutRes
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragmentWithViewModel<ViewModel : BaseViewModel>(
+abstract class BaseFragmentWithViewModel<Binding : ViewBinding, ViewModel : BaseViewModel>(
     @LayoutRes layoutId: Int
-) : BaseFragment(layoutId) {
+) : BaseFragment<Binding>(layoutId) {
 
     protected abstract val viewModel: ViewModel
 }
