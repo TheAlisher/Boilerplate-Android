@@ -58,16 +58,3 @@ fun View.disable() {
 }
 
 // endregion
-
-
-// region TextView
-
-/**
- * TextView Extensions
- */
-
-fun TextView.setTextFromResource(textFromResource: Int) {
-    text = resources.getString(textFromResource)
-}
-
-// endregion
