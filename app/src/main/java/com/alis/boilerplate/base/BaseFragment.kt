@@ -11,14 +11,20 @@ abstract class BaseFragment<ViewModel : BaseViewModel>(layoutID: Int) : Fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initialize()
         setupViews()
         setupListeners()
+        setupRequests()
         setupObservers()
     }
+
+    abstract fun initialize()
 
     abstract fun setupViews()
 
     abstract fun setupListeners()
+
+    abstract fun setupRequests()
 
     abstract fun setupObservers()
 }
