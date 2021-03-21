@@ -2,11 +2,10 @@ package com.alis.boilerplate.base
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment<ViewModel : BaseViewModel>(layoutID: Int) : Fragment(layoutID) {
-
-    protected abstract val viewModel: ViewModel
+abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -18,13 +17,23 @@ abstract class BaseFragment<ViewModel : BaseViewModel>(layoutID: Int) : Fragment
         setupObservers()
     }
 
-    abstract fun initialize()
+    open fun initialize() {
 
-    abstract fun setupViews()
+    }
 
-    abstract fun setupListeners()
+    open fun setupViews() {
 
-    abstract fun setupRequests()
+    }
 
-    abstract fun setupObservers()
+    open fun setupListeners() {
+
+    }
+
+    open fun setupRequests() {
+
+    }
+
+    open fun setupObservers() {
+
+    }
 }
