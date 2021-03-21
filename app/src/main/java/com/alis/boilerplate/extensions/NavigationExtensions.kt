@@ -3,11 +3,12 @@ package com.alis.boilerplate.extensions
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
+import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 
-fun View.navigate(actionID: Int) {
+fun View.navigate(@IdRes actionID: Int) {
     setOnClickListener(Navigation.createNavigateOnClickListener(actionID))
 }
 
