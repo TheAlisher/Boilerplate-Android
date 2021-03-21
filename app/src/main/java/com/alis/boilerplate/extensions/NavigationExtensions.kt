@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 
-fun View.navigate(@IdRes actionID: Int) {
-    setOnClickListener(Navigation.createNavigateOnClickListener(actionID))
+fun View.navigate(@IdRes actionId: Int) {
+    setOnClickListener(Navigation.createNavigateOnClickListener(actionId))
 }
 
 fun View.navigate(directions: NavDirections) {
