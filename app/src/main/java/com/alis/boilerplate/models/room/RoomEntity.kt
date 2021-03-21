@@ -7,5 +7,4 @@ import androidx.room.PrimaryKey
 data class RoomEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
-    val subRoomEntity: SubRoomEntity
 )

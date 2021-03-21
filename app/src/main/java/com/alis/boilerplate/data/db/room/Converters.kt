@@ -1,7 +1,5 @@
 package com.alis.boilerplate.data.db.room
 
-import androidx.room.TypeConverter
-import com.alis.boilerplate.models.room.SubRoomEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -16,10 +14,4 @@ class Converters {
     private inline fun <reified T> toJson(generic: T?): String? {
         return Gson().toJson(generic, type<T>())
     }
-
-    @TypeConverter
-    fun fromSubRoomEntity(value: String?) = fromJson<SubRoomEntity>(value)
-
-    @TypeConverter
-    fun subRoomEntityToJson(subRoomEntity: SubRoomEntity) = toJson(subRoomEntity)
 }
