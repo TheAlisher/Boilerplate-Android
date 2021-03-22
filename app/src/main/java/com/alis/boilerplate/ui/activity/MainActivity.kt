@@ -19,15 +19,11 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            updateUIComponent(destination.id)
+            updateUIComponents(destination.id)
         }
     }
 
-    // region updateUI
-
-    private fun updateUIComponent(id: Int) {
+    private fun updateUIComponents(id: Int) {
         // …
     }
-
-    // endregion
 }
