@@ -5,6 +5,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 
@@ -21,3 +22,6 @@ fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback. () -> U
         onBackPressed()
     }
 }
+
+val NavController.previousDestination
+    get() = previousBackStackEntry?.destination
