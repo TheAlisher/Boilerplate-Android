@@ -21,12 +21,6 @@ fun View.navigate(directions: NavDirections) {
     setOnClickListener(Navigation.createNavigateOnClickListener(directions))
 }
 
-fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback. () -> Unit) {
-    requireActivity().onBackPressedDispatcher.addCallback(this) {
-        onBackPressed()
-    }
-}
-
 fun NavController.navigateSafely(@IdRes actionId: Int) {
     try {
         navigate(actionId)
@@ -45,4 +39,10 @@ fun NavController.navigateSafely(directions: NavDirections) {
 
 private fun loggingNavigateSafely(E: IllegalArgumentException) {
     Log.wtf("NavigateSafely", "This is a normal exception, do not pay attention", E)
+}
+
+fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback. () -> Unit) {
+    requireActivity().onBackPressedDispatcher.addCallback(this) {
+        onBackPressed()
+    }
 }
