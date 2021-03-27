@@ -127,7 +127,7 @@ dependencies {
     // | Gson
     implementation "io.ktor:ktor-client-gson:$ktor_version"
 
-    // Paging
+    // Paging 3
     def paging_version = "3.0.0-beta03"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
