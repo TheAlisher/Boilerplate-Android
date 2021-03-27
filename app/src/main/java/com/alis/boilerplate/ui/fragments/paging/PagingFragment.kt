@@ -1,7 +1,9 @@
 package com.alis.boilerplate.ui.fragments.paging
 
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alis.boilerplate.R
@@ -30,6 +32,13 @@ class PagingFragment : BaseFragment<PagingViewModel, FragmentPagingBinding>(
             adapter = boilerplateAdapter.withLoadStateFooter(
                 footer = CommonLoadStateAdapter { boilerplateAdapter.retry() }
             )
+        }
+
+        boilerplateAdapter.addLoadStateListener { loadStates ->
+            binding.apply {
+                progressPagingLoader.isVisible = loadStates.refresh is LoadState.Loading
+                recyclerPaging.isVisible = loadStates.refresh !is LoadState.Loading
+            }
         }
     }
 
