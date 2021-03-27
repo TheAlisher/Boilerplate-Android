@@ -36,8 +36,8 @@ class PagingFragment : BaseFragment<PagingViewModel, FragmentPagingBinding>(
 
         boilerplateAdapter.addLoadStateListener { loadStates ->
             binding.apply {
+                recyclerPaging.isVisible = loadStates.refresh is LoadState.NotLoading
                 progressPagingLoader.isVisible = loadStates.refresh is LoadState.Loading
-                recyclerPaging.isVisible = loadStates.refresh !is LoadState.Loading
             }
         }
     }
