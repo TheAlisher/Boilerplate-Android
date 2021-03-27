@@ -130,4 +130,10 @@ dependencies {
     // Paging
     def paging_version = "3.0.0-beta03"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+    // ViewBindingPropertyDelegate
+    def view_binding_property_delegate_version = '1.4.4'
+    implementation "com.github.kirich1409:viewbindingpropertydelegate:$view_binding_property_delegate_version"
+    // | To use only without reflection variants of viewBinding
+    implementation "com.github.kirich1409:viewbindingpropertydelegate-noreflection:$view_binding_property_delegate_version"
 }
