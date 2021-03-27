@@ -11,8 +11,4 @@ data class Boilerplate(
     val id: Long,
     @SerializedName("foo")
     val foo: String,
-    @SerializedName("bar")
-    val bar: Int,
-    @SerializedName("baz")
-    val baz: Int
 )
