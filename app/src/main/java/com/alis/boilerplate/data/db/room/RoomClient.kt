@@ -10,6 +10,6 @@ class RoomClient {
         .databaseBuilder(context, RoomDatabase::class.java, "boilerplate.db")
         .build()
 
-    fun provideBoilerplateDao(roomDatabase: RoomDatabase): BoilerplateDao =
-        roomDatabase.boilerplateDao()
+    fun provideBoilerplateDao(roomDatabase: RoomDatabase): BoilerplateDao = roomDatabase
+        .boilerplateDao()
 }
