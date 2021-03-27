@@ -9,7 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alis.boilerplate.R
 import com.alis.boilerplate.base.BaseFragment
 import com.alis.boilerplate.databinding.FragmentPagingBinding
-import com.alis.boilerplate.ui.adapters.BoilerplatePagingAdapter
+import com.alis.boilerplate.ui.adapters.FooPagingAdapter
 import com.alis.boilerplate.ui.adapters.paging.CommonLoadStateAdapter
 import kotlinx.coroutines.launch
 
@@ -20,7 +20,7 @@ class PagingFragment : BaseFragment<PagingViewModel, FragmentPagingBinding>(
     override val viewModel: PagingViewModel by viewModels()
     override val binding: FragmentPagingBinding by viewBinding()
 
-    private val boilerplateAdapter = BoilerplatePagingAdapter()
+    private val fooPagingAdapter = FooPagingAdapter()
 
     override fun initialize() {
         setupPagingRecycler()
@@ -29,12 +29,12 @@ class PagingFragment : BaseFragment<PagingViewModel, FragmentPagingBinding>(
     private fun setupPagingRecycler() {
         binding.recyclerPaging.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = boilerplateAdapter.withLoadStateFooter(
-                footer = CommonLoadStateAdapter { boilerplateAdapter.retry() }
+            adapter = fooPagingAdapter.withLoadStateFooter(
+                footer = CommonLoadStateAdapter { fooPagingAdapter.retry() }
             )
         }
 
-        boilerplateAdapter.addLoadStateListener { loadStates ->
+        fooPagingAdapter.addLoadStateListener { loadStates ->
             binding.apply {
                 recyclerPaging.isVisible = loadStates.refresh is LoadState.NotLoading
                 progressPagingLoader.isVisible = loadStates.refresh is LoadState.Loading
@@ -43,9 +43,9 @@ class PagingFragment : BaseFragment<PagingViewModel, FragmentPagingBinding>(
     }
 
     override fun setupRequests() {
-        viewModel.fetchBoilerplate().observe(viewLifecycleOwner, {
+        viewModel.fetchFooPagingData().observe(viewLifecycleOwner, {
             viewLifecycleOwner.lifecycleScope.launch {
-                boilerplateAdapter.submitData(it)
+                fooPagingAdapter.submitData(it)
             }
         })
     }

@@ -6,13 +6,13 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.alis.boilerplate.base.BaseViewModel
 import com.alis.boilerplate.data.repositories.PagingRepository
-import com.alis.boilerplate.models.Boilerplate
+import com.alis.boilerplate.models.paging.FooPagingData
 
 class PagingViewModel(
     private val repository: PagingRepository
 ) : BaseViewModel() {
 
-    fun fetchBoilerplate(): LiveData<PagingData<Boilerplate>> {
-        return repository.fetchBoilerplate().cachedIn(viewModelScope)
+    fun fetchFooPagingData(): LiveData<PagingData<FooPagingData>> {
+        return repository.fetchFooPagingData().cachedIn(viewModelScope)
     }
 }

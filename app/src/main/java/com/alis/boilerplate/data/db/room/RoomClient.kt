@@ -2,7 +2,7 @@ package com.alis.boilerplate.data.db.room
 
 import android.content.Context
 import androidx.room.Room
-import com.alis.boilerplate.data.local.BoilerplateDao
+import com.alis.boilerplate.data.local.RoomDao
 
 class RoomClient {
 
@@ -10,6 +10,6 @@ class RoomClient {
         .databaseBuilder(context, RoomDatabase::class.java, "boilerplate.db")
         .build()
 
-    fun provideBoilerplateDao(roomDatabase: RoomDatabase): BoilerplateDao = roomDatabase
-        .boilerplateDao()
+    fun provideRoomDao(roomDatabase: RoomDatabase): RoomDao = roomDatabase
+        .roomDao()
 }

@@ -1,7 +1,7 @@
 package com.alis.boilerplate.di
 
-import com.alis.boilerplate.data.network.ktor.KtorBoilerplateService
 import com.alis.boilerplate.data.network.ktor.KtorClient
+import com.alis.boilerplate.data.network.ktor.KtorFooService
 import com.alis.boilerplate.data.network.retrofit.RetrofitClient
 import dagger.Module
 import dagger.Provides
@@ -15,9 +15,9 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitBoilerplateService() = RetrofitClient().provideBoilerplateService()
+    fun provideRetrofitFooService() = RetrofitClient().provideFooService()
 
     @Singleton
     @Provides
-    fun provideKtorBoilerplateService() = KtorBoilerplateService(KtorClient().provideKtor())
+    fun provideKtorFooService() = KtorFooService(KtorClient().provideKtor())
 }

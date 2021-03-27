@@ -3,7 +3,7 @@ package com.alis.boilerplate.di
 import android.content.Context
 import com.alis.boilerplate.data.db.room.RoomClient
 import com.alis.boilerplate.data.db.room.RoomDatabase
-import com.alis.boilerplate.data.local.BoilerplateDao
+import com.alis.boilerplate.data.local.RoomDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,5 +25,5 @@ object DatabaseModule {
     @Provides
     fun provideRoomDao(
         roomDatabase: RoomDatabase
-    ): BoilerplateDao = RoomClient().provideBoilerplateDao(roomDatabase)
+    ): RoomDao = RoomClient().provideRoomDao(roomDatabase)
 }

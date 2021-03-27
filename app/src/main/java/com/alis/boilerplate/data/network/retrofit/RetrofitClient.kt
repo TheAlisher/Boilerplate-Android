@@ -25,6 +25,6 @@ class RetrofitClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun provideBoilerplateService(): RetrofitBoilerplateService =
-        provideRetrofit.create(RetrofitBoilerplateService::class.java)
+    fun provideFooService(): RetrofitFooService = provideRetrofit
+        .create(RetrofitFooService::class.java)
 }
