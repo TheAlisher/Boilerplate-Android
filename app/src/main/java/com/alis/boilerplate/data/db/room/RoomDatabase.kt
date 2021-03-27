@@ -4,9 +4,9 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.alis.boilerplate.data.local.RoomDao
-import com.alis.boilerplate.models.room.RoomEntity
+import com.alis.boilerplate.models.Boilerplate
 
-@Database(entities = [RoomEntity::class], version = 1)
+@Database(entities = [Boilerplate::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class RoomDatabase : RoomDatabase() {
 
