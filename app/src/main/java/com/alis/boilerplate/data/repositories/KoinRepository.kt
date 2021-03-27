@@ -1,13 +1,13 @@
 package com.alis.boilerplate.data.repositories
 
-import com.alis.boilerplate.data.local.RoomDao
-import com.alis.boilerplate.data.network.ktor.FooRequests
-import com.alis.boilerplate.data.network.retrofit.FooAPI
+import com.alis.boilerplate.data.local.BoilerplateDao
+import com.alis.boilerplate.data.network.ktor.KtorBoilerplateService
+import com.alis.boilerplate.data.network.retrofit.RetrofitBoilerplateService
 
 class KoinRepository(
-    private val fooAPI: FooAPI,
-    private val fooRequests: FooRequests,
-    private val roomDao: RoomDao
+    private val retrofitService: RetrofitBoilerplateService,
+    private val ktorService: KtorBoilerplateService,
+    private val boilerplateDao: BoilerplateDao
 ) {
     // …
 }
