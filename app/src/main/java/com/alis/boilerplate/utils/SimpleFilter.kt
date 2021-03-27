@@ -7,6 +7,5 @@ open class SimpleFilter : Filter() {
     override fun performFiltering(constraint: CharSequence?): FilterResults = FilterResults()
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-
     }
 }
