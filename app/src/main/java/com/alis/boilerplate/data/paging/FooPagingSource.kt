@@ -2,6 +2,7 @@ package com.alis.boilerplate.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.alis.boilerplate.data.network.paging.FooPagingService
 import com.alis.boilerplate.models.paging.FooPagingData
 import retrofit2.HttpException
 import java.io.IOException

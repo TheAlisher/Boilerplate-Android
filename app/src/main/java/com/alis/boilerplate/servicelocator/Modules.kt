@@ -20,7 +20,7 @@ val repositoriesModule = module {
 
 val databaseModule = module {
     single { RoomClient().provideRoom(androidContext()) }
-    single { RoomClient().provideRoomDao(get()) }
+    single { RoomClient().provideRoomFooDao(get()) }
 }
 
 val networkModule = module {
