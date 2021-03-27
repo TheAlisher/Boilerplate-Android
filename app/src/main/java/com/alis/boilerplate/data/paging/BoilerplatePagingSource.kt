@@ -2,7 +2,7 @@ package com.alis.boilerplate.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.alis.boilerplate.data.network.retrofit.RetrofitBoilerplateService
+import com.alis.boilerplate.data.network.BoilerplateService
 import com.alis.boilerplate.models.Boilerplate
 import okio.IOException
 import retrofit2.HttpException
@@ -10,7 +10,7 @@ import retrofit2.HttpException
 private const val BOILERPLATE_STARTING_PAGE_INDEX = 1
 
 class BoilerplatePagingSource(
-    private val service: RetrofitBoilerplateService
+    private val service: BoilerplateService
 ) : PagingSource<Int, Boilerplate>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Boilerplate> {
