@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.alis.boilerplate.R
 import com.alis.boilerplate.databinding.FragmentViewBindingBinding
 
 class ViewBindingFragment : Fragment() {
@@ -23,4 +25,9 @@ class ViewBindingFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+}
+
+class ViewBindingPropertyDelegateFragment : Fragment(R.layout.fragment_view_binding) {
+
+    private val binding: FragmentViewBindingBinding by viewBinding()
 }
