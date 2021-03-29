@@ -37,7 +37,6 @@ class FooPagingAdapter(
         }
     }
 
-
     inner class FooPagingViewHolder(private val binding: ItemFooBinding) : RecyclerView.ViewHolder(
         binding.root
     ) {
