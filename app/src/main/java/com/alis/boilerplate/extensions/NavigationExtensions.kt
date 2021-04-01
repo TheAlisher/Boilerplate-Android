@@ -24,21 +24,21 @@ fun View.navigate(directions: NavDirections) {
 fun NavController.navigateSafely(@IdRes actionId: Int) {
     try {
         navigate(actionId)
-    } catch (E: IllegalArgumentException) {
-        loggingNavigateSafely(E)
+    } catch (exception: IllegalArgumentException) {
+        loggingNavigateSafely(exception)
     }
 }
 
 fun NavController.navigateSafely(directions: NavDirections) {
     try {
         navigate(directions)
-    } catch (E: IllegalArgumentException) {
-        loggingNavigateSafely(E)
+    } catch (exception: IllegalArgumentException) {
+        loggingNavigateSafely(exception)
     }
 }
 
-private fun loggingNavigateSafely(E: IllegalArgumentException) {
-    Log.wtf("NavigateSafely", "This is a normal exception, do not pay attention", E)
+private fun loggingNavigateSafely(exception: IllegalArgumentException) {
+    Log.wtf("NavigateSafely", "This is a normal exception, do not pay attention", exception)
 }
 
 fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback. () -> Unit) {
