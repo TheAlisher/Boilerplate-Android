@@ -5,12 +5,12 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
-import com.alis.boilerplate.data.network.paging.FooPagingService
+import com.alis.boilerplate.data.network.paging.FooPagingApiService
 import com.alis.boilerplate.data.paging.FooPagingSource
 import com.alis.boilerplate.models.paging.FooPagingData
 
 class PagingRepository(
-    private val service: FooPagingService
+    private val service: FooPagingApiService
 ) {
 
     fun fetchFooPagingData(): LiveData<PagingData<FooPagingData>> {

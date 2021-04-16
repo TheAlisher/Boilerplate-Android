@@ -25,6 +25,6 @@ class RetrofitClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun provideFooService(): RetrofitFooService = provideRetrofit
-        .create(RetrofitFooService::class.java)
+    fun provideFooApiService(): RetrofitFooApiService = provideRetrofit
+        .create(RetrofitFooApiService::class.java)
 }

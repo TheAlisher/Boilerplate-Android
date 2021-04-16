@@ -2,7 +2,7 @@ package com.alis.boilerplate.servicelocator
 
 import com.alis.boilerplate.data.db.room.RoomClient
 import com.alis.boilerplate.data.network.ktor.KtorClient
-import com.alis.boilerplate.data.network.ktor.KtorFooService
+import com.alis.boilerplate.data.network.ktor.KtorFooApiService
 import com.alis.boilerplate.data.network.retrofit.RetrofitClient
 import com.alis.boilerplate.data.repositories.KoinRepository
 import com.alis.boilerplate.ui.fragments.koin.KoinViewModel
@@ -24,6 +24,6 @@ val databaseModule = module {
 }
 
 val networkModule = module {
-    single { RetrofitClient().provideFooService() }
-    single { KtorFooService(KtorClient().provideKtor()) }
+    single { RetrofitClient().provideFooApiService() }
+    single { KtorFooApiService(KtorClient().provideKtor()) }
 }
