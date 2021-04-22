@@ -102,7 +102,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
 
     // Kotlin Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
 
     // Koin
     def koin_version = "2.2.2"
