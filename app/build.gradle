@@ -103,13 +103,9 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
 
     // Koin
-    def koin_version = "2.2.2"
-    // | for AndroidX Scope features
-    implementation "org.koin:koin-androidx-scope:$koin_version"
-    // | for AndroidX ViewModel features
-    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
-    // | for AndroidX Fragment features
-    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    def koin_version= "3.0.1"
+    // | for main features for Android (Scope,ViewModel ...)
+    implementation "io.insert-koin:koin-android:$koin_version"
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
