@@ -60,7 +60,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     // Activity
-    def activity_version = "1.2.2"
+    def activity_version = "1.2.3"
     implementation "androidx.activity:activity-ktx:$activity_version"
 
     // Fragment
