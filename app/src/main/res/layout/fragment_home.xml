@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/fragment_label_home"
+        android:text="@string/text_boilerplate"
         android:textColor="@color/Black"
         android:textSize="30sp" />
 
