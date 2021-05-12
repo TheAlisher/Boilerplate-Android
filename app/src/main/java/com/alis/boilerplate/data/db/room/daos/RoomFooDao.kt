@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data.local
+package com.alis.boilerplate.data.db.room.daos
 
 import androidx.room.Dao
 

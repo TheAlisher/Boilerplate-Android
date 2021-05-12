@@ -3,7 +3,7 @@ package com.alis.boilerplate.di
 import android.content.Context
 import com.alis.boilerplate.data.db.room.RoomClient
 import com.alis.boilerplate.data.db.room.RoomDatabase
-import com.alis.boilerplate.data.local.RoomFooDao
+import com.alis.boilerplate.data.db.room.daos.RoomFooDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,7 +1,7 @@
 package com.alis.boilerplate.di
 
 import com.alis.boilerplate.data.network.ktor.KtorClient
-import com.alis.boilerplate.data.network.ktor.KtorFooApiService
+import com.alis.boilerplate.data.network.ktor.apiservices.KtorFooApiService
 import com.alis.boilerplate.data.network.retrofit.RetrofitClient
 import dagger.Module
 import dagger.Provides

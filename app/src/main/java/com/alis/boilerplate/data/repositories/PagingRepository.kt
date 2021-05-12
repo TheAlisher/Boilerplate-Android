@@ -5,8 +5,8 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
-import com.alis.boilerplate.data.network.paging.FooPagingApiService
-import com.alis.boilerplate.data.paging.FooPagingSource
+import com.alis.boilerplate.data.network.retrofit.apiservices.FooPagingApiService
+import com.alis.boilerplate.data.repositories.pagingsources.FooPagingSource
 import com.alis.boilerplate.models.paging.FooPagingData
 
 class PagingRepository(

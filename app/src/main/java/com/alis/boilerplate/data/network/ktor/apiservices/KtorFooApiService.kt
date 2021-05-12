@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data.network.ktor
+package com.alis.boilerplate.data.network.ktor.apiservices
 
 import io.ktor.client.*
 

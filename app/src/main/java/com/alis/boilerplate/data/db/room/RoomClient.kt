@@ -2,7 +2,7 @@ package com.alis.boilerplate.data.db.room
 
 import android.content.Context
 import androidx.room.Room
-import com.alis.boilerplate.data.local.RoomFooDao
+import com.alis.boilerplate.data.db.room.daos.RoomFooDao
 
 class RoomClient {
 

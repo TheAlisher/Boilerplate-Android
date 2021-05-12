@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data.network.paging
+package com.alis.boilerplate.data.network.retrofit.apiservices
 
 import com.alis.boilerplate.models.paging.FooPagingData
 import com.alis.boilerplate.models.paging.FooPagingResponse

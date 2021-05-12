@@ -2,6 +2,7 @@ package com.alis.boilerplate.data.network.retrofit
 
 import com.alis.boilerplate.constants.Constants
 import com.alis.boilerplate.data.network.okhttp.interceptors.LoggingInterceptor
+import com.alis.boilerplate.data.network.retrofit.apiservices.RetrofitFooApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
