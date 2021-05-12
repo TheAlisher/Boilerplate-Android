@@ -1,4 +1,4 @@
-package com.alis.boilerplate.data.paging
+package com.alis.boilerplate.data.repositories.pagingsources
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
