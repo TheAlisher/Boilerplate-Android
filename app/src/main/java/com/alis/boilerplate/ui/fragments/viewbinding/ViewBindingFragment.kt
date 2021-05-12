@@ -29,9 +29,5 @@ class ViewBindingFragment : Fragment() {
 
 class ViewBindingPropertyDelegateFragment : Fragment(R.layout.fragment_view_binding) {
 
-    // Using reflection API under the hood and ViewBinding.bind
-    private val bindingWithReflection: FragmentViewBindingBinding by viewBinding()
-
-    // Without reflection
     private val bindingWithoutReflection by viewBinding(FragmentViewBindingBinding::bind)
 }
