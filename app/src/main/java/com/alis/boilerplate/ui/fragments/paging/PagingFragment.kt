@@ -18,7 +18,7 @@ class PagingFragment : BaseFragment<PagingViewModel, FragmentPagingBinding>(
 ) {
 
     override val viewModel: PagingViewModel by viewModels()
-    override val binding: FragmentPagingBinding by viewBinding()
+    override val binding: FragmentPagingBinding by viewBinding(FragmentPagingBinding::bind)
 
     private val fooPagingAdapter = FooPagingAdapter()
 
