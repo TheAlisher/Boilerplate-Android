@@ -7,7 +7,7 @@ import com.alis.boilerplate.data.db.room.daos.RoomFooDao
 class RoomClient {
 
     fun provideRoom(context: Context) = Room
-        .databaseBuilder(context, RoomDatabase::class.java, "database-boilerplate")
+        .databaseBuilder(context, RoomDatabase::class.java, "boilerplate.db")
         .build()
 
     fun provideRoomFooDao(roomDatabase: RoomDatabase): RoomFooDao = roomDatabase
