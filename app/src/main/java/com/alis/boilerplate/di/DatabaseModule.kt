@@ -1,8 +1,8 @@
 package com.alis.boilerplate.di
 
 import android.content.Context
+import com.alis.boilerplate.data.db.room.RoomAppDatabase
 import com.alis.boilerplate.data.db.room.RoomClient
-import com.alis.boilerplate.data.db.room.RoomDatabase
 import com.alis.boilerplate.data.db.room.daos.RoomFooDao
 import dagger.Module
 import dagger.Provides
@@ -19,11 +19,11 @@ object DatabaseModule {
     @Provides
     fun provideRoom(
         @ApplicationContext context: Context
-    ): RoomDatabase = RoomClient().provideRoom(context)
+    ): RoomAppDatabase = RoomClient().provideRoom(context)
 
     @Singleton
     @Provides
     fun provideRoomFooDao(
-        roomDatabase: RoomDatabase
-    ): RoomFooDao = RoomClient().provideRoomFooDao(roomDatabase)
+        appDatabase: RoomAppDatabase
+    ): RoomFooDao = RoomClient().provideRoomFooDao(appDatabase)
 }

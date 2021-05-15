@@ -8,7 +8,7 @@ import com.alis.boilerplate.models.room.FooRoomEntity
 
 @Database(entities = [FooRoomEntity::class], version = 1)
 @TypeConverters(Converters::class)
-abstract class RoomDatabase : RoomDatabase() {
+abstract class RoomAppDatabase : RoomDatabase() {
 
     abstract fun roomFooDao(): RoomFooDao
 }
