@@ -22,5 +22,5 @@ class Converters {
     fun fromJsonToBarSubRoomEntity(value: String?) = fromJson<BarSubRoomEntity>(value)
 
     @TypeConverter
-    fun toJsonFromBarSubRoomEntity(barSubRoomEntity: BarSubRoomEntity) = toJson(barSubRoomEntity)
+    fun barSubRoomEntityToJson(barSubRoomEntity: BarSubRoomEntity) = toJson(barSubRoomEntity)
 }
