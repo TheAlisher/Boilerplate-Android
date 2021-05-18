@@ -1,6 +1,6 @@
 package com.alish.boilerplate.data.network.resource
 
-sealed class Resource<T>(
+sealed class Resource<out T>(
     val data: T? = null,
     val message: String? = null,
 ) {
