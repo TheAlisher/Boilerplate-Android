@@ -19,17 +19,17 @@ class FooArrayAdapter(
 
     override fun getCount(): Int = objects.size
 
-    override fun getItem(position: Int): Foo? = objects[position]
+    override fun getItem(position: Int): Foo = objects[position]
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        return getCustomView(position, convertView, parent)
+        return getCustomView(position, parent)
     }
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
-        return getCustomView(position, convertView, parent)
+        return getCustomView(position, parent)
     }
 
-    private fun getCustomView(position: Int, convertView: View?, parent: ViewGroup): View {
+    private fun getCustomView(position: Int, parent: ViewGroup): View {
         val binding = ItemFooBinding.inflate(LayoutInflater.from(context), parent, false)
 
         val data = objects[position]
