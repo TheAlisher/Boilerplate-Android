@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alish.boilerplate.databinding.ItemFooBinding
 import com.alish.boilerplate.models.paging.FooPagingData
 
-class FooPagingAdapter(
-) : PagingDataAdapter<FooPagingData, FooPagingAdapter.FooPagingViewHolder>(
+class FooPagingAdapter : PagingDataAdapter<FooPagingData, FooPagingAdapter.FooPagingViewHolder>(
     FooComparator
 ) {
 
