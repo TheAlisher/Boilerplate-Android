@@ -13,7 +13,7 @@ class PagingRepository(
     private val service: FooPagingApiService
 ) {
 
-    fun fetchFooPagingData(): LiveData<PagingData<FooPagingData>> {
+    fun fetchFooPaging(): LiveData<PagingData<FooPagingData>> {
         return Pager(
             config = PagingConfig(
                 pageSize = BOILERPLATE_PAGE_SIZE

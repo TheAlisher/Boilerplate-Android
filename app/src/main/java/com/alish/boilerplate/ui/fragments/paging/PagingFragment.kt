@@ -43,7 +43,7 @@ class PagingFragment : BaseFragment<PagingViewModel, FragmentPagingBinding>(
     }
 
     override fun setupRequests() {
-        viewModel.fetchFooPagingData().observe(viewLifecycleOwner, {
+        viewModel.fetchFooPaging().observe(viewLifecycleOwner, {
             viewLifecycleOwner.lifecycleScope.launch {
                 fooPagingAdapter.submitData(it)
             }

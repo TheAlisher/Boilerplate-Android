@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface FooPagingApiService {
 
     @GET("/api/foo")
-    suspend fun fetchFooPagingData(
+    suspend fun fetchFooPaging(
         @Query("page") page: Int
     ): Response<FooPagingResponse<FooPagingData>>
 }

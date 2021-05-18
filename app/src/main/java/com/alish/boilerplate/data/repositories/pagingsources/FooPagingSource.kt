@@ -17,7 +17,7 @@ class FooPagingSource(
         val startingPageNumber = params.key ?: FOO_STARTING_PAGE_INDEX
 
         return try {
-            val response = service.fetchFooPagingData(startingPageNumber)
+            val response = service.fetchFooPaging(startingPageNumber)
             val data = response.body()!!
 
             LoadResult.Page(

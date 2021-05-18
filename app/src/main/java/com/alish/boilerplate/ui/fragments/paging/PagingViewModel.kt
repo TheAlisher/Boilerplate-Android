@@ -12,7 +12,7 @@ class PagingViewModel(
     private val repository: PagingRepository
 ) : BaseViewModel() {
 
-    fun fetchFooPagingData(): LiveData<PagingData<FooPagingData>> {
-        return repository.fetchFooPagingData().cachedIn(viewModelScope)
+    fun fetchFooPaging(): LiveData<PagingData<FooPagingData>> {
+        return repository.fetchFooPaging().cachedIn(viewModelScope)
     }
 }
