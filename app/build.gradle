@@ -105,7 +105,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
 
     // Koin
-    def koin_version = "3.0.1"
+    def koin_version = "3.0.2"
     // | for main features for Android (Scope,ViewModel ...)
     implementation "io.insert-koin:koin-android:$koin_version"
 
