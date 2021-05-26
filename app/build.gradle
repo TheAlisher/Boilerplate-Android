@@ -106,7 +106,7 @@ dependencies {
 
     // Koin
     def koin_version = "3.0.2"
-    // | for main features for Android (Scope,ViewModel ...)
+    // | for main features for Android
     implementation "io.insert-koin:koin-android:$koin_version"
 
     // Hilt
