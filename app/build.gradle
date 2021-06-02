@@ -115,7 +115,7 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     // Ktor
-    def ktor_version = '1.5.2'
+    def ktor_version = '1.6.0'
     // | Core
     implementation "io.ktor:ktor-client-core:$ktor_version"
     // | Engine -> OkHttp
