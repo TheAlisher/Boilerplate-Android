@@ -13,10 +13,10 @@ class RequestRepository(
         emit(Resource.Loading())
         try {
             emit(Resource.Success(data = service.fetchFoo()))
-        } catch (exception: Exception) {
+        } catch (ioException: Exception) {
             emit(
                 Resource.Error(
-                    data = null, message = exception.localizedMessage ?: "Error Occurred!",
+                    data = null, message = ioException.localizedMessage ?: "Error Occurred!",
                 )
             )
         }
