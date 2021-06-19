@@ -10,9 +10,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 
-val NavController.previousDestination
-    get() = previousBackStackEntry?.destination
-
 fun View.navigate(@IdRes actionId: Int) {
     setOnClickListener(Navigation.createNavigateOnClickListener(actionId))
 }
