@@ -1,24 +1,16 @@
 package com.alish.boilerplate.data.repositories
 
-import androidx.lifecycle.liveData
+import androidx.lifecycle.LiveData
+import com.alish.boilerplate.base.BaseRepository
 import com.alish.boilerplate.data.network.resource.Resource
 import com.alish.boilerplate.data.network.retrofit.apiservices.FooApiService
-import kotlinx.coroutines.Dispatchers
+import com.alish.boilerplate.models.Foo
 
 class RequestRepository(
     private val service: FooApiService
-) {
+) : BaseRepository() {
 
-    fun fetchFoo() = liveData(Dispatchers.IO) {
-        emit(Resource.Loading())
-        try {
-            emit(Resource.Success(data = service.fetchFoo()))
-        } catch (ioException: Exception) {
-            emit(
-                Resource.Error(
-                    data = null, message = ioException.localizedMessage ?: "Error Occurred!",
-                )
-            )
-        }
+    fun fetchFoo(): LiveData<Resource<Foo>> {
+        return doRequest { service.fetchFoo() }
     }
 }
