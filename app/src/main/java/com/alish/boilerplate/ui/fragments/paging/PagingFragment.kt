@@ -11,6 +11,7 @@ import com.alish.boilerplate.base.BaseFragment
 import com.alish.boilerplate.databinding.FragmentPagingBinding
 import com.alish.boilerplate.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.ui.adapters.paging.CommonLoadStateAdapter
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class PagingFragment : BaseFragment<PagingViewModel, FragmentPagingBinding>(
@@ -43,10 +44,10 @@ class PagingFragment : BaseFragment<PagingViewModel, FragmentPagingBinding>(
     }
 
     override fun setupRequests() {
-        viewModel.fetchFooPaging().observe(viewLifecycleOwner, {
-            viewLifecycleOwner.lifecycleScope.launch {
+        lifecycleScope.launch {
+            viewModel.fetchFooPaging().collectLatest {
                 fooPagingAdapter.submitData(it)
             }
-        })
+        }
     }
 }
