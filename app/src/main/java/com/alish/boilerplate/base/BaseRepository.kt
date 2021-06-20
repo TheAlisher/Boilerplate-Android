@@ -1,12 +1,11 @@
 package com.alish.boilerplate.base
 
-import androidx.lifecycle.liveData
 import com.alish.boilerplate.data.network.resource.Resource
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flow
 
 abstract class BaseRepository {
 
-    protected fun <T> doRequest(request: suspend () -> T) = liveData(Dispatchers.IO) {
+    protected fun <T> doRequest(request: suspend () -> T) = flow {
         emit(Resource.Loading())
         try {
             emit(Resource.Success(data = request()))

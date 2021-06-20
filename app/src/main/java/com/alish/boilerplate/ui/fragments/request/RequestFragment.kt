@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.alish.boilerplate.data.network.resource.Resource
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class RequestFragment : Fragment() {
 
@@ -17,18 +20,20 @@ class RequestFragment : Fragment() {
     }
 
     private fun setupRequests() {
-        viewModel.fetchFoo().observe(viewLifecycleOwner, {
-            when (it) {
-                is Resource.Loading -> {
-                    // …
-                }
-                is Resource.Error -> {
-                    // …
-                }
-                is Resource.Success -> {
-                    // …
+        lifecycleScope.launch {
+            viewModel.fetchFoo().collect {
+                when (it) {
+                    is Resource.Loading -> {
+                        // …
+                    }
+                    is Resource.Error -> {
+                        // …
+                    }
+                    is Resource.Success -> {
+                        // …
+                    }
                 }
             }
-        })
+        }
     }
 }
