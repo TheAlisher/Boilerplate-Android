@@ -1,7 +1,5 @@
 package com.alish.boilerplate.di
 
-import com.alish.boilerplate.data.network.ktor.KtorClient
-import com.alish.boilerplate.data.network.ktor.apiservices.KtorFooApiService
 import com.alish.boilerplate.data.network.retrofit.RetrofitClient
 import dagger.Module
 import dagger.Provides
@@ -16,8 +14,4 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofitFooApiService() = RetrofitClient().provideFooApiService()
-
-    @Singleton
-    @Provides
-    fun provideKtorFooApiService() = KtorFooApiService(KtorClient().provideKtor())
 }

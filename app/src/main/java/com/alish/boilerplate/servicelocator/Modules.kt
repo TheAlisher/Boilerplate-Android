@@ -1,8 +1,6 @@
 package com.alish.boilerplate.servicelocator
 
 import com.alish.boilerplate.data.db.room.RoomClient
-import com.alish.boilerplate.data.network.ktor.KtorClient
-import com.alish.boilerplate.data.network.ktor.apiservices.KtorFooApiService
 import com.alish.boilerplate.data.network.retrofit.RetrofitClient
 import com.alish.boilerplate.data.repositories.KoinRepository
 import com.alish.boilerplate.ui.fragments.koin.KoinViewModel
@@ -25,5 +23,4 @@ val databaseModule = module {
 
 val networkModule = module {
     single { RetrofitClient().provideFooApiService() }
-    single { KtorFooApiService(KtorClient().provideKtor()) }
 }
