@@ -1,6 +1,6 @@
 package com.alish.boilerplate.base
 
-import com.alish.boilerplate.data.network.resource.Resource
+import com.alish.boilerplate.data.resource.Resource
 import kotlinx.coroutines.flow.flow
 
 abstract class BaseRepository {

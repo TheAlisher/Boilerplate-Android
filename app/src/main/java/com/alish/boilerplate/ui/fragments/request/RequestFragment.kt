@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.alish.boilerplate.data.network.resource.Resource
+import com.alish.boilerplate.data.resource.Resource
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
