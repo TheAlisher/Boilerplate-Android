@@ -2,7 +2,7 @@ package com.alish.boilerplate.data.network.retrofit
 
 import com.alish.boilerplate.constants.Constants
 import com.alish.boilerplate.data.network.okhttp.interceptors.LoggingInterceptor
-import com.alish.boilerplate.data.network.retrofit.apiservices.RetrofitFooApiService
+import com.alish.boilerplate.data.network.retrofit.apiservices.FooApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,6 +26,6 @@ class RetrofitClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun provideFooApiService(): RetrofitFooApiService = provideRetrofit
-        .create(RetrofitFooApiService::class.java)
+    fun provideFooApiService(): FooApiService = provideRetrofit
+        .create(FooApiService::class.java)
 }

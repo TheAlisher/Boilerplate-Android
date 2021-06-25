@@ -1,9 +1,9 @@
 package com.alish.boilerplate.di
 
 import android.content.Context
-import com.alish.boilerplate.data.db.room.RoomAppDatabase
+import com.alish.boilerplate.data.db.room.AppDatabase
 import com.alish.boilerplate.data.db.room.RoomClient
-import com.alish.boilerplate.data.db.room.daos.RoomFooDao
+import com.alish.boilerplate.data.db.room.daos.FooDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,11 +22,11 @@ object DatabaseModule {
     @Provides
     fun provideRoom(
         @ApplicationContext context: Context
-    ): RoomAppDatabase = roomClient.provideRoom(context)
+    ): AppDatabase = roomClient.provideRoom(context)
 
     @Singleton
     @Provides
-    fun provideRoomFooDao(
-        appDatabase: RoomAppDatabase
-    ): RoomFooDao = roomClient.provideRoomFooDao(appDatabase)
+    fun provideFooDao(
+        appDatabase: AppDatabase
+    ): FooDao = roomClient.provideFooDao(appDatabase)
 }
