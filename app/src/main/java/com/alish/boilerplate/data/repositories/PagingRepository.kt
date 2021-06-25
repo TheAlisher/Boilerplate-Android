@@ -15,14 +15,10 @@ class PagingRepository(
     fun fetchFooPaging(): Flow<PagingData<FooPagingData>> {
         return Pager(
             config = PagingConfig(
-                pageSize = BOILERPLATE_PAGE_SIZE
+                pageSize = 10
             )
         ) {
             FooPagingSource(service)
         }.flow
-    }
-
-    companion object {
-        private const val BOILERPLATE_PAGE_SIZE = 10
     }
 }
