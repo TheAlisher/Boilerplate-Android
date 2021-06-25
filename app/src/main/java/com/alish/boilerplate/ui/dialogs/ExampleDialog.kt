@@ -14,9 +14,32 @@ class ExampleDialog : AppCompatDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         _binding = DialogExampleBinding.inflate(LayoutInflater.from(context))
-        return AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(activity)
             .setView(binding.root)
             .create()
+
+        initialize()
+        setupViews()
+        setupListeners()
+        setupRequests()
+        setupObservers()
+
+        return builder
+    }
+
+    private fun initialize() {
+    }
+
+    private fun setupViews() {
+    }
+
+    private fun setupListeners() {
+    }
+
+    private fun setupRequests() {
+    }
+
+    private fun setupObservers() {
     }
 
     override fun onDestroyView() {
