@@ -16,14 +16,15 @@ import javax.inject.Singleton
 object DatabaseModule {
 
     @Singleton
+    val roomClient = RoomClient()
+
     @Provides
     fun provideRoom(
         @ApplicationContext context: Context
-    ): RoomAppDatabase = RoomClient().provideRoom(context)
+    ): RoomAppDatabase = roomClient.provideRoom(context)
 
-    @Singleton
     @Provides
     fun provideRoomFooDao(
         appDatabase: RoomAppDatabase
-    ): RoomFooDao = RoomClient().provideRoomFooDao(appDatabase)
+    ): RoomFooDao = roomClient.provideRoomFooDao(appDatabase)
 }

@@ -17,10 +17,12 @@ val repositoriesModule = module {
 }
 
 val databaseModule = module {
-    single { RoomClient().provideRoom(androidContext()) }
-    single { RoomClient().provideRoomFooDao(get()) }
+    single { RoomClient() }
+    single { get<RoomClient>().provideRoom(androidContext()) }
+    single { get<RoomClient>().provideRoomFooDao(get()) }
 }
 
 val networkModule = module {
-    single { RetrofitClient().provideFooApiService() }
+    single { RetrofitClient() }
+    single { get<RetrofitClient>().provideFooApiService() }
 }

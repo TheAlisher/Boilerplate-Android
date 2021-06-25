@@ -12,6 +12,8 @@ import javax.inject.Singleton
 object NetworkModule {
 
     @Singleton
+    val retrofitClient = RetrofitClient()
+
     @Provides
-    fun provideRetrofitFooApiService() = RetrofitClient().provideFooApiService()
+    fun provideRetrofitFooApiService() = retrofitClient.provideFooApiService()
 }
