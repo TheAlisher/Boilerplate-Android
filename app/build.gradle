@@ -115,15 +115,6 @@ dependencies {
     // | optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
 
-    // Ktor
-    def ktor_version = '1.6.0'
-    // | Core
-    implementation "io.ktor:ktor-client-core:$ktor_version"
-    // | Engine -> OkHttp
-    implementation "io.ktor:ktor-client-okhttp:$ktor_version"
-    // | Gson
-    implementation "io.ktor:ktor-client-gson:$ktor_version"
-
     // Paging 3
     def paging_version = "3.0.0"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
