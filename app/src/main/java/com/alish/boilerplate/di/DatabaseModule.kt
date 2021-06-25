@@ -18,11 +18,13 @@ object DatabaseModule {
     @Singleton
     val roomClient = RoomClient()
 
+    @Singleton
     @Provides
     fun provideRoom(
         @ApplicationContext context: Context
     ): RoomAppDatabase = roomClient.provideRoom(context)
 
+    @Singleton
     @Provides
     fun provideRoomFooDao(
         appDatabase: RoomAppDatabase
