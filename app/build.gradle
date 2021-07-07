@@ -106,7 +106,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
 
     // Koin
-    def koin_version = "3.1.1"
+    def koin_version = "3.1.2"
     // | for main features for Android
     implementation "io.insert-koin:koin-android:$koin_version"
 
