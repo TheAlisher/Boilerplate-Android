@@ -84,16 +84,6 @@ dependencies {
     // | for LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
-    // Koin
-    def koin_version = "3.1.1"
-    // | for main features for Android
-    implementation "io.insert-koin:koin-android:$koin_version"
-
-    // Hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    // | Kapt
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
-
     // Retrofit 2
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -114,6 +104,16 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     // | optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
+
+    // Koin
+    def koin_version = "3.1.1"
+    // | for main features for Android
+    implementation "io.insert-koin:koin-android:$koin_version"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    // | Kapt
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     // Paging 3
     def paging_version = "3.0.0"
