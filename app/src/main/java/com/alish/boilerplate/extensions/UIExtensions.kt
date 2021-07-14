@@ -64,7 +64,7 @@ fun View.disable() {
 
 // region ProgressBar
 
-fun <T> ProgressBar.bindToResource(resource: Resource<T>) {
+fun <T> ProgressBar.bindToResourceLoading(resource: Resource<T>) {
     isVisible = resource is Resource.Loading
 }
 
