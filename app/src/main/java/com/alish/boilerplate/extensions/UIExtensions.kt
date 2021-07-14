@@ -33,7 +33,7 @@ fun Fragment.showToastLong(textFromResource: Int) {
 // endregion
 
 
-// region View
+// region Views
 
 /**
  * View Extensions
@@ -59,10 +59,9 @@ fun View.disable() {
     isEnabled = false
 }
 
-// endregion
-
-
-// region ProgressBar
+/**
+ * ProgressBar Extensions
+ */
 
 fun <T> ProgressBar.bindToResourceLoading(resource: Resource<T>) {
     isVisible = resource is Resource.Loading
