@@ -1,9 +1,9 @@
 package com.alish.boilerplate.data.network.retrofit
 
 import com.alish.boilerplate.constants.Constants
-import com.alish.boilerplate.data.network.okhttp.interceptors.LoggingInterceptor
 import com.alish.boilerplate.data.network.retrofit.apiservices.FooApiService
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
@@ -13,11 +13,17 @@ class RetrofitClient {
 
     private val okHttpClient: OkHttpClient = OkHttpClient()
         .newBuilder()
-        .addInterceptor(LoggingInterceptor().provideLoggingInterceptor())
+        .addInterceptor(provideLoggingInterceptor())
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
+
+    private fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+    }
 
     private val provideRetrofit = Retrofit.Builder()
         .baseUrl(Constants.BASE_URL)
