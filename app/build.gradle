@@ -116,7 +116,7 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     // Paging 3
-    def paging_version = "3.0.0"
+    def paging_version = "3.0.1"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
     // ViewBindingPropertyDelegate | To use only without reflection variants of viewBinding
