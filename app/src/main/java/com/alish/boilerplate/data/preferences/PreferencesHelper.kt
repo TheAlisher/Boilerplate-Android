@@ -1,4 +1,4 @@
-package com.alish.boilerplate.utils
+package com.alish.boilerplate.data.preferences
 
 import android.content.Context
 import android.content.SharedPreferences
