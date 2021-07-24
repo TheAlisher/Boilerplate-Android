@@ -17,7 +17,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         super.onViewCreated(view, savedInstanceState)
 
         initialize()
-        setupViews()
+        setupArgs()
         setupListeners()
         setupRequests()
         setupObservers()
@@ -26,7 +26,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     open fun initialize() {
     }
 
-    open fun setupViews() {
+    open fun setupArgs() {
     }
 
     open fun setupListeners() {
