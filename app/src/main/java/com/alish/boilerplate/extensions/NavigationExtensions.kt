@@ -1,22 +1,12 @@
 package com.alish.boilerplate.extensions
 
 import android.util.Log
-import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
-import androidx.navigation.Navigation
-
-fun View.navigate(@IdRes actionId: Int) {
-    setOnClickListener(Navigation.createNavigateOnClickListener(actionId))
-}
-
-fun View.navigate(directions: NavDirections) {
-    setOnClickListener(Navigation.createNavigateOnClickListener(directions))
-}
 
 fun NavController.navigateSafely(@IdRes actionId: Int) {
     try {
