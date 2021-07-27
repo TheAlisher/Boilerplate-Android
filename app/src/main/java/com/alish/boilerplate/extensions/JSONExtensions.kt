@@ -4,7 +4,7 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-private fun String.isValidJSON(): Boolean {
+fun String.isValidJSON(): Boolean {
     try {
         JSONObject(this)
     } catch (exception: JSONException) {
