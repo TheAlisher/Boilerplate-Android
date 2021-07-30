@@ -40,8 +40,8 @@ class FooPagingAdapter : PagingDataAdapter<FooPagingData, FooPagingAdapter.FooPa
         binding.root
     ) {
 
-        fun onBind(item: FooPagingData) {
-            binding.textItemFoo.text = item.bar
+        fun onBind(item: FooPagingData) = with(binding) {
+            textItemFoo.text = item.bar
         }
     }
 }
