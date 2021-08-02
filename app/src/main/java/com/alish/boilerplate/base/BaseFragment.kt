@@ -15,10 +15,10 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupPermissionLaunchers()
+        setupPermissionsLaunchers()
     }
 
-    open fun setupPermissionLaunchers() {
+    open fun setupPermissionsLaunchers() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
