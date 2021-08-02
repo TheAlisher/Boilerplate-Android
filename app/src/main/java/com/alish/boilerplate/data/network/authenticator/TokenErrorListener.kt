@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.network.okhttp.authenticator
+package com.alish.boilerplate.data.network.authenticator
 
 import androidx.lifecycle.MutableLiveData
 

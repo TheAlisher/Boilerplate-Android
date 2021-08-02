@@ -1,7 +1,7 @@
 package com.alish.boilerplate.data.repositories
 
 import com.alish.boilerplate.data.db.room.daos.FooDao
-import com.alish.boilerplate.data.network.retrofit.apiservices.FooApiService
+import com.alish.boilerplate.data.network.apiservices.FooApiService
 
 class KoinRepository(
     private val fooApiService: FooApiService,

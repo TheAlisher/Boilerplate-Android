@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.network.okhttp.interceptors
+package com.alish.boilerplate.data.network.interceptors
 
 import okhttp3.logging.HttpLoggingInterceptor
 

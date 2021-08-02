@@ -1,7 +1,7 @@
-package com.alish.boilerplate.data.network.okhttp.authenticator
+package com.alish.boilerplate.data.network.authenticator
 
 import com.alish.boilerplate.constants.Constants
-import com.alish.boilerplate.data.network.okhttp.interceptors.LoggingInterceptor
+import com.alish.boilerplate.data.network.interceptors.LoggingInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

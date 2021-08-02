@@ -1,6 +1,6 @@
 package com.alish.boilerplate.di
 
-import com.alish.boilerplate.data.network.retrofit.RetrofitClient
+import com.alish.boilerplate.data.network.RetrofitClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
