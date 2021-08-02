@@ -1,6 +1,8 @@
 package com.alish.boilerplate.models
 
+import com.alish.boilerplate.base.IBaseDiffModel
+
 data class Foo(
-    val id: Long,
+    override val id: Long,
     val bar: String
-)
+) : IBaseDiffModel

@@ -1,6 +1,8 @@
 package com.alish.boilerplate.models.paging
 
+import com.alish.boilerplate.base.IBaseDiffModel
+
 data class FooPagingData(
-    val id: Long,
+    override val id: Long,
     val bar: String
-)
+) : IBaseDiffModel
