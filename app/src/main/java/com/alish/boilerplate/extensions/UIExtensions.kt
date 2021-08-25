@@ -1,6 +1,7 @@
 package com.alish.boilerplate.extensions
 
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.StringRes
@@ -66,6 +67,19 @@ fun View.disable() {
 
 fun <T> ProgressBar.bindToResourceLoading(resource: Resource<T>) {
     isVisible = resource is Resource.Loading
+}
+
+// endregion
+
+
+// region ViewGroups
+
+/**
+ * ViewGroup Extensions
+ */
+
+fun <T> ViewGroup.bindToResourceNotLoading(resource: Resource<T>) {
+    isVisible = resource !is Resource.Loading
 }
 
 // endregion
