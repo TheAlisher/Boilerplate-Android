@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.StringRes
-import androidx.constraintlayout.widget.ConstraintHelper
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.alish.boilerplate.data.resource.Resource
@@ -75,11 +74,11 @@ fun <T> ProgressBar.bindToResourceLoading(resource: Resource<T>) {
     isVisible = resource is Resource.Loading
 }
 
-fun <T> ViewGroup.bindToResourceNotLoading(resource: Resource<T>) {
+fun <T> View.bindToResourceNotLoading(resource: Resource<T>) {
     isVisible = resource !is Resource.Loading
 }
 
-fun <T> ConstraintHelper.bindToResourceNotLoading(resource: Resource<T>) {
+fun <T> ViewGroup.bindToResourceNotLoading(resource: Resource<T>) {
     isVisible = resource !is Resource.Loading
 }
 
