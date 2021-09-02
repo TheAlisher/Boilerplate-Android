@@ -78,8 +78,4 @@ fun <T> View.bindToResourceNotLoading(resource: Resource<T>) {
     isVisible = resource !is Resource.Loading
 }
 
-fun <T> ViewGroup.bindToResourceNotLoading(resource: Resource<T>) {
-    isVisible = resource !is Resource.Loading
-}
-
 // endregion
