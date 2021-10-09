@@ -4,10 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.viewbinding.ViewBinding
-import com.alish.boilerplate.R
 
 abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     @LayoutRes layoutId: Int
@@ -15,7 +12,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
     protected abstract val viewModel: ViewModel
     protected abstract val binding: Binding
-    protected lateinit var mainNavController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +23,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mainNavController = requireActivity().findNavController(R.id.nav_host_fragment)
 
         initialize()
         setupArgs()
