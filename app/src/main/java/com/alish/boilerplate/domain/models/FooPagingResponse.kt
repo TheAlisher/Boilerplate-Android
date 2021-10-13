@@ -1,4 +1,4 @@
-package com.alish.boilerplate.models.paging
+package com.alish.boilerplate.domain.models
 
 data class FooPagingResponse<T>(
     val prev: Int?,

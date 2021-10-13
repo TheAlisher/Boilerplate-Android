@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Filter
 import android.widget.Filterable
 import com.alish.boilerplate.databinding.ItemFooBinding
-import com.alish.boilerplate.models.Foo
+import com.alish.boilerplate.domain.models.Foo
 import com.alish.boilerplate.utils.SimpleFilter
 
 class FooArrayAdapter(

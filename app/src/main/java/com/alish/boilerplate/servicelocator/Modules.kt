@@ -1,6 +1,6 @@
 package com.alish.boilerplate.servicelocator
 
-import com.alish.boilerplate.data.db.room.RoomClient
+import com.alish.boilerplate.data.db.RoomClient
 import com.alish.boilerplate.data.network.RetrofitClient
 import com.alish.boilerplate.data.repositories.KoinRepository
 import com.alish.boilerplate.ui.fragments.koin.KoinViewModel

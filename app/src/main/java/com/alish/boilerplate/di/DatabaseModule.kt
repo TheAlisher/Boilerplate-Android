@@ -1,9 +1,9 @@
 package com.alish.boilerplate.di
 
 import android.content.Context
-import com.alish.boilerplate.data.db.room.AppDatabase
-import com.alish.boilerplate.data.db.room.RoomClient
-import com.alish.boilerplate.data.db.room.daos.FooDao
+import com.alish.boilerplate.data.db.AppDatabase
+import com.alish.boilerplate.data.db.RoomClient
+import com.alish.boilerplate.data.db.daos.FooDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

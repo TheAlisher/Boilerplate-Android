@@ -1,11 +1,11 @@
-package com.alish.boilerplate.models.room
+package com.alish.boilerplate.data.db.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class FooRoomEntity(
+class FooDB(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
-    val bar: BarSubRoomEntity
+    val bar: Bar
 )

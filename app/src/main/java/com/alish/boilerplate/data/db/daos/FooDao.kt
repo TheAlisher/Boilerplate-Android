@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.db.room.daos
+package com.alish.boilerplate.data.db.daos
 
 import androidx.room.Dao
 

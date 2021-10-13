@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.alish.boilerplate.base.BaseDiffUtilItemCallback
 import com.alish.boilerplate.databinding.ItemFooBinding
-import com.alish.boilerplate.models.Foo
+import com.alish.boilerplate.domain.models.Foo
 
 class FooListAdapter : ListAdapter<Foo, FooListAdapter.FooViewHolder>(
     BaseDiffUtilItemCallback<Foo>()

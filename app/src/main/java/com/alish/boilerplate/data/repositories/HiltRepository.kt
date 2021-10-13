@@ -1,6 +1,6 @@
 package com.alish.boilerplate.data.repositories
 
-import com.alish.boilerplate.data.db.room.daos.FooDao
+import com.alish.boilerplate.data.db.daos.FooDao
 import com.alish.boilerplate.data.network.apiservices.FooApiService
 import javax.inject.Inject
 

@@ -1,7 +1,7 @@
-package com.alish.boilerplate.data.db.room
+package com.alish.boilerplate.data.db
 
 import androidx.room.TypeConverter
-import com.alish.boilerplate.models.room.BarSubRoomEntity
+import com.alish.boilerplate.data.db.models.Bar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -17,10 +17,9 @@ class Converters {
         return Gson().toJson(generic, type<T>())
     }
 
+    @TypeConverter
+    fun jsonToBar(value: String?) = fromJson<Bar>(value)
 
     @TypeConverter
-    fun jsonToBarSubRoomEntity(value: String?) = fromJson<BarSubRoomEntity>(value)
-
-    @TypeConverter
-    fun barSubRoomEntityToJson(barSubRoomEntity: BarSubRoomEntity) = toJson(barSubRoomEntity)
+    fun barToJson(bar: Bar) = toJson(bar)
 }
