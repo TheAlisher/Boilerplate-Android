@@ -10,8 +10,9 @@ import com.alish.boilerplate.data.repositories.pagingsources.FooPagingSource
 import com.alish.boilerplate.domain.models.Foo
 import com.alish.boilerplate.domain.repositories.FooRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class FooRepositoryImpl(
+class FooRepositoryImpl @Inject constructor(
     private val service: FooApiService
 ) : BaseRepository(), FooRepository {
 

@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.paging.PagingFragment">
+    tools:context=".ui.fragments.foo.FooFragment">
 
     <ProgressBar
-        android:id="@+id/progress_paging_loader"
+        android:id="@+id/loader_foo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -14,7 +14,7 @@
         android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_paging"
+        android:id="@+id/recycler_foo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_boilerplate" />
