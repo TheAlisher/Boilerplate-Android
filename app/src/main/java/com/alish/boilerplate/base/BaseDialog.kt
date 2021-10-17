@@ -28,12 +28,12 @@ abstract class BaseDialog<Binding : ViewBinding> : AppCompatDialogFragment() {
         setupListeners()
     }
 
-    open fun initialize() {
+    protected open fun initialize() {
     }
 
-    open fun setupArgs() {
+    protected open fun setupArgs() {
     }
 
-    open fun setupListeners() {
+    protected open fun setupListeners() {
     }
 }

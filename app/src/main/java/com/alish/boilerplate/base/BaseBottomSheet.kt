@@ -46,12 +46,12 @@ abstract class BaseBottomSheet<Binding : ViewBinding> : BottomSheetDialogFragmen
         setupListeners()
     }
 
-    open fun initialize() {
+    protected open fun initialize() {
     }
 
-    open fun setupArgs() {
+    protected open fun setupArgs() {
     }
 
-    open fun setupListeners() {
+    protected open fun setupListeners() {
     }
 }
