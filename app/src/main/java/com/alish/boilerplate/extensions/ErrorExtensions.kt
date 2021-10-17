@@ -2,7 +2,7 @@ package com.alish.boilerplate.extensions
 
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
-import com.alish.boilerplate.data.resource.Resource
+import com.alish.boilerplate.common.resource.Resource
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 

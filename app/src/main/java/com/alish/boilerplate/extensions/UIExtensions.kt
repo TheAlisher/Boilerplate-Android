@@ -1,13 +1,12 @@
 package com.alish.boilerplate.extensions
 
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.alish.boilerplate.data.resource.Resource
+import com.alish.boilerplate.common.resource.Resource
 
 
 // region Fragment

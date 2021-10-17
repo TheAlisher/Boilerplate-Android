@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.resource
+package com.alish.boilerplate.common.resource
 
 sealed class Resource<out T>(
     val data: T? = null,

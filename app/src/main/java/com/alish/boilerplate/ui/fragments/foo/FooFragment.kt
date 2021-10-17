@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.R
 import com.alish.boilerplate.base.BaseFragment
-import com.alish.boilerplate.data.resource.Resource
+import com.alish.boilerplate.common.resource.Resource
 import com.alish.boilerplate.databinding.FragmentFooBinding
 import com.alish.boilerplate.extensions.bindToResourceLoading
 import com.alish.boilerplate.ui.adapters.FooPagingAdapter
