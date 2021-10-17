@@ -1,4 +1,4 @@
-package com.alish.boilerplate.ui.activity
+package com.alish.boilerplate.presentation.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

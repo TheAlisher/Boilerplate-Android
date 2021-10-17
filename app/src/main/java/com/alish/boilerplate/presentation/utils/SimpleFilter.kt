@@ -1,4 +1,4 @@
-package com.alish.boilerplate.utils
+package com.alish.boilerplate.presentation.utils
 
 import android.widget.Filter
 

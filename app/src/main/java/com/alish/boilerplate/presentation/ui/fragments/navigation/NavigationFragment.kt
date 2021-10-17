@@ -1,4 +1,4 @@
-package com.alish.boilerplate.ui.fragments.navigation
+package com.alish.boilerplate.presentation.ui.fragments.navigation
 
 import android.os.Bundle
 import android.view.View

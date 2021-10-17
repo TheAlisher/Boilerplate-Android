@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoilerplateAndroid">
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="com.alish.boilerplate.presentation.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

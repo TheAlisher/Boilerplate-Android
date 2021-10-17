@@ -1,4 +1,4 @@
-package com.alish.boilerplate.ui.adapters
+package com.alish.boilerplate.presentation.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import com.alish.boilerplate.databinding.ItemFooBinding
 import com.alish.boilerplate.domain.models.Foo
-import com.alish.boilerplate.utils.SimpleFilter
+import com.alish.boilerplate.presentation.utils.SimpleFilter
 
 class FooArrayAdapter(
     context: Context,

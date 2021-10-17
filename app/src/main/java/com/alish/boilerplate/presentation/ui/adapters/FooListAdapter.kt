@@ -1,4 +1,4 @@
-package com.alish.boilerplate.ui.adapters
+package com.alish.boilerplate.presentation.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
