@@ -31,18 +31,18 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         setupObservers()
     }
 
-    open fun initialize() {
+    protected open fun initialize() {
     }
 
-    open fun setupArgs() {
+    protected open fun setupArgs() {
     }
 
-    open fun setupListeners() {
+    protected open fun setupListeners() {
     }
 
-    open fun setupRequests() {
+    protected open fun setupRequests() {
     }
 
-    open fun setupObservers() {
+    protected open fun setupObservers() {
     }
 }
