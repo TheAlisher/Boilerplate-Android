@@ -1,16 +1,18 @@
 package com.alish.boilerplate.presentation.ui.fragments.foo
 
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
+import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.R
 import com.alish.boilerplate.base.BaseFragment
-import com.alish.boilerplate.common.resource.Resource
 import com.alish.boilerplate.databinding.FragmentFooBinding
+import com.alish.boilerplate.extensions.showToastShort
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
+import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -46,22 +48,7 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun fetchFoo() {
-        lifecycleScope.launch {
-            viewModel.fetchFoo().collect {
-                binding.loaderFoo.bindToResourceLoading(it)
-                when (it) {
-                    is Resource.Loading -> {
-                        // …
-                    }
-                    is Resource.Error -> {
-                        // …
-                    }
-                    is Resource.Success -> {
-                        // …
-                    }
-                }
-            }
-        }
+        viewModel.fetchFoo()
     }
 
     private fun fetchFooPaging() {
@@ -70,5 +57,23 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
                 fooPagingAdapter.submitData(it)
             }
         }
+    }
+
+    override fun setupObservers() {
+        subscribeToFoo()
+    }
+
+    private fun subscribeToFoo() = with(viewModel) {
+        fooLoading.observe(viewLifecycleOwner, {
+            binding.loaderFoo.isVisible = it
+        })
+
+        fooError.observe(viewLifecycleOwner, {
+            showToastShort(it)
+        })
+
+        fooData.observe(viewLifecycleOwner, {
+            // …
+        })
     }
 }

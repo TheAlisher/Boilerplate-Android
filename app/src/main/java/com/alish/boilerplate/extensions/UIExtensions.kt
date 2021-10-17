@@ -1,12 +1,9 @@
 package com.alish.boilerplate.extensions
 
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.StringRes
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.alish.boilerplate.common.resource.Resource
 
 
 // region Fragment
@@ -58,23 +55,6 @@ fun View.enable() {
 
 fun View.disable() {
     isEnabled = false
-}
-
-// endregion
-
-
-// region Resource
-
-/**
- * Resource Extensions
- */
-
-fun <T> ProgressBar.bindToResourceLoading(resource: Resource<T>) {
-    isVisible = resource is Resource.Loading
-}
-
-fun <T> View.bindToResourceNotLoading(resource: Resource<T>) {
-    isVisible = resource !is Resource.Loading
 }
 
 // endregion
