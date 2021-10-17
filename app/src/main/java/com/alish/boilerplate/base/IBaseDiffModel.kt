@@ -1,5 +1,5 @@
 package com.alish.boilerplate.base
 
-interface IBaseDiffModel {
-    val id: Long
+interface IBaseDiffModel<N : Number> {
+    val id: N
 }
