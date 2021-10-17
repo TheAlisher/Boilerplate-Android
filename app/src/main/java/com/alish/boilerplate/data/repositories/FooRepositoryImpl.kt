@@ -20,7 +20,7 @@ class FooRepositoryImpl @Inject constructor(
         service.fetchFoo().toFoo()
     }
 
-    fun fetchFooPaging(): Flow<PagingData<Foo>> {
+    override fun fetchFooPaging(): Flow<PagingData<Foo>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 10

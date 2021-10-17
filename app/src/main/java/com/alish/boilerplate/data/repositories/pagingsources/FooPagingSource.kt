@@ -3,6 +3,7 @@ package com.alish.boilerplate.data.repositories.pagingsources
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.alish.boilerplate.data.network.apiservices.FooApiService
+import com.alish.boilerplate.data.network.dtos.toFoo
 import com.alish.boilerplate.domain.models.Foo
 import retrofit2.HttpException
 import java.io.IOException
@@ -21,7 +22,7 @@ class FooPagingSource(
             val data = response.body()!!
 
             LoadResult.Page(
-                data = data.data,
+                data = data.data.map { it.toFoo() },
                 prevKey = null,
                 nextKey = data.next
             )
