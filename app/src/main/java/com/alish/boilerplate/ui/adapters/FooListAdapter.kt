@@ -9,7 +9,7 @@ import com.alish.boilerplate.databinding.ItemFooBinding
 import com.alish.boilerplate.domain.models.Foo
 
 class FooListAdapter : ListAdapter<Foo, FooListAdapter.FooViewHolder>(
-    BaseDiffUtilItemCallback<Foo>()
+    BaseDiffUtilItemCallback()
 ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FooViewHolder {
