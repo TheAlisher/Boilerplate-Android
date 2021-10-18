@@ -1,15 +1,13 @@
 package com.alish.boilerplate.presentation.ui.fragments.foo
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.alish.boilerplate.base.BaseViewModel
-import com.alish.boilerplate.common.resource.Resource
 import com.alish.boilerplate.data.repositories.FooRepositoryImpl
 import com.alish.boilerplate.domain.models.Foo
 import com.alish.boilerplate.domain.usecases.foo.FooUseCase
+import com.alish.boilerplate.presentation.state.State
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,14 +17,21 @@ class FooViewModel @Inject constructor(
     private val repository: FooRepositoryImpl
 ) : BaseViewModel() {
 
-    private val _fooLoading = MutableLiveData<Boolean>()
-    val fooLoading: LiveData<Boolean> = _fooLoading
-    private val _fooError = MutableLiveData<String>()
-    val fooError: LiveData<String> = _fooError
-    private val _fooData = MutableLiveData<Foo>()
-    val fooData: LiveData<Foo> = _fooData
+    private val fooState = State<Foo>()
+    val fooLoading: LiveData<Boolean> = fooState.isLoading
+    val fooError: LiveData<String> = fooState.error
+    val fooData: LiveData<Foo> = fooState.data
 
     fun fetchFoo() {
+        viewModelScope.launch {
+            subscribeTo(fooState) {
+                fooUseCase()
+            }
+        }
+    }
+
+
+    /*fun fetchFoo() {
         viewModelScope.launch {
             fooUseCase().collect {
                 _fooLoading.bindToResourceLoading(it)
@@ -46,7 +51,7 @@ class FooViewModel @Inject constructor(
                 }
             }
         }
-    }
+    }*/
 
     fun fetchFooPaging() = repository.fetchFooPaging()
 }
