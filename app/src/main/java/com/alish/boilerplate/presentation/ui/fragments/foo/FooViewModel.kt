@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.alish.boilerplate.base.BaseViewModel
 import com.alish.boilerplate.common.resource.Resource
+import com.alish.boilerplate.data.repositories.FooRepositoryImpl
 import com.alish.boilerplate.domain.models.Foo
-import com.alish.boilerplate.domain.usecases.foo.FooPagingUseCase
 import com.alish.boilerplate.domain.usecases.foo.FooUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FooViewModel @Inject constructor(
     private val fooUseCase: FooUseCase,
-    private val fooPagingUseCase: FooPagingUseCase
+    private val repository: FooRepositoryImpl
 ) : BaseViewModel() {
 
     private val _fooLoading = MutableLiveData<Boolean>()
@@ -48,5 +48,5 @@ class FooViewModel @Inject constructor(
         }
     }
 
-    fun fetchFooPaging() = fooPagingUseCase()
+    fun fetchFooPaging() = repository.fetchFooPaging()
 }
