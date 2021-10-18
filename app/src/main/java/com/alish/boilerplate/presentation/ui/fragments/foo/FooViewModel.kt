@@ -30,28 +30,5 @@ class FooViewModel @Inject constructor(
         }
     }
 
-
-    /*fun fetchFoo() {
-        viewModelScope.launch {
-            fooUseCase().collect {
-                _fooLoading.bindToResourceLoading(it)
-                when (it) {
-                    is Resource.Loading -> {
-                    }
-                    is Resource.Error -> {
-                        it.message?.let { error ->
-                            _fooError.value = error
-                        }
-                    }
-                    is Resource.Success -> {
-                        it.data?.let { data ->
-                            _fooData.value = data
-                        }
-                    }
-                }
-            }
-        }
-    }*/
-
     fun fetchFooPaging() = repository.fetchFooPaging()
 }
