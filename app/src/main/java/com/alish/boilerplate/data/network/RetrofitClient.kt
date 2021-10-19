@@ -1,6 +1,6 @@
 package com.alish.boilerplate.data.network
 
-import com.alish.boilerplate.constants.Constants
+import com.alish.boilerplate.common.constants.Constants
 import com.alish.boilerplate.data.network.interceptors.LoggingInterceptor
 import com.alish.boilerplate.data.network.apiservices.FooApiService
 import okhttp3.OkHttpClient

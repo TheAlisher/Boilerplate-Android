@@ -1,4 +1,4 @@
-package com.alish.boilerplate.constants
+package com.alish.boilerplate.common.constants
 
 object Constants {
 

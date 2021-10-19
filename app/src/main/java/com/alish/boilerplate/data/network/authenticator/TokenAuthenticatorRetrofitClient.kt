@@ -1,6 +1,6 @@
 package com.alish.boilerplate.data.network.authenticator
 
-import com.alish.boilerplate.constants.Constants
+import com.alish.boilerplate.common.constants.Constants
 import com.alish.boilerplate.data.network.interceptors.LoggingInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
