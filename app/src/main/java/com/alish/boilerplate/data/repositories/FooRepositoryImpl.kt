@@ -6,7 +6,7 @@ import androidx.paging.PagingData
 import com.alish.boilerplate.base.BaseRepository
 import com.alish.boilerplate.data.network.apiservices.FooApiService
 import com.alish.boilerplate.data.network.dtos.toFoo
-import com.alish.boilerplate.data.repositories.pagingsources.FooPagingSource
+import com.alish.boilerplate.data.network.pagingsources.FooPagingSource
 import com.alish.boilerplate.domain.models.Foo
 import com.alish.boilerplate.domain.repositories.FooRepository
 import kotlinx.coroutines.flow.Flow
