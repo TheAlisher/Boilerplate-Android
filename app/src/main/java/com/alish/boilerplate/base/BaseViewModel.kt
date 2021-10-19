@@ -2,14 +2,14 @@ package com.alish.boilerplate.base
 
 import androidx.lifecycle.ViewModel
 import com.alish.boilerplate.common.resource.Resource
-import com.alish.boilerplate.presentation.state.State
+import com.alish.boilerplate.presentation.state.StateViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 
 abstract class BaseViewModel : ViewModel() {
 
     protected suspend fun <T> subscribeTo(
-        state: State<T>,
+        state: StateViewModel<T>,
         request: () -> Flow<Resource<T>>
     ) {
         request().collect {

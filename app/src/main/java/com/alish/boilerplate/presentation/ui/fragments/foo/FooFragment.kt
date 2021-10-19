@@ -63,16 +63,16 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
         subscribeToFoo()
     }
 
-    private fun subscribeToFoo() = with(viewModel) {
-        fooLoading.observe(viewLifecycleOwner, {
+    private fun subscribeToFoo() = with(viewModel.fooState) {
+        isLoading.observe(viewLifecycleOwner, {
             binding.loaderFoo.isVisible = it
         })
 
-        fooError.observe(viewLifecycleOwner, {
+        error.observe(viewLifecycleOwner, {
             showToastShort(it)
         })
 
-        fooData.observe(viewLifecycleOwner, {
+        data.observe(viewLifecycleOwner, {
             // …
         })
     }
