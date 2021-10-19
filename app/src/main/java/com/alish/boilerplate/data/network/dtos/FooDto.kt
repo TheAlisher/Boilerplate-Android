@@ -12,6 +12,4 @@ class FooDto(
     val bar: String
 )
 
-fun FooDto.toFoo(): Foo {
-    return Foo(id, bar)
-}
+fun FooDto.toFoo() = Foo(id, bar)
