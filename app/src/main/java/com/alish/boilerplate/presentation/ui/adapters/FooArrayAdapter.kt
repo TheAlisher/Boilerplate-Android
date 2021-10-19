@@ -9,7 +9,6 @@ import android.widget.Filter
 import android.widget.Filterable
 import com.alish.boilerplate.databinding.ItemFooBinding
 import com.alish.boilerplate.domain.models.Foo
-import com.alish.boilerplate.presentation.utils.SimpleFilter
 
 class FooArrayAdapter(
     context: Context,
@@ -46,6 +45,14 @@ class FooArrayAdapter(
             override fun convertResultToString(resultValue: Any?): CharSequence {
                 return (resultValue as Foo).bar
             }
+        }
+    }
+
+    open class SimpleFilter : Filter() {
+
+        override fun performFiltering(constraint: CharSequence?): FilterResults = FilterResults()
+
+        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
         }
     }
 }
