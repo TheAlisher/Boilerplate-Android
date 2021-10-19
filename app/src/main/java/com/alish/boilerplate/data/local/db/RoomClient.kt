@@ -1,8 +1,8 @@
-package com.alish.boilerplate.data.db
+package com.alish.boilerplate.data.local.db
 
 import android.content.Context
 import androidx.room.Room
-import com.alish.boilerplate.data.db.daos.FooDao
+import com.alish.boilerplate.data.local.db.daos.FooDao
 
 class RoomClient {
 
