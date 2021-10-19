@@ -9,8 +9,10 @@ fun Fragment.hasPermissionCheckAndRequest(
     requestPermissionLauncher: ActivityResultLauncher<String>,
     permission: String
 ): Boolean {
-    return if (ContextCompat.checkSelfPermission(requireContext(), permission)
-        == PackageManager.PERMISSION_GRANTED
+    return if (
+        ContextCompat.checkSelfPermission(
+            requireContext(), permission
+        ) == PackageManager.PERMISSION_GRANTED
     ) {
         true
     } else {
