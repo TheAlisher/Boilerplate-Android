@@ -9,7 +9,7 @@ class StateViewModel<T>(
     val data: MutableLiveData<T> = MutableLiveData()
 )
 
-class StateUI<T>(
+class StateView<T>(
     val isLoading: LiveData<Boolean>,
     val error: LiveData<String>,
     val data: LiveData<T>
