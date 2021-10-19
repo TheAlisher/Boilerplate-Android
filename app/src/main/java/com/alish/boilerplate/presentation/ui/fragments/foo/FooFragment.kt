@@ -9,7 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.R
 import com.alish.boilerplate.base.BaseFragment
 import com.alish.boilerplate.databinding.FragmentFooBinding
-import com.alish.boilerplate.extensions.showToastShort
+import com.alish.boilerplate.common.extensions.showToastShort
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
