@@ -10,6 +10,7 @@ import com.alish.boilerplate.R
 import com.alish.boilerplate.base.BaseFragment
 import com.alish.boilerplate.databinding.FragmentFooBinding
 import com.alish.boilerplate.common.extensions.showToastShort
+import com.alish.boilerplate.presentation.state.UIState
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -63,17 +64,19 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
         subscribeToFoo()
     }
 
-    private fun subscribeToFoo() = with(viewModel.fooState) {
-        isLoading.observe(viewLifecycleOwner, {
-            binding.loaderFoo.isVisible = it
-        })
-
-        error.observe(viewLifecycleOwner, {
-            showToastShort(it)
-        })
-
-        data.observe(viewLifecycleOwner, {
-            // …
+    private fun subscribeToFoo() {
+        viewModel.fooState.observe(viewLifecycleOwner, {
+            binding.loaderFoo.isVisible = it is UIState.Loading
+            when (it) {
+                is UIState.Loading -> {
+                }
+                is UIState.Error -> {
+                    showToastShort(it.error)
+                }
+                is UIState.Success -> {
+                    // …
+                }
+            }
         })
     }
 }

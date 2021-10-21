@@ -1,12 +1,12 @@
 package com.alish.boilerplate.presentation.ui.fragments.foo
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.alish.boilerplate.base.BaseViewModel
 import com.alish.boilerplate.data.repositories.FooRepositoryImpl
 import com.alish.boilerplate.domain.models.Foo
 import com.alish.boilerplate.domain.usecases.foo.FooUseCase
-import com.alish.boilerplate.presentation.state.StateDelegate
-import com.alish.boilerplate.presentation.state.StateView
-import com.alish.boilerplate.presentation.state.StateViewModel
+import com.alish.boilerplate.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -16,8 +16,8 @@ class FooViewModel @Inject constructor(
     private val repository: FooRepositoryImpl
 ) : BaseViewModel() {
 
-    private val _fooState = StateViewModel<Foo>()
-    val fooState: StateView<Foo> by StateDelegate(_fooState)
+    private val _fooState = MutableLiveData<UIState<Foo>>()
+    val fooState: LiveData<UIState<Foo>> = _fooState
 
     fun fetchFoo() {
         subscribeTo(_fooState) {
