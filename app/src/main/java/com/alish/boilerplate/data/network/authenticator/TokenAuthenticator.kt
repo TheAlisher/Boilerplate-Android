@@ -1,9 +1,12 @@
 package com.alish.boilerplate.data.network.authenticator
 
-import okhttp3.Authenticator
-import okhttp3.Request
-import okhttp3.Response
-import okhttp3.Route
+import androidx.lifecycle.MutableLiveData
+import com.alish.boilerplate.common.constants.Constants
+import com.alish.boilerplate.data.network.interceptors.LoggingInterceptor
+import okhttp3.*
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 class TokenAuthenticator : Authenticator {
 
@@ -23,3 +26,29 @@ class TokenAuthenticator : Authenticator {
             .build()
     }
 }
+
+class TokenAuthenticatorRetrofitClient {
+
+    private val okHttpClient: OkHttpClient = OkHttpClient()
+        .newBuilder()
+        .addInterceptor(LoggingInterceptor().provideLoggingInterceptor())
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
+        .build()
+
+    private val provideRetrofit = Retrofit.Builder()
+        .baseUrl(Constants.BASE_URL)
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    fun provideTokenAuthenticatorApiService(): TokenAuthenticatorApiService = provideRetrofit
+        .create(TokenAuthenticatorApiService::class.java)
+}
+
+interface TokenAuthenticatorApiService {
+    // …
+}
+
+object TokenErrorListener : MutableLiveData<String>()
