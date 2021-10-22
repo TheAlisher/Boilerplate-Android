@@ -8,3 +8,5 @@
     android:textColor="@color/Black"
     android:textSize="20sp"
     tools:text="@tools:sample/lorem" />
+
+<!--Example Array Adapter Layout-->
