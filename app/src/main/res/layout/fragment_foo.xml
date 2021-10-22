@@ -17,7 +17,7 @@
         android:id="@+id/recycler_foo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_boilerplate" />
+        tools:listitem="@layout/item_foo" />
 
 
 </FrameLayout>
