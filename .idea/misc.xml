@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>˚
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/fragment_foo.xml" value="0.23052536231884058" />
+        <entry key="app/src/main/res/layout/fragment_foo.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.10092592592592593" />
         <entry key="app/src/main/res/layout/fragment_navigation.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_paging.xml" value="0.10092592592592593" />
