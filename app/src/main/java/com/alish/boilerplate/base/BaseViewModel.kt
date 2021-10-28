@@ -21,15 +21,11 @@ abstract class BaseViewModel : ViewModel() {
                     is Resource.Loading -> {
                         state.value = UIState.Loading()
                     }
-                    is Resource.Error -> {
-                        it.message?.let { error ->
-                            state.value = UIState.Error(error)
-                        }
+                    is Resource.Error -> it.message?.let { error ->
+                        state.value = UIState.Error(error)
                     }
-                    is Resource.Success -> {
-                        it.data?.let { data ->
-                            state.value = UIState.Success(data)
-                        }
+                    is Resource.Success -> it.data?.let { data ->
+                        state.value = UIState.Success(data)
                     }
                 }
             }
