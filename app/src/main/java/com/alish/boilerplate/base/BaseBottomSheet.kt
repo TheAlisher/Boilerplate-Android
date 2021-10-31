@@ -42,14 +42,10 @@ abstract class BaseBottomSheet<Binding : ViewBinding> : BottomSheetDialogFragmen
         super.onViewCreated(view, savedInstanceState)
 
         initialize()
-        setupArgs()
         setupListeners()
     }
 
     protected open fun initialize() {
-    }
-
-    protected open fun setupArgs() {
     }
 
     protected open fun setupListeners() {
