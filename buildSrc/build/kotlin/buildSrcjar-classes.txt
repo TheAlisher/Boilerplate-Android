@@ -1,0 +1,1 @@
+/Users/alisher/Projects/AndroidStudioProjects/Boilerplate-Android/buildSrc/build/classes/kotlin/main/Dependencies$Versions.class:/Users/alisher/Projects/AndroidStudioProjects/Boilerplate-Android/buildSrc/build/classes/kotlin/main/Dependencies.class
