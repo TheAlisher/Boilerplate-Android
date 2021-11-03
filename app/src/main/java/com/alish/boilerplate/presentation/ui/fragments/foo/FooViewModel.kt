@@ -5,14 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import com.alish.boilerplate.base.BaseViewModel
 import com.alish.boilerplate.data.repositories.FooRepositoryImpl
 import com.alish.boilerplate.domain.models.Foo
-import com.alish.boilerplate.domain.usecases.foo.FooUseCase
+import com.alish.boilerplate.domain.usecases.foo.FetchFooUseCase
 import com.alish.boilerplate.presentation.state.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class FooViewModel @Inject constructor(
-    private val fooUseCase: FooUseCase,
+    private val fetchFooUseCase: FetchFooUseCase,
     private val repository: FooRepositoryImpl
 ) : BaseViewModel() {
 
@@ -21,7 +21,7 @@ class FooViewModel @Inject constructor(
 
     fun fetchFoo() {
         subscribeTo(_fooState) {
-            fooUseCase()
+            fetchFooUseCase()
         }
     }
 
