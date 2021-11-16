@@ -6,6 +6,8 @@ import com.alish.boilerplate.data.network.interceptors.LoggingInterceptor
 import okhttp3.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
+import retrofit2.http.POST
 import java.util.concurrent.TimeUnit
 
 class TokenAuthenticator : Authenticator {
@@ -48,7 +50,18 @@ class TokenAuthenticatorRetrofitClient {
 }
 
 interface TokenAuthenticatorApiService {
-    // …
+
+    @POST("/api/refreshtoken")
+    fun refreshToken(@Body refreshToken: RefreshToken): Tokens
 }
+
+class RefreshToken(
+    val refreshToken: String
+)
+
+class Tokens(
+    val accessToken: String,
+    val refreshToken: String
+)
 
 object TokenErrorListener : MutableLiveData<String>()
