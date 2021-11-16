@@ -1,4 +1,4 @@
-package com.alish.boilerplate.base
+package com.alish.boilerplate.common.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

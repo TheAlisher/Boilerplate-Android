@@ -1,4 +1,4 @@
-package com.alish.boilerplate.base
+package com.alish.boilerplate.common.base
 
 interface IBaseDiffModel<N : Number> {
     val id: N

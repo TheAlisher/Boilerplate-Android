@@ -3,7 +3,7 @@ package com.alish.boilerplate.data.repositories
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.alish.boilerplate.base.BaseRepository
+import com.alish.boilerplate.common.base.BaseRepository
 import com.alish.boilerplate.data.network.apiservices.FooApiService
 import com.alish.boilerplate.data.network.dtos.toFoo
 import com.alish.boilerplate.data.network.pagingsources.FooPagingSource

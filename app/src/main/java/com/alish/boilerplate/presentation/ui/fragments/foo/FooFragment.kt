@@ -7,7 +7,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.R
-import com.alish.boilerplate.base.BaseFragment
+import com.alish.boilerplate.common.base.BaseFragment
 import com.alish.boilerplate.databinding.FragmentFooBinding
 import com.alish.boilerplate.common.extensions.showToastShort
 import com.alish.boilerplate.presentation.state.UIState

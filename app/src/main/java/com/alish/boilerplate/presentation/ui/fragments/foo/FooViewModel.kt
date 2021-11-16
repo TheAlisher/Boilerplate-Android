@@ -2,7 +2,7 @@ package com.alish.boilerplate.presentation.ui.fragments.foo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.alish.boilerplate.base.BaseViewModel
+import com.alish.boilerplate.common.base.BaseViewModel
 import com.alish.boilerplate.data.repositories.FooRepositoryImpl
 import com.alish.boilerplate.domain.models.Foo
 import com.alish.boilerplate.domain.usecases.foo.FetchFooUseCase

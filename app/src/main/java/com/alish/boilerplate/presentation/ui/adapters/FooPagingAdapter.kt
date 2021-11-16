@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.alish.boilerplate.base.BaseDiffUtilItemCallback
+import com.alish.boilerplate.common.base.BaseDiffUtilItemCallback
 import com.alish.boilerplate.databinding.ItemFooBinding
 import com.alish.boilerplate.domain.models.Foo
 
