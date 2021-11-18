@@ -65,7 +65,7 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
 
     // UI Components
-    implementation("androidx.constraintlayout:constraintlayout:2.1.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
 
     // Activity
     val activity_version = "1.4.0"
