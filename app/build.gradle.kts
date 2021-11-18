@@ -111,7 +111,7 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:${Dependencies.Versions.hilt}")
 
     // Paging 3
-    val paging_version = "3.0.1"
+    val paging_version = "3.1.0"
     implementation("androidx.paging:paging-runtime-ktx:$paging_version")
 
     // ViewBindingPropertyDelegate
