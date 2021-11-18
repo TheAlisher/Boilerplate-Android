@@ -59,7 +59,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.7.0")
 
     // Appcompat
-    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("androidx.appcompat:appcompat:1.4.0")
 
     // Material Design Components
     implementation("com.google.android.material:material:1.4.0")
