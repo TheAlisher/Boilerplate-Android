@@ -1,6 +1,6 @@
 package com.alish.boilerplate.common.base
 
-interface IBaseDiffModel<N : Number> {
-    val id: N
+interface IBaseDiffModel {
+    val id: Long
     override fun equals(other: Any?): Boolean
 }
