@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
  * Base Comparator
  */
 
-class BaseDiffUtilItemCallback<N : Number, T : IBaseDiffModel> : DiffUtil.ItemCallback<T>() {
+class BaseDiffUtilItemCallback<T : IBaseDiffModel> : DiffUtil.ItemCallback<T>() {
 
     override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
         return oldItem.id == newItem.id
