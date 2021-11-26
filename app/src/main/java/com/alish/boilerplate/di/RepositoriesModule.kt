@@ -1,6 +1,5 @@
 package com.alish.boilerplate.di
 
-import com.alish.boilerplate.data.network.apiservices.FooApiService
 import com.alish.boilerplate.data.repositories.FooRepositoryImpl
 import com.alish.boilerplate.domain.repositories.FooRepository
 import dagger.Module
@@ -13,7 +12,9 @@ import dagger.hilt.components.SingletonComponent
 object RepositoriesModule {
 
     @Provides
-    fun provideFooRepository(service: FooApiService): FooRepository {
-        return FooRepositoryImpl(service)
+    fun provideFooRepository(
+        fooRepositoryImpl: FooRepositoryImpl
+    ): FooRepository {
+        return fooRepositoryImpl
     }
 }
