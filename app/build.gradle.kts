@@ -109,6 +109,10 @@ dependencies {
     implementation("com.google.dagger:hilt-android:${Dependencies.Versions.hilt}")
     // | Kapt
     kapt("com.google.dagger:hilt-compiler:${Dependencies.Versions.hilt}")
+    // | Extensions
+    val hiltExtensionsVersion = "1.3.0-RC1"
+    implementation("it.czerwinski.android.hilt:hilt-extensions:$hiltExtensionsVersion")
+    kapt("it.czerwinski.android.hilt:hilt-processor:$hiltExtensionsVersion")
 
     // Paging 3
     val pagingVersion = "3.1.0"
