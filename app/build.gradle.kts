@@ -68,29 +68,29 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.2")
 
     // Activity
-    val activity_version = "1.4.0"
-    implementation("androidx.activity:activity-ktx:$activity_version")
+    val activityVersion = "1.4.0"
+    implementation("androidx.activity:activity-ktx:$activityVersion")
 
     // Fragment
-    val fragment_version = "1.4.0"
-    implementation("androidx.fragment:fragment-ktx:$fragment_version")
+    val fragmentVersion = "1.4.0"
+    implementation("androidx.fragment:fragment-ktx:$fragmentVersion")
 
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:${Dependencies.Versions.nav}")
     implementation("androidx.navigation:navigation-ui-ktx:${Dependencies.Versions.nav}")
 
     // Lifecycle
-    val lifecycle_version = "2.4.0"
+    val lifecycleVersion = "2.4.0"
     // | for ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     // | for LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
 
     // Retrofit 2
-    val retrofit_version = "2.9.0"
-    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
+    val retrofitVersion = "2.9.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     // | Gson
-    implementation("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
 
     // OkHttp
     implementation("com.squareup.okhttp3:okhttp-bom:4.9.0")
@@ -98,12 +98,12 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor")
 
     // Room
-    val room_version = "2.3.0"
-    implementation("androidx.room:room-runtime:$room_version")
+    val roomVersion = "2.3.0"
+    implementation("androidx.room:room-runtime:$roomVersion")
     // | Kapt
-    kapt("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$roomVersion")
     // | optional - Kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:$room_version")
+    implementation("androidx.room:room-ktx:$roomVersion")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:${Dependencies.Versions.hilt}")
@@ -111,8 +111,8 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:${Dependencies.Versions.hilt}")
 
     // Paging 3
-    val paging_version = "3.1.0"
-    implementation("androidx.paging:paging-runtime-ktx:$paging_version")
+    val pagingVersion = "3.1.0"
+    implementation("androidx.paging:paging-runtime-ktx:$pagingVersion")
 
     // ViewBindingPropertyDelegate
     // | kirich1409 | To use only without reflection variants of viewBinding
