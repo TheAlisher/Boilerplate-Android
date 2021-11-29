@@ -1,9 +1,9 @@
-package com.alish.boilerplate.data.network.pagingsources
+package com.alish.boilerplate.data.remote.pagingsources
 
 import com.alish.boilerplate.common.base.BasePagingSource
-import com.alish.boilerplate.data.network.apiservices.FooApiService
-import com.alish.boilerplate.data.network.dtos.FooDto
-import com.alish.boilerplate.data.network.dtos.toFoo
+import com.alish.boilerplate.data.remote.apiservices.FooApiService
+import com.alish.boilerplate.data.remote.dtos.FooDto
+import com.alish.boilerplate.data.remote.dtos.toFoo
 import com.alish.boilerplate.domain.models.Foo
 
 class FooPagingSource(

@@ -1,7 +1,7 @@
-package com.alish.boilerplate.data.network.authenticator
+package com.alish.boilerplate.data.remote.authenticator
 
 import com.alish.boilerplate.common.constants.Constants
-import com.alish.boilerplate.data.network.interceptors.LoggingInterceptor
+import com.alish.boilerplate.data.remote.interceptors.LoggingInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.network.dtos
+package com.alish.boilerplate.data.remote.dtos
 
 data class FooPagingResponse<T>(
     val prev: Int?,

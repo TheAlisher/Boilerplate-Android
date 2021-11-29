@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.network.interceptors
+package com.alish.boilerplate.data.remote.interceptors
 
 import okhttp3.Interceptor
 import okhttp3.Response

@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.network.authenticator
+package com.alish.boilerplate.data.remote.authenticator
 
 import androidx.lifecycle.MutableLiveData
 

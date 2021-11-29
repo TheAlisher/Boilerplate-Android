@@ -2,7 +2,7 @@ package com.alish.boilerplate.common.base
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.alish.boilerplate.data.network.dtos.FooPagingResponse
+import com.alish.boilerplate.data.remote.dtos.FooPagingResponse
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
