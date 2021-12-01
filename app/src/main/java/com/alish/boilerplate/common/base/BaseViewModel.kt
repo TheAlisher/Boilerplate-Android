@@ -11,8 +11,9 @@ import kotlinx.coroutines.launch
 
 abstract class BaseViewModel : ViewModel() {
 
-    protected fun <T> MutableLiveData<UIState<T>>.subscribeTo(
-        request: () -> Flow<Resource<T>>
+    protected fun <TDomain, T> MutableLiveData<UIState<T>>.subscribeTo(
+        request: () -> Flow<Resource<TDomain>>,
+        mappedData: (TDomain) -> T
     ) {
         viewModelScope.launch {
             request().collect {
@@ -24,7 +25,7 @@ abstract class BaseViewModel : ViewModel() {
                         this@subscribeTo.value = UIState.Error(error)
                     }
                     is Resource.Success -> it.data?.let { data ->
-                        this@subscribeTo.value = UIState.Success(data)
+                        this@subscribeTo.value = UIState.Success(mappedData(data))
                     }
                 }
             }
