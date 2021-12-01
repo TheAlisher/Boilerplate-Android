@@ -11,21 +11,20 @@ import kotlinx.coroutines.launch
 
 abstract class BaseViewModel : ViewModel() {
 
-    protected fun <T> subscribeTo(
-        state: MutableLiveData<UIState<T>>,
+    protected fun <T> MutableLiveData<UIState<T>>.subscribeTo(
         request: () -> Flow<Resource<T>>
     ) {
         viewModelScope.launch {
             request().collect {
                 when (it) {
                     is Resource.Loading -> {
-                        state.value = UIState.Loading()
+                        this@subscribeTo.value = UIState.Loading()
                     }
                     is Resource.Error -> it.message?.let { error ->
-                        state.value = UIState.Error(error)
+                        this@subscribeTo.value = UIState.Error(error)
                     }
                     is Resource.Success -> it.data?.let { data ->
-                        state.value = UIState.Success(data)
+                        this@subscribeTo.value = UIState.Success(data)
                     }
                 }
             }

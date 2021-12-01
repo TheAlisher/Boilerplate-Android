@@ -20,9 +20,7 @@ class FooViewModel @Inject constructor(
     val fooState: LiveData<UIState<Foo>> = _fooState
 
     fun fetchFoo() {
-        subscribeTo(_fooState) {
-            fetchFooUseCase()
-        }
+        _fooState.subscribeTo { fetchFooUseCase() }
     }
 
     fun fetchFooPaging() = repository.fetchFooPaging()
