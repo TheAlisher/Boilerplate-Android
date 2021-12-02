@@ -53,7 +53,7 @@ dependencies {
 
     // Kotlin
     // | Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-RC")
 
     // Core
     implementation("androidx.core:core-ktx:1.7.0")
