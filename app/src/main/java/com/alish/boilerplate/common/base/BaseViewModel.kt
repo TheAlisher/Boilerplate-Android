@@ -35,7 +35,7 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
-    protected fun <TDto : Any, T : Any> Flow<PagingData<TDto>>.mapPaging(
-        mappedData: (TDto) -> T
+    protected fun <ValueDomain : Any, ValueUI : Any> Flow<PagingData<ValueDomain>>.mapPaging(
+        mappedData: (ValueDomain) -> ValueUI
     ) = this.map { data -> data.map { mappedData(it) } }
 }
