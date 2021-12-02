@@ -12,4 +12,4 @@ class FooDto(
     val bar: String
 )
 
-fun FooDto.toFoo() = Foo(id, bar)
+fun FooDto.toDomain() = Foo(id, bar)

@@ -2,7 +2,7 @@ package com.alish.boilerplate.data.repositories
 
 import com.alish.boilerplate.common.base.BaseRepository
 import com.alish.boilerplate.data.remote.apiservices.FooApiService
-import com.alish.boilerplate.data.remote.dtos.toFoo
+import com.alish.boilerplate.data.remote.dtos.toDomain
 import com.alish.boilerplate.data.remote.pagingsources.FooPagingSource
 import com.alish.boilerplate.domain.repositories.FooRepository
 import it.czerwinski.android.hilt.annotations.BoundTo
@@ -14,7 +14,7 @@ class FooRepositoryImpl @Inject constructor(
 ) : BaseRepository(), FooRepository {
 
     override fun fetchFoo() = doRequest {
-        service.fetchFoo().toFoo()
+        service.fetchFoo().toDomain()
     }
 
     fun fetchFooPaging() = doPagingRequest(FooPagingSource(service))
