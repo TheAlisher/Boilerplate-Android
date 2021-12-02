@@ -2,6 +2,8 @@ package com.alish.boilerplate.presentation.ui.fragments.foo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import com.alish.boilerplate.common.base.BaseViewModel
 import com.alish.boilerplate.data.repositories.FooRepositoryImpl
 import com.alish.boilerplate.domain.usecases.foo.FetchFooUseCase
@@ -25,4 +27,6 @@ class FooViewModel @Inject constructor(
     }
 
     fun fetchFooPaging() = repository.fetchFooPaging()
+        .mapPaging { it.toFooUI() }
+        .cachedIn(viewModelScope)
 }
