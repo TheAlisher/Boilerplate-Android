@@ -120,7 +120,7 @@ dependencies {
 
     // ViewBindingPropertyDelegate
     // | kirich1409 | To use only without reflection variants of viewBinding
-    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.2")
+    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3")
     // | yogacp
     implementation("com.github.yogacp:android-viewbinding:1.0.3")
 }
