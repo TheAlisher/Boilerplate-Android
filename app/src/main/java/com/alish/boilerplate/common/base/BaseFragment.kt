@@ -2,8 +2,6 @@ package com.alish.boilerplate.common.base
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.OnBackPressedCallback
-import androidx.activity.addCallback
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
@@ -18,11 +16,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setupOverrideOnBackPressed()
         setupPermissionsLaunchers()
-    }
-
-    protected open fun setupOverrideOnBackPressed() {
     }
 
     protected open fun setupPermissionsLaunchers() {
@@ -47,11 +41,5 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     protected open fun setupObservers() {
-    }
-
-    protected fun overrideOnBackPressed(onBackPressed: OnBackPressedCallback.() -> Unit) {
-        requireActivity().onBackPressedDispatcher.addCallback(this) {
-            onBackPressed()
-        }
     }
 }
