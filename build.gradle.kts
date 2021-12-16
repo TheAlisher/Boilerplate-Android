@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.4")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
 
         // Navigation Safe Args
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Dependencies.Versions.nav}")
