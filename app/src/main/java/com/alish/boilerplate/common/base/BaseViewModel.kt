@@ -6,6 +6,7 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.alish.boilerplate.common.resource.Resource
 import com.alish.boilerplate.presentation.state.UIState
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
@@ -18,7 +19,7 @@ abstract class BaseViewModel : ViewModel() {
         request: () -> Flow<Resource<TDomain>>,
         mappedData: (TDomain) -> T
     ) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             request().collect {
                 when (it) {
                     is Resource.Loading -> {
