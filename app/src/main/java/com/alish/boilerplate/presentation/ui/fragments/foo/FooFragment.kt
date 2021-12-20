@@ -4,7 +4,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -15,7 +14,6 @@ import com.alish.boilerplate.presentation.state.UIState
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -67,18 +65,14 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun subscribeToFoo() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.fooState.collect {
-                    binding.loaderFoo.isVisible = it is UIState.Loading
-                    when (it) {
-                        is UIState.Loading -> {
-                        }
-                        is UIState.Error -> {
-                        }
-                        is UIState.Success -> {
-                        }
-                    }
+        viewModel.fooState.subscribe(Lifecycle.State.STARTED) {
+            binding.loaderFoo.isVisible = it is UIState.Loading
+            when (it) {
+                is UIState.Loading -> {
+                }
+                is UIState.Error -> {
+                }
+                is UIState.Success -> {
                 }
             }
         }
