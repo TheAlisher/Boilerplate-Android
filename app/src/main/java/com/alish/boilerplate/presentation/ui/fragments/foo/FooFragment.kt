@@ -9,11 +9,11 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.R
 import com.alish.boilerplate.common.base.BaseFragment
 import com.alish.boilerplate.databinding.FragmentFooBinding
-import com.alish.boilerplate.common.extensions.showToastShort
 import com.alish.boilerplate.presentation.state.UIState
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -65,18 +65,18 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun subscribeToFoo() {
-        viewModel.fooState.observe(viewLifecycleOwner, {
-            binding.loaderFoo.isVisible = it is UIState.Loading
-            when (it) {
-                is UIState.Loading -> {
-                }
-                is UIState.Error -> {
-                    showToastShort(it.error)
-                }
-                is UIState.Success -> {
-                    // …
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.fooState.collect {
+                binding.loaderFoo.isVisible = it is UIState.Loading
+                when (it) {
+                    is UIState.Loading -> {
+                    }
+                    is UIState.Error -> {
+                    }
+                    is UIState.Success -> {
+                    }
                 }
             }
-        })
+        }
     }
 }
