@@ -81,10 +81,9 @@ dependencies {
 
     // Lifecycle
     val lifecycleVersion = "2.4.0"
+
     // | for ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
-    // | for LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
 
     // Retrofit 2
     val retrofitVersion = "2.9.0"
