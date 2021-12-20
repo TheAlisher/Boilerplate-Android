@@ -1,4 +1,4 @@
-package com.alish.boilerplate.common.base
+package com.alish.boilerplate.data.remote.pagingsources.base
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
