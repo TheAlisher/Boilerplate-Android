@@ -1,4 +1,4 @@
-package com.alish.boilerplate.common.base
+package com.alish.boilerplate.presentation.base
 
 import android.app.Dialog
 import android.content.DialogInterface

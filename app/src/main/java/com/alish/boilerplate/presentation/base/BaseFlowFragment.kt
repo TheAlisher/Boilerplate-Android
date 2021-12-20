@@ -1,4 +1,4 @@
-package com.alish.boilerplate.common.base
+package com.alish.boilerplate.presentation.base
 
 import android.os.Bundle
 import android.view.View

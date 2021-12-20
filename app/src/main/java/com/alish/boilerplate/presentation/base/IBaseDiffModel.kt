@@ -1,4 +1,4 @@
-package com.alish.boilerplate.common.base
+package com.alish.boilerplate.presentation.base
 
 interface IBaseDiffModel {
     val id: Long

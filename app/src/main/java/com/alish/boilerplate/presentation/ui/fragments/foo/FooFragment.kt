@@ -2,13 +2,12 @@ package com.alish.boilerplate.presentation.ui.fragments.foo
 
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.R
-import com.alish.boilerplate.common.base.BaseFragment
+import com.alish.boilerplate.presentation.base.BaseFragment
 import com.alish.boilerplate.databinding.FragmentFooBinding
 import com.alish.boilerplate.presentation.state.UIState
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
