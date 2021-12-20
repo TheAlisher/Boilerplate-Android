@@ -81,7 +81,8 @@ dependencies {
 
     // Lifecycle
     val lifecycleVersion = "2.4.0"
-
+    // | for Lifecycles only (without ViewModel or LiveData)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
     // | for ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
