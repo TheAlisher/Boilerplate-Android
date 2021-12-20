@@ -51,7 +51,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     protected fun <T> StateFlow<UIState<T>>.subscribe(
-        state: Lifecycle.State,
+        state: Lifecycle.State = Lifecycle.State.STARTED,
         action: (UIState<T>) -> Unit
     ) {
         viewLifecycleOwner.lifecycleScope.launch {
