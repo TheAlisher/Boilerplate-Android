@@ -1,4 +1,4 @@
-package com.alish.boilerplate.common.extensions
+package com.alish.boilerplate.presentation.extensions
 
 import android.content.pm.PackageManager
 import androidx.activity.result.ActivityResultLauncher
