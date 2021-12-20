@@ -2,7 +2,9 @@ package com.alish.boilerplate.presentation.ui.fragments.foo
 
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -65,15 +67,17 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun subscribeToFoo() {
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.fooState.collect {
-                binding.loaderFoo.isVisible = it is UIState.Loading
-                when (it) {
-                    is UIState.Loading -> {
-                    }
-                    is UIState.Error -> {
-                    }
-                    is UIState.Success -> {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.fooState.collect {
+                    binding.loaderFoo.isVisible = it is UIState.Loading
+                    when (it) {
+                        is UIState.Loading -> {
+                        }
+                        is UIState.Error -> {
+                        }
+                        is UIState.Success -> {
+                        }
                     }
                 }
             }
