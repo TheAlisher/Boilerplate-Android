@@ -51,9 +51,8 @@ android {
 
 dependencies {
 
-    // Kotlin
-    // | Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-RC")
+    implementation(project(":data"))
+    implementation(project(":domain"))
 
     // Core
     implementation("androidx.core:core-ktx:1.7.0")
@@ -86,25 +85,6 @@ dependencies {
     // | for ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
-    // Retrofit 2
-    val retrofitVersion = "2.9.0"
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    // | Gson
-    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-
-    // OkHttp
-    implementation("com.squareup.okhttp3:okhttp-bom:4.9.0")
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
-
-    // Room
-    val roomVersion = "2.3.0"
-    implementation("androidx.room:room-runtime:$roomVersion")
-    // | Kapt
-    kapt("androidx.room:room-compiler:$roomVersion")
-    // | optional - Kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:$roomVersion")
-
     // Hilt
     implementation("com.google.dagger:hilt-android:${Dependencies.Versions.hilt}")
     // | Kapt
@@ -113,10 +93,6 @@ dependencies {
     val hiltExtensionsVersion = "1.3.0-RC1"
     implementation("it.czerwinski.android.hilt:hilt-extensions:$hiltExtensionsVersion")
     kapt("it.czerwinski.android.hilt:hilt-processor:$hiltExtensionsVersion")
-
-    // Paging 3
-    val pagingVersion = "3.1.0"
-    implementation("androidx.paging:paging-runtime-ktx:$pagingVersion")
 
     // ViewBindingPropertyDelegate
     // | kirich1409 | To use only without reflection variants of viewBinding
