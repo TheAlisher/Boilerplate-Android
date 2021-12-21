@@ -89,10 +89,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:${Dependencies.Versions.hilt}")
     // | Kapt
     kapt("com.google.dagger:hilt-compiler:${Dependencies.Versions.hilt}")
-    // | Extensions
-    val hiltExtensionsVersion = "1.3.0-RC1"
-    implementation("it.czerwinski.android.hilt:hilt-extensions:$hiltExtensionsVersion")
-    kapt("it.czerwinski.android.hilt:hilt-processor:$hiltExtensionsVersion")
 
     // ViewBindingPropertyDelegate
     // | kirich1409 | To use only without reflection variants of viewBinding
