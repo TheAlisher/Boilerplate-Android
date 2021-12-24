@@ -38,6 +38,10 @@ dependencies {
 
     implementation(project(":domain"))
 
+    // Kotlin
+    // | Coroutines
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-RC3")
+
     // Retrofit 2
     val retrofitVersion = "2.9.0"
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
