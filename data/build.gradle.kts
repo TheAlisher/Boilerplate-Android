@@ -40,7 +40,7 @@ dependencies {
 
     // Kotlin
     // | Coroutines
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-RC3")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
 
     // Retrofit 2
     val retrofitVersion = "2.9.0"
