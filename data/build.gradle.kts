@@ -50,7 +50,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor")
 
     // Room
-    val roomVersion = "2.3.0"
+    val roomVersion = "2.4.1"
     api("androidx.room:room-runtime:$roomVersion")
     // | Kapt
     kapt("androidx.room:room-compiler:$roomVersion")
