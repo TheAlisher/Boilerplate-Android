@@ -70,8 +70,10 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
                 is UIState.Loading -> {
                 }
                 is UIState.Error -> {
+                    it.error
                 }
                 is UIState.Success -> {
+                    it.data
                 }
             }
         }
