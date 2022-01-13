@@ -1,6 +1,5 @@
 package com.alish.boilerplate.presentation.extensions
 
-import android.util.Log
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.annotation.IdRes
@@ -9,23 +8,11 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 
 fun NavController.navigateSafely(@IdRes actionId: Int) {
-    try {
-        navigate(actionId)
-    } catch (exception: IllegalArgumentException) {
-        loggingNavigateSafely(exception)
-    }
+    currentDestination?.getAction(actionId)?.let { navigate(actionId) }
 }
 
 fun NavController.navigateSafely(directions: NavDirections) {
-    try {
-        navigate(directions)
-    } catch (exception: IllegalArgumentException) {
-        loggingNavigateSafely(exception)
-    }
-}
-
-private fun loggingNavigateSafely(exception: IllegalArgumentException) {
-    Log.wtf("NavigateSafely", "This is a normal exception, do not pay attention", exception)
+    currentDestination?.getAction(directions.actionId)?.let { navigate(directions) }
 }
 
 fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback.() -> Unit) {
