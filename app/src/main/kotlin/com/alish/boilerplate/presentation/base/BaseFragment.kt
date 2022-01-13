@@ -49,13 +49,13 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected open fun setupObservers() {
     }
 
-    protected fun <T> StateFlow<UIState<T>>.collectState(
+    protected fun <T> StateFlow<UIState<T>>.collectUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         action: (UIState<T>) -> Unit
     ) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(lifecycleState) {
-                this@collectState.collect {
+                this@collectUIState.collect {
                     action(it)
                 }
             }
