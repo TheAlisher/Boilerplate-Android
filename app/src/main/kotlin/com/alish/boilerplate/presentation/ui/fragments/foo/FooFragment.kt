@@ -64,7 +64,7 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun subscribeToFoo() {
-        viewModel.fooState.subscribe {
+        viewModel.fooState.collectUIState {
             binding.loaderFoo.isVisible = it is UIState.Loading
             when (it) {
                 is UIState.Loading -> {
