@@ -34,7 +34,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         initialize()
         setupListeners()
         setupRequests()
-        setupObservers()
+        setupSubscribes()
     }
 
     protected open fun initialize() {
@@ -46,7 +46,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected open fun setupRequests() {
     }
 
-    protected open fun setupObservers() {
+    protected open fun setupSubscribes() {
     }
 
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
