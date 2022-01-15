@@ -23,7 +23,7 @@ class FooViewModel @Inject constructor(
     val fooState: StateFlow<UIState<FooUI>> = _fooState
 
     fun fetchFoo() {
-        _fooState.collectRequest({ fetchFooUseCase() }, { it.toUI() })
+        fetchFooUseCase().collectRequest(_fooState) { it.toUI() }
     }
 
     fun fetchFooPaging() = repository.fetchFooPaging()
