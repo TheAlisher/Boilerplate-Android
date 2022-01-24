@@ -61,7 +61,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.4.1")
 
     // Material Design Components
-    implementation("com.google.android.material:material:1.4.0")
+    implementation("com.google.android.material:material:1.5.0")
 
     // UI Components
     implementation("androidx.constraintlayout:constraintlayout:2.1.2")
