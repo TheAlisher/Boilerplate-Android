@@ -7,11 +7,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-abstract class BaseBottomSheet<Binding : ViewBinding> : BottomSheetDialogFragment() {
+abstract class BaseBottomSheet<Binding : ViewBinding>(
+    @LayoutRes private val layoutId: Int
+) : BottomSheetDialogFragment() {
 
     protected abstract val binding: Binding
 
@@ -32,10 +35,7 @@ abstract class BaseBottomSheet<Binding : ViewBinding> : BottomSheetDialogFragmen
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        /**
-         * for yogacp View Binding Property Delegate library
-         */
-        return binding.root
+        return inflater.inflate(layoutId, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
