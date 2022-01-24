@@ -19,15 +19,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected abstract val viewModel: ViewModel
     protected abstract val binding: Binding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setupPermissionsLaunchers()
-    }
-
-    protected open fun setupPermissionsLaunchers() {
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
