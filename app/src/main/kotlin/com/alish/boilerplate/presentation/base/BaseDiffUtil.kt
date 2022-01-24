@@ -2,9 +2,10 @@ package com.alish.boilerplate.presentation.base
 
 import androidx.recyclerview.widget.DiffUtil
 
-/**
- * Base Comparator
- */
+interface IBaseDiffModel {
+    val id: Long
+    override fun equals(other: Any?): Boolean
+}
 
 class BaseDiffUtilItemCallback<T : IBaseDiffModel> : DiffUtil.ItemCallback<T>() {
 
