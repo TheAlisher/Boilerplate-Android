@@ -2,6 +2,9 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
 
+    // Easylauncher
+    id("com.starter.easylauncher") version "5.0.0"
+
     // Kapt
     id("kotlin-kapt")
 
