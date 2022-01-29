@@ -2,9 +2,6 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
 
-    // Easylauncher
-    id("com.starter.easylauncher") version "5.0.0"
-
     // Kapt
     id("kotlin-kapt")
 
@@ -13,6 +10,9 @@ plugins {
 
     // Hilt
     id("dagger.hilt.android.plugin")
+
+    // Easylauncher
+    id("com.starter.easylauncher") version "5.0.0"
 }
 
 android {
@@ -101,3 +101,14 @@ dependencies {
     // | kirich1409 | To use only without reflection variants of viewBinding
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3")
 }
+
+/*
+easylauncher {
+
+    buildTypes {
+        getByName("debug") {
+            filters(customRibbon(label = "debug", ribbonColor = "#FF6200EE"))
+        }
+    }
+}
+*/
