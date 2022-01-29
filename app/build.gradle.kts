@@ -71,7 +71,7 @@ dependencies {
     implementation("androidx.activity:activity-ktx:$activityVersion")
 
     // Fragment
-    val fragmentVersion = "1.4.0"
+    val fragmentVersion = "1.4.1"
     implementation("androidx.fragment:fragment-ktx:$fragmentVersion")
 
     // Navigation
