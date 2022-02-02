@@ -1,3 +1,6 @@
+import kotlin.collections.setOf
+import com.project.starter.easylauncher.filter.ColorRibbonFilter.DrawingOption
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -108,9 +111,10 @@ easylauncher {
         create("debug") {
             filters(
                 customRibbon(
-                    label = "debug",
                     ribbonColor = "#FF6200EE",
-                    textSizeRatio = 0.2F
+                    drawingOptions = setOf(
+                        DrawingOption.IGNORE_TRANSPARENT_PIXELS, DrawingOption.ADD_EXTRA_PADDING
+                    )
                 )
             )
         }
