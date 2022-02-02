@@ -36,7 +36,7 @@ android {
             )
         }
 
-        named("debug") {
+        getByName("debug") {
             applicationIdSuffix = ".debug"
             isDebuggable = true
         }
@@ -106,7 +106,13 @@ easylauncher {
 
     buildTypes {
         create("debug") {
-            filters(customRibbon(label = "65436", ribbonColor = "#FF6200EE"))
+            filters(
+                customRibbon(
+                    label = "debug",
+                    ribbonColor = "#FF6200EE",
+                    textSizeRatio = 0.2F
+                )
+            )
         }
     }
 }
