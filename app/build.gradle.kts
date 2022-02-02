@@ -36,7 +36,7 @@ android {
             )
         }
 
-        getByName("debug") {
+        named("debug") {
             applicationIdSuffix = ".debug"
             isDebuggable = true
         }
@@ -102,13 +102,11 @@ dependencies {
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3")
 }
 
-/*
 easylauncher {
 
     buildTypes {
-        getByName("debug") {
-            filters(customRibbon(label = "debug", ribbonColor = "#FF6200EE"))
+        create("debug") {
+            filters(customRibbon(label = "65436", ribbonColor = "#FF6200EE"))
         }
     }
 }
-*/
