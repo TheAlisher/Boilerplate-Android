@@ -97,8 +97,7 @@ dependencies {
     // | Kapt
     kapt("com.google.dagger:hilt-compiler:${Dependencies.Versions.hilt}")
 
-    // ViewBindingPropertyDelegate
-    // | kirich1409 | To use only without reflection variants of viewBinding
+    // ViewBindingPropertyDelegate | To use only without reflection variants of viewBinding
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3")
 }
 
