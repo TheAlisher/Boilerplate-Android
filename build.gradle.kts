@@ -1,13 +1,11 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url = uri("https://jitpack.io") }
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:7.1.1")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+plugins {
+    id("com.android.application") version "7.1.1" apply false
+    id("com.android.library") version "7.1.1" apply false
+    kotlin("android") version "1.6.10" apply false
+}
 
+buildscript {
+    dependencies {
         // Navigation Safe Args
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Dependencies.Versions.nav}")
 
