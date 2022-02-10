@@ -5,7 +5,7 @@ object Dependencies {
         const val kotlin = "1.6.10"
 
         // Navigation
-        const val nav = "2.5.0-alpha01"
+        const val nav = "2.4.1"
 
         // Hilt
         const val hilt = "2.40.5"
