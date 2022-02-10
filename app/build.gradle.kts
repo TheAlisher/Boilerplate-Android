@@ -84,7 +84,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:${Dependencies.Versions.nav}")
 
     // Lifecycle
-    val lifecycleVersion = "2.4.0"
+    val lifecycleVersion = "2.4.1"
     // | for Lifecycles only (without ViewModel or LiveData)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
     // | for ViewModel
