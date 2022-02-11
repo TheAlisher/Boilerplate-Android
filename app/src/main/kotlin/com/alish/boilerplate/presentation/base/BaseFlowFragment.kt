@@ -13,14 +13,12 @@ abstract class BaseFlowFragment(
     @IdRes private val navHostFragmentId: Int
 ) : Fragment(layoutId) {
 
-    private lateinit var navController: NavController
-
     final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val navHostFragment =
             childFragmentManager.findFragmentById(navHostFragmentId) as NavHostFragment
-        navController = navHostFragment.navController
+        val navController = navHostFragment.navController
 
         setupNavigation(navController)
     }
