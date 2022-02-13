@@ -7,23 +7,18 @@ import com.alish.boilerplate.common.resource.Resource
 import com.alish.boilerplate.data.remote.pagingsources.base.BasePagingSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 abstract class BaseRepository {
 
-    protected fun <T> doRequest(request: suspend () -> T) = flow {
+    protected inline fun <reified T> doRequest(noinline request: suspend () -> T) = flow {
         emit(Resource.Loading())
-        try {
-            emit(Resource.Success(data = request()))
-        } catch (ioException: Exception) {
-            emit(
-                Resource.Error(
-                    data = null, message = ioException.localizedMessage ?: "Error Occurred!"
-                )
-            )
-        }
-    }.flowOn(Dispatchers.IO)
+        emit(Resource.Success(data = request()))
+    }.flowOn(Dispatchers.IO).catch { exception ->
+        emit(Resource.Error(data = null, message = exception.localizedMessage ?: "Error Occurred!"))
+    }
 
     protected fun <ValueDto : Any, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
