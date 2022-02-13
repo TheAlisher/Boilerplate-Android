@@ -5,8 +5,10 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.alish.boilerplate.common.resource.Resource
 import com.alish.boilerplate.data.remote.pagingsources.base.BasePagingSource
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 abstract class BaseRepository {
 
@@ -21,7 +23,7 @@ abstract class BaseRepository {
                 )
             )
         }
-    }
+    }.flowOn(Dispatchers.IO)
 
     protected fun <ValueDto : Any, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
