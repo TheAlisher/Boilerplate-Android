@@ -69,9 +69,7 @@ dependencies {
     implementation("com.google.android.material:material:1.5.0")
 
     // UI Components
-    // | ConstraintLayout
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-    // | ViewBindingPropertyDelegate | To use only without reflection variants of viewBinding
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3")
 
     // Activity
