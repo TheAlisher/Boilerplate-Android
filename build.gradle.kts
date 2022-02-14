@@ -8,9 +8,9 @@ buildscript {
     dependencies {
 
         // Navigation Safe Args
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Dependencies.Versions.nav}")
+        classpath(Dependencies.Navigation.safeArgsGradlePlugin)
 
         // Hilt
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${Dependencies.Versions.hilt}")
+        classpath(Dependencies.Hilt.androidGradlePlugin)
     }
 }
