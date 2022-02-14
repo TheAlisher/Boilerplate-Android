@@ -36,25 +36,19 @@ dependencies {
     implementation(project(":domain"))
 
     // Retrofit 2
-    val retrofitVersion = "2.9.0"
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    // | Gson
-    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation(Dependencies.Retrofit2.retrofit)
+    implementation(Dependencies.Retrofit2.converterGson)
 
     // OkHttp
-    implementation("com.squareup.okhttp3:okhttp-bom:5.0.0-alpha.3")
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
+    implementation(Dependencies.OkHttp3.bom)
+    implementation(Dependencies.OkHttp3.okHttp)
+    implementation(Dependencies.OkHttp3.loggingInterceptor)
 
     // Room
-    val roomVersion = "2.4.1"
-    api("androidx.room:room-runtime:$roomVersion")
-    // | Kapt
-    kapt("androidx.room:room-compiler:$roomVersion")
-    // | optional - Kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:$roomVersion")
+    api(Dependencies.Room.runtime)
+    kapt(Dependencies.Room.kapt)
+    implementation(Dependencies.Room.supportKotlinExtensionsAndCoroutines)
 
     // Paging 3
-    val pagingVersion = "3.1.0"
-    api("androidx.paging:paging-runtime-ktx:$pagingVersion")
+    api(Dependencies.Paging3.runtime)
 }

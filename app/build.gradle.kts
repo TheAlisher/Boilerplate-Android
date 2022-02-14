@@ -59,26 +59,19 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
-    // Core
-    implementation("androidx.core:core-ktx:1.7.0")
-
-    // Appcompat
-    implementation("androidx.appcompat:appcompat:1.4.1")
-
-    // Material Design Components
-    implementation("com.google.android.material:material:1.5.0")
-
     // UI Components
+    implementation("com.google.android.material:material:1.5.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3")
 
+    // Core
+    implementation(Dependencies.Core.core)
+
     // Activity
-    val activityVersion = "1.4.0"
-    implementation("androidx.activity:activity-ktx:$activityVersion")
+    implementation(Dependencies.Activity.activity)
 
     // Fragment
-    val fragmentVersion = "1.4.1"
-    implementation("androidx.fragment:fragment-ktx:$fragmentVersion")
+    implementation(Dependencies.Fragment.fragment)
 
     // Lifecycle
     implementation(Dependencies.Lifecycle.runtime)

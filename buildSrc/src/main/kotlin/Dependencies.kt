@@ -1,5 +1,30 @@
 object Dependencies {
 
+    object Kotlin {
+
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
+    }
+
+    // App
+    object Core {
+        private const val version = "1.7.0"
+
+        const val core = "androidx.core:core-ktx:$version"
+    }
+
+    object Activity {
+
+        private const val version = "1.4.0"
+
+        const val activity = "androidx.activity:activity-ktx:$version"
+    }
+
+    object Fragment {
+        private const val version = "1.4.1"
+
+        const val fragment = "androidx.fragment:fragment-ktx:$version"
+    }
+
     object Lifecycle {
         private const val version = "2.4.1"
 
@@ -27,5 +52,37 @@ object Dependencies {
         const val kapt = "com.google.dagger:hilt-compiler:$version"
 
         const val androidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$version"
+    }
+
+    // Data
+    object Retrofit2 {
+        private const val version = "2.9.0"
+
+        const val retrofit = "com.squareup.retrofit2:retrofit:$version"
+        const val converterGson = "com.squareup.retrofit2:converter-gson:$version"
+    }
+
+    object OkHttp3 {
+        private const val version = "5.0.0-alpha.3"
+
+        const val bom = "com.squareup.okhttp3:okhttp-bom:$version"
+        const val okHttp = "com.squareup.okhttp3:okhttp"
+        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor"
+    }
+
+    object Room {
+        private const val version = "2.4.1"
+
+        const val runtime = "androidx.room:room-runtime:$version"
+        const val kapt = "androidx.room:room-compiler:$version"
+
+        // | optional - Kotlin Extensions and Coroutines support for Room
+        const val supportKotlinExtensionsAndCoroutines = "androidx.room:room-ktx:$version"
+    }
+
+    object Paging3 {
+        private const val version = "3.1.0"
+
+        const val runtime = "androidx.paging:paging-runtime-ktx:$version"
     }
 }
