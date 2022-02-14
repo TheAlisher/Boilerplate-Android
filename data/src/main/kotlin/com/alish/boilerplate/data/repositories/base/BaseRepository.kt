@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.flowOn
 
 abstract class BaseRepository {
 
-    protected inline fun <reified T> doRequest(noinline request: suspend () -> T) = flow {
+    protected fun <T> doRequest(request: suspend () -> T) = flow {
         emit(Resource.Loading())
         emit(Resource.Success(data = request()))
     }.flowOn(Dispatchers.IO).catch { exception ->
