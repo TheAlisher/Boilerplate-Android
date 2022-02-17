@@ -1,7 +1,8 @@
 plugins {
     id("com.android.library")
     kotlin("android")
-    kotlin("kapt")
+
+    id(Dependencies.Kotlin.ksp) version Dependencies.Kotlin.kspVersion
 }
 
 android {
@@ -46,7 +47,7 @@ dependencies {
 
     // Room
     api(Dependencies.Room.runtime)
-    kapt(Dependencies.Room.kapt)
+    ksp(Dependencies.Room.compiler)
     implementation(Dependencies.Room.supportKotlinExtensionsAndCoroutines)
 
     // Paging 3
