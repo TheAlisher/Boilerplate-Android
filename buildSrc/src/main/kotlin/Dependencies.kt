@@ -16,7 +16,6 @@ object Dependencies {
     }
 
     object Activity {
-
         private const val version = "1.4.0"
 
         const val activity = "androidx.activity:activity-ktx:$version"

@@ -4,10 +4,10 @@ plugins {
     kotlin("kapt")
 
     // Navigation Safe Args
-    id("androidx.navigation.safeargs.kotlin")
+    id(Dependencies.Navigation.safeArgsPlugin)
 
     // Hilt
-    id("dagger.hilt.android.plugin")
+    id(Dependencies.Hilt.plugin)
 
     // Easylauncher
     id("com.starter.easylauncher") version "5.0.0"
