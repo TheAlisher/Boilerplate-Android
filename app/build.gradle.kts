@@ -83,7 +83,7 @@ dependencies {
 
     // Hilt
     implementation(Dependencies.Hilt.android)
-    kapt(Dependencies.Hilt.kapt)
+    kapt(Dependencies.Hilt.compiler)
 }
 
 easylauncher {

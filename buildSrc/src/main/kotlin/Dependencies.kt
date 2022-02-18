@@ -49,7 +49,7 @@ object Dependencies {
         const val version = "2.41"
 
         const val android = "com.google.dagger:hilt-android:$version"
-        const val kapt = "com.google.dagger:hilt-compiler:$version"
+        const val compiler = "com.google.dagger:hilt-compiler:$version"
         const val plugin = "com.google.dagger.hilt.android"
     }
 
