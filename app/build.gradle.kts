@@ -60,9 +60,9 @@ dependencies {
     implementation(project(":domain"))
 
     // UI Components
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3")
+    implementation(Dependencies.UIComponents.material)
+    implementation(Dependencies.UIComponents.constraintLayout)
+    implementation(Dependencies.UIComponents.viewBindingPropertyDelegate)
 
     // Core
     implementation(Dependencies.Core.core)

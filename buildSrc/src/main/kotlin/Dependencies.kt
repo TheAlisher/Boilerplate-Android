@@ -9,6 +9,13 @@ object Dependencies {
     }
 
     // App
+    object UIComponents {
+        const val material = "com.google.android.material:material:1.5.0"
+        const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.3"
+        const val viewBindingPropertyDelegate =
+            "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3"
+    }
+
     object Core {
         private const val version = "1.7.0"
 
