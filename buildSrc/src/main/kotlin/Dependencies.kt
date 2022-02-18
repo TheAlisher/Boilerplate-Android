@@ -62,7 +62,7 @@ object Dependencies {
     }
 
     object OkHttp3 {
-        private const val version = "5.0.0-alpha.3"
+        private const val version = "5.0.0-alpha.4"
 
         const val bom = "com.squareup.okhttp3:okhttp-bom:$version"
         const val okHttp = "com.squareup.okhttp3:okhttp"
