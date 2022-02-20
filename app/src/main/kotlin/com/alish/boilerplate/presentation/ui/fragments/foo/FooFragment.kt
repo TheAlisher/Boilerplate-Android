@@ -52,10 +52,8 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun fetchFooPaging() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.fetchFooPaging().collectLatest {
-                fooPagingAdapter.submitData(it)
-            }
+        viewModel.fetchFooPaging().collectPaging {
+            fooPagingAdapter.submitData(it)
         }
     }
 
