@@ -17,9 +17,10 @@ object NetworkModule {
     fun provideAuthenticatorApiService() = AuthenticatorClient().provideAuthenticatorApiService()
 
     @Singleton
-    val retrofitClient = RetrofitClient()
+    @Provides
+    fun provideRetrofitClient() = RetrofitClient()
 
     @Singleton
     @Provides
-    fun provideFooApiService() = retrofitClient.provideFooApiService()
+    fun provideFooApiService(retrofitClient: RetrofitClient) = retrofitClient.provideFooApiService()
 }
