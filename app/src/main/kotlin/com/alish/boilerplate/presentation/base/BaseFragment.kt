@@ -48,20 +48,23 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         collector: FlowCollector<UIState<T>>
     ) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(lifecycleState) {
-                this@collectUIState.collect(collector)
-            }
-        }
+        collectFlowSafely(lifecycleState) { this.collect(collector) }
     }
 
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         action: suspend (value: PagingData<T>) -> Unit
     ) {
+        collectFlowSafely(lifecycleState) { this.collectLatest { action(it) } }
+    }
+
+    private fun collectFlowSafely(
+        lifecycleState: Lifecycle.State,
+        collect: suspend () -> Unit
+    ) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(lifecycleState) {
-                this@collectPaging.collectLatest { action(it) }
+                collect()
             }
         }
     }
