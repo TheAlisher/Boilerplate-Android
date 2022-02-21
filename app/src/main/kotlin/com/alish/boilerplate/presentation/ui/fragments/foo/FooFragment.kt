@@ -65,6 +65,7 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
         viewModel.fooState.collectUIState {
             binding.loaderFoo.isVisible = it is UIState.Loading
             when (it) {
+                is UIState.Idle -> {}
                 is UIState.Loading -> {
                 }
                 is UIState.Error -> {
