@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlin.reflect.KProperty
 
 abstract class BaseViewModel : ViewModel() {
 
@@ -40,10 +39,4 @@ abstract class BaseViewModel : ViewModel() {
     protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
         mappedData: (T) -> S
     ) = map { it.map { data -> mappedData(data) } }.cachedIn(viewModelScope)
-
-    class FlowUIState<T> {
-        operator fun getValue(thisRef: Any?, property: KProperty<*>): MutableStateFlow<UIState<T>> {
-            return MutableStateFlow(UIState.Idle())
-        }
-    }
 }
