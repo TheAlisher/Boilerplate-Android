@@ -2,7 +2,6 @@ package com.alish.boilerplate.presentation.ui.fragments.foo
 
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -13,8 +12,6 @@ import com.alish.boilerplate.presentation.state.UIState
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.fragment_foo) {
@@ -65,7 +62,6 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
         viewModel.fooState.collectUIState {
             binding.loaderFoo.isVisible = it is UIState.Loading
             when (it) {
-                is UIState.Idle -> {}
                 is UIState.Loading -> {
                 }
                 is UIState.Error -> {
