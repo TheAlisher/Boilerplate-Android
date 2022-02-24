@@ -4,8 +4,10 @@ object Dependencies {
 
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
 
-        const val ksp = "com.google.devtools.ksp"
-        const val kspVersion = "1.6.10-1.0.4"
+        object KSP {
+            const val ksp = "com.google.devtools.ksp"
+            const val version = "1.6.10-1.0.4"
+        }
     }
 
     // App
