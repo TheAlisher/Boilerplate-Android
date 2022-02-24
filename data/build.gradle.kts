@@ -36,13 +36,13 @@ dependencies {
     implementation(project(":domain"))
 
     // Retrofit 2
-    implementation(Dependencies.Retrofit2.retrofit)
-    implementation(Dependencies.Retrofit2.converterGson)
+    implementation(Dependencies.Retrofit.retrofit)
+    implementation(Dependencies.Retrofit.converterGson)
 
     // OkHttp
-    implementation(Dependencies.OkHttp3.bom)
-    implementation(Dependencies.OkHttp3.okHttp)
-    implementation(Dependencies.OkHttp3.loggingInterceptor)
+    implementation(Dependencies.OkHttp.bom)
+    implementation(Dependencies.OkHttp.okHttp)
+    implementation(Dependencies.OkHttp.loggingInterceptor)
 
     // Room
     api(Dependencies.Room.runtime)
@@ -50,5 +50,5 @@ dependencies {
     implementation(Dependencies.Room.supportKotlinExtensionsAndCoroutines)
 
     // Paging 3
-    api(Dependencies.Paging3.runtime)
+    api(Dependencies.Paging.runtime)
 }

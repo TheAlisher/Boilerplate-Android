@@ -61,14 +61,14 @@ object Dependencies {
     }
 
     // Data
-    object Retrofit2 {
+    object Retrofit {
         private const val version = "2.9.0"
 
         const val retrofit = "com.squareup.retrofit2:retrofit:$version"
         const val converterGson = "com.squareup.retrofit2:converter-gson:$version"
     }
 
-    object OkHttp3 {
+    object OkHttp {
         private const val version = "5.0.0-alpha.5"
 
         const val bom = "com.squareup.okhttp3:okhttp-bom:$version"
@@ -86,7 +86,7 @@ object Dependencies {
         const val supportKotlinExtensionsAndCoroutines = "androidx.room:room-ktx:$version"
     }
 
-    object Paging3 {
+    object Paging {
         private const val version = "3.1.0"
 
         const val runtime = "androidx.paging:paging-runtime-ktx:$version"
