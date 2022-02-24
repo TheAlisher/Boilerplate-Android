@@ -1,5 +1,6 @@
 package com.alish.boilerplate.data.remote
 
+import com.alish.boilerplate.data.BuildConfig
 import com.alish.boilerplate.data.remote.interceptors.LoggingInterceptor
 import com.alish.boilerplate.data.remote.apiservices.FooApiService
 import okhttp3.OkHttpClient
@@ -18,7 +19,7 @@ class RetrofitClient {
         .build()
 
     private val provideRetrofit = Retrofit.Builder()
-        .baseUrl("https://example.org/")
+        .baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
