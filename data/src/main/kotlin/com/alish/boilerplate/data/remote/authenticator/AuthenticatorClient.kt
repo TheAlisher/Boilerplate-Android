@@ -1,6 +1,5 @@
 package com.alish.boilerplate.data.remote.authenticator
 
-import com.alish.boilerplate.common.constants.Constants
 import com.alish.boilerplate.data.remote.interceptors.LoggingInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -18,7 +17,7 @@ class AuthenticatorClient {
         .build()
 
     private val provideAuthenticatorRetrofit = Retrofit.Builder()
-        .baseUrl(Constants.BASE_URL)
+        .baseUrl("")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
