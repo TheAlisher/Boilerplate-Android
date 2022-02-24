@@ -3,7 +3,7 @@ package com.alish.boilerplate.data.repositories.base
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.alish.boilerplate.common.resource.Resource
+import com.alish.boilerplate.domain.Resource
 import com.alish.boilerplate.data.remote.pagingsources.base.BasePagingSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

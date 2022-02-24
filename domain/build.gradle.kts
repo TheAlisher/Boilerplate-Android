@@ -9,8 +9,6 @@ java {
 
 dependencies {
 
-    api(project(":common"))
-
     // Javax Inject
     api("javax.inject:javax.inject:1")
 

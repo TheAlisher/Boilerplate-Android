@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.alish.boilerplate.common.resource.Resource
+import com.alish.boilerplate.domain.Resource
 import com.alish.boilerplate.presentation.state.UIState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

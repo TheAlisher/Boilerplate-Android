@@ -20,5 +20,4 @@ include(
     ":app",
     ":data",
     ":domain",
-    ":common"
 )

@@ -1,6 +1,6 @@
 package com.alish.boilerplate.domain.repositories
 
-import com.alish.boilerplate.common.resource.Resource
+import com.alish.boilerplate.domain.Resource
 import com.alish.boilerplate.domain.models.Foo
 import kotlinx.coroutines.flow.Flow
 
