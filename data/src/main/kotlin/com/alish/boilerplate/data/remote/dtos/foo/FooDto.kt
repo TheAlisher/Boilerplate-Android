@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote.dtos
+package com.alish.boilerplate.data.remote.dtos.foo
 
 import com.alish.boilerplate.domain.models.Foo
 import com.google.gson.annotations.SerializedName

@@ -1,7 +1,7 @@
 package com.alish.boilerplate.di
 
+import androidx.lifecycle.MutableLiveData
 import com.alish.boilerplate.data.remote.RetrofitClient
-import com.alish.boilerplate.data.remote.authenticator.AuthenticatorClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,11 +14,16 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideAuthenticatorApiService() = AuthenticatorClient().provideAuthenticatorApiService()
-
-    private val retrofitClient = RetrofitClient()
+    fun provideTokenErrorListener() = MutableLiveData<String>()
 
     @Singleton
     @Provides
-    fun provideFooApiService() = retrofitClient.provideFooApiService()
+    fun provideAuthenticatorApiService() = RetrofitClient.Authenticator()
+        .provideAuthenticatorApiService()
+
+    @Singleton
+    @Provides
+    fun provideFooApiService(
+        retrofitClient: RetrofitClient
+    ) = retrofitClient.provideFooApiService()
 }
