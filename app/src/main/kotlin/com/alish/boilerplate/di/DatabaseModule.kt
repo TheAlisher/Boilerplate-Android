@@ -15,7 +15,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
-    private val roomClient = RoomClient()
+    @Singleton
+    val roomClient = RoomClient()
 
     @Singleton
     @Provides
