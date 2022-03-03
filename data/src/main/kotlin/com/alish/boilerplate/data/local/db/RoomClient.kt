@@ -10,6 +10,5 @@ class RoomClient {
         .databaseBuilder(context, AppDatabase::class.java, "boilerplate.db")
         .build()
 
-    fun provideFooDao(appDatabase: AppDatabase): FooDao = appDatabase
-        .fooDao()
+    fun provideFooDao(appDatabase: AppDatabase): FooDao = appDatabase.fooDao()
 }
