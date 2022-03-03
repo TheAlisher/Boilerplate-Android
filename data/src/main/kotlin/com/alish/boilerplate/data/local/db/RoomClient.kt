@@ -6,7 +6,7 @@ import com.alish.boilerplate.data.local.db.daos.FooDao
 
 class RoomClient {
 
-    fun provideRoom(context: Context) = Room
+    fun provideAppDatabase(context: Context) = Room
         .databaseBuilder(context, AppDatabase::class.java, "boilerplate.db")
         .build()
 

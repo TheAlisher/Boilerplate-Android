@@ -20,9 +20,9 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideRoom(
+    fun provideAppDatabase(
         @ApplicationContext context: Context
-    ): AppDatabase = roomClient.provideRoom(context)
+    ): AppDatabase = roomClient.provideAppDatabase(context)
 
     @Singleton
     @Provides
