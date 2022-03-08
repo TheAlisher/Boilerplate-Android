@@ -6,6 +6,7 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
+import androidx.navigation.fragment.NavHostFragment
 
 fun NavController.navigateSafely(@IdRes actionId: Int) {
     currentDestination?.getAction(actionId)?.let { navigate(actionId) }
@@ -19,4 +20,8 @@ fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback.() -> Un
     requireActivity().onBackPressedDispatcher.addCallback(this) {
         onBackPressed()
     }
+}
+
+inline fun <reified T : Fragment> Fragment.parentFragmentInNavHost(): T {
+    return ((parentFragment as NavHostFragment).parentFragment as T)
 }
