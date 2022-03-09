@@ -11,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
-import com.alish.boilerplate.presentation.state.UIState
+import com.alish.boilerplate.presentation.ui.state.UIState
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
