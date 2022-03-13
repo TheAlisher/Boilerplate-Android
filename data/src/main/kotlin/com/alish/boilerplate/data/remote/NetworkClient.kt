@@ -2,7 +2,6 @@ package com.alish.boilerplate.data.remote
 
 import com.alish.boilerplate.data.remote.apiservices.AuthenticatorApiService
 import com.alish.boilerplate.data.remote.apiservices.FooApiService
-import com.alish.boilerplate.data.remote.authenticator.TokenAuthenticator
 import javax.inject.Inject
 
 class NetworkClient @Inject constructor(
