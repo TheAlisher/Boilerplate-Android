@@ -13,11 +13,15 @@ import kotlinx.coroutines.flow.flowOn
 
 abstract class BaseRepository {
 
-    protected fun <T> doRequest(request: suspend () -> T) = flow {
-        emit(Resource.Loading())
-        emit(Resource.Success(data = request()))
+    protected fun <T> doRequest(
+        doSomethingInSuccess: ((T) -> Unit)? = null,
+        request: suspend () -> T
+    ) = flow<Resource<T>> {
+        val requestProperty = request()
+        emit(Resource.Success(data = requestProperty))
+        doSomethingInSuccess?.invoke(requestProperty)
     }.flowOn(Dispatchers.IO).catch { exception ->
-        emit(Resource.Error(data = null, message = exception.localizedMessage ?: "Error Occurred!"))
+        emit(Resource.Error(message = exception.localizedMessage ?: "Error Occurred!"))
     }
 
     protected fun <ValueDto : Any, Value : Any> doPagingRequest(

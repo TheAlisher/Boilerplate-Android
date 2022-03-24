@@ -22,11 +22,9 @@ abstract class BaseViewModel : ViewModel() {
         mappedData: (T) -> S
     ) {
         viewModelScope.launch(Dispatchers.IO) {
+            state.value = UIState.Loading()
             this@collectRequest.collect {
                 when (it) {
-                    is Resource.Loading -> {
-                        state.value = UIState.Loading()
-                    }
                     is Resource.Error -> it.message?.let { error ->
                         state.value = UIState.Error(error)
                     }
