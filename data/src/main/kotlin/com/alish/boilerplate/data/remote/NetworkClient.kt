@@ -7,14 +7,15 @@ import javax.inject.Inject
 class NetworkClient @Inject constructor(
     retrofitClient: RetrofitClient,
     okHttp: OkHttp,
-    authenticator: TokenAuthenticator
+    authenticator: OkHttp.TokenAuthenticator,
+    authorizationInterceptor: OkHttp.AuthorizationInterceptor
 ) {
 
     private val provideRetrofit = retrofitClient.provideRetrofit(
-        okHttp.provideOkHttpClient(authenticator)
+        okHttp.provideOkHttpClient(authenticator, authorizationInterceptor)
     )
 
-    fun provideFooApiService() = provideRetrofit.create(
+    fun provideFooApiService(): FooApiService = provideRetrofit.create(
         FooApiService::class.java
     )
 
@@ -24,10 +25,10 @@ class NetworkClient @Inject constructor(
     ) {
 
         private val provideRetrofit = retrofitClient.provideRetrofit(
-            okHttp.provideOkHttpClient(null)
+            okHttp.provideOkHttpClient(null, null)
         )
 
-        fun provideAuthenticatorApiService() = provideRetrofit.create(
+        fun provideAuthenticatorApiService(): AuthenticatorApiService = provideRetrofit.create(
             AuthenticatorApiService::class.java
         )
     }
