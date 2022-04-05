@@ -13,6 +13,9 @@ object Dependencies {
 
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 
+        /**
+         * Kotlin Symbol Processing
+         */
         object KSP {
             const val ksp = "com.google.devtools.ksp"
             const val version = "1.6.20-1.0.4"
