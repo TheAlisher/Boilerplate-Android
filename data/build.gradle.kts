@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.library")
+    id(Dependencies.AGP.library)
     kotlin("android")
     id(Dependencies.Kotlin.KSP.ksp) version Dependencies.Kotlin.KSP.version
 }

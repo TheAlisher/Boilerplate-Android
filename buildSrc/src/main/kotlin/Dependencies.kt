@@ -1,5 +1,14 @@
 object Dependencies {
 
+    /**
+     * Android Gradle Plugin
+     */
+    object AGP {
+        const val version = "7.1.2"
+        const val application = "com.android.application"
+        const val library = "com.android.library"
+    }
+
     object Kotlin {
 
         const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"

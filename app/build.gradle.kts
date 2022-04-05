@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id(Dependencies.AGP.application)
     kotlin("android")
     kotlin("kapt")
 
