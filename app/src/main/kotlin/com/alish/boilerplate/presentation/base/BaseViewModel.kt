@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.alish.boilerplate.domain.Resource
+import com.alish.boilerplate.domain.Either
 import com.alish.boilerplate.presentation.ui.state.UIState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +17,7 @@ abstract class BaseViewModel : ViewModel() {
 
     protected fun <T> mutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
 
-    protected fun <T, S> Flow<Resource<T>>.collectRequest(
+    protected fun <T, S> Flow<Either<T>>.collectRequest(
         state: MutableStateFlow<UIState<S>>,
         mappedData: (T) -> S
     ) {
@@ -25,12 +25,8 @@ abstract class BaseViewModel : ViewModel() {
             state.value = UIState.Loading()
             this@collectRequest.collect {
                 when (it) {
-                    is Resource.Error -> it.message?.let { error ->
-                        state.value = UIState.Error(error)
-                    }
-                    is Resource.Success -> it.data?.let { data ->
-                        state.value = UIState.Success(mappedData(data))
-                    }
+                    is Either.Left -> state.value = UIState.Error(it.error)
+                    is Either.Right -> state.value = UIState.Success(mappedData(it.data))
                 }
             }
         }
