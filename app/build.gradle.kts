@@ -56,6 +56,9 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
+    // Kotlin
+    implementation(Dependencies.Kotlin.Coroutines.android)
+
     // UI Components
     implementation(Dependencies.UIComponents.material)
     implementation(Dependencies.UIComponents.constraintLayout)
