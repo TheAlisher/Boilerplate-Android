@@ -11,7 +11,12 @@ object Dependencies {
 
     object Kotlin {
 
-        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+        object Coroutines {
+            private const val version = "1.6.1"
+
+            const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
+            const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
+        }
 
         /**
          * Kotlin Symbol Processing
