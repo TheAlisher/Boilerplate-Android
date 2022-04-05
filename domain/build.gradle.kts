@@ -13,5 +13,5 @@ dependencies {
     api("javax.inject:javax.inject:1")
 
     // Kotlin
-    api(Dependencies.Kotlin.coroutines)
+    api(Dependencies.Kotlin.Coroutines.core)
 }
