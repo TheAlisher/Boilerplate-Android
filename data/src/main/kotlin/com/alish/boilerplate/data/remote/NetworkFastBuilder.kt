@@ -42,8 +42,14 @@ class OkHttp @Inject constructor() {
         return client.build()
     }
 
-    private fun provideLoggingInterceptor() = HttpLoggingInterceptor()
-        .setLevel(HttpLoggingInterceptor.Level.BODY)
+    private fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor().setLevel(
+            when {
+                BuildConfig.DEBUG -> HttpLoggingInterceptor.Level.BODY
+                else -> HttpLoggingInterceptor.Level.NONE
+            }
+        )
+    }
 
     class AuthorizationInterceptor @Inject constructor(
         private val preferencesHelper: PreferencesHelper
