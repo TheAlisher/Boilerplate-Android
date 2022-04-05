@@ -1,10 +1,8 @@
 package com.alish.boilerplate.data.repositories.base
 
-import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.alish.boilerplate.data.BuildConfig
 import com.alish.boilerplate.data.remote.pagingsources.base.BasePagingSource
 import com.alish.boilerplate.domain.Either
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +22,6 @@ abstract class BaseRepository {
             emit(Either.Right(data = this))
         }
     }.flowOn(Dispatchers.IO).catch { exception ->
-        if (BuildConfig.DEBUG) Log.e("BaseRepository", "Error", exception)
         emit(Either.Left(error = exception.localizedMessage ?: "Error Occurred!"))
     }
 
