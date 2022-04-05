@@ -2,7 +2,7 @@ object Dependencies {
 
     object Kotlin {
 
-        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 
         object KSP {
             const val ksp = "com.google.devtools.ksp"
