@@ -25,7 +25,7 @@ class NetworkClient @Inject constructor(
     ) {
 
         private val provideRetrofit = retrofitClient.provideRetrofit(
-            okHttp.provideOkHttpClient(null, null)
+            okHttp.provideOkHttpClient()
         )
 
         fun provideAuthenticatorApiService(): AuthenticatorApiService = provideRetrofit.create(

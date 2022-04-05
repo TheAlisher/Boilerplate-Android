@@ -25,12 +25,12 @@ class RetrofitClient @Inject constructor() {
 class OkHttp @Inject constructor() {
 
     fun provideOkHttpClient(
-        authenticator: TokenAuthenticator?,
-        authorizationInterceptor: AuthorizationInterceptor?
+        authenticator: Authenticator = Authenticator.NONE,
+        authorizationInterceptor: AuthorizationInterceptor? = null
     ): OkHttpClient {
         val client = OkHttpClient()
             .newBuilder()
-            .authenticator(authenticator ?: Authenticator.NONE)
+            .authenticator(authenticator)
             .addInterceptor(provideLoggingInterceptor())
             .callTimeout(30, TimeUnit.SECONDS)
             .connectTimeout(30, TimeUnit.SECONDS)
@@ -48,7 +48,6 @@ class OkHttp @Inject constructor() {
             else -> HttpLoggingInterceptor.Level.NONE
         }
     )
-
 
     class AuthorizationInterceptor @Inject constructor(
         private val preferencesHelper: PreferencesHelper
