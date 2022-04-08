@@ -29,12 +29,12 @@ globals:
       value: ${fragmentPrefix}Fragment
 
   - stringParameter:
-      id: viewModelName
-      value: ${fragmentPrefix}ViewModel
-
-  - stringParameter:
       id: fragmentLayoutResName
       value: ${fragmentName.fragmentToLayout()}
+
+  - stringParameter:
+      id: viewModelName
+      value: ${fragmentPrefix}ViewModel
 
   - stringParameter:
       id: fragmentBinding
