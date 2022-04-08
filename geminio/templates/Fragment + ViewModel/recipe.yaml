@@ -1,0 +1,54 @@
+requiredParams:
+  name: Fragment + ViewModel by Alish
+  description: Create Fragment with ViewModel
+
+optionalParams:
+  revision: 1
+  category: fragment
+  formFactor: mobile
+  constraints:
+    - kotlin
+    - androidx
+  screens:
+    - fragment_gallery
+
+widgets:
+  - stringParameter:
+      id: fragmentPrefix
+      name: Fragment Prefix
+      help: Prefix of the fragment and other classes to create
+      constraints:
+        - nonempty
+        - unique
+        - class
+      default: Blank
+
+globals:
+  - stringParameter:
+      id: fragmentName
+      value: ${fragmentPrefix}Fragment
+
+  - stringParameter:
+      id: viewModelName
+      value: ${fragmentPrefix}ViewModel
+
+  - stringParameter:
+      id: fragmentLayoutResName
+      value: ${fragmentName.fragmentToLayout()}
+
+  - stringParameter:
+      id: fragmentBinding
+      value: Fragment${fragmentPrefix}Binding
+
+recipe:
+  - instantiateAndOpen:
+      from: root/src/Fragment + ViewModel.kt.ftl
+      to: ${srcOut}/${fragmentName}.kt
+
+  - instantiateAndOpen:
+      from: root/src/BaseViewModel.kt.ftl
+      to: ${srcOut}/${viewModelName}.kt
+
+  - instantiateAndOpen:
+      from: root/res/layout/fragment_base.xml.ftl
+      to: ${resOut}/layout/${fragmentLayoutResName}.xml
