@@ -42,7 +42,7 @@ globals:
 
 recipe:
   - instantiateAndOpen:
-      from: root/src/Fragment + ViewModel.kt.ftl
+      from: root/src/BaseFragment.kt.ftl
       to: ${srcOut}/${fragmentName}.kt
 
   - instantiateAndOpen:
