@@ -18,16 +18,16 @@ abstract class BaseRepository {
     protected fun <T> doRequest(
         doSomethingInSuccess: ((T) -> Unit)? = null,
         request: suspend () -> T
-    ) = flow<Either<T>> {
-        request().apply {
-            doSomethingInSuccess?.invoke(this)
-            emit(Either.Right(data = this))
+    ) = flow<Either<String, T>> {
+        request().also { data ->
+            doSomethingInSuccess?.invoke(data)
+            emit(Either.Right(value = data))
         }
     }.flowOn(Dispatchers.IO).catch { exception ->
         if (BuildConfig.DEBUG) {
             Log.e("RepositoryError", this@BaseRepository.javaClass.name, exception)
         }
-        emit(Either.Left(error = exception.localizedMessage ?: "Error Occurred!"))
+        emit(Either.Left(value = exception.localizedMessage ?: "Error Occurred!"))
     }
 
     protected fun <ValueDto : Any, Value : Any> doPagingRequest(

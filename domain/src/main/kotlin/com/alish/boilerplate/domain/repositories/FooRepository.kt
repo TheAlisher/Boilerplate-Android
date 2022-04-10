@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface FooRepository {
 
-    fun fetchFoo(): Flow<Either<Foo>>
+    fun fetchFoo(): Flow<Either<String, Foo>>
 }

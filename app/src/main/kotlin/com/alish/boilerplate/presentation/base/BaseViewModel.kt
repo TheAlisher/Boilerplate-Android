@@ -17,7 +17,7 @@ abstract class BaseViewModel : ViewModel() {
 
     protected fun <T> mutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
 
-    protected fun <T, S> Flow<Either<T>>.collectRequest(
+    protected fun <T, S> Flow<Either<String, T>>.collectRequest(
         state: MutableStateFlow<UIState<S>>,
         mappedData: (T) -> S
     ) {
@@ -25,8 +25,8 @@ abstract class BaseViewModel : ViewModel() {
             state.value = UIState.Loading()
             this@collectRequest.collect {
                 when (it) {
-                    is Either.Left -> state.value = UIState.Error(it.error)
-                    is Either.Right -> state.value = UIState.Success(mappedData(it.data))
+                    is Either.Left -> state.value = UIState.Error(it.value)
+                    is Either.Right -> state.value = UIState.Success(mappedData(it.value))
                 }
             }
         }
