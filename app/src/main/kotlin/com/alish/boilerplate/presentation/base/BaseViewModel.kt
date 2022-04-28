@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 abstract class BaseViewModel : ViewModel() {
 
     /**
-     * Creates [MutableStateFlow] with the given [UIState] and initial state [UIState.Idle]
+     * Creates [MutableStateFlow] with [UIState] and the given initial state [UIState.Idle]
      */
     @Suppress("FunctionName")
     protected fun <T> MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
