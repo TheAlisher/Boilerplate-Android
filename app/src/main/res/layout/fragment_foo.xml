@@ -11,24 +11,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:indeterminateTint="@color/Black"
+        android:indeterminate="true"
         android:visibility="gone"
+        app:indicatorColor="@color/Black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/text_foo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/Black"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Foo" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_foo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_foo"
         tools:listitem="@layout/item_foo" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_foo"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="recycler_foo" />
+        app:constraint_referenced_ids="text_foo, recycler_foo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

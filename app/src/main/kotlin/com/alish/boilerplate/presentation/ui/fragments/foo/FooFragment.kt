@@ -59,9 +59,9 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
         subscribeToFoo()
     }
 
-    private fun subscribeToFoo() {
+    private fun subscribeToFoo() = with(binding) {
         viewModel.fooState.collectUIState {
-            it.setupViewVisibility(binding.groupFoo, binding.loaderFoo)
+            it.setupViewVisibility(groupFoo, loaderFoo)
             when (it) {
                 is UIState.Idle -> {
                 }
@@ -71,20 +71,20 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
                     showToastShort(it.error)
                 }
                 is UIState.Success -> {
-                    it.data.bar
+                    textFoo.text = it.data.bar
                 }
             }
         }
 
         viewModel.fooState.collectUIState(
             allStates = {
-                it.setupViewVisibility(binding.groupFoo, binding.loaderFoo)
+                it.setupViewVisibility(groupFoo, loaderFoo)
             },
             onError = {
                 showToastShort(it)
             },
             onSuccess = {
-                it.bar
+                textFoo.text = it.bar
             }
         )
     }
