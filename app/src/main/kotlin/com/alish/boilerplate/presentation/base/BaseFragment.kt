@@ -44,6 +44,17 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected open fun setupSubscribers() {
     }
 
+    private fun collectFlowSafely(
+        lifecycleState: Lifecycle.State,
+        collect: suspend () -> Unit
+    ) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(lifecycleState) {
+                collect()
+            }
+        }
+    }
+
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         collector: FlowCollector<UIState<T>>
@@ -76,17 +87,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         action: suspend (value: PagingData<T>) -> Unit
     ) {
         collectFlowSafely(lifecycleState) { this.collectLatest { action(it) } }
-    }
-
-    private fun collectFlowSafely(
-        lifecycleState: Lifecycle.State,
-        collect: suspend () -> Unit
-    ) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(lifecycleState) {
-                collect()
-            }
-        }
     }
 
     protected fun <T> UIState<T>.setupViewVisibility(
