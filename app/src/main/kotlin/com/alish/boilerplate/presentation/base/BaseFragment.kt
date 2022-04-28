@@ -13,10 +13,7 @@ import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.presentation.ui.state.UIState
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.FlowCollector
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
@@ -52,6 +49,26 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         collector: FlowCollector<UIState<T>>
     ) {
         collectFlowSafely(lifecycleState) { this.collect(collector) }
+    }
+
+    protected fun <T> StateFlow<UIState<T>>.collectUIState(
+        lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
+        beforeState: ((UIState<T>) -> Unit)? = null,
+        onLoading: (() -> Unit)? = null,
+        onError: ((error: String) -> Unit),
+        onSuccess: ((data: T) -> Unit)
+    ) {
+        collectFlowSafely(lifecycleState) {
+            this.collect {
+                beforeState?.invoke(it)
+                when (it) {
+                    is UIState.Idle -> {}
+                    is UIState.Loading -> onLoading?.invoke()
+                    is UIState.Error -> onError.invoke(it.error)
+                    is UIState.Success -> onSuccess.invoke(it.data)
+                }
+            }
+        }
     }
 
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
