@@ -22,7 +22,7 @@ abstract class BaseViewModel : ViewModel() {
     protected fun <T> MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
 
     /**
-     * Collect network requests and return [UIState] depending requests result
+     * Collect network request and return [UIState] depending request result
      */
     protected fun <T, S> Flow<Either<String, T>>.collectRequest(
         state: MutableStateFlow<UIState<S>>,
@@ -40,7 +40,7 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     /**
-     * Collect paging requests and
+     * Collect paging request and
      */
     protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
         mappedData: (T) -> S

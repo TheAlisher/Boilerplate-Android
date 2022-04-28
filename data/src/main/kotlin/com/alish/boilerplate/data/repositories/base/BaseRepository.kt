@@ -15,6 +15,12 @@ import kotlinx.coroutines.flow.flowOn
 
 abstract class BaseRepository {
 
+    /**
+     * Do network request
+     *
+     * @param doSomethingInSuccess for working when request result is success
+     * @return request result in [flow] with [Either]
+     */
     protected fun <T> doRequest(
         doSomethingInSuccess: ((T) -> Unit)? = null,
         request: suspend () -> T
@@ -30,6 +36,9 @@ abstract class BaseRepository {
         emit(Either.Left(value = exception.localizedMessage ?: "Error Occurred!"))
     }
 
+    /**
+     * Do paging request with default params
+     */
     protected fun <ValueDto : Any, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
         pageSize: Int = 10,
