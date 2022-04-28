@@ -55,7 +55,7 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
         }
     }
 
-    override fun setupSubscribes() {
+    override fun setupSubscribers() {
         subscribeToFoo()
     }
 

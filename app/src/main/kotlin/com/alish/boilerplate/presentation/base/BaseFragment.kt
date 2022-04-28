@@ -23,13 +23,13 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected abstract val viewModel: ViewModel
     protected abstract val binding: Binding
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initialize()
         setupListeners()
         setupRequests()
-        setupSubscribes()
+        setupSubscribers()
     }
 
     protected open fun initialize() {
@@ -41,7 +41,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected open fun setupRequests() {
     }
 
-    protected open fun setupSubscribes() {
+    protected open fun setupSubscribers() {
     }
 
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
@@ -98,19 +98,10 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         }
 
         when (this) {
-            is UIState.Idle -> {
-            }
-            is UIState.Loading -> {
-                showLoader(true)
-            }
-            is UIState.Error -> {
-                showLoader(false)
-            }
-            is UIState.Success -> if (isNavigateWhenSuccess) {
-                showLoader(true)
-            } else {
-                showLoader(false)
-            }
+            is UIState.Idle -> {}
+            is UIState.Loading -> showLoader(true)
+            is UIState.Error -> showLoader(false)
+            is UIState.Success -> if (isNavigateWhenSuccess) showLoader(true) else showLoader(false)
         }
     }
 }
