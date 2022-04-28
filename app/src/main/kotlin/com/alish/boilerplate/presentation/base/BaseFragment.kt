@@ -101,7 +101,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
             is UIState.Idle -> {}
             is UIState.Loading -> showLoader(true)
             is UIState.Error -> showLoader(false)
-            is UIState.Success -> if (isNavigateWhenSuccess) showLoader(true) else showLoader(false)
+            is UIState.Success -> if (!isNavigateWhenSuccess) showLoader(false)
         }
     }
 }
