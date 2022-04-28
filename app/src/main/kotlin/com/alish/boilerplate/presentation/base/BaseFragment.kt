@@ -44,6 +44,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected open fun setupSubscribers() {
     }
 
+    /**
+     * Collect flow safely with [repeatOnLifecycle] API
+     */
     private fun collectFlowSafely(
         lifecycleState: Lifecycle.State,
         collect: suspend () -> Unit
@@ -55,6 +58,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         }
     }
 
+    /**
+     * Collect [UIState] with [collectFlowSafely].
+     */
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         collector: FlowCollector<UIState<T>>
@@ -62,6 +68,12 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         collectFlowSafely(lifecycleState) { this.collect(collector) }
     }
 
+    /**
+     * Collect [UIState] with [collectFlowSafely], optional [beforeState] and required [onError], [onSuccess]
+     * @param beforeState for working with all states
+     * @param onError for error handling
+     * @param onSuccess for working with data
+     */
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         beforeState: ((UIState<T>) -> Unit)? = null,
@@ -81,6 +93,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         }
     }
 
+    /**
+     * Collect [PagingData] with [collectFlowSafely]
+     */
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         action: suspend (value: PagingData<T>) -> Unit
@@ -88,6 +103,11 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         collectFlowSafely(lifecycleState) { this.collectLatest { action(it) } }
     }
 
+    /**
+     * Setup views visibility depending on [UIState] states.
+     * @param isNavigateWhenSuccess is responsible for displaying views depending on whether
+     * to navigate further or stay this Fragment
+     */
     protected fun <T> UIState<T>.setupViewVisibility(
         group: Group, loader: CircularProgressIndicator, isNavigateWhenSuccess: Boolean = false
     ) {
