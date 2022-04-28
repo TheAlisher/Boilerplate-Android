@@ -77,7 +77,7 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
         }
 
         viewModel.fooState.collectUIState(
-            beforeState = {
+            allStates = {
                 it.setupViewVisibility(binding.groupFoo, binding.loaderFoo)
             },
             onError = {

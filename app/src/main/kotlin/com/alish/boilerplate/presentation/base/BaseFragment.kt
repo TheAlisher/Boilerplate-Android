@@ -69,20 +69,20 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     /**
-     * Collect [UIState] with [collectFlowSafely], optional [beforeState] and required [onError], [onSuccess]
-     * @param beforeState for working with all states
+     * Collect [UIState] with [collectFlowSafely], optional [allStates] and required [onError], [onSuccess]
+     * @param allStates for working with all states
      * @param onError for error handling
      * @param onSuccess for working with data
      */
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-        beforeState: ((UIState<T>) -> Unit)? = null,
+        allStates: ((UIState<T>) -> Unit)? = null,
         onError: ((error: String) -> Unit),
         onSuccess: ((data: T) -> Unit)
     ) {
         collectFlowSafely(lifecycleState) {
             this.collect {
-                beforeState?.invoke(it)
+                allStates?.invoke(it)
                 when (it) {
                     is UIState.Idle -> {}
                     is UIState.Loading -> {}
