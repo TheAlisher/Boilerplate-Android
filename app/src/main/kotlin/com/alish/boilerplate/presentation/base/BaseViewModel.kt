@@ -40,7 +40,7 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     /**
-     * Collect paging request and
+     * Collect paging request
      */
     protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
         mappedData: (T) -> S
