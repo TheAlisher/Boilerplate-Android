@@ -21,6 +21,9 @@ abstract class BaseViewModel : ViewModel() {
     @Suppress("FunctionName")
     protected fun <T> MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
 
+    /**
+     * Collect network requests and return [UIState] depending requests result
+     */
     protected fun <T, S> Flow<Either<String, T>>.collectRequest(
         state: MutableStateFlow<UIState<S>>,
         mappedData: (T) -> S
@@ -36,6 +39,9 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
+    /**
+     * Collect paging requests and
+     */
     protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
         mappedData: (T) -> S
     ) = map { it.map { data -> mappedData(data) } }.cachedIn(viewModelScope)
