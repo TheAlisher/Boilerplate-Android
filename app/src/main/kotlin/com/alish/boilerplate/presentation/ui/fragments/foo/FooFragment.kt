@@ -61,14 +61,17 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
 
     private fun subscribeToFoo() {
         viewModel.fooState.collectUIState {
+            it.setupViewVisibility(binding.groupFoo, binding.loaderFoo)
             when (it) {
                 is UIState.Idle -> {
                 }
                 is UIState.Loading -> {
                 }
                 is UIState.Error -> {
+                    showToastShort(it.error)
                 }
                 is UIState.Success -> {
+                    it.data.bar
                 }
             }
         }
