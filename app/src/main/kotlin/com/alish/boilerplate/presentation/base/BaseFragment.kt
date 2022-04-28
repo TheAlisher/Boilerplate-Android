@@ -69,7 +69,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     /**
-     * Collect [UIState] with [collectFlowSafely], optional [allStates] and required [onError], [onSuccess]
+     * Collect [UIState] with [collectFlowSafely] and optional states params
      * @param allStates for working with all states
      * @param onError for error handling
      * @param onSuccess for working with data
