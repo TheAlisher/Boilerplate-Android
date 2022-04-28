@@ -11,6 +11,7 @@ import com.alish.boilerplate.databinding.FragmentFooBinding
 import com.alish.boilerplate.presentation.extensions.showToastShort
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
+import com.alish.boilerplate.presentation.ui.state.UIState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -59,6 +60,19 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun subscribeToFoo() {
+        viewModel.fooState.collectUIState {
+            when (it) {
+                is UIState.Idle -> {
+                }
+                is UIState.Loading -> {
+                }
+                is UIState.Error -> {
+                }
+                is UIState.Success -> {
+                }
+            }
+        }
+
         viewModel.fooState.collectUIState(
             beforeState = {
                 it.setupViewVisibility(binding.groupFoo, binding.loaderFoo)
