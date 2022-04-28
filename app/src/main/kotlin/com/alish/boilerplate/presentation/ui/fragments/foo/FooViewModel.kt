@@ -15,7 +15,7 @@ class FooViewModel @Inject constructor(
     private val repository: FooRepositoryImpl
 ) : BaseViewModel() {
 
-    private val _fooState = mutableUIStateFlow<FooUI>()
+    private val _fooState = MutableUIStateFlow<FooUI>()
     val fooState = _fooState.asStateFlow()
 
     fun fetchFoo() {
