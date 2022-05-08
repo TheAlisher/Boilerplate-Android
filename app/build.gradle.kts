@@ -62,7 +62,7 @@ dependencies {
     // UI Components
     implementation(Libraries.UIComponents.material)
     implementation(Libraries.UIComponents.constraintLayout)
-    implementation(Libraries.UIComponents.viewBindingPropertyDelegate)
+    implementation(Libraries.UIComponents.vbpd)
 
     // Core
     implementation(Libraries.Core.core)

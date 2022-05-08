@@ -27,8 +27,7 @@ object Libraries {
     object UIComponents {
         const val material = "com.google.android.material:material:1.6.0"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.3"
-        const val viewBindingPropertyDelegate =
-            "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6"
+        const val vbpd = "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6"
     }
 
     object Core {
