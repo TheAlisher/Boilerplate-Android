@@ -60,22 +60,6 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun subscribeToFoo() = with(binding) {
-        viewModel.fooState.collectUIState {
-            it.setupViewVisibility(groupFoo, loaderFoo)
-            when (it) {
-                is UIState.Idle -> {
-                }
-                is UIState.Loading -> {
-                }
-                is UIState.Error -> {
-                    showToastShort(it.error)
-                }
-                is UIState.Success -> {
-                    textFoo.text = it.data.bar
-                }
-            }
-        }
-
         viewModel.fooState.collectUIState(
             allStates = {
                 it.setupViewVisibility(groupFoo, loaderFoo)
