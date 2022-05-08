@@ -74,8 +74,8 @@ dependencies {
     implementation(Libraries.Fragment.fragment)
 
     // Lifecycle
-    implementation(Libraries.Lifecycle.runtime)
     implementation(Libraries.Lifecycle.viewModel)
+    implementation(Libraries.Lifecycle.runtime)
 
     // Navigation
     implementation(Libraries.Navigation.fragment)
