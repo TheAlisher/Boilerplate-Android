@@ -8,9 +8,6 @@ plugins {
 
     // Hilt
     id(Plugins.Hilt.plugin)
-
-    // Easylauncher
-    id("com.starter.easylauncher") version "5.0.0"
 }
 
 android {
@@ -84,13 +81,4 @@ dependencies {
     // Hilt
     implementation(Libraries.Hilt.android)
     kapt(Libraries.Hilt.compiler)
-}
-
-easylauncher {
-
-    buildTypes {
-        create("debug") {
-            filters(customRibbon(ribbonColor = "#FF6200EE", textSizeRatio = 0.150F))
-        }
-    }
 }
