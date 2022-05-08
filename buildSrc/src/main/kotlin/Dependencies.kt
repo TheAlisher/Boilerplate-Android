@@ -71,9 +71,6 @@ object Libraries {
     object Room {
         const val runtime = "androidx.room:room-runtime:${Versions.room}"
         const val compiler = "androidx.room:room-compiler:${Versions.room}"
-
-        // | optional - Kotlin Extensions and Coroutines support for Room
-        const val supportKotlinExtensionsAndCoroutines = "androidx.room:room-ktx:${Versions.room}"
     }
 
     object Paging {

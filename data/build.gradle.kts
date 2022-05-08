@@ -52,7 +52,6 @@ dependencies {
     // Room
     api(Libraries.Room.runtime)
     ksp(Libraries.Room.compiler)
-    implementation(Libraries.Room.supportKotlinExtensionsAndCoroutines)
 
     // Paging 3
     api(Libraries.Paging.runtime)
