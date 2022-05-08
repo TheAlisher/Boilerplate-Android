@@ -1,7 +1,7 @@
 plugins {
-    id(Dependencies.AGP.library)
+    id(Plugins.AGP.library)
     kotlin("android")
-    id(Dependencies.Kotlin.KSP.ksp) version Dependencies.Kotlin.KSP.version
+    id(Plugins.KSP()) version Versions.KSP
 }
 
 android {
@@ -41,19 +41,19 @@ dependencies {
     implementation(project(":domain"))
 
     // Retrofit 2
-    implementation(Dependencies.Retrofit.retrofit)
-    implementation(Dependencies.Retrofit.converterGson)
+    implementation(Libraries.Retrofit.retrofit)
+    implementation(Libraries.Retrofit.converterGson)
 
     // OkHttp
-    implementation(Dependencies.OkHttp.bom)
-    implementation(Dependencies.OkHttp.okHttp)
-    implementation(Dependencies.OkHttp.loggingInterceptor)
+    implementation(Libraries.OkHttp.bom)
+    implementation(Libraries.OkHttp.okHttp)
+    implementation(Libraries.OkHttp.loggingInterceptor)
 
     // Room
-    api(Dependencies.Room.runtime)
-    ksp(Dependencies.Room.compiler)
-    implementation(Dependencies.Room.supportKotlinExtensionsAndCoroutines)
+    api(Libraries.Room.runtime)
+    ksp(Libraries.Room.compiler)
+    implementation(Libraries.Room.supportKotlinExtensionsAndCoroutines)
 
     // Paging 3
-    api(Dependencies.Paging.runtime)
+    api(Libraries.Paging.runtime)
 }

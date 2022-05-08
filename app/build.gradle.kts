@@ -1,13 +1,13 @@
 plugins {
-    id(Dependencies.AGP.application)
+    id(Plugins.AGP.application)
     kotlin("android")
     kotlin("kapt")
 
     // Navigation Safe Args
-    id(Dependencies.Navigation.safeArgsPlugin)
+    id(Plugins.Navigation.safeArgs)
 
     // Hilt
-    id(Dependencies.Hilt.plugin)
+    id(Plugins.Hilt.plugin)
 
     // Easylauncher
     id("com.starter.easylauncher") version "5.0.0"
@@ -57,33 +57,33 @@ dependencies {
     implementation(project(":domain"))
 
     // Kotlin
-    implementation(Dependencies.Kotlin.Coroutines.android)
+    implementation(Libraries.Coroutines.android)
 
     // UI Components
-    implementation(Dependencies.UIComponents.material)
-    implementation(Dependencies.UIComponents.constraintLayout)
-    implementation(Dependencies.UIComponents.viewBindingPropertyDelegate)
+    implementation(Libraries.UIComponents.material)
+    implementation(Libraries.UIComponents.constraintLayout)
+    implementation(Libraries.UIComponents.viewBindingPropertyDelegate)
 
     // Core
-    implementation(Dependencies.Core.core)
+    implementation(Libraries.Core.core)
 
     // Activity
-    implementation(Dependencies.Activity.activity)
+    implementation(Libraries.Activity.activity)
 
     // Fragment
-    implementation(Dependencies.Fragment.fragment)
+    implementation(Libraries.Fragment.fragment)
 
     // Lifecycle
-    implementation(Dependencies.Lifecycle.runtime)
-    implementation(Dependencies.Lifecycle.viewModel)
+    implementation(Libraries.Lifecycle.runtime)
+    implementation(Libraries.Lifecycle.viewModel)
 
     // Navigation
-    implementation(Dependencies.Navigation.fragment)
-    implementation(Dependencies.Navigation.ui)
+    implementation(Libraries.Navigation.fragment)
+    implementation(Libraries.Navigation.ui)
 
     // Hilt
-    implementation(Dependencies.Hilt.android)
-    kapt(Dependencies.Hilt.compiler)
+    implementation(Libraries.Hilt.android)
+    kapt(Libraries.Hilt.compiler)
 }
 
 easylauncher {

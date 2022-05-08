@@ -1,11 +1,11 @@
 plugins {
-    id(Dependencies.AGP.application) version Dependencies.AGP.version apply false
-    id(Dependencies.AGP.library) version Dependencies.AGP.version apply false
+    id(Plugins.AGP.application) version Versions.AGP apply false
+    id(Plugins.AGP.library) version Versions.AGP apply false
     kotlin("android") version "1.6.21" apply false
 
     // Navigation Safe Args
-    id(Dependencies.Navigation.safeArgsPlugin) version Dependencies.Navigation.version apply false
+    id(Plugins.Navigation.safeArgs) version Versions.navigation apply false
 
     // Hilt
-    id(Dependencies.Hilt.plugin) version Dependencies.Hilt.version apply false
+    id(Plugins.Hilt.plugin) version Versions.hilt apply false
 }
