@@ -44,11 +44,11 @@ object Libraries {
 
     object Lifecycle {
 
-        // | for Lifecycles only (without ViewModel or LiveData)
-        const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
-
-        // | for ViewModel
+        // ViewModel
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+
+        // Lifecycles only (without ViewModel or LiveData)
+        const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     }
 
     object Navigation {
