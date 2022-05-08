@@ -16,6 +16,9 @@ class FooRepositoryImpl @Inject constructor(
         service.fetchFoo().toDomain()
     }
 
+    /**
+     * Insert data to database or save to SharedPreferences / DataStore
+     */
     private fun setupFooSuccess(foo: Foo) {
         foo.id
     }
