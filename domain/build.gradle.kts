@@ -10,7 +10,7 @@ java {
 dependencies {
 
     // Javax Inject
-    api("javax.inject:javax.inject:1")
+    api(Libraries.Javax.inject)
 
     // Kotlin
     api(Libraries.Coroutines.core)

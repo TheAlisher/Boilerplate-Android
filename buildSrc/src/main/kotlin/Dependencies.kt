@@ -53,6 +53,10 @@ object Libraries {
         const val ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     }
 
+    object Javax {
+        const val inject = "javax.inject:javax.inject:1"
+    }
+
     object Hilt {
         const val android = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val compiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
