@@ -1,6 +1,6 @@
 plugins {
     id(Plugins.AGP.library)
-    kotlin("android")
+    kotlin(Plugins.Kotlin.android)
     id(Plugins.KSP()) version Versions.KSP
 }
 
