@@ -8,7 +8,7 @@ object Versions {
     const val fragment = "1.4.1"
     const val lifecycle = "2.4.1"
     const val navigation = "2.4.2"
-    const val hilt = "2.41"
+    const val hilt = "2.42"
     const val retrofit = "2.9.0"
     const val okHttp = "5.0.0-alpha.7"
     const val room = "2.4.2"
