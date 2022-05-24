@@ -24,6 +24,24 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * Collect network request and return [UIState] depending request result
      */
+    protected fun <T> Flow<Either<String, T>>.collectRequest(
+        state: MutableStateFlow<UIState<T>>,
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            state.value = UIState.Loading()
+            this@collectRequest.collect {
+                when (it) {
+                    is Either.Left -> state.value = UIState.Error(it.value)
+                    is Either.Right -> state.value = UIState.Success(it.value)
+                }
+            }
+        }
+    }
+
+    /**
+     * Collect network request and return [UIState] depending request result
+     * with mapping model from domain to ui
+     */
     protected fun <T, S> Flow<Either<String, T>>.collectRequest(
         state: MutableStateFlow<UIState<S>>,
         mappedData: (T) -> S
