@@ -108,7 +108,7 @@ object Plugins {
     }
 
     object KSP {
-        operator fun invoke() = "com.google.devtools.ksp"
+        const val ksp = "com.google.devtools.ksp"
     }
 
     object Navigation {
