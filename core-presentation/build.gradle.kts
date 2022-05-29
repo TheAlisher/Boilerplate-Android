@@ -28,8 +28,8 @@ android {
 
 dependencies {
 
+    implementation(project(":core-domain"))
     implementation(project(":data"))
-    implementation(project(":domain"))
 
     // Kotlin
     api(Libraries.Coroutines.android)
