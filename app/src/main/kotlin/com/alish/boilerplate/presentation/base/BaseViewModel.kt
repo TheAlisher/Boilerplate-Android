@@ -16,13 +16,15 @@ import kotlinx.coroutines.launch
 abstract class BaseViewModel : ViewModel() {
 
     /**
-     * Creates [MutableStateFlow] with [UIState] and the given initial state [UIState.Idle]
+     * Creates [MutableStateFlow] with [UIState] and the given initial value [UIState.Idle]
      */
     @Suppress("FunctionName")
     protected fun <T> MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
 
     /**
-     * Collect network request and return [UIState] depending request result
+     * Collect network request
+     *
+     * @return [UIState] depending request result
      */
     protected fun <T> Flow<Either<String, T>>.collectRequest(
         state: MutableStateFlow<UIState<T>>,
@@ -39,8 +41,9 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     /**
-     * Collect network request and return [UIState] depending request result
-     * with mapping model from domain to ui
+     * Collect network request with mapping from domain to ui
+     *
+     * @return [UIState] depending request result
      */
     protected fun <T, S> Flow<Either<String, T>>.collectRequest(
         state: MutableStateFlow<UIState<S>>,
