@@ -5,28 +5,24 @@ import com.alish.boilerplate.data.remote.apiservices.FooApiService
 import javax.inject.Inject
 
 class NetworkClient @Inject constructor(
-    retrofitClient: RetrofitClient,
-    okHttp: OkHttp,
-    authenticator: OkHttp.TokenAuthenticator,
-    authorizationInterceptor: OkHttp.AuthorizationInterceptor
+    authenticator: TokenAuthenticator,
+    authorizationInterceptor: AuthorizationInterceptor
 ) {
 
-    private val provideRetrofit = retrofitClient.provideRetrofit(
-        okHttp.provideOkHttpClient(authenticator, authorizationInterceptor)
+    private val provideRetrofit = provideRetrofit(
+        provideOkHttpClientBuilder().apply {
+            authenticator(authenticator)
+            addInterceptor(authorizationInterceptor)
+        }.build()
     )
 
     fun provideFooApiService(): FooApiService = provideRetrofit.create(
         FooApiService::class.java
     )
 
-    class AuthenticatorClient @Inject constructor(
-        retrofitClient: RetrofitClient,
-        okHttp: OkHttp,
-    ) {
+    class AuthenticatorClient @Inject constructor() {
 
-        private val provideRetrofit = retrofitClient.provideRetrofit(
-            okHttp.provideOkHttpClient()
-        )
+        private val provideRetrofit = provideRetrofit(provideOkHttpClientBuilder().build())
 
         fun provideAuthenticatorApiService(): AuthenticatorApiService = provideRetrofit.create(
             AuthenticatorApiService::class.java

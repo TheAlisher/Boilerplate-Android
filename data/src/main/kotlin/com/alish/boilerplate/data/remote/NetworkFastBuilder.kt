@@ -11,82 +11,66 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class RetrofitClient @Inject constructor() {
+internal fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
+    .baseUrl(BuildConfig.BASE_URL)
+    .client(okHttpClient)
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
 
-    fun provideRetrofit(
-        okHttpClient: OkHttpClient
-    ): Retrofit = Retrofit.Builder()
-        .baseUrl(BuildConfig.BASE_URL)
-        .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+internal fun provideOkHttpClientBuilder(): OkHttpClient.Builder {
+    return OkHttpClient()
+        .newBuilder()
+        .addInterceptor(provideLoggingInterceptor())
+        .callTimeout(30, TimeUnit.SECONDS)
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
 }
 
-class OkHttp @Inject constructor() {
+private fun provideLoggingInterceptor() = HttpLoggingInterceptor().setLevel(
+    when {
+        BuildConfig.DEBUG -> HttpLoggingInterceptor.Level.BODY
+        else -> HttpLoggingInterceptor.Level.NONE
+    }
+)
 
-    fun provideOkHttpClient(
-        authenticator: Authenticator = Authenticator.NONE,
-        authorizationInterceptor: AuthorizationInterceptor? = null
-    ): OkHttpClient {
-        val client = OkHttpClient()
+class AuthorizationInterceptor @Inject constructor(
+    private val preferencesHelper: PreferencesHelper
+) : Interceptor {
+
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain
+            .request()
             .newBuilder()
-            .authenticator(authenticator)
-            .addInterceptor(provideLoggingInterceptor())
-            .callTimeout(30, TimeUnit.SECONDS)
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
-        authorizationInterceptor?.let {
-            client.addInterceptor(it)
-        }
-        return client.build()
+            .addHeader("Authorization", "$preferencesHelper.getAccessToken()")
+            .build()
+        return chain.proceed(request)
     }
+}
 
-    private fun provideLoggingInterceptor() = HttpLoggingInterceptor().setLevel(
-        when {
-            BuildConfig.DEBUG -> HttpLoggingInterceptor.Level.BODY
-            else -> HttpLoggingInterceptor.Level.NONE
-        }
-    )
+class TokenAuthenticator @Inject constructor(
+    private val service: AuthenticatorApiService,
+    private val preferencesHelper: PreferencesHelper
+) : Authenticator {
 
-    class AuthorizationInterceptor @Inject constructor(
-        private val preferencesHelper: PreferencesHelper
-    ) : Interceptor {
+    override fun authenticate(route: Route?, response: Response): Request? {
+        synchronized(this) {
+            val refreshToken = service.refreshToken(RefreshToken("<refresh_token>")).execute()
 
-        override fun intercept(chain: Interceptor.Chain): Response {
-            val request = chain
-                .request()
-                .newBuilder()
-                .addHeader("Authorization", "$preferencesHelper.getAccessToken()")
-                .build()
-            return chain.proceed(request)
-        }
-    }
+            return when {
+                refreshToken.isSuccessful -> {
 
-    class TokenAuthenticator @Inject constructor(
-        private val service: AuthenticatorApiService,
-        private val preferencesHelper: PreferencesHelper
-    ) : Authenticator {
+                    // save token to preferences
+                    preferencesHelper
 
-        override fun authenticate(route: Route?, response: Response): Request? {
-            synchronized(this) {
-                val refreshToken = service.refreshToken(RefreshToken("<refresh_token>")).execute()
-
-                return when {
-                    refreshToken.isSuccessful -> {
-
-                        // save token to preferences
-                        preferencesHelper
-
-                        response
-                            .request
-                            .newBuilder()
-                            .header("Authorization", "Bearer $preferencesHelper.<new_access_token>")
-                            .build()
-                    }
-                    else -> {
-                        null
-                    }
+                    response
+                        .request
+                        .newBuilder()
+                        .header("Authorization", "Bearer $preferencesHelper.<new_access_token>")
+                        .build()
+                }
+                else -> {
+                    null
                 }
             }
         }
