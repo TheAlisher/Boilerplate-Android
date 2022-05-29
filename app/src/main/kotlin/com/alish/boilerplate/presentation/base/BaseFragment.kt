@@ -59,8 +59,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     /**
-     * Collect [UIState] with [collectFlowSafely] and optional states params
-     * @param state for working with all states
+     * Collect [UIState] with [collectFlowSafely]
+     *
+     * @param state optional, for working with all states
      * @param onError for error handling
      * @param onSuccess for working with data
      */
@@ -95,8 +96,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
     /**
      * Setup views visibility depending on [UIState] states.
-     * @param isNavigateWhenSuccess is responsible for displaying views depending on whether
-     * to navigate further or stay this Fragment
+     *
+     * @param isNavigateWhenSuccess for displaying views depending on whether to navigate further or stay this Fragment
      */
     protected fun <T> UIState<T>.setupViewVisibility(
         group: Group, loader: CircularProgressIndicator, isNavigateWhenSuccess: Boolean = false
