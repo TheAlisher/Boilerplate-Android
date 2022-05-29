@@ -24,14 +24,14 @@ android {
     }
 
     buildTypes {
-        getByName(AndroidConfig.release) {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
 
-        getByName(AndroidConfig.debug) {
+        getByName("debug") {
             applicationIdSuffix = ".debug"
             isDebuggable = true
         }

@@ -15,7 +15,7 @@ android {
     }
 
     buildTypes {
-        getByName(AndroidConfig.release) {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
@@ -23,7 +23,7 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://example.com/\"")
         }
 
-        getByName(AndroidConfig.debug) {
+        getByName("debug") {
             buildConfigField("String", "BASE_URL", "\"https://example.com.debug/\"")
         }
     }
