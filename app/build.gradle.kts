@@ -50,9 +50,11 @@ android {
 
 dependencies {
 
-    implementation(project(":core-presentation"))
     implementation(project(":data"))
     implementation(project(":domain"))
+
+    // Kotlin
+    implementation(Libraries.Coroutines.android)
 
     // UI Components
     implementation(Libraries.UIComponents.material)
@@ -61,6 +63,20 @@ dependencies {
 
     // Core
     implementation(Libraries.Core.core)
+
+    // Activity
+    implementation(Libraries.Activity.activity)
+
+    // Fragment
+    implementation(Libraries.Fragment.fragment)
+
+    // Lifecycle
+    implementation(Libraries.Lifecycle.viewModel)
+    implementation(Libraries.Lifecycle.runtime)
+
+    // Navigation
+    implementation(Libraries.Navigation.fragment)
+    implementation(Libraries.Navigation.ui)
 
     // Hilt
     implementation(Libraries.Hilt.android)

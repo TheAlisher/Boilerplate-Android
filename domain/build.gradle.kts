@@ -9,8 +9,6 @@ java {
 
 dependencies {
 
-    api(project(":core-domain"))
-
     // Javax Inject
     api(Libraries.Javax.inject)
 
