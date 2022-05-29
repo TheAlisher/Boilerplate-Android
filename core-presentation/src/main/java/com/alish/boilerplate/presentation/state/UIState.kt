@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.ui.state
+package com.alish.boilerplate.presentation.state
 
 sealed class UIState<T> {
     class Idle<T> : UIState<T>()
