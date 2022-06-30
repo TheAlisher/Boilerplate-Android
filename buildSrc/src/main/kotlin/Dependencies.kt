@@ -9,7 +9,7 @@ object Versions {
     const val vbpd = "1.5.6"
     const val core = "1.8.0"
     const val activity = "1.5.0"
-    const val fragment = "1.4.1"
+    const val fragment = "1.5.0"
     const val lifecycle = "2.4.1"
     const val navigation = "2.4.2"
     const val hilt = "2.42"
