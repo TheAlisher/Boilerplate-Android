@@ -11,7 +11,7 @@ object Versions {
     const val activity = "1.5.0"
     const val fragment = "1.5.0"
     const val lifecycle = "2.5.0"
-    const val navigation = "2.4.2"
+    const val navigation = "2.5.0"
     const val hilt = "2.42"
     const val retrofit = "2.9.0"
     const val okHttp = "5.0.0-alpha.10"
