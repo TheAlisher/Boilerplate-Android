@@ -1,5 +1,6 @@
 package com.alish.boilerplate.data.remote.dtos.foo
 
+import com.alish.boilerplate.data.utils.DataMapper
 import com.alish.boilerplate.domain.models.Foo
 import com.google.gson.annotations.SerializedName
 
@@ -10,6 +11,7 @@ class FooDto(
 
     @SerializedName("bar")
     val bar: String
-)
+) : DataMapper<FooDto, Foo> {
 
-fun FooDto.toDomain() = Foo(id, bar)
+    override fun FooDto.mapToDomain() = Foo(id, bar)
+}

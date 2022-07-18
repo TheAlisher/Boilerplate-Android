@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
+import com.alish.boilerplate.domain.utils.NetworkError
 import com.alish.boilerplate.presentation.ui.state.UIState
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import kotlinx.coroutines.flow.*
@@ -68,7 +69,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         state: ((UIState<T>) -> Unit)? = null,
-        onError: ((error: String) -> Unit),
+        onError: ((errors: NetworkError) -> Unit),
         onSuccess: ((data: T) -> Unit)
     ) {
         collectFlowSafely(lifecycleState) {
@@ -77,7 +78,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
                 when (it) {
                     is UIState.Idle -> {}
                     is UIState.Loading -> {}
-                    is UIState.Error -> onError.invoke(it.error)
+                    is UIState.Error -> onError.invoke(it.errors)
                     is UIState.Success -> onSuccess.invoke(it.data)
                 }
             }

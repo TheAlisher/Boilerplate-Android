@@ -1,7 +1,6 @@
 package com.alish.boilerplate.data.repositories
 
 import com.alish.boilerplate.data.remote.apiservices.FooApiService
-import com.alish.boilerplate.data.remote.dtos.foo.toDomain
 import com.alish.boilerplate.data.remote.pagingsources.FooPagingSource
 import com.alish.boilerplate.data.repositories.base.BaseRepository
 import com.alish.boilerplate.domain.repositories.FooRepository
@@ -12,12 +11,18 @@ class FooRepositoryImpl @Inject constructor(
     private val service: FooApiService
 ) : BaseRepository(), FooRepository {
 
-    override fun fetchFoo() = doRequest {
-        service.fetchFoo().also {
-            it.bar
-        }.toDomain()
+    override fun fetchFoo() = doNetworkRequest {
+        service.fetchFoo().also { data ->
+            data.body()?.let {
+                /**
+                 * Do something with [data]
+                 */
+            }
+        }
     }.catch { exception ->
-        exception.message
+        /**
+         * Do something with [exception]
+         */
     }
 
     fun fetchFooPaging() = doPagingRequest(FooPagingSource(service))

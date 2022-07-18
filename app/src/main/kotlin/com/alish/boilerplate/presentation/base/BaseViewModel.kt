@@ -5,7 +5,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.alish.boilerplate.domain.Either
+import com.alish.boilerplate.domain.utils.Either
+import com.alish.boilerplate.domain.utils.NetworkError
 import com.alish.boilerplate.presentation.ui.state.UIState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -26,7 +27,7 @@ abstract class BaseViewModel : ViewModel() {
      *
      * @return [UIState] depending request result
      */
-    protected fun <T> Flow<Either<String, T>>.collectRequest(
+    protected fun <T> Flow<Either<NetworkError, T>>.collectRequest(
         state: MutableStateFlow<UIState<T>>,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -45,7 +46,7 @@ abstract class BaseViewModel : ViewModel() {
      *
      * @return [UIState] depending request result
      */
-    protected fun <T, S> Flow<Either<String, T>>.collectRequest(
+    protected fun <T, S> Flow<Either<NetworkError, T>>.collectRequest(
         state: MutableStateFlow<UIState<S>>,
         mappedData: (T) -> S
     ) {
