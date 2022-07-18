@@ -6,10 +6,10 @@ import androidx.paging.PagingData
 import com.alish.boilerplate.data.remote.pagingsources.base.BasePagingSource
 import com.alish.boilerplate.data.utils.DataMapper
 import com.alish.boilerplate.data.utils.mapToDomain
-import com.alish.boilerplate.data.utils.ApiError
 import com.alish.boilerplate.domain.utils.Either
 import com.alish.boilerplate.domain.utils.NetworkError
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -46,7 +46,10 @@ abstract class BaseRepository {
      */
     @Suppress("FunctionName")
     private fun ResponseBody?.APIError(): MutableMap<String, List<String>> {
-        return Gson().fromJson(this?.string(), ApiError::class.java).errors.toMutableMap()
+        return Gson().fromJson(
+            this?.string(),
+            object : TypeToken<MutableMap<String, List<String>>>() {}.type
+        )
     }
 
     /**
