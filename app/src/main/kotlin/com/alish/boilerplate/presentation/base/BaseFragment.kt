@@ -69,7 +69,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         state: ((UIState<T>) -> Unit)? = null,
-        onError: ((errors: NetworkError) -> Unit),
+        onError: ((error: NetworkError) -> Unit),
         onSuccess: ((data: T) -> Unit)
     ) {
         collectFlowSafely(lifecycleState) {
@@ -78,7 +78,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
                 when (it) {
                     is UIState.Idle -> {}
                     is UIState.Loading -> {}
-                    is UIState.Error -> onError.invoke(it.errors)
+                    is UIState.Error -> onError.invoke(it.error)
                     is UIState.Success -> onSuccess.invoke(it.data)
                 }
             }

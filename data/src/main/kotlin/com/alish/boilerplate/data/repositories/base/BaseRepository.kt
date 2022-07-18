@@ -41,6 +41,9 @@ abstract class BaseRepository {
         )
     }
 
+    /**
+     * Convert network error from server side
+     */
     @Suppress("FunctionName")
     private fun ResponseBody?.APIError(): MutableMap<String, List<String>> {
         return Gson().fromJson(this?.string(), ApiError::class.java).errors.toMutableMap()
