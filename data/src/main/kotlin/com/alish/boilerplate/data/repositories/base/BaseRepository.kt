@@ -55,7 +55,7 @@ abstract class BaseRepository {
     /**
      * Do network paging request with default params
      */
-    protected fun <ValueDto : Any, Value : Any> doPagingRequest(
+    protected fun <ValueDto : DataMapper<ValueDto, Value>, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
         pageSize: Int = 10,
         prefetchDistance: Int = pageSize,

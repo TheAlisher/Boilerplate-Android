@@ -3,15 +3,16 @@ package com.alish.boilerplate.data.remote.pagingsources.base
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.alish.boilerplate.data.remote.dtos.foo.FooPagingResponse
+import com.alish.boilerplate.data.utils.DataMapper
+import com.alish.boilerplate.data.utils.mapToDomain
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
 
 private const val BASE_STARTING_PAGE_INDEX = 1
 
-abstract class BasePagingSource<ValueDto : Any, Value : Any>(
+abstract class BasePagingSource<ValueDto : DataMapper<ValueDto, Value>, Value : Any>(
     private val request: suspend (position: Int) -> Response<FooPagingResponse<ValueDto>>,
-    private val mappedData: (data: List<ValueDto>) -> List<Value>
 ) : PagingSource<Int, Value>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Value> {
@@ -22,7 +23,7 @@ abstract class BasePagingSource<ValueDto : Any, Value : Any>(
             val data = response.body()!!
 
             LoadResult.Page(
-                data = mappedData(data.data),
+                data = data.data.map { it.mapToDomain() },
                 prevKey = null,
                 nextKey = data.next
             )
