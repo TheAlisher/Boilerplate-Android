@@ -32,7 +32,7 @@ abstract class BaseRepository {
             if (it.isSuccessful && it.body() != null) {
                 emit(Either.Right(it.body()!!.mapToDomain()))
             } else {
-                emit(Either.Left(NetworkError.Api(it.errorBody().APIError())))
+                emit(Either.Left(NetworkError.Api(it.errorBody().toApiError())))
             }
         }
     }.flowOn(Dispatchers.IO).catch { exception ->
@@ -44,8 +44,7 @@ abstract class BaseRepository {
     /**
      * Convert network error from server side
      */
-    @Suppress("FunctionName")
-    private fun ResponseBody?.APIError(): MutableMap<String, List<String>> {
+    private fun ResponseBody?.toApiError(): MutableMap<String, List<String>> {
         return Gson().fromJson(
             this?.string(),
             object : TypeToken<MutableMap<String, List<String>>>() {}.type
