@@ -17,6 +17,19 @@ import kotlinx.coroutines.launch
 abstract class BaseViewModel : ViewModel() {
 
     /**
+     * Creates [MutableStateFlow] with [UIState] and the given initial value [UIState.Idle]
+     */
+    @Suppress("FunctionName")
+    fun <T> MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
+
+    /**
+     * Reset [MutableUIStateFlow] to [UIState.Idle]
+     */
+    fun <T> MutableStateFlow<UIState<T>>.reset() {
+        value = UIState.Idle()
+    }
+
+    /**
      * Collect network request
      *
      * @return [UIState] depending request result
