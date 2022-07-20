@@ -1,6 +1,6 @@
 import org.gradle.api.JavaVersion
 
-object GradleConfig {
+object AndroidConfig {
 
     const val compileSdk = 32
     const val minSdk = 26

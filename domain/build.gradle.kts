@@ -3,8 +3,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = GradleConfig.compileOptions
-    targetCompatibility = GradleConfig.compileOptions
+    sourceCompatibility = AndroidConfig.compileOptions
+    targetCompatibility = AndroidConfig.compileOptions
 }
 
 dependencies {

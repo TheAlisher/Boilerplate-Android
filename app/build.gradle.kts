@@ -11,35 +11,35 @@ plugins {
 }
 
 android {
-    compileSdk = GradleConfig.compileSdk
+    compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
         applicationId = "com.alish.boilerplate"
-        minSdk = GradleConfig.minSdk
-        targetSdk = GradleConfig.targetSdk
+        minSdk = AndroidConfig.minSdk
+        targetSdk = AndroidConfig.targetSdk
         versionCode = 1
         versionName = "1.0"
     }
 
     buildTypes {
-        getByName(GradleConfig.release) {
+        getByName(AndroidConfig.release) {
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
 
-        getByName(GradleConfig.debug) {
+        getByName(AndroidConfig.debug) {
             applicationIdSuffix = ".debug"
             isDebuggable = true
         }
     }
     compileOptions {
-        sourceCompatibility = GradleConfig.compileOptions
-        targetCompatibility = GradleConfig.compileOptions
+        sourceCompatibility = AndroidConfig.compileOptions
+        targetCompatibility = AndroidConfig.compileOptions
     }
     kotlinOptions {
-        jvmTarget = GradleConfig.kotlinOptions
+        jvmTarget = AndroidConfig.kotlinOptions
     }
 
     // View Binding

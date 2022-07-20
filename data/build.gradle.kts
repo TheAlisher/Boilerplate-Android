@@ -5,15 +5,15 @@ plugins {
 }
 
 android {
-    compileSdk = GradleConfig.compileSdk
+    compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
-        minSdk = GradleConfig.minSdk
-        targetSdk = GradleConfig.targetSdk
+        minSdk = AndroidConfig.minSdk
+        targetSdk = AndroidConfig.targetSdk
     }
 
     buildTypes {
-        getByName(GradleConfig.release) {
+        getByName(AndroidConfig.release) {
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
@@ -21,16 +21,16 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://example.com/\"")
         }
 
-        getByName(GradleConfig.debug) {
+        getByName(AndroidConfig.debug) {
             buildConfigField("String", "BASE_URL", "\"https://example.com.debug/\"")
         }
     }
     compileOptions {
-        sourceCompatibility = GradleConfig.compileOptions
-        targetCompatibility = GradleConfig.compileOptions
+        sourceCompatibility = AndroidConfig.compileOptions
+        targetCompatibility = AndroidConfig.compileOptions
     }
     kotlinOptions {
-        jvmTarget = GradleConfig.kotlinOptions
+        jvmTarget = AndroidConfig.kotlinOptions
     }
 }
 
