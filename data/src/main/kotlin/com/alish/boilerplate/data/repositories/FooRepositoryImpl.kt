@@ -22,5 +22,5 @@ class FooRepositoryImpl @Inject constructor(
         }
     }
 
-    fun fetchFooPaging() = doPagingRequest(FooPagingSource(service))
+    override fun fetchFooPaging() = doPagingRequest(FooPagingSource(service))
 }
