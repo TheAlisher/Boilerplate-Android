@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.alish.boilerplate.R
 
-// fun Fragment.activityNavController() = requireActivity().findNavController(R.id.nav_host_fragment)
+fun Fragment.activityNavController() = requireActivity().findNavController(R.id.nav_host_fragment)
 
 fun Fragment.flowNavController(@IdRes navHostId: Int) = requireActivity().findNavController(
     navHostId
