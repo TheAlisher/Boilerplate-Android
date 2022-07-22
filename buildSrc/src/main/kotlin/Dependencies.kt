@@ -12,7 +12,7 @@ object Versions {
     const val fragment = "1.5.0"
     const val lifecycle = "2.5.0"
     const val navigation = "2.5.0"
-    const val hilt = "2.42"
+    const val hilt = "2.43"
     const val retrofit = "2.9.0"
     const val okHttp = "5.0.0-alpha.10"
     const val room = "2.4.2"
