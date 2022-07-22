@@ -12,7 +12,7 @@ object Versions {
     const val fragment = "1.5.0"
     const val lifecycle = "2.5.0"
     const val navigation = "2.5.0"
-    const val hilt = "2.43"
+    const val dagger = "2.43"
     const val retrofit = "2.9.0"
     const val okHttp = "5.0.0-alpha.10"
     const val room = "2.4.2"
@@ -69,8 +69,8 @@ object Libraries {
     }
 
     object Hilt {
-        const val android = "com.google.dagger:hilt-android:${Versions.hilt}"
-        const val compiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
+        const val android = "com.google.dagger:hilt-android:${Versions.dagger}"
+        const val compiler = "com.google.dagger:hilt-compiler:${Versions.dagger}"
     }
 
     object Retrofit {
