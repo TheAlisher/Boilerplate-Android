@@ -1,5 +1,3 @@
-import org.gradle.api.JavaVersion
-
 object AndroidConfig {
 
     const val compileSdk = 32
@@ -8,7 +6,4 @@ object AndroidConfig {
 
     const val release = "release"
     const val debug = "debug"
-
-    val compileOptions = JavaVersion.VERSION_11
-    const val kotlinOptions = "11"
 }

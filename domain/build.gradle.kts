@@ -3,8 +3,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = AndroidConfig.compileOptions
-    targetCompatibility = AndroidConfig.compileOptions
+    sourceCompatibility = Options.compileOptions
+    targetCompatibility = Options.compileOptions
 }
 
 dependencies {
