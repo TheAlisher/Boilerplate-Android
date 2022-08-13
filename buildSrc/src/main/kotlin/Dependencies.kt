@@ -4,7 +4,7 @@ object Versions {
     const val kotlin = "1.7.10"
     const val coroutines = "1.6.4"
     const val KSP = "1.7.10-1.0.6"
-    const val material = "1.6.1"
+    const val material = "1.7.0-beta01"
     const val constraintLayout = "2.1.4"
     const val vbpd = "1.5.6"
     const val core = "1.8.0"
