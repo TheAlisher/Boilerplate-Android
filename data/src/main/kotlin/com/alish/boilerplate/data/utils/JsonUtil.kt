@@ -9,7 +9,7 @@ import com.google.gson.reflect.TypeToken
  *
  * @return [T]
  */
-inline fun <reified T> fromJson(file: String): T {
+internal inline fun <reified T> fromJson(file: String): T {
     return Gson().fromJson(file, object : TypeToken<T>() {}.type)
 }
 
@@ -18,6 +18,6 @@ inline fun <reified T> fromJson(file: String): T {
  *
  * @return Json file from assets
  */
-fun Context.jsonFromAssets(fileName: String): String {
+internal fun Context.jsonFromAssets(fileName: String): String {
     return this.assets.open(fileName).bufferedReader().use { it.readText() }
 }
