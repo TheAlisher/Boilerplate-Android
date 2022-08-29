@@ -38,7 +38,7 @@ dependencies {
 
     implementation(project(":domain"))
 
-    // Retrofit 2
+    // Retrofit
     implementation(Libraries.Retrofit.retrofit)
     implementation(Libraries.Retrofit.converterGson)
 
@@ -51,6 +51,6 @@ dependencies {
     api(Libraries.Room.runtime)
     ksp(Libraries.Room.compiler)
 
-    // Paging 3
+    // Paging
     api(Libraries.Paging.runtime)
 }
