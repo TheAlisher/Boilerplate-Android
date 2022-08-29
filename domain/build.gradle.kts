@@ -15,5 +15,6 @@ dependencies {
     // Kotlin
     api(Libraries.Coroutines.core)
 
+    // Paging
     implementation(Libraries.Paging.common)
 }
