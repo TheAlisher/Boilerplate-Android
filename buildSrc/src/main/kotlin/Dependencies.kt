@@ -7,7 +7,7 @@ object Versions {
     const val material = "1.8.0-alpha01"
     const val constraintLayout = "2.1.4"
     const val vbpd = "1.5.6"
-    const val core = "1.8.0"
+    const val core = "1.9.0"
     const val activity = "1.5.1"
     const val fragment = "1.5.2"
     const val lifecycle = "2.5.1"
