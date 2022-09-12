@@ -2,9 +2,8 @@ package com.alish.boilerplate.data.repositories
 
 import com.alish.boilerplate.data.remote.apiservices.FooApiService
 import com.alish.boilerplate.data.remote.pagingsources.FooPagingSource
-import com.alish.boilerplate.data.repositories.base.BaseRepository
+import com.alish.boilerplate.data.base.BaseRepository
 import com.alish.boilerplate.domain.repositories.FooRepository
-import kotlinx.coroutines.flow.catch
 import javax.inject.Inject
 
 class FooRepositoryImpl @Inject constructor(

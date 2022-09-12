@@ -1,9 +1,8 @@
-package com.alish.boilerplate.data.repositories.base
+package com.alish.boilerplate.data.base
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.alish.boilerplate.data.remote.pagingsources.base.BasePagingSource
 import com.alish.boilerplate.data.utils.DataMapper
 import com.alish.boilerplate.data.utils.mapToDomain
 import com.alish.boilerplate.domain.utils.Either
