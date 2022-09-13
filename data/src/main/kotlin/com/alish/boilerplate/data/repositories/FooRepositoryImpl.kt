@@ -11,13 +11,11 @@ class FooRepositoryImpl @Inject constructor(
 ) : BaseRepository(), FooRepository {
 
     override fun fetchFoo() = doNetworkRequest {
-        service.fetchFoo().also { data ->
-            data.body()?.let {
-                /**
-                 * Do something with [data]
-                 */
-                it.bar
-            }
+        service.fetchFoo().data {
+            /**
+             * Do something with [data]
+             */
+            it.bar
         }
     }
 

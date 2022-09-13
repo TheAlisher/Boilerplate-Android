@@ -50,6 +50,11 @@ abstract class BaseRepository {
         )
     }
 
+    protected inline fun <T : Response<S>, S> T.data(block: (S) -> Unit): T {
+        this.body()?.let(block)
+        return this
+    }
+
     /**
      * Do network paging request with default params
      */
