@@ -15,7 +15,7 @@ class FooRepositoryImpl @Inject constructor(
             data.body()?.let {
                 /**
                  * Do something with [data]
-                 * */
+                 */
                 it.bar
             }
         }
