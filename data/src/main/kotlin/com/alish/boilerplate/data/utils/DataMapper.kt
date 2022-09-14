@@ -1,7 +1,5 @@
 package com.alish.boilerplate.data.utils
 
-interface DataMapper<T, S> {
-    fun T.mapToDomain(): S
+interface DataMapper<T> {
+    fun mapToDomain(): T
 }
-
-fun <T : DataMapper<T, S>, S> T.mapToDomain(): S = this.mapToDomain()

@@ -4,7 +4,6 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.alish.boilerplate.data.utils.DataMapper
-import com.alish.boilerplate.data.utils.mapToDomain
 import com.alish.boilerplate.domain.utils.Either
 import com.alish.boilerplate.domain.utils.NetworkError
 import com.google.gson.Gson
@@ -24,7 +23,7 @@ abstract class BaseRepository {
      *
      * @return result in [flow] with [Either]
      */
-    protected fun <T : DataMapper<T, S>, S> doNetworkRequest(
+    protected fun <T : DataMapper<S>, S> doNetworkRequest(
         request: suspend () -> Response<T>
     ) = flow<Either<NetworkError, S>> {
         request().let {
@@ -58,7 +57,7 @@ abstract class BaseRepository {
     /**
      * Do network paging request with default params
      */
-    protected fun <ValueDto : DataMapper<ValueDto, Value>, Value : Any> doPagingRequest(
+    protected fun <ValueDto : DataMapper<Value>, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
         pageSize: Int = 10,
         prefetchDistance: Int = pageSize,
