@@ -4,14 +4,13 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.alish.boilerplate.data.remote.dtos.foo.FooPagingResponse
 import com.alish.boilerplate.data.utils.DataMapper
-import com.alish.boilerplate.data.utils.mapToDomain
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
 
 private const val BASE_STARTING_PAGE_INDEX = 1
 
-abstract class BasePagingSource<ValueDto : DataMapper<ValueDto, Value>, Value : Any>(
+abstract class BasePagingSource<ValueDto : DataMapper<Value>, Value : Any>(
     private val request: suspend (position: Int) -> Response<FooPagingResponse<ValueDto>>,
 ) : PagingSource<Int, Value>() {
 
