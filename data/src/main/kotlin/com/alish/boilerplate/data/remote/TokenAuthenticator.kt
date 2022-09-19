@@ -20,9 +20,10 @@ class TokenAuthenticator @Inject constructor(
 
             return when {
                 refreshToken.isSuccessful -> {
-
-                    // save token to preferences
-                    preferencesHelper
+                    /**
+                     * Save access & refresh tokens to preferences
+                     */
+                    "$preferencesHelper."
 
                     response
                         .request
