@@ -12,8 +12,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.utils.NetworkError
+import com.alish.boilerplate.presentation.extensions.showToastLong
 import com.alish.boilerplate.presentation.ui.state.UIState
 import com.google.android.material.progressindicator.CircularProgressIndicator
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -113,6 +115,30 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
             is UIState.Loading -> showLoader(true)
             is UIState.Error -> showLoader(false)
             is UIState.Success -> if (!isNavigateIfSuccess) showLoader(false)
+        }
+    }
+
+    /**
+     * [NetworkError] extension function for setup errors from server side
+     */
+    fun NetworkError.setupApiErrors(vararg inputs: TextInputLayout) = when (this) {
+        is NetworkError.Unexpected -> {
+            showToastLong(this.error)
+        }
+        is NetworkError.Api -> {
+            showToastLong(this.error)
+        }
+        is NetworkError.ApiInputs -> {
+            for (input in inputs) {
+                error[input.tag].also { error ->
+                    if (error == null) {
+                        input.isErrorEnabled = false
+                    } else {
+                        input.error = error.joinToString()
+                        this.error.remove(input.tag)
+                    }
+                }
+            }
         }
     }
 }

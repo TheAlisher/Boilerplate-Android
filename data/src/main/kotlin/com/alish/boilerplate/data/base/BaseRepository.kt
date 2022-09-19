@@ -1,8 +1,10 @@
 package com.alish.boilerplate.data.base
 
+import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.alish.boilerplate.data.BuildConfig
 import com.alish.boilerplate.data.utils.DataMapper
 import com.alish.boilerplate.domain.utils.Either
 import com.alish.boilerplate.domain.utils.NetworkError
@@ -27,25 +29,45 @@ abstract class BaseRepository {
         request: suspend () -> Response<T>
     ) = flow<Either<NetworkError, S>> {
         request().let {
+            when {
+                it.isSuccessful && it.body() != null -> {
+                    emit(Either.Right(it.body()!!.mapToDomain()))
+                }
+                !it.isSuccessful && it.code() == 422 -> {
+                    emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiInputsError())))
+                }
+                else -> {
+                    emit(Either.Left(NetworkError.Api(it.errorBody().toApiError())))
+                }
+            }
             if (it.isSuccessful && it.body() != null) {
                 emit(Either.Right(it.body()!!.mapToDomain()))
             } else {
-                emit(Either.Left(NetworkError.Api(it.errorBody().toApiError())))
+                emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiInputsError())))
             }
         }
     }.flowOn(Dispatchers.IO).catch { exception ->
-        emit(
-            Either.Left(NetworkError.Unexpected(exception.localizedMessage ?: "Error Occurred!"))
+        val message = exception.localizedMessage ?: "Error Occurred!"
+        if (BuildConfig.DEBUG) Log.e("anime", message)
+        emit(Either.Left(NetworkError.Unexpected(message)))
+    }
+
+    /**
+     * Convert network error from server side for inputs
+     */
+    private fun ResponseBody?.toApiInputsError(): MutableMap<String, List<String>> {
+        return Gson().fromJson(
+            this?.string(),
+            object : TypeToken<MutableMap<String, List<String>>>() {}.type
         )
     }
 
     /**
      * Convert network error from server side
      */
-    private fun ResponseBody?.toApiError(): MutableMap<String, List<String>> {
+    private fun ResponseBody?.toApiError(): String {
         return Gson().fromJson(
-            this?.string(),
-            object : TypeToken<MutableMap<String, List<String>>>() {}.type
+            this?.string(), object : TypeToken<String>() {}.type
         )
     }
 
