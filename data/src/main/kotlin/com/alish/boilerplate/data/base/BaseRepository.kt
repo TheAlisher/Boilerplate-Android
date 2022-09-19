@@ -40,11 +40,6 @@ abstract class BaseRepository {
                     emit(Either.Left(NetworkError.Api(it.errorBody().toApiError())))
                 }
             }
-            if (it.isSuccessful && it.body() != null) {
-                emit(Either.Right(it.body()!!.mapToDomain()))
-            } else {
-                emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiInputsError())))
-            }
         }
     }.flowOn(Dispatchers.IO).catch { exception ->
         val message = exception.localizedMessage ?: "Error Occurred!"
