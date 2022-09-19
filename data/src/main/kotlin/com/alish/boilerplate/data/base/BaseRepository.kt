@@ -49,6 +49,9 @@ abstract class BaseRepository {
         )
     }
 
+    /**
+     * Get non-nullable body from request
+     */
     protected inline fun <T : Response<S>, S> T.data(block: (S) -> Unit): T {
         this.body()?.let(block)
         return this
