@@ -52,8 +52,7 @@ abstract class BaseRepository {
      */
     private fun ResponseBody?.toApiInputsError(): MutableMap<String, List<String>> {
         return Gson().fromJson(
-            this?.string(),
-            object : TypeToken<MutableMap<String, List<String>>>() {}.type
+            this?.string(), object : TypeToken<MutableMap<String, List<String>>>() {}.type
         )
     }
 
