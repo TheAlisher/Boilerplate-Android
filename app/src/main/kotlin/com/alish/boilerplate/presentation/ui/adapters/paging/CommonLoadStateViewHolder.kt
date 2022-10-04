@@ -17,16 +17,14 @@ class CommonLoadStateViewHolder(
         binding.retryButton.setOnClickListener { retry.invoke() }
     }
 
-    fun bind(loadState: LoadState) {
-        binding.apply {
-            if (loadState is LoadState.Error) {
-                errorMsg.text = loadState.error.localizedMessage
-            }
-
-            progressBar.isVisible = loadState is LoadState.Loading
-            retryButton.isVisible = loadState is LoadState.Error
-            errorMsg.isVisible = loadState is LoadState.Error
+    fun bind(loadState: LoadState) = with(binding) {
+        if (loadState is LoadState.Error) {
+            errorMsg.text = loadState.error.localizedMessage
         }
+
+        progressBar.isVisible = loadState is LoadState.Loading
+        retryButton.isVisible = loadState is LoadState.Error
+        errorMsg.isVisible = loadState is LoadState.Error
     }
 
     companion object {
