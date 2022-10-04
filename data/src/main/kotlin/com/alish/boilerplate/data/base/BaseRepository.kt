@@ -27,14 +27,14 @@ abstract class BaseRepository {
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequest(
         request: suspend () -> Response<T>
-    ) = flow<Either<NetworkError, S>> {
+    ) = flow {
         request().let {
             when {
                 it.isSuccessful && it.body() != null -> {
                     emit(Either.Right(it.body()!!.mapToDomain()))
                 }
                 !it.isSuccessful && it.code() == 422 -> {
-                    emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiInputsError())))
+                    emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiError())))
                 }
                 else -> {
                     emit(Either.Left(NetworkError.Api(it.errorBody().toApiError())))
@@ -48,20 +48,11 @@ abstract class BaseRepository {
     }
 
     /**
-     * Convert network error from server side for inputs
-     */
-    private fun ResponseBody?.toApiInputsError(): MutableMap<String, List<String>> {
-        return Gson().fromJson(
-            this?.string(), object : TypeToken<MutableMap<String, List<String>>>() {}.type
-        )
-    }
-
-    /**
      * Convert network error from server side
      */
-    private fun ResponseBody?.toApiError(): String {
+    private fun <T> ResponseBody?.toApiError(): T {
         return Gson().fromJson(
-            this?.string(), object : TypeToken<String>() {}.type
+            this?.string(), object : TypeToken<T>() {}.type
         )
     }
 
