@@ -50,7 +50,7 @@ abstract class BaseRepository {
     /**
      * Convert network error from server side
      */
-    private fun <T> ResponseBody?.toApiError(): T {
+    private inline fun <reified T> ResponseBody?.toApiError(): T {
         return Gson().fromJson(
             this?.string(), object : TypeToken<T>() {}.type
         )
