@@ -49,7 +49,7 @@ abstract class BaseRepository {
     }.flowOn(Dispatchers.IO).catch { exception ->
         val message = exception.localizedMessage ?: "Error Occurred!"
         if (BuildConfig.DEBUG) {
-            Log.d("${this@BaseRepository.javaClass.name}", message)
+            Log.d("${this@BaseRepository.javaClass.simpleName}", message)
         }
         emit(Either.Left(NetworkError.Unexpected(message)))
     }
