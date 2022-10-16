@@ -1,6 +1,7 @@
 package com.alish.boilerplate.data.base
 
 import android.util.Log
+import android.webkit.MimeTypeMap
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -15,8 +16,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
+import java.io.File
 
 abstract class BaseRepository {
 
@@ -63,6 +68,17 @@ abstract class BaseRepository {
         this.body()?.let(block)
         return this
     }
+
+    /**
+     * Convert [File] to [MultipartBody.Part]
+     */
+    fun File.toMultipartBodyPart(formDateName: String) = MultipartBody.Part.createFormData(
+        name = formDateName,
+        filename = name,
+        body = asRequestBody(
+            MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)?.toMediaTypeOrNull()
+        )
+    )
 
     /**
      * Do network paging request with default params
