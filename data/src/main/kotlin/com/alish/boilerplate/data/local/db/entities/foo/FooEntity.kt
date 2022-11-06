@@ -1,8 +1,8 @@
-package com.alish.boilerplate.data.local.db.entities
+package com.alish.boilerplate.data.local.db.entities.foo
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.alish.boilerplate.domain.models.Foo
+import com.alish.boilerplate.domain.models.foo.Foo
 
 @Entity
 class FooEntity(

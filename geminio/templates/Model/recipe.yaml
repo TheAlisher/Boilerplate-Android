@@ -22,6 +22,10 @@ globals:
       id: modelDto
       value: ${modelPrefix}Dto
 
+  - stringParameter:
+      id: modelPackage
+      value: ${modelPrefix.camelCaseToUnderlines()}
+
 recipe:
   - instantiateAndOpen:
       from: root/src/Model.kt.ftl

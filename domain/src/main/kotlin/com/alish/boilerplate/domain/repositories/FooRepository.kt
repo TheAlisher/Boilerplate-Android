@@ -1,7 +1,7 @@
 package com.alish.boilerplate.domain.repositories
 
 import androidx.paging.PagingData
-import com.alish.boilerplate.domain.models.Foo
+import com.alish.boilerplate.domain.models.foo.Foo
 import com.alish.boilerplate.domain.utils.RemoteWrapper
 import kotlinx.coroutines.flow.Flow
 
