@@ -1,0 +1,32 @@
+requiredParams:
+  name: Model by Alish
+  description: Create Model & ModelDto
+
+optionalParams:
+  category: automotive
+  formFactor: automotive
+  constraints:
+    - kotlin
+
+widgets:
+  - stringParameter:
+      id: modelPrefix
+      name: Model Prefix
+      constraints:
+        - nonempty
+        - unique
+      default: Blank
+
+globals:
+  - stringParameter:
+      id: modelDto
+      value: ${modelPrefix}Dto
+
+recipe:
+  - instantiateAndOpen:
+      from: root/src/Model.kt.ftl
+      to: ${srcOut}/${modelPrefix}.kt
+
+  - instantiateAndOpen:
+      from: root/src/ModelDto.kt.ftl
+      to: ${srcOut}/${modelDto}.kt
