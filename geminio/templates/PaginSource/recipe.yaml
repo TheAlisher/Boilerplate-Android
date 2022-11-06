@@ -19,6 +19,10 @@ widgets:
 
 globals:
   - stringParameter:
+      id: pagingSourcePackage
+      value: ${pagingSourcePrefix.camelCaseToUnderlines()}
+
+  - stringParameter:
       id: pagingSourceName
       value: ${pagingSourcePrefix}PagingSource
 
