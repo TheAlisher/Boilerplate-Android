@@ -29,8 +29,8 @@ globals:
 recipe:
   - instantiateAndOpen:
       from: root/src/Model.kt.ftl
-      to: ${srcOut}/${modelPrefix}.kt
+      to: ${srcOut}/${modelPackage}/${modelPrefix}.kt
 
   - instantiateAndOpen:
       from: root/src/ModelDto.kt.ftl
-      to: ${srcOut}/${modelDto}.kt
+      to: ${srcOut}/${modelPackage}/${modelDto}.kt
