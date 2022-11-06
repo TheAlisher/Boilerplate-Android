@@ -1,6 +1,7 @@
 package ${packageName}
 
 import com.alish.boilerplate.data.base.BaseRepository
+import com.alish.boilerplate.data.remote.apiservices.${repositoryApiService}
 import com.alish.boilerplate.domain.repositories.${repositoryName}
 import javax.inject.Inject
 
