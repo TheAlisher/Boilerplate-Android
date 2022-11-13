@@ -49,7 +49,7 @@ abstract class BaseRepository {
     }.flowOn(Dispatchers.IO).catch { exception ->
         val message = exception.localizedMessage ?: "Error Occurred!"
         if (BuildConfig.DEBUG) {
-            Log.d("${this@BaseRepository.javaClass.simpleName}", message)
+            Log.d(this@BaseRepository.javaClass.simpleName, message)
         }
         emit(Either.Left(NetworkError.Unexpected(message)))
     }
@@ -66,7 +66,7 @@ abstract class BaseRepository {
     /**
      * Get non-nullable body from request
      */
-    protected inline fun <T : Response<S>, S> T.data(block: (S) -> Unit): T {
+    protected inline fun <T : Response<S>, S> T.onSuccess(block: (S) -> Unit): T {
         this.body()?.let(block)
         return this
     }
