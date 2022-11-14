@@ -1,6 +1,6 @@
 package com.alish.boilerplate.domain.models.foo
 
-data class Foo(
+class Foo(
     val id: Long,
     val bar: String
 )
