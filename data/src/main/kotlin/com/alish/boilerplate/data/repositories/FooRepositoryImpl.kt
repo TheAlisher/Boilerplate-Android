@@ -12,9 +12,6 @@ class FooRepositoryImpl @Inject constructor(
 
     override fun fetchFoo() = doNetworkRequest {
         service.fetchFoo().onSuccess { data ->
-            /**
-             * Do something with [data]
-             */
             data.bar
         }
     }
