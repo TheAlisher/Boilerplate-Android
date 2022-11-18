@@ -25,3 +25,15 @@ viewModel.$StateName$.collectUIState(
     }
 )
 ```
+
+##### UseCase
+
+```kotlin
+import javax.inject.Inject
+
+class $UseCaseName$UseCase @Inject constructor(
+    private val repository : $RepositoryName$
+) {
+    operator fun invoke() = repository.$RequestName$()
+}
+```
