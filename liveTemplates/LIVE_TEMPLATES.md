@@ -1,4 +1,4 @@
-# Boilerplate Live templates
+# Live templates
 
 ##### Request in ViewModel with UseCase and UIState
 
