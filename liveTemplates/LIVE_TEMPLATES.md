@@ -1,7 +1,5 @@
 # Boilerplate Live Templates
 
-### ViewModel
-
 ##### Request in ViewModel with UseCase and UIState
 
 ```kotlin
