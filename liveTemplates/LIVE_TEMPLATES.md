@@ -30,7 +30,8 @@ https://user-images.githubusercontent.com/60399817/202648959-e7431a78-1831-41f6-
 ##### Collect UIState in Fragment
 
 ```kotlin
-viewModel.$StateName$.collectUIState(
+private fun subscribeTo$UIStateName$() = with(binding) {
+    viewModel.$UIState$.collectUIState(
     state = {
         it.setupViewVisibility()
     },
@@ -39,7 +40,8 @@ viewModel.$StateName$.collectUIState(
     },
     onSuccess = {
     }
-)
+    )
+}
 ```
 
 https://user-images.githubusercontent.com/60399817/202649190-3957321d-9702-4529-a02a-e7d2265e2c3f.mov
