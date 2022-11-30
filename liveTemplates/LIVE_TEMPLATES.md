@@ -2,7 +2,7 @@
 
 #### Abbreviation: UseCase | Description: Create UseCase
 
-- `$Request$` - expression: `camelCase($UseCaseName$)`
+- `$Request$` - expression: `camelCase(UseCaseName)`
 
 ```kotlin
 import javax.inject.Inject
@@ -14,9 +14,9 @@ class $UseCaseName$UseCase @Inject constructor(
 }
 ```
 
-___
+---
 
-##### Request in ViewModel with UseCase and UIState
+##### Abbreviation: request | Description: Create request with UseCase and UIStates
 
 ```kotlin
 private val _$StateName$State = MutableUIStateFlow<$ModelName$>()
@@ -27,30 +27,39 @@ fun $UseCaseName$() {
 }
 ```
 
-##### Collect UIState in Fragment
+---
+
+##### Abbreviation: subscribeTo | Description: Subscribe to UIState
+
+- `$UIState$` - expression: `camelCase(UIStateName)`
 
 ```kotlin
 private fun subscribeTo$UIStateName$() = with(binding) {
-    viewModel.$UIState$.collectUIState(
-    state = {
-        it.setupViewVisibility()
-    },
-    onError = {
-        it.setupApiErrors()
-    },
-    onSuccess = {
-    }
+    viewModel.$UIState$State.collectUIState(
+        state = {
+            it.setupViewVisibility()
+         },
+        onError = {
+            it.setupApiErrors()
+         },
+         onSuccess = {
+             $END$
+         }
     )
 }
 ```
 
-##### Setup RecyclerView with Adapter
+---
+
+##### Abbreviation: recycler | Description: Setup RecyclerView with Adapter
+
+- `$AdapterName$` - expression: `camelCase(RecyclerName)`
 
 ```kotlin
-private val $ADAPTER_NAME$ = $ADAPTER_INSTANCE$()
+private val $RecyclerName$Adapter = $AdapterName$Adapter()
 
-private fun setup$RECYCLER_NAME$Recycler() = with(binding.recycler$RECYCLER_VIEW$) {
+private fun setup$AdapterName$Recycler() = with(binding.recycler$RecyclerView$) {
     layoutManager = LinearLayoutManager(context)
-    adapter = $ADAPTER_NAME$
+    adapter = $RecyclerName$Adapter
 }
 ```
