@@ -1,6 +1,8 @@
 # Live templates
 
-##### Abbreviation: UseCase | Description: Create UseCase
+#### Abbreviation: UseCase | Description: Create UseCase
+
+- `$Request$` - expression: `camelCase($UseCaseName$)`
 
 ```kotlin
 import javax.inject.Inject
@@ -11,6 +13,8 @@ class $UseCaseName$UseCase @Inject constructor(
     operator fun invoke() = repository.$Request$()
 }
 ```
+
+___
 
 ##### Request in ViewModel with UseCase and UIState
 
