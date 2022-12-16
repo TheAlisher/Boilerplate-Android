@@ -85,8 +85,8 @@ abstract class BaseRepository {
     /**
      * Do network paging request with default params
      */
-    protected fun <ValueDto : DataMapper<Value>, Value : Any> doPagingRequest(
-        pagingSource: BasePagingSource<ValueDto, Value>,
+    protected fun <ValueDto : DataMapper<Value>, Value : Any, PagingSource : BasePagingSource<ValueDto, Value>> doPagingRequest(
+        pagingSource: () -> PagingSource,
         pageSize: Int = 10,
         prefetchDistance: Int = pageSize,
         enablePlaceholders: Boolean = true,
@@ -104,7 +104,7 @@ abstract class BaseRepository {
                 jumpThreshold
             ),
             pagingSourceFactory = {
-                pagingSource
+                pagingSource()
             }
         ).flow
     }
