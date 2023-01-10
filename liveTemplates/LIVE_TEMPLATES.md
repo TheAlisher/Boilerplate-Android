@@ -61,7 +61,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.attractor.nomadapp.presentation.base.BaseDiffUtilItemCallback
 
 class $Name$Adapter : PagingDataAdapter<$Model$, $Name$Adapter.$Name$ViewHolder>(
-BaseDiffUtilItemCallback()
+    BaseDiffUtilItemCallback()
 ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): $Name$ViewHolder {
