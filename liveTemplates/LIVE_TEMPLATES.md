@@ -51,6 +51,44 @@ private fun subscribeTo$UIStateName$() = with(binding) {
 
 ---
 
+#### Abbreviation: AdapterPaging | Description: Create Paging Adapter
+
+```kotlin
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.attractor.nomadapp.presentation.base.BaseDiffUtilItemCallback
+
+class $Name$Adapter : PagingDataAdapter<$Model$, $Name$Adapter.$Name$ViewHolder>(
+BaseDiffUtilItemCallback()
+) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): $Name$ViewHolder {
+        return $Name$ViewHolder(
+            Item$Name$Binding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
+        )
+    }
+
+    override fun onBindViewHolder(holder: $Name$ViewHolder, position: Int) {
+        getItem(position)?.let { holder.onBind(it) }
+    }
+
+    inner class $Name$ViewHolder(
+        private val binding: Item$Name$Binding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun onBind(data: $Model$) = with(binding) {
+            $END$
+        }
+    }
+}
+```
+
+---
+
 ##### Abbreviation: recycler | Description: Setup RecyclerView with Adapter
 
 - `$AdapterName$` - expression: `camelCase(RecyclerName)`
