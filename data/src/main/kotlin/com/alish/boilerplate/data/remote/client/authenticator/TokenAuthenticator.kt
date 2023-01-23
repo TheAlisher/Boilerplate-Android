@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote
+package com.alish.boilerplate.data.remote.client.authenticator
 
 import com.alish.boilerplate.data.local.preferences.PreferencesHelper
 import com.alish.boilerplate.data.remote.apiservices.AuthenticatorApiService

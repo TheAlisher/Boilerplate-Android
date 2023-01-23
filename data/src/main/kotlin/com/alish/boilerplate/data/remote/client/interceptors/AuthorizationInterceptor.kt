@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote.interceptors
+package com.alish.boilerplate.data.remote.client.interceptors
 
 import com.alish.boilerplate.data.local.preferences.PreferencesHelper
 import okhttp3.Interceptor

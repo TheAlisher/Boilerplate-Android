@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote
+package com.alish.boilerplate.data.remote.client
 
 import com.alish.boilerplate.data.BuildConfig
 import okhttp3.*
