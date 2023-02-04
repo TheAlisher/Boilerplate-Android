@@ -14,7 +14,7 @@ object Versions {
     const val navigation = "2.5.3"
     const val dagger = "2.44.2"
     const val retrofit = "2.9.0"
-    const val okHttp = "5.0.0-alpha.10"
+    const val okHttp = "5.0.0-alpha.11"
     const val room = "2.5.0"
     const val paging = "3.1.1"
 }
