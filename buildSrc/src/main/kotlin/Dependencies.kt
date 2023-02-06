@@ -6,7 +6,7 @@ object Versions {
     const val KSP = "1.8.10-1.0.9"
     const val material = "1.8.0"
     const val constraintLayout = "2.1.4"
-    const val vbpd = "1.5.6"
+    const val vbpd = "1.5.8"
     const val core = "1.9.0"
     const val activity = "1.6.1"
     const val fragment = "1.5.5"
