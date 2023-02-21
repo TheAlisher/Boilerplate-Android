@@ -10,7 +10,7 @@ class FooRepositoryImpl @Inject constructor(
     private val service: FooApiService
 ) : BaseRepository(), FooRepository {
 
-    override fun fetchFoo() = doNetworkRequest {
+    override fun fetchFoo() = doNetworkRequestWithMapping {
         service.fetchFoo().onSuccess { data ->
             data.bar
         }
