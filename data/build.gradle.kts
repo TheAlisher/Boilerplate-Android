@@ -19,11 +19,11 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
-            buildConfigField("String", "BASE_URL", "\"https://example.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://boilerplate.com/\"")
         }
 
         getByName(AndroidConfig.debug) {
-            buildConfigField("String", "BASE_URL", "\"https://example.com.debug/\"")
+            buildConfigField("String", "BASE_URL", "\"https://dev.boilerplate.com/\"")
         }
     }
     compileOptions {
