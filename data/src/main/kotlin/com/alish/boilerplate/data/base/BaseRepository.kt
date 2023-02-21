@@ -20,6 +20,11 @@ import okhttp3.ResponseBody
 import retrofit2.Response
 import java.io.File
 
+/**
+ * Base class for all repository implements with helper data layer functions
+ *
+ * @author Alish
+ */
 abstract class BaseRepository {
 
     /**
