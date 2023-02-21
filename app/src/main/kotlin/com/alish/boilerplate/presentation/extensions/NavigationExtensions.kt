@@ -92,6 +92,9 @@ fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback.() -> Un
  *
  * @receiver [Fragment]
  *
+ * @param T parent fragment generic
+ *
+ *
  * @see [Fragment.getParentFragment]
  * @see [NavHostFragment]
  */
