@@ -19,3 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Rules for DataMapper
+-keep class * implements com.alish.boilerplate.data.utils.DataMapper
+
+# Rules for Navigation Component Safe Args, Parcelable
+-keep class * implements android.os.Parcelable
