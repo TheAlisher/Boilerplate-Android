@@ -25,7 +25,7 @@ abstract class BaseRepository {
     /**
      * Do network request with [DataMapper.mapToDomain]
      *
-     * @author Alish
+     * @receiver [doNetworkRequest]
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestWithMapping(
         request: suspend () -> Response<T>
@@ -36,7 +36,7 @@ abstract class BaseRepository {
     /**
      * Do network request without mapping for primitive types
      *
-     * @author Alish
+     * @receiver [doNetworkRequest]
      */
     protected fun <T> doNetworkRequestWithoutMapping(
         request: suspend () -> Response<T>
@@ -47,7 +47,7 @@ abstract class BaseRepository {
     /**
      * Do network request for [Response] with [List]
      *
-     * @author Alish
+     * @receiver [doNetworkRequest]
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestForList(
         request: suspend () -> Response<List<T>>
@@ -62,8 +62,6 @@ abstract class BaseRepository {
      * @param successful handle response body with custom mapping
      *
      * @return [NetworkError] or [Response.body] in [Flow] with [Either]
-     *
-     * @author Alish
      *
      * @see [Response]
      * @see [Flow]
@@ -95,6 +93,10 @@ abstract class BaseRepository {
 
     /**
      * Convert network error from server side
+     *
+     * @receiver [ResponseBody]
+     * @see Response.errorBody
+     * @see Gson.fromJson
      */
     private inline fun <reified T> ResponseBody?.toApiError(): T {
         return Gson().fromJson(
@@ -103,7 +105,21 @@ abstract class BaseRepository {
     }
 
     /**
-     * Get non-nullable body from request
+     * Get non-nullable body from network request
+     *
+     * &nbsp
+     *
+     * ## How to use:
+     * ```
+     * override fun fetchFoo() = doNetworkRequestWithMapping {
+     *     service.fetchFoo().onSuccess { data ->
+     *         make something with data
+     *     }
+     * }
+     * ```
+     *
+     * @see Response.body
+     * @see let
      */
     protected inline fun <T : Response<S>, S> T.onSuccess(block: (S) -> Unit): T {
         this.body()?.let(block)
@@ -112,9 +128,31 @@ abstract class BaseRepository {
 
     /**
      * Convert [File] to [MultipartBody.Part]
+     *
+     * @receiver [File]
+     *
+     * @param formDataName set name for [MultipartBody.Part.createFormData]
+     *
+     * @return [MultipartBody.Part]
+     *
+     * &nbsp
+     *
+     * ## How to use:
+     * ```
+     * override fun uploadAvatar(avatar: String) = doNetworkRequest {
+     *     val file = File(Uri.parse(avatar).path!!)
+     *     service.uploadAvatar(file.toMultipartBodyPart("avatar"))
+     * }
+     * ```
+     *
+     * @see asRequestBody
+     * @see MimeTypeMap
+     * @see toMediaTypeOrNull
      */
-    fun File.toMultipartBodyPart(formDateName: String) = MultipartBody.Part.createFormData(
-        name = formDateName,
+    protected fun File.toMultipartBodyPart(
+        formDataName: String
+    ) = MultipartBody.Part.createFormData(
+        name = formDataName,
         filename = name,
         body = asRequestBody(
             MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)?.toMediaTypeOrNull()
@@ -123,6 +161,15 @@ abstract class BaseRepository {
 
     /**
      * Do network paging request with default params
+     *
+     * &nbsp
+     *
+     * ## How to use
+     * ```
+     * override fun fetchFooPaging() = doPagingRequest({ FooPagingSource(service) })
+     * ```
+     *
+     * @see BasePagingSource
      */
     protected fun <ValueDto : DataMapper<Value>, Value : Any, PagingSource : BasePagingSource<ValueDto, Value>> doPagingRequest(
         pagingSource: () -> PagingSource,
