@@ -31,7 +31,7 @@ android {
         }
 
         getByName(AndroidConfig.debug) {
-            applicationIdSuffix = ".debug"
+            applicationIdSuffix = ".${AndroidConfig.debug}"
             isDebuggable = true
         }
     }
