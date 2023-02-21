@@ -12,10 +12,7 @@ import com.alish.boilerplate.domain.utils.NetworkError
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -26,17 +23,61 @@ import java.io.File
 abstract class BaseRepository {
 
     /**
-     * Do network request
+     * Do network request with [DataMapper.mapToDomain]
      *
-     * @return result in [flow] with [Either]
+     * @author Alish
      */
-    protected fun <T : DataMapper<S>, S> doNetworkRequest(
+    protected fun <T : DataMapper<S>, S> doNetworkRequestWithMapping(
         request: suspend () -> Response<T>
+    ): Flow<Either<NetworkError, S>> = doNetworkRequest(request) { body ->
+        Either.Right(body.mapToDomain())
+    }
+
+    /**
+     * Do network request without mapping for primitive types
+     *
+     * @author Alish
+     */
+    protected fun <T> doNetworkRequestWithoutMapping(
+        request: suspend () -> Response<T>
+    ): Flow<Either<NetworkError, T>> = doNetworkRequest(request) { body ->
+        Either.Right(body)
+    }
+
+    /**
+     * Do network request for [Response] with [List]
+     *
+     * @author Alish
+     */
+    protected fun <T : DataMapper<S>, S> doNetworkRequestForList(
+        request: suspend () -> Response<List<T>>
+    ): Flow<Either<NetworkError, List<S>>> = doNetworkRequest(request) { body ->
+        Either.Right(body.map { it.mapToDomain() })
+    }
+
+    /**
+     * Base function for do network requests
+     *
+     * @param request http request function from api service
+     * @param successful handle response body with custom mapping
+     *
+     * @return [NetworkError] or [Response.body] in [Flow] with [Either]
+     *
+     * @author Alish
+     *
+     * @see [Response]
+     * @see [Flow]
+     * @see [Either]
+     * @see [NetworkError]
+     */
+    private fun <T, S> doNetworkRequest(
+        request: suspend () -> Response<T>,
+        successful: (T) -> Either.Right<S>
     ) = flow {
         request().let {
             when {
                 it.isSuccessful && it.body() != null -> {
-                    emit(Either.Right(it.body()!!.mapToDomain()))
+                    emit(successful.invoke(it.body()!!))
                 }
                 !it.isSuccessful && it.code() == 422 -> {
                     emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiError())))
@@ -48,9 +89,7 @@ abstract class BaseRepository {
         }
     }.flowOn(Dispatchers.IO).catch { exception ->
         val message = exception.localizedMessage ?: "Error Occurred!"
-        if (BuildConfig.DEBUG) {
-            Log.d(this@BaseRepository.javaClass.simpleName, message)
-        }
+        if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
         emit(Either.Left(NetworkError.Unexpected(message)))
     }
 
