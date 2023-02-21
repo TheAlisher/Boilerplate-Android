@@ -134,12 +134,6 @@ abstract class BaseRepository {
     /**
      * Convert [File] to [MultipartBody.Part]
      *
-     * @receiver [File]
-     *
-     * @param formDataName set name for [MultipartBody.Part.createFormData]
-     *
-     * @return [MultipartBody.Part]
-     *
      * &nbsp
      *
      * ## How to use:
@@ -149,6 +143,12 @@ abstract class BaseRepository {
      *     service.uploadAvatar(file.toMultipartBodyPart("avatar"))
      * }
      * ```
+     *
+     * @receiver [File]
+     *
+     * @param formDataName set name for [MultipartBody.Part.createFormData]
+     *
+     * @return [MultipartBody.Part]
      *
      * @see asRequestBody
      * @see MimeTypeMap
