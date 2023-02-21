@@ -64,6 +64,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     /**
      * Collect [UIState] with [collectFlowSafely]
      *
+     * @receiver [StateFlow] with [UIState]
+     *
      * @param state optional, for working with all states
      * @param onError for error handling
      * @param onSuccess for working with data
@@ -89,6 +91,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
     /**
      * Collect [PagingData] with [collectFlowSafely]
+     *
+     * @receiver [Flow] with [PagingData]
      */
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
@@ -99,6 +103,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
     /**
      * Setup views visibility depending on [UIState] states.
+     *
+     * @receiver [UIState]
      *
      * @param isNavigateIfSuccess whether to show views if the request is successful
      */
@@ -119,7 +125,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     /**
-     * [NetworkError] extension function for setup errors from server side
+     * Extension function for setup errors from server side
+     *
+     * @receiver [NetworkError]
      */
     fun NetworkError.setupApiErrors(vararg inputs: TextInputLayout) = when (this) {
         is NetworkError.Unexpected -> {
