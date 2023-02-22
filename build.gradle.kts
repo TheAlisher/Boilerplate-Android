@@ -7,5 +7,5 @@ plugins {
     id(Plugins.Navigation.safeArgs) version Versions.navigation apply false
 
     // Hilt
-    id(Plugins.Hilt.plugin) version Versions.dagger apply false
+    id(Plugins.Hilt.android) version Versions.dagger apply false
 }

@@ -7,7 +7,7 @@ plugins {
     id(Plugins.Navigation.safeArgs)
 
     // Hilt
-    id(Plugins.Hilt.plugin)
+    id(Plugins.Hilt.android)
 }
 
 android {

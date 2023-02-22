@@ -117,6 +117,6 @@ object Plugins {
     }
 
     object Hilt {
-        const val plugin = "com.google.dagger.hilt.android"
+        const val android = "com.google.dagger.hilt.android"
     }
 }
