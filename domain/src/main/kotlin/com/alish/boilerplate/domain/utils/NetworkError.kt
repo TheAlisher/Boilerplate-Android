@@ -8,7 +8,7 @@ package com.alish.boilerplate.domain.utils
 sealed class NetworkError {
 
     /**
-     * Unexpected error for example 500 or exception when mapping data
+     * Unexpected error for example HTTP code - 500 or exception when mapping data
      */
     class Unexpected(val error: String) : NetworkError()
 
