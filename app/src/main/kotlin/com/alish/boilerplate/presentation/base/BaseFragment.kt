@@ -20,6 +20,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
+/**
+ * Base class for [Fragment]s that work with data
+ *
+ * @author Alish
+ */
 abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     @LayoutRes layoutId: Int
 ) : Fragment(layoutId) {
