@@ -14,6 +14,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
+/**
+ * Base class for all [ViewModel]s
+ *
+ * @author Alish
+ */
 abstract class BaseViewModel : ViewModel() {
 
     /**
