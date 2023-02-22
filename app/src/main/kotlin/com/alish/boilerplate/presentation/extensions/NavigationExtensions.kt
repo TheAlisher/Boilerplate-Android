@@ -77,7 +77,7 @@ fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback.() -> Un
  *
  * &nbsp
  *
- * ## How to use
+ * ## How to use:
  * ```
  * private val args by lazy {
  *     parentFragmentInNavHost<MainFlowFragment>().args

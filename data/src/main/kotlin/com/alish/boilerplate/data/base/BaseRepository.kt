@@ -169,7 +169,7 @@ abstract class BaseRepository {
      *
      * &nbsp
      *
-     * ## How to use
+     * ## How to use:
      * ```
      * override fun fetchFooPaging() = doPagingRequest({ FooPagingSource(service) })
      * ```
