@@ -1,7 +1,7 @@
 package com.alish.boilerplate.data.utils
 
 /**
- * Base mapper class
+ * Base mapper interface
  *
  * @param T domain layer model
  *
