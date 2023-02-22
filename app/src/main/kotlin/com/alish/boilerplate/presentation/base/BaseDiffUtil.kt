@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.DiffUtil
 /**
  * Interface for [BaseDiffUtilItemCallback]
  *
+ * @author Alish
+ *
  * @see equals
  */
 interface IBaseDiffModel<T> {
@@ -15,6 +17,8 @@ interface IBaseDiffModel<T> {
 /**
  * Base class for fast create [DiffUtil] in
  * [ListAdapter][androidx.recyclerview.widget.ListAdapter], [PagingAdapter][androidx.paging.PagingDataAdapter]
+ *
+ * @author Alish
  *
  * @see IBaseDiffModel
  * @see DiffUtil.ItemCallback
