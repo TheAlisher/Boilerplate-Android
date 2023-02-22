@@ -8,6 +8,8 @@ package com.alish.boilerplate.domain.utils
  * &nbsp
  *
  * *from arrow-core*
+ *
+ * @see Nothing
  */
 sealed class Either<out A, out B> {
 
