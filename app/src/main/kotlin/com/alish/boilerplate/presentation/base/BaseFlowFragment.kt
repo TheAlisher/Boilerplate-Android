@@ -8,6 +8,21 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 
+/**
+ * Base class for FlowFragments
+ *
+ * FlowFragment is [Fragment] that performs the functions of an activity in Single Activity Architecture, with its own
+ * [FragmentContainerView][androidx.fragment.app.FragmentContainerView],
+ * [NavGraph][androidx.navigation.NavGraph] and
+ * [NavController][androidx.navigation.NavController]
+ *
+ * @param layoutId fragment layout id
+ * @param navHostFragmentId id [FragmentContainerView][androidx.fragment.app.FragmentContainerView]
+ *
+ * @author Alish
+ *
+ * @see [com.alish.boilerplate.presentation.extensions.flowNavController]
+ */
 abstract class BaseFlowFragment(
     @LayoutRes layoutId: Int,
     @IdRes private val navHostFragmentId: Int
