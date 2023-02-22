@@ -10,6 +10,11 @@ import java.io.IOException
 
 private const val BASE_STARTING_PAGE_INDEX = 1
 
+/**
+ * Base class for create [PagingSource]
+ *
+ * @see DataMapper
+ */
 abstract class BasePagingSource<ValueDto : DataMapper<Value>, Value : Any>(
     private val request: suspend (position: Int) -> Response<FooPagingResponse<ValueDto>>,
 ) : PagingSource<Int, Value>() {
