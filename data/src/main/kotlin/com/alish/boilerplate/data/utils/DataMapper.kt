@@ -10,7 +10,7 @@ package com.alish.boilerplate.data.utils
 interface DataMapper<T> {
 
     /**
-     * Map DTO to domain layer model
+     * Function for map DTO to domain layer model
      */
     fun mapToDomain(): T
 }
