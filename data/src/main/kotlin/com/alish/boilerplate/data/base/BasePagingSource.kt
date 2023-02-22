@@ -13,6 +13,8 @@ private const val BASE_STARTING_PAGE_INDEX = 1
 /**
  * Base class for create [PagingSource]
  *
+ * @author Alish
+ *
  * @see DataMapper
  */
 abstract class BasePagingSource<ValueDto : DataMapper<Value>, Value : Any>(
