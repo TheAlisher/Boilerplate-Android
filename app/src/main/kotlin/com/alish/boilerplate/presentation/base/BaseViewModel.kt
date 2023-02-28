@@ -46,12 +46,12 @@ abstract class BaseViewModel : ViewModel() {
      * @see launch
      * @see [Flow.collect]
      */
-    protected fun <T> Flow<Either<NetworkError, T>>.collectRequest(
+    protected fun <T> Flow<Either<NetworkError, T>>.collectNetworkRequest(
         state: MutableStateFlow<UIState<T>>,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             state.value = UIState.Loading()
-            this@collectRequest.collect {
+            this@collectNetworkRequest.collect {
                 when (it) {
                     is Either.Left -> state.value = UIState.Error(it.value)
                     is Either.Right -> state.value = UIState.Success(it.value)
@@ -74,13 +74,13 @@ abstract class BaseViewModel : ViewModel() {
      * @see launch
      * @see [Flow.collect]
      */
-    protected fun <T, S> Flow<Either<NetworkError, T>>.collectRequest(
+    protected fun <T, S> Flow<Either<NetworkError, T>>.collectNetworkRequest(
         state: MutableStateFlow<UIState<S>>,
         mapToUI: (T) -> S
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             state.value = UIState.Loading()
-            this@collectRequest.collect {
+            this@collectNetworkRequest.collect {
                 when (it) {
                     is Either.Left -> state.value = UIState.Error(it.value)
                     is Either.Right -> state.value = UIState.Success(mapToUI(it.value))
@@ -104,6 +104,8 @@ abstract class BaseViewModel : ViewModel() {
     protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
         mapToUI: (T) -> S
     ): Flow<PagingData<S>> = map { value: PagingData<T> ->
-        value.map { data: T -> mapToUI(data) }
+        value.map { data: T ->
+            mapToUI(data)
+        }
     }.cachedIn(viewModelScope)
 }

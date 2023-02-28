@@ -17,6 +17,6 @@ class FooViewModel @Inject constructor(
     val fooState = _fooState.asStateFlow()
 
     fun fetchFoo() {
-        fetchFooUseCase().collectRequest(_fooState) { it.toUI() }
+        fetchFooUseCase().collectNetworkRequest(_fooState) { it.toUI() }
     }
 }
