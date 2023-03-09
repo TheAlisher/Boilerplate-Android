@@ -5,18 +5,32 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 /**
- * Convert Json file to [T] (our model)
- *
- * @return [T]
+ * Fast get object type
  */
-internal inline fun <reified T> fromJson(file: String): T {
-    return Gson().fromJson(file, object : TypeToken<T>() {}.type)
+private inline fun <reified T> type() = object : TypeToken<T>() {}.type
+
+/**
+ * Convert from json
+ *
+ * @return [T] our model
+ */
+internal inline fun <reified T> fromJson(value: String): T {
+    return Gson().fromJson(value, type<T>())
 }
 
 /**
- * Get Json from assets package
+ * Convert to json
  *
- * @return Json file from assets
+ * @return [String] json in string
+ */
+internal inline fun <reified T> toJson(generic: T?): String? {
+    return Gson().toJson(generic, type<T>())
+}
+
+/**
+ * Get Json from [assets][Context.getAssets]
+ *
+ * @return Json file from [assets][Context.getAssets]
  */
 internal fun Context.jsonFromAssets(fileName: String): String {
     return this.assets.open(fileName).bufferedReader().use { it.readText() }
