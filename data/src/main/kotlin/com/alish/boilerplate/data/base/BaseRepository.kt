@@ -203,9 +203,18 @@ abstract class BaseRepository {
     /**
      * Do request to local database with [DataMapper.mapToDomain]
      *
-     * @param request function for request to database
+     * @param request high-order funtion for request to database
      */
-    fun <T : DataMapper<S>, S> doLocalRequest(
+    protected fun <T : DataMapper<S>, S> doLocalRequest(
+        request: () -> Flow<T>
+    ): Flow<S> = request().map { data -> data.mapToDomain() }
+
+    /**
+     * Do request to local database with [DataMapper.mapToDomain] for [List]
+     *
+     * @param request high-order function for request to database
+     */
+    protected fun <T : DataMapper<S>, S> doLocalRequestForList(
         request: () -> Flow<List<T>>
     ): Flow<List<S>> = request().map { list -> list.map { data -> data.mapToDomain() } }
 }
