@@ -24,5 +24,5 @@ class FooViewModel @Inject constructor(
         fetchFooUseCase().collectNetworkRequest(_fooState) { it.toUI() }
     }
 
-    fun getFoo() = getFooUseCase()
+    fun getFoo() = getFooUseCase().collectLocalRequest { it.toUI() }
 }
