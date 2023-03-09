@@ -6,7 +6,7 @@ import com.alish.boilerplate.data.remote.dtos.foo.FooDto
 import com.alish.boilerplate.data.utils.DataMapper
 import com.alish.boilerplate.domain.models.foo.Foo
 
-@Entity
+@Entity(tableName = "foo")
 class FooEntity(
     @PrimaryKey
     val id: Long,
