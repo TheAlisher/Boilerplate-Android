@@ -11,4 +11,6 @@ interface FooRepository {
     fun fetchFoo(): RemoteWrapper<Foo>
 
     fun fetchFooPaging(): RemotePagingWrapper<Foo>
+
+    fun getFoo(): Flow<List<Foo>>
 }
