@@ -37,5 +37,11 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
                 textFoo.text = it.bar
             }
         )
+
+        viewModel.getFoo().collectSafely {
+            it.map { data ->
+                textFoo.text = data.bar
+            }
+        }
     }
 }
