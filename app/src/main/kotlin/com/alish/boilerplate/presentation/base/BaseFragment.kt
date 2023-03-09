@@ -143,6 +143,20 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     /**
+     * Collect flow safely with [launchRepeatOnLifecycle]
+     */
+    protected fun <T> Flow<T>.collectSafely(
+        state: Lifecycle.State = Lifecycle.State.STARTED,
+        collector: (T) -> Unit
+    ) {
+        launchRepeatOnLifecycle(state) {
+            this@collectSafely.collect {
+                collector(it)
+            }
+        }
+    }
+
+    /**
      * Launch coroutine with [repeatOnLifecycle] API
      *
      * @param state [Lifecycle.State][androidx.lifecycle.Lifecycle.State] in which `block` runs in a new coroutine. That coroutine
