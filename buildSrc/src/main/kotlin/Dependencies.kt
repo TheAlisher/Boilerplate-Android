@@ -10,7 +10,7 @@ object Versions {
     const val core = "1.9.0"
     const val activity = "1.6.1"
     const val fragment = "1.5.5"
-    const val lifecycle = "2.5.1"
+    const val lifecycle = "2.6.0"
     const val navigation = "2.5.3"
     const val dagger = "2.45"
     const val retrofit = "2.9.0"
