@@ -61,6 +61,17 @@ abstract class BaseRepository {
     }
 
     /**
+     * Do network request for and return [Unit]
+     *
+     * @receiver [doNetworkRequest]
+     */
+    protected fun <T> doNetworkRequestUnit(
+        request: suspend () -> Response<T>
+    ): Flow<Either<NetworkError, Unit>> = doNetworkRequest(request) {
+        Either.Right(Unit)
+    }
+
+    /**
      * Base function for do network requests
      *
      * @param request http request function from api service
