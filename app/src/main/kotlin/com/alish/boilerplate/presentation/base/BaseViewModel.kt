@@ -112,13 +112,28 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * Collect local request to database with mapping
      *
+     * @receiver [T] with [Flow]
+     *
+     * @param T domain layer model
+     * @param S presentation layer model
+     * @param mapToUI high-order function for setup mapper functions
+     */
+    protected fun <T, S> Flow<T>.collectLocalRequest(
+        mapToUI: (T) -> S
+    ): Flow<S> = map { value: T ->
+        mapToUI(value)
+    }
+
+    /**
+     * Collect local request to database with mapping with [List]
+     *
      * @receiver [T] in [List] with [Flow]
      *
      * @param T domain layer model
      * @param S presentation layer model
      * @param mapToUI high-order function for setup mapper functions
      */
-    protected fun <T, S> Flow<List<T>>.collectLocalRequest(
+    protected fun <T, S> Flow<List<T>>.collectLocalRequestForList(
         mapToUI: (T) -> S
     ): Flow<List<S>> = map { value: List<T> ->
         value.map { data: T ->
