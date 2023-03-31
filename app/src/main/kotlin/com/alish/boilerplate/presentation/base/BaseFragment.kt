@@ -140,6 +140,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
                 }
             }
         }
+        is NetworkError.Timeout -> {
+            showToastLong("Timeout")
+        }
     }
 
     /**
