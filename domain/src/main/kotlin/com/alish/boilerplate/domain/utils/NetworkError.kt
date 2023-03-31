@@ -25,4 +25,9 @@ sealed class NetworkError {
      * Map [Value][kotlin.collections.Map.Entry.value] is errors from server side
      */
     class ApiInputs(val error: MutableMap<String, List<String>>) : NetworkError()
+
+    /**
+     * State for Timeout exceptions
+     */
+    object Timeout : NetworkError()
 }
