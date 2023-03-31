@@ -8,9 +8,11 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.R
 import com.alish.boilerplate.databinding.FragmentFooPagingBinding
 import com.alish.boilerplate.presentation.base.BaseFragment
+import com.alish.boilerplate.presentation.extensions.showToastLong
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.InterruptedIOException
 
 @AndroidEntryPoint
 class FooPagingFragment : BaseFragment<FooPagingViewModel, FragmentFooPagingBinding>(
@@ -37,6 +39,12 @@ class FooPagingFragment : BaseFragment<FooPagingViewModel, FragmentFooPagingBind
         fooPagingAdapter.addLoadStateListener { loadStates ->
             recyclerFooPaging.isVisible = loadStates.refresh is LoadState.NotLoading
             loaderFooPaging.isVisible = loadStates.refresh is LoadState.Loading
+
+            if (loadStates.refresh is LoadState.Error) {
+                if ((loadStates.refresh as LoadState.Error).error is InterruptedIOException) {
+                    showToastLong("Timeout")
+                }
+            }
         }
     }
 
