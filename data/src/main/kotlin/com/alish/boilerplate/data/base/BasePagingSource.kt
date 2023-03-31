@@ -7,6 +7,7 @@ import com.alish.boilerplate.data.utils.DataMapper
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
+import java.io.InterruptedIOException
 
 private const val BASE_STARTING_PAGE_INDEX = 1
 
@@ -36,6 +37,10 @@ abstract class BasePagingSource<ValueDto : DataMapper<Value>, Value : Any>(
         } catch (exception: IOException) {
             LoadResult.Error(exception)
         } catch (exception: HttpException) {
+            LoadResult.Error(exception)
+        } catch (exception: NullPointerException) {
+            LoadResult.Error(exception)
+        } catch (exception: InterruptedIOException) {
             LoadResult.Error(exception)
         }
     }
