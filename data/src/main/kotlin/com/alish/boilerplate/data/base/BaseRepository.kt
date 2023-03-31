@@ -19,6 +19,7 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
 import java.io.File
+import java.io.InterruptedIOException
 
 /**
  * Base class for all repository implements with helper data layer functions
@@ -102,9 +103,16 @@ abstract class BaseRepository {
             }
         }
     }.flowOn(Dispatchers.IO).catch { exception ->
-        val message = exception.localizedMessage ?: "Error Occurred!"
-        if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
-        emit(Either.Left(NetworkError.Unexpected(message)))
+        when (exception) {
+            is InterruptedIOException -> {
+                emit(Either.Left(NetworkError.Timeout))
+            }
+            else -> {
+                val message = exception.localizedMessage ?: "Error Occurred!"
+                if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
+                emit(Either.Left(NetworkError.Unexpected(message)))
+            }
+        }
     }
 
     /**
