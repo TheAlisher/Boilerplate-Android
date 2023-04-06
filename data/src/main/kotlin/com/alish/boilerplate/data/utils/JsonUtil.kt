@@ -1,21 +1,23 @@
 package com.alish.boilerplate.data.utils
 
 import android.content.Context
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 /**
- * Fast get object type
+ * Moshi instace
+ *
+ * @see KotlinJsonAdapterFactory
  */
-private inline fun <reified T> type() = object : TypeToken<T>() {}.type
+private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
 /**
  * Convert from json
  *
  * @return [T] our model
  */
-internal inline fun <reified T> fromJson(value: String): T {
-    return Gson().fromJson(value, type<T>())
+internal inline fun <reified T> fromJson(value: String): T? {
+    return moshi.adapter(T::class.java).fromJson(value)
 }
 
 /**
@@ -23,8 +25,8 @@ internal inline fun <reified T> fromJson(value: String): T {
  *
  * @return [String] json in string
  */
-internal inline fun <reified T> toJson(generic: T?): String? {
-    return Gson().toJson(generic, type<T>())
+internal inline fun <reified T> toJson(generic: T?): String {
+    return moshi.adapter(T::class.java).toJson(generic)
 }
 
 /**

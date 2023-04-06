@@ -9,8 +9,8 @@ import com.alish.boilerplate.data.BuildConfig
 import com.alish.boilerplate.data.utils.DataMapper
 import com.alish.boilerplate.domain.utils.Either
 import com.alish.boilerplate.domain.utils.NetworkError
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -122,10 +122,14 @@ abstract class BaseRepository {
      * @see Response.errorBody
      * @see Gson.fromJson
      */
-    private inline fun <reified T> ResponseBody?.toApiError(): T {
-        return Gson().fromJson(
-            this?.string(), object : TypeToken<T>() {}.type
-        )
+    private inline fun <reified T> ResponseBody?.toApiError(): T? {
+        return this?.string()?.let {
+            Moshi.Builder()
+                .add(KotlinJsonAdapterFactory())
+                .build()
+                .adapter(T::class.java)
+                .fromJson(it)
+        }
     }
 
     /**

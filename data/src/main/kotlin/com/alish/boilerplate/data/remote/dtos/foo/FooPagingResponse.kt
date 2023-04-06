@@ -1,12 +1,14 @@
 package com.alish.boilerplate.data.remote.dtos.foo
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 class FooPagingResponse<T>(
-    @SerializedName("prev")
+    @Json(name = "prev")
     val prev: Int?,
-    @SerializedName("next")
+    @Json(name = "next")
     val next: Int?,
-    @SerializedName("data")
+    @Json(name = "data")
     val data: MutableList<T>
 )
