@@ -1,16 +1,20 @@
 package com.alish.boilerplate.data.remote.client
 
 import com.alish.boilerplate.data.BuildConfig
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 internal fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
     .baseUrl(BuildConfig.BASE_URL)
     .client(okHttpClient)
-    .addConverterFactory(GsonConverterFactory.create())
+    .addConverterFactory(
+        MoshiConverterFactory.create(Moshi.Builder().add(KotlinJsonAdapterFactory()).build())
+    )
     .build()
 
 internal fun provideOkHttpClientBuilder(): OkHttpClient.Builder = OkHttpClient()

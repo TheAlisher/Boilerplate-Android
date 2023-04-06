@@ -14,6 +14,7 @@ object Versions {
     const val navigation = "2.5.3"
     const val dagger = "2.45"
     const val retrofit = "2.9.0"
+    const val moshi = "1.14.0"
     const val okHttp = "5.0.0-alpha.11"
     const val room = "2.5.1"
     const val paging = "3.1.1"
@@ -73,9 +74,14 @@ object Libraries {
         const val compiler = "com.google.dagger:hilt-compiler:${Versions.dagger}"
     }
 
+    object Moshi {
+        const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
+        const val kotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    }
+
     object Retrofit {
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-        const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+        const val converterMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     }
 
     object OkHttp {

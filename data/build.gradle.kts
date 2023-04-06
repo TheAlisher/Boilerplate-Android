@@ -41,7 +41,11 @@ dependencies {
 
     // Retrofit
     implementation(Libraries.Retrofit.retrofit)
-    implementation(Libraries.Retrofit.converterGson)
+    implementation(Libraries.Retrofit.converterMoshi)
+
+    // Moshi
+    implementation(Libraries.Moshi.moshi)
+    implementation(Libraries.Moshi.kotlin)
 
     // OkHttp
     implementation(Libraries.OkHttp.bom)
