@@ -41,12 +41,16 @@ dependencies {
 
     // Retrofit
     implementation(Libraries.Retrofit.retrofit)
-    implementation(Libraries.Retrofit.converterGson)
+    implementation(Libraries.Retrofit.converterMoshi)
 
     // OkHttp
     implementation(Libraries.OkHttp.bom)
     implementation(Libraries.OkHttp.okHttp)
     implementation(Libraries.OkHttp.loggingInterceptor)
+
+    // Moshi
+    implementation(Libraries.Moshi.moshi)
+    implementation(Libraries.Moshi.kotlin)
 
     // Room
     api(Libraries.Room.runtime)
