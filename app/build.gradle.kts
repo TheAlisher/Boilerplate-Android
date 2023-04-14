@@ -11,6 +11,8 @@ plugins {
 }
 
 android {
+    namespace = Namespaces.app
+
     compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
@@ -42,9 +44,10 @@ android {
     kotlinOptions {
         jvmTarget = Options.kotlinOptions
     }
-
-    // View Binding
-    buildFeatures.viewBinding = true
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
 }
 
 dependencies {

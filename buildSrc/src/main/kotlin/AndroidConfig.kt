@@ -7,3 +7,9 @@ object AndroidConfig {
     const val release = "release"
     const val debug = "debug"
 }
+
+object Namespaces {
+
+    const val app = "com.alish.boilerplate"
+    const val data = "com.alish.boilerplate.data"
+}

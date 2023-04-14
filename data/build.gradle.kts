@@ -7,6 +7,8 @@ plugins {
 }
 
 android {
+    namespace = Namespaces.data
+
     compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
@@ -32,6 +34,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = Options.kotlinOptions
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 }
 
