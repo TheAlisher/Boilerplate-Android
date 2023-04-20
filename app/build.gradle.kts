@@ -62,6 +62,7 @@ dependencies {
     implementation(Libraries.UIComponents.material)
     implementation(Libraries.UIComponents.constraintLayout)
     implementation(Libraries.UIComponents.vbpd)
+    implementation(Libraries.UIComponents.splashscreen)
 
     // Core
     implementation(Libraries.Core.core)

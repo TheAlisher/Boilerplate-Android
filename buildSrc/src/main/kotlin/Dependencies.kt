@@ -7,6 +7,7 @@ object Versions {
     const val material = "1.8.0"
     const val constraintLayout = "2.1.4"
     const val vbpd = "1.5.9"
+    const val splashscreen = "1.0.1"
     const val core = "1.9.0"
     const val activity = "1.7.1"
     const val fragment = "1.5.7"
@@ -40,6 +41,9 @@ object Libraries {
         }"
         const val vbpd = "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${
             Versions.vbpd
+        }"
+        const val splashscreen = "androidx.core:core-splashscreen:${
+            Versions.splashscreen
         }"
     }
 
