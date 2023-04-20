@@ -1,7 +1,7 @@
 object AndroidConfig {
 
     const val compileSdk = 33
-    const val minSdk = 26
+    const val minSdk = 29
     const val targetSdk = 33
 
     const val release = "release"
