@@ -1,3 +1,0 @@
-package ${packageName}
-
-class ${modelPrefix}()
