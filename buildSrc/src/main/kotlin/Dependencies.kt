@@ -4,7 +4,7 @@ object Versions {
     const val kotlin = "1.8.21"
     const val coroutines = "1.7.0-RC"
     const val KSP = "1.8.21-1.0.11"
-    const val material = "1.9.0-rc01"
+    const val material = "1.9.0"
     const val constraintLayout = "2.1.4"
     const val vbpd = "1.5.9"
     const val splashscreen = "1.0.1"
