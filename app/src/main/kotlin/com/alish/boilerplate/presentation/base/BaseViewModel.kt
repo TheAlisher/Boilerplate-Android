@@ -35,79 +35,55 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     /**
-     * Collect network request result without mapping
+     * Collect network request result without mapping for primitive types
      *
-     * @receiver [NetworkError] or [T] in [Flow] with [Either]
-     *
-     * @param T domain layer model
-     * @param state [MutableStateFlow] with [UIState] depending request result
-     *
-     * @see viewModelScope
-     * @see launch
-     * @see [Flow.collect]
+     * @receiver [collectUIState]
      */
     protected fun <T> Flow<Either<NetworkError, T>>.collectNetworkRequest(
-        state: MutableStateFlow<UIState<T>>,
-    ) {
-        viewModelScope.launch(Dispatchers.IO) {
-            state.value = UIState.Loading()
-            this@collectNetworkRequest.collect {
-                when (it) {
-                    is Either.Left -> state.value = UIState.Error(it.value)
-                    is Either.Right -> state.value = UIState.Success(it.value)
-                }
-            }
-        }
+        state: MutableStateFlow<UIState<T>>
+    ) = collectUIState(state) {
+        UIState.Success(it)
     }
 
     /**
      * Collect network request result with mapping
      *
-     * @receiver [NetworkError] or [T] in [Flow] with [Either]
+     * @receiver [collectUIState]
+     */
+    protected fun <T, S> Flow<Either<NetworkError, T>>.collectNetworkRequest(
+        state: MutableStateFlow<UIState<S>>,
+        mapToUI: (T) -> S
+    ) = collectUIState(state) {
+        UIState.Success(mapToUI(it))
+    }
+
+    /**
+     * Collect network request result and mapping [Either] to [UIState]
+     *
+     * @receiver [NetworkError] or [data][T] in [Flow] with [Either]
      *
      * @param T domain layer model
      * @param S presentation layer model
-     * @param state [MutableStateFlow] with [UIState] depending request result
-     * @param mapToUI high-order function for setup mapper function
+     * @param state [MutableStateFlow] with [UIState]
      *
      * @see viewModelScope
      * @see launch
      * @see [Flow.collect]
      */
-    protected fun <T, S> Flow<Either<NetworkError, T>>.collectNetworkRequest(
+    private fun <T, S> Flow<Either<NetworkError, T>>.collectUIState(
         state: MutableStateFlow<UIState<S>>,
-        mapToUI: (T) -> S
+        successful: (T) -> UIState.Success<S>
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             state.value = UIState.Loading()
-            this@collectNetworkRequest.collect {
+            this@collectUIState.collect {
                 when (it) {
                     is Either.Left -> state.value = UIState.Error(it.value)
-                    is Either.Right -> state.value = UIState.Success(mapToUI(it.value))
+                    is Either.Right -> state.value = successful(it.value)
                 }
             }
         }
     }
-
-    /**
-     * Collect paging request with mapping
-     *
-     * @receiver [PagingData] with [T] in [Flow]
-     *
-     * @param T domain layer model
-     * @param S presentation layer model
-     * @param mapToUI high-order function for setup mapper function
-     *
-     * @see cachedIn
-     * @see viewModelScope
-     */
-    protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
-        mapToUI: (T) -> S
-    ): Flow<PagingData<S>> = map { value: PagingData<T> ->
-        value.map { data: T ->
-            mapToUI(data)
-        }
-    }.cachedIn(viewModelScope)
 
     /**
      * Collect local request to database with mapping
@@ -140,4 +116,24 @@ abstract class BaseViewModel : ViewModel() {
             mapToUI(data)
         }
     }
+
+    /**
+     * Collect paging request with mapping
+     *
+     * @receiver [PagingData] with [T] in [Flow]
+     *
+     * @param T domain layer model
+     * @param S presentation layer model
+     * @param mapToUI high-order function for setup mapper function
+     *
+     * @see cachedIn
+     * @see viewModelScope
+     */
+    protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
+        mapToUI: (T) -> S
+    ): Flow<PagingData<S>> = map { value: PagingData<T> ->
+        value.map { data: T ->
+            mapToUI(data)
+        }
+    }.cachedIn(viewModelScope)
 }
