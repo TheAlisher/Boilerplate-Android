@@ -8,8 +8,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FooPagingViewModel @Inject constructor(
-    private val fetchFooPagingUseCase: FetchFooPagingUseCase
+    fetchFooPagingUseCase: FetchFooPagingUseCase
 ) : BaseViewModel() {
 
-    fun fetchFooPaging() = fetchFooPagingUseCase().collectPagingRequest { it.toUI() }
+    val fooPaging = fetchFooPagingUseCase().collectPagingRequest { it.toUI() }
 }

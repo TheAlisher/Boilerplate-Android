@@ -53,7 +53,7 @@ class FooPagingFragment : BaseFragment<FooPagingViewModel, FragmentFooPagingBind
     }
 
     private fun fetchFooPaging() {
-        viewModel.fetchFooPaging().collectPaging {
+        viewModel.fooPaging.collectPaging {
             fooPagingAdapter.submitData(it)
         }
     }
