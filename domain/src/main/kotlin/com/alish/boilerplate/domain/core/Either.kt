@@ -1,4 +1,4 @@
-package com.alish.boilerplate.domain.utils
+package com.alish.boilerplate.domain.core
 
 /**
  * Either is used to short-circuit a computation upon the first error.
@@ -14,12 +14,12 @@ package com.alish.boilerplate.domain.utils
 sealed class Either<out A, out B> {
 
     /**
-     * The left side of the disjoint union, as opposed to the Right side.
+     * The left side of the disjoint union, as opposed to the [Right] side.
      */
     class Left<out A>(val value: A) : Either<A, Nothing>()
 
     /**
-     * The right side of the disjoint union, as opposed to the Left side.
+     * The right side of the disjoint union, as opposed to the [Left] side.
      */
     class Right<out B>(val value: B) : Either<Nothing, B>()
 }

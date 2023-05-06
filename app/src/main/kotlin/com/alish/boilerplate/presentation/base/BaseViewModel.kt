@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.alish.boilerplate.domain.utils.Either
-import com.alish.boilerplate.domain.utils.NetworkError
+import com.alish.boilerplate.domain.core.Either
+import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.ui.state.UIState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

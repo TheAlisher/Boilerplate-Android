@@ -8,8 +8,8 @@ import androidx.paging.PagingData
 import com.alish.boilerplate.data.BuildConfig
 import com.alish.boilerplate.data.utils.DataMapper
 import com.alish.boilerplate.data.utils.fromJson
-import com.alish.boilerplate.domain.utils.Either
-import com.alish.boilerplate.domain.utils.NetworkError
+import com.alish.boilerplate.domain.core.Either
+import com.alish.boilerplate.domain.core.NetworkError
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -93,9 +93,11 @@ abstract class BaseRepository {
                 it.isSuccessful && it.body() != null -> {
                     emit(successful.invoke(it.body()!!))
                 }
+
                 !it.isSuccessful && it.code() == 422 -> {
                     emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiError())))
                 }
+
                 else -> {
                     emit(Either.Left(NetworkError.Api(it.errorBody().toApiError())))
                 }
@@ -106,6 +108,7 @@ abstract class BaseRepository {
             is InterruptedIOException -> {
                 emit(Either.Left(NetworkError.Timeout))
             }
+
             else -> {
                 val message = exception.localizedMessage ?: "Error Occurred!"
                 if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)

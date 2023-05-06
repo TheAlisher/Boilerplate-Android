@@ -1,6 +1,6 @@
 package com.alish.boilerplate.presentation.ui.state
 
-import com.alish.boilerplate.domain.utils.NetworkError
+import com.alish.boilerplate.domain.core.NetworkError
 
 sealed class UIState<T> {
     class Idle<T> : UIState<T>()

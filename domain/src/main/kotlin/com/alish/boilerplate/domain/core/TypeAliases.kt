@@ -1,4 +1,4 @@
-package com.alish.boilerplate.domain.utils
+package com.alish.boilerplate.domain.core
 
 import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
