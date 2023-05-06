@@ -7,7 +7,7 @@ package com.alish.boilerplate.domain.core
  *
  * &nbsp
  *
- * *from arrow-core*
+ * [*from arrow-core*](https://apidocs.arrow-kt.io/arrow-core/arrow.core/-either/index.html)
  *
  * @see Nothing
  */
