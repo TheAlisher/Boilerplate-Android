@@ -18,7 +18,7 @@ object Versions {
     const val moshi = "1.15.0"
     const val okHttp = "5.0.0-alpha.11"
     const val room = "2.5.2"
-    const val paging = "3.1.1"
+    const val paging = "3.2.0"
 }
 
 object Libraries {
