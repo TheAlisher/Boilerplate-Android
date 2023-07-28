@@ -74,6 +74,8 @@ abstract class BaseRepository {
     /**
      * Base function for do network requests
      *
+     * @param T data layer model (DTO)
+     * @param S domain layer model
      * @param request http request function from api service
      * @param successful handle response body with custom mapping
      *
@@ -184,24 +186,6 @@ abstract class BaseRepository {
     )
 
     /**
-     * Do request to local database with [DataMapper.mapToDomain]
-     *
-     * @param request high-order funtion for request to database
-     */
-    protected fun <T : DataMapper<S>, S> doLocalRequest(
-        request: () -> Flow<T>
-    ): Flow<S> = request().map { data -> data.mapToDomain() }
-
-    /**
-     * Do request to local database with [DataMapper.mapToDomain] for [List]
-     *
-     * @param request high-order function for request to database
-     */
-    protected fun <T : DataMapper<S>, S> doLocalRequestForList(
-        request: () -> Flow<List<T>>
-    ): Flow<List<S>> = request().map { list -> list.map { data -> data.mapToDomain() } }
-
-    /**
      * Do network paging request with default params
      *
      * &nbsp
@@ -236,4 +220,22 @@ abstract class BaseRepository {
             }
         ).flow
     }
+
+    /**
+     * Do request to local database with [DataMapper.mapToDomain]
+     *
+     * @param request high-order funtion for request to database
+     */
+    protected fun <T : DataMapper<S>, S> doLocalRequest(
+        request: () -> Flow<T>
+    ): Flow<S> = request().map { data -> data.mapToDomain() }
+
+    /**
+     * Do request to local database with [DataMapper.mapToDomain] for [List]
+     *
+     * @param request high-order function for request to database
+     */
+    protected fun <T : DataMapper<S>, S> doLocalRequestForList(
+        request: () -> Flow<List<T>>
+    ): Flow<List<S>> = request().map { list -> list.map { data -> data.mapToDomain() } }
 }

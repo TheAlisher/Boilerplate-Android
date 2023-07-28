@@ -9,6 +9,12 @@ interface FooRepository {
 
     fun fetchFoo(): RemoteWrapper<Foo>
 
+    fun fetchPrimitives(): RemoteWrapper<String>
+
+    fun fetchFooList(): RemoteWrapper<List<Foo>>
+
+    fun fetchFooUnit(): RemoteWrapper<Unit>
+
     fun fetchFooPaging(): RemotePagingWrapper<Foo>
 
     fun getFoo(): Flow<List<Foo>>
