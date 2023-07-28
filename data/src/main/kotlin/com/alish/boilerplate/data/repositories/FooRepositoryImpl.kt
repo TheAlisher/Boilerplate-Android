@@ -5,6 +5,7 @@ import com.alish.boilerplate.data.remote.pagingsources.FooPagingSource
 import com.alish.boilerplate.data.base.BaseRepository
 import com.alish.boilerplate.data.local.db.daos.FooDao
 import com.alish.boilerplate.data.local.db.entities.foo.toEntity
+import com.alish.boilerplate.domain.models.foo.Foo
 import com.alish.boilerplate.domain.repositories.FooRepository
 import javax.inject.Inject
 
@@ -19,7 +20,23 @@ class FooRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getFoo() = doLocalRequestForList { dao.getAllFoo() }
+    override fun fetchPrimitives() = doNetworkRequestWithoutMapping {
+        service.fetchPrimitives()
+    }
 
-    override fun fetchFooPaging() = doPagingRequest({ FooPagingSource(service) })
+    override fun fetchFooList() = doNetworkRequestForList {
+        service.fetchFooList()
+    }
+
+    override fun fetchFooUnit() = doNetworkRequestUnit {
+        service.fetchFoo()
+    }
+
+    override fun fetchFooPaging() = doPagingRequest({
+        FooPagingSource(service)
+    })
+
+    override fun getFoo() = doLocalRequestForList {
+        dao.getAllFoo()
+    }
 }
