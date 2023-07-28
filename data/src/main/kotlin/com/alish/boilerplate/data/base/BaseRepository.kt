@@ -124,7 +124,7 @@ abstract class BaseRepository {
      *
      * @receiver [ResponseBody]
      * @see Response.errorBody
-     * @see Gson.fromJson
+     * @see fromJson
      */
     private inline fun <reified T> ResponseBody?.toApiError(): T? {
         return this?.string()?.let { fromJson<T>(it) }
@@ -224,7 +224,7 @@ abstract class BaseRepository {
     /**
      * Do request to local database with [DataMapper.mapToDomain]
      *
-     * @param request high-order funtion for request to database
+     * @param request high-order function for request to database
      */
     protected fun <T : DataMapper<S>, S> doLocalRequest(
         request: () -> Flow<T>

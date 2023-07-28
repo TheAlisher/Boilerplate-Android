@@ -5,7 +5,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 /**
- * Moshi instace
+ * Moshi instance
  *
  * @see KotlinJsonAdapterFactory
  */
