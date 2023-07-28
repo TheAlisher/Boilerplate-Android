@@ -124,7 +124,7 @@ abstract class BaseRepository {
      *
      * @receiver [ResponseBody]
      * @see Response.errorBody
-     * @see Gson.fromJson
+     * @see fromJson
      */
     private inline fun <reified T> ResponseBody?.toApiError(): T? {
         return this?.string()?.let { fromJson<T>(it) }
