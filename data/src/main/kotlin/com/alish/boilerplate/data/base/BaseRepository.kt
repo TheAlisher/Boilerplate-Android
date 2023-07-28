@@ -74,6 +74,8 @@ abstract class BaseRepository {
     /**
      * Base function for do network requests
      *
+     * @param T data layer model (DTO)
+     * @param S domain layer model
      * @param request http request function from api service
      * @param successful handle response body with custom mapping
      *
