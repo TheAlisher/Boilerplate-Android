@@ -29,5 +29,5 @@ sealed class NetworkError {
     /**
      * State for Timeout exceptions
      */
-    object Timeout : NetworkError()
+    data object Timeout : NetworkError()
 }
