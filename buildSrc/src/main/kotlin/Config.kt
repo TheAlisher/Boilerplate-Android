@@ -13,7 +13,7 @@ object AndroidConfig {
 object Namespaces {
 
     const val app = "com.alish.boilerplate"
-    const val data = "com.alish.boilerplate.data"
+    const val data = "${app}.data"
 }
 
 object Options {
