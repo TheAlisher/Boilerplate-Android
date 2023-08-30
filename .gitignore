@@ -9,4 +9,4 @@
 .cxx
 local.properties
 /android-style-guide
-.gitignore
+.gitmodules
