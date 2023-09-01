@@ -3,6 +3,7 @@ package com.alish.boilerplate.presentation.extensions
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.annotation.IdRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -10,6 +11,22 @@ import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.alish.boilerplate.R
+
+/**
+ * Init [NavController]
+ *
+ * @receiver [AppCompatActivity]
+ *
+ * @param navHostId Fragment Container view id
+ *
+ * @see [NavController]
+ * @see [NavHostFragment]
+ */
+fun AppCompatActivity.initNavController(@IdRes navHostId: Int): NavController {
+    val navHostFragment =
+        supportFragmentManager.findFragmentById(navHostId) as NavHostFragment
+    return navHostFragment.navController
+}
 
 /**
  * Get activity nav controller with [mainNavHostId][R.id.nav_host_fragment] & [mainNavGraph][R.navigation.nav_graph]
