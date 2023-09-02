@@ -8,6 +8,9 @@ plugins {
 
     // Hilt
     id(Plugins.Hilt.android)
+
+    // KSP
+    id(Plugins.KSP.ksp)
 }
 
 android {
@@ -83,5 +86,5 @@ dependencies {
 
     // Hilt
     implementation(Libraries.Hilt.android)
-    kapt(Libraries.Hilt.compiler)
+    ksp(Libraries.Hilt.compiler)
 }
