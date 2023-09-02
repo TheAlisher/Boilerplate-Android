@@ -2,8 +2,8 @@ plugins {
     id(Plugins.AGP.library)
     kotlin(Plugins.Kotlin.android)
 
-    // Kotlin Symbol Processing
-    id(Plugins.KSP.ksp) version Versions.KSP
+    // KSP
+    id(Plugins.KSP.ksp)
 }
 
 android {

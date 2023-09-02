@@ -8,6 +8,9 @@ plugins {
 
     // Hilt
     id(Plugins.Hilt.android)
+
+    // KSP
+    id(Plugins.KSP.ksp)
 }
 
 android {
