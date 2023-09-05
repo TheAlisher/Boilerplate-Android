@@ -1,6 +1,7 @@
 package com.alish.boilerplate.presentation.extensions
 
 import android.app.Activity
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.StringRes
@@ -43,6 +44,18 @@ fun Fragment.showToastLong(text: String) {
  */
 fun Fragment.showToastLong(@StringRes textFromRes: Int) {
     Toast.makeText(context, textFromRes, Toast.LENGTH_LONG).show()
+}
+
+/**
+ * Show keyboard extension function
+ *
+ * @receiver [View]
+ */
+fun View.showSoftKeyboard() {
+    if (this.requestFocus()) {
+        val imm = this.context.getSystemService(InputMethodManager::class.java)
+        imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+    }
 }
 
 /**
