@@ -11,14 +11,14 @@ object Versions {
     const val splashscreen = "1.0.1"
     const val activity = "1.7.2"
     const val fragment = "1.6.1"
-    const val lifecycle = "2.6.1"
-    const val navigation = "2.7.1"
+    const val lifecycle = "2.6.2"
+    const val navigation = "2.7.2"
     const val dagger = "2.48"
     const val retrofit = "2.9.0"
     const val moshi = "1.15.0"
     const val okHttp = "5.0.0-alpha.11"
     const val room = "2.5.2"
-    const val paging = "3.2.0"
+    const val paging = "3.2.1"
 }
 
 object Libraries {
