@@ -11,7 +11,7 @@ object Versions {
     const val splashscreen = "1.0.1"
     const val activity = "1.7.2"
     const val fragment = "1.6.1"
-    const val lifecycle = "2.6.1"
+    const val lifecycle = "2.6.2"
     const val navigation = "2.7.1"
     const val dagger = "2.48"
     const val retrofit = "2.9.0"
