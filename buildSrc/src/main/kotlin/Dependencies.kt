@@ -13,7 +13,7 @@ object Versions {
     const val fragment = "1.6.1"
     const val lifecycle = "2.6.2"
     const val navigation = "2.7.3"
-    const val dagger = "2.48"
+    const val dagger = "2.48.1"
     const val retrofit = "2.9.0"
     const val moshi = "1.15.0"
     const val okHttp = "5.0.0-alpha.11"
