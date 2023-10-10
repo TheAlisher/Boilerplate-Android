@@ -7,7 +7,7 @@ object Versions {
     const val material = "1.10.0"
     const val constraintLayout = "2.1.4"
     const val vbpd = "1.5.9"
-    const val core = "1.10.1"
+    const val core = "1.12.0"
     const val splashscreen = "1.0.1"
     const val activity = "1.8.0"
     const val fragment = "1.6.1"
