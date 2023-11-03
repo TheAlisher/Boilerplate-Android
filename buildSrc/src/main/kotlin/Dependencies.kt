@@ -114,7 +114,6 @@ object Plugins {
     object Kotlin {
         const val android = "android"
         const val jvm = "jvm"
-        const val kapt = "kapt"
     }
 
     object KSP {

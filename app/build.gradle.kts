@@ -1,7 +1,6 @@
 plugins {
     id(Plugins.AGP.application)
     kotlin(Plugins.Kotlin.android)
-    kotlin(Plugins.Kotlin.kapt)
 
     // Navigation Safe Args
     id(Plugins.Navigation.safeArgs)
