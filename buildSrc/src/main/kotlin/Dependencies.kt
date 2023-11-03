@@ -1,7 +1,7 @@
 object Versions {
 
     const val AGP = "8.1.2"
-    const val kotlin = "1.9.10"
+    const val kotlin = "1.9.20"
     const val coroutines = "1.7.3"
     const val KSP = "1.9.10-1.0.13"
     const val material = "1.10.0"
