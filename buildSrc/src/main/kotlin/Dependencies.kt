@@ -1,6 +1,6 @@
 object Versions {
 
-    const val AGP = "8.1.3"
+    const val AGP = "8.1.4"
     const val kotlin = "1.9.20"
     const val coroutines = "1.7.3"
     const val KSP = "1.9.20-1.0.14"
@@ -9,7 +9,7 @@ object Versions {
     const val vbpd = "1.5.9"
     const val core = "1.12.0"
     const val splashscreen = "1.0.1"
-    const val activity = "1.8.0"
+    const val activity = "1.8.1"
     const val fragment = "1.6.2"
     const val lifecycle = "2.6.2"
     const val navigation = "2.7.5"
