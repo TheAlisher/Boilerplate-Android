@@ -1,7 +1,7 @@
 object Versions {
 
     const val AGP = "8.1.4"
-    const val kotlin = "1.9.20"
+    const val kotlin = "1.9.21"
     const val coroutines = "1.7.3"
     const val KSP = "1.9.20-1.0.14"
     const val material = "1.10.0"
@@ -17,7 +17,7 @@ object Versions {
     const val retrofit = "2.9.0"
     const val moshi = "1.15.0"
     const val okHttp = "5.0.0-alpha.11"
-    const val room = "2.6.0"
+    const val room = "2.6.1"
     const val paging = "3.2.1"
 }
 
