@@ -16,7 +16,7 @@ object Versions {
     const val dagger = "2.49"
     const val retrofit = "2.9.0"
     const val moshi = "1.15.0"
-    const val okHttp = "5.0.0-alpha.11"
+    const val okHttp = "4.12.0"
     const val room = "2.6.1"
     const val paging = "3.2.1"
 }
