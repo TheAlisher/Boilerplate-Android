@@ -1,8 +1,8 @@
 object Versions {
 
     const val AGP = "8.1.4"
-    const val kotlin = "1.9.21"
-    const val coroutines = "1.8.0-RC"
+    const val kotlin = "1.9.22"
+    const val coroutines = "1.8.0-RC2"
     const val KSP = "1.9.21-1.0.16"
     const val material = "1.11.0"
     const val constraintLayout = "2.1.4"
@@ -13,7 +13,7 @@ object Versions {
     const val fragment = "1.6.2"
     const val lifecycle = "2.6.2"
     const val navigation = "2.7.6"
-    const val dagger = "2.49"
+    const val dagger = "2.50"
     const val retrofit = "2.9.0"
     const val moshi = "1.15.0"
     const val okHttp = "4.12.0"
