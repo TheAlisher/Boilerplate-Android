@@ -61,7 +61,4 @@ dependencies {
     implementation(Libraries.Room.runtime)
     ksp(Libraries.Room.compiler)
     implementation(Libraries.Room.ktx)
-
-    // Paging
-    api(Libraries.Paging.runtime)
 }
