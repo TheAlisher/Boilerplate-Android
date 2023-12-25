@@ -86,4 +86,7 @@ dependencies {
     // Hilt
     implementation(Libraries.Hilt.android)
     ksp(Libraries.Hilt.compiler)
+
+    // Paging
+    implementation(Libraries.Paging.runtime)
 }
