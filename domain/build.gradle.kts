@@ -16,5 +16,5 @@ dependencies {
     api(Libraries.Coroutines.core)
 
     // Paging
-    implementation(Libraries.Paging.common)
+    api(Libraries.Paging.common)
 }
