@@ -1,20 +1,21 @@
 package com.alish.boilerplate.di
 
-import com.alish.boilerplate.data.local.db.DatabaseClient
-import com.alish.boilerplate.data.local.db.daos.FooDao
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DatabaseModule {
+object AppModule {
 
     @Singleton
     @Provides
-    fun provideFooDao(
-        databaseClient: DatabaseClient
-    ): FooDao = databaseClient.provideFooDao()
+    fun provideApplicationContext(
+        @ApplicationContext context: Context
+    ): Context = context
 }
+
