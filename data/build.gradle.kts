@@ -58,7 +58,7 @@ dependencies {
     implementation(Libraries.OkHttp.loggingInterceptor)
 
     // Room
-    api(Libraries.Room.runtime)
+    implementation(Libraries.Room.runtime)
     ksp(Libraries.Room.compiler)
     implementation(Libraries.Room.ktx)
 
