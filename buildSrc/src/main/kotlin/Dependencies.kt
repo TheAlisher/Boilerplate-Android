@@ -99,8 +99,8 @@ object Libraries {
     }
 
     object Paging {
-        const val runtime = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
         const val common = "androidx.paging:paging-common:${Versions.paging}"
+        const val runtime = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
     }
 }
 
