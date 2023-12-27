@@ -5,7 +5,9 @@ import com.alish.boilerplate.data.remote.apiservices.FooApiService
 import com.alish.boilerplate.data.remote.client.authenticator.TokenAuthenticator
 import com.alish.boilerplate.data.remote.client.interceptors.AuthorizationInterceptor
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class NetworkClient @Inject constructor(
     authenticator: TokenAuthenticator,
     authorizationInterceptor: AuthorizationInterceptor
