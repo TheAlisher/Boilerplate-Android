@@ -53,7 +53,7 @@ dependencies {
     implementation(Libraries.Moshi.kotlin)
 
     // OkHttp
-    implementation(Libraries.OkHttp.bom)
+    implementation(platform(Libraries.OkHttp.bom))
     implementation(Libraries.OkHttp.okHttp)
     implementation(Libraries.OkHttp.loggingInterceptor)
 
