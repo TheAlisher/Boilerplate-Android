@@ -16,7 +16,9 @@ class TokenAuthenticator @Inject constructor(
 
     override fun authenticate(route: Route?, response: Response): Request? {
         synchronized(this) {
-            val tokens = service.refreshToken(RefreshToken("<refresh_token>")).execute()
+            val tokens = service.refreshToken(
+                RefreshToken(userData.refreshToken)
+            ).execute()
 
             return when {
                 tokens.isSuccessful && tokens.body() != null -> {
