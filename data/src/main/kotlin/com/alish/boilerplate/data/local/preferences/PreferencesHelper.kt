@@ -17,7 +17,7 @@ class PreferencesHelper @Inject constructor(
 
 	private val preferences = EncryptedSharedPreferences.create(
 		context,
-		"boilerplate.preferences",
+		PreferencesConstants.NAME,
 		masterKey,
 		EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
 		EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
