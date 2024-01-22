@@ -9,20 +9,20 @@ import javax.inject.Singleton
 
 @Singleton
 class PreferencesClient @Inject constructor(
-	context: Context,
+    context: Context,
 ) {
 
-	private val masterKey: MasterKey = MasterKey.Builder(context)
-		.setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-		.build()
+    private val masterKey: MasterKey = MasterKey.Builder(context)
+        .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+        .build()
 
-	val preferences = EncryptedSharedPreferences.create(
-		context,
-		PreferencesConstants.NAME,
-		masterKey,
-		EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-		EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-	)
+    val preferences = EncryptedSharedPreferences.create(
+        context,
+        PreferencesConstants.NAME,
+        masterKey,
+        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+    )
 
-	val editor: SharedPreferences.Editor = preferences.edit()
+    val editor: SharedPreferences.Editor = preferences.edit()
 }
