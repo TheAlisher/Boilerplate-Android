@@ -19,6 +19,7 @@ object Versions {
     const val okHttp = "4.12.0"
     const val room = "2.6.1"
     const val paging = "3.2.1"
+	const val security = "1.0.0"
 }
 
 object Libraries {
@@ -108,6 +109,10 @@ object Libraries {
         const val common = "androidx.paging:paging-common:${Versions.paging}"
         const val runtime = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
     }
+
+	object Security {
+		const val crypto = "androidx.security:security-crypto:${Versions.security}"
+	}
 }
 
 object Plugins {
