@@ -1,13 +1,14 @@
 package com.alish.boilerplate.data.local.preferences
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PreferencesHelper @Inject constructor(
+class PreferencesClient @Inject constructor(
 	context: Context,
 ) {
 
@@ -15,7 +16,7 @@ class PreferencesHelper @Inject constructor(
 		.setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
 		.build()
 
-	private val preferences = EncryptedSharedPreferences.create(
+	val preferences = EncryptedSharedPreferences.create(
 		context,
 		PreferencesConstants.NAME,
 		masterKey,
@@ -23,9 +24,5 @@ class PreferencesHelper @Inject constructor(
 		EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
 	)
 
-	private val editor = preferences.edit()
-
-	private fun remove(key: String) {
-		preferences.edit().remove(key).apply()
-	}
+	val editor: SharedPreferences.Editor = preferences.edit()
 }
