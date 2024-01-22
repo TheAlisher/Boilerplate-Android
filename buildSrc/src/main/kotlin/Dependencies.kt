@@ -19,7 +19,7 @@ object Versions {
     const val okHttp = "4.12.0"
     const val room = "2.6.1"
     const val paging = "3.2.1"
-	const val security = "1.0.0"
+	const val security = "1.1.0-alpha06"
 }
 
 object Libraries {
@@ -111,7 +111,7 @@ object Libraries {
     }
 
 	object Security {
-		const val crypto = "androidx.security:security-crypto:${Versions.security}"
+		const val crypto = "androidx.security:security-crypto-ktx:${Versions.security}"
 	}
 }
 

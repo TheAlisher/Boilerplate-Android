@@ -1,6 +1,6 @@
 package com.alish.boilerplate.data.remote.client.authenticator
 
-import com.alish.boilerplate.data.local.preferences.PreferencesHelper
+import com.alish.boilerplate.data.local.preferences.UserDataPreferences
 import com.alish.boilerplate.data.remote.apiservices.AuthenticatorApiService
 import com.alish.boilerplate.data.remote.dtos.tokens.RefreshToken
 import okhttp3.Authenticator
@@ -11,26 +11,29 @@ import javax.inject.Inject
 
 class TokenAuthenticator @Inject constructor(
     private val service: AuthenticatorApiService,
-    private val preferencesHelper: PreferencesHelper
+    private val userData: UserDataPreferences,
 ) : Authenticator {
 
     override fun authenticate(route: Route?, response: Response): Request? {
         synchronized(this) {
-            val refreshToken = service.refreshToken(RefreshToken("<refresh_token>")).execute()
+            val tokens = service.refreshToken(
+                RefreshToken(userData.refreshToken)
+            ).execute()
 
             return when {
-                refreshToken.isSuccessful -> {
-                    /**
-                     * Save access & refresh tokens to preferences
-                     */
-                    "$preferencesHelper."
+                tokens.isSuccessful && tokens.body() != null -> {
+                    with(userData) {
+                        accessToken = tokens.body()!!.accessToken
+                        refreshToken = tokens.body()!!.refreshToken
+                    }
 
                     response
                         .request
                         .newBuilder()
-                        .header("Authorization", "Bearer $preferencesHelper.<new_access_token>")
+                        .header("Authorization", "Bearer ${userData.accessToken}")
                         .build()
                 }
+
                 else -> {
                     null
                 }
