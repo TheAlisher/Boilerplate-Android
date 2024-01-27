@@ -19,7 +19,7 @@ object Versions {
     const val okHttp = "4.12.0"
     const val room = "2.6.1"
     const val paging = "3.2.1"
-	const val security = "1.1.0-alpha06"
+    const val security = "1.1.0-alpha06"
 }
 
 object Libraries {
@@ -71,7 +71,8 @@ object Libraries {
     /**
      * For Hilt in domain module
      *
-     * [javax.inject package](https://docs.oracle.com/javaee%2F6%2Fapi%2F%2F/javax/inject/package-summary.html)
+     * [javax.inject package](https://docs.oracle.com/javaee/6/api/javax/inject/package-summary.html)
+     *
      * [JSR-330](https://javax-inject.github.io/javax-inject/)
      */
     object Javax {
@@ -110,9 +111,9 @@ object Libraries {
         const val runtime = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
     }
 
-	object Security {
-		const val crypto = "androidx.security:security-crypto-ktx:${Versions.security}"
-	}
+    object Security {
+        const val crypto = "androidx.security:security-crypto-ktx:${Versions.security}"
+    }
 }
 
 object Plugins {
