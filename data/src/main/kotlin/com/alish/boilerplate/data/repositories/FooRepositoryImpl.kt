@@ -1,7 +1,7 @@
 package com.alish.boilerplate.data.repositories
 
 import com.alish.boilerplate.data.remote.apiservices.FooApiService
-import com.alish.boilerplate.data.remote.pagingsources.FooPagingSource
+import com.alish.boilerplate.data.repositories.pagingsources.FooPagingSource
 import com.alish.boilerplate.data.base.BaseRepository
 import com.alish.boilerplate.data.local.db.daos.FooDao
 import com.alish.boilerplate.data.local.db.entities.foo.toEntity
@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class FooRepositoryImpl @Inject constructor(
     private val service: FooApiService,
-    private val dao: FooDao
+    private val dao: FooDao,
 ) : BaseRepository(), FooRepository {
 
     override fun fetchFoo() = doNetworkRequestWithMapping {
