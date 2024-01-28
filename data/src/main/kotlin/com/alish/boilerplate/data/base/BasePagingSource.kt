@@ -27,12 +27,12 @@ abstract class BasePagingSource<ValueDto : DataMapper<Value>, Value : Any>(
 
         return try {
             val response = request(position)
-            val data = response.body()!!
+            val body = response.body()!!
 
             LoadResult.Page(
-                data = data.data.map { it.mapToDomain() },
+                data = body.data.map { it.mapToDomain() },
                 prevKey = null,
-                nextKey = data.next
+                nextKey = body.next
             )
         } catch (exception: IOException) {
             LoadResult.Error(exception)

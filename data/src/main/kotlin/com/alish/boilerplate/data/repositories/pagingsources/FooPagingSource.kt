@@ -7,6 +7,6 @@ import com.alish.boilerplate.domain.models.foo.Foo
 
 class FooPagingSource(
     private val service: FooApiService,
-) : BasePagingSource<FooDto, Foo>(
-    { service.fetchFooPaging(it) }
-)
+) : BasePagingSource<FooDto, Foo>({
+    service.fetchFooPaging(it)
+})
