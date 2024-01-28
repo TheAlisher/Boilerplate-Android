@@ -5,6 +5,7 @@ import com.alish.boilerplate.domain.usecases.foo.FetchFooUseCase
 import com.alish.boilerplate.domain.usecases.foo.GetFooUseCase
 import com.alish.boilerplate.features.foo.models.FooUI
 import com.alish.boilerplate.features.foo.models.toUI
+import com.alish.boilerplate.presentation.core.MutableUIStateFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
