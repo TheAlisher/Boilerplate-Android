@@ -14,7 +14,6 @@ plugins {
 
 android {
     namespace = Namespaces.app
-
     compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
