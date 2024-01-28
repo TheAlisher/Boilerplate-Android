@@ -8,7 +8,6 @@ plugins {
 
 android {
     namespace = Namespaces.data
-
     compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
