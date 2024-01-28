@@ -17,9 +17,6 @@ android {
     buildTypes {
         getByName(AndroidConfig.release) {
             isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
             buildConfigField("String", "BASE_URL", "\"https://boilerplate.com/\"")
         }
         getByName(AndroidConfig.debug) {
