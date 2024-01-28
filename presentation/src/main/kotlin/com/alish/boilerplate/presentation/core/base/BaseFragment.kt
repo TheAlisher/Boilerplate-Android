@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.base
+package com.alish.boilerplate.presentation.core.base
 
 import android.os.Bundle
 import android.view.View
@@ -12,8 +12,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
-import com.alish.boilerplate.presentation.extensions.showToastLong
-import com.alish.boilerplate.presentation.state.UIState
+import com.alish.boilerplate.presentation.core.extensions.showToastLong
+import com.alish.boilerplate.presentation.core.UIState
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope

@@ -3,7 +3,7 @@ package com.alish.boilerplate.features.foo.ui
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.R
-import com.alish.boilerplate.presentation.base.BaseFragment
+import com.alish.boilerplate.presentation.core.base.BaseFragment
 import com.alish.boilerplate.databinding.FragmentFooBinding
 import dagger.hilt.android.AndroidEntryPoint
 

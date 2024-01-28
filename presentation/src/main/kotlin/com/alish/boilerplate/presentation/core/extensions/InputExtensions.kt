@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.extensions
+package com.alish.boilerplate.presentation.core.extensions
 
 import com.google.android.material.textfield.TextInputEditText
 

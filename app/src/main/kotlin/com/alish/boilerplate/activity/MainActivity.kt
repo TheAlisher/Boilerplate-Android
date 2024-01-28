@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.alish.boilerplate.R
+import com.alish.boilerplate.presentation.core.extensions.initNavController
 import com.alish.boilerplate.presentation.R as presentationR
-import com.alish.boilerplate.presentation.extensions.initNavController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

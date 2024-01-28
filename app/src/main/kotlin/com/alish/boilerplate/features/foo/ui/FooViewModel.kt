@@ -1,6 +1,6 @@
 package com.alish.boilerplate.features.foo.ui
 
-import com.alish.boilerplate.presentation.base.BaseViewModel
+import com.alish.boilerplate.presentation.core.base.BaseViewModel
 import com.alish.boilerplate.domain.usecases.foo.FetchFooUseCase
 import com.alish.boilerplate.domain.usecases.foo.GetFooUseCase
 import com.alish.boilerplate.features.foo.models.FooUI
