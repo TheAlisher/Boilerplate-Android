@@ -12,7 +12,7 @@ import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
-import com.alish.boilerplate.presentation.core.extensions.launchRepeatOnLifecycle
+import com.alish.boilerplate.presentation.core.extensions.launchAndRepeatOnLifecycle
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.flow.*
@@ -59,7 +59,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         action: suspend (value: PagingData<T>) -> Unit,
     ) {
-        viewLifecycleOwner.launchRepeatOnLifecycle(
+        viewLifecycleOwner.launchAndRepeatOnLifecycle(
             lifecycleState
         ) { this@collectPaging.collectLatest { action(it) } }
     }
