@@ -18,7 +18,7 @@ private const val BASE_STARTING_PAGE_INDEX = 1
  *
  * @see DataMapper
  */
-abstract class BasePagingSource<ValueDto : DataMapper<Value>, Value : Any>(
+internal abstract class BasePagingSource<ValueDto : DataMapper<Value>, Value : Any>(
     private val request: suspend (position: Int) -> Response<BoilerplatePagingResponse<ValueDto>>,
 ) : PagingSource<Int, Value>() {
 
