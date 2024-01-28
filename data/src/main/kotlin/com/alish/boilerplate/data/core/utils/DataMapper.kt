@@ -7,7 +7,7 @@ package com.alish.boilerplate.data.core.utils
  *
  * @author Alish
  */
-internal interface DataMapper<T> {
+interface DataMapper<T> {
 
     /**
      * Function for map data layer model to domain layer model

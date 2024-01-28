@@ -25,7 +25,7 @@ import java.io.InterruptedIOException
  *
  * @author Alish
  */
-internal abstract class BaseRepository {
+abstract class BaseRepository {
 
     /**
      * Do network request with [DataMapper.mapToDomain]
