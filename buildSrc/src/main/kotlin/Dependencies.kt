@@ -1,9 +1,9 @@
 object Versions {
 
-    const val AGP = "8.2.1"
+    const val AGP = "8.2.2"
     const val kotlin = "1.9.22"
     const val coroutines = "1.8.0-RC2"
-    const val KSP = "1.9.22-1.0.16"
+    const val KSP = "1.9.22-1.0.17"
     const val material = "1.11.0"
     const val constraintLayout = "2.1.4"
     const val vbpd = "1.5.9"
@@ -16,7 +16,7 @@ object Versions {
     const val dagger = "2.50"
     const val retrofit = "2.9.0"
     const val moshi = "1.15.0"
-    const val okHttp = "4.12.0"
+    const val okHttp = "5.0.0-alpha.12"
     const val room = "2.6.1"
     const val paging = "3.2.1"
     const val security = "1.1.0-alpha06"
