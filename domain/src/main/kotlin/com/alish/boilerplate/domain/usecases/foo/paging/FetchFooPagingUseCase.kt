@@ -1,4 +1,4 @@
-package com.alish.boilerplate.domain.usecases.foopaging
+package com.alish.boilerplate.domain.usecases.foo.paging
 
 import com.alish.boilerplate.domain.repositories.FooRepository
 import javax.inject.Inject
