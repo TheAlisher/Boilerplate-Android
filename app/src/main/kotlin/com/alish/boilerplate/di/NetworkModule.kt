@@ -1,6 +1,5 @@
 package com.alish.boilerplate.di
 
-import androidx.lifecycle.MutableLiveData
 import com.alish.boilerplate.data.remote.client.NetworkClient
 import dagger.Module
 import dagger.Provides
@@ -14,17 +13,13 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideTokenErrorListener() = MutableLiveData<String>()
-
-    @Singleton
-    @Provides
     fun provideAuthenticatorApiService(
-        authenticatorClient: NetworkClient.AuthenticatorClient
+        authenticatorClient: NetworkClient.AuthenticatorClient,
     ) = authenticatorClient.provideAuthenticatorApiService()
 
     @Singleton
     @Provides
     fun provideFooApiService(
-        networkClient: NetworkClient
+        networkClient: NetworkClient,
     ) = networkClient.provideFooApiService()
 }
