@@ -32,7 +32,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
-
         getByName(AndroidConfig.debug) {
             applicationIdSuffix = ".${AndroidConfig.debug}"
             isDebuggable = true

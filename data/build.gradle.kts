@@ -22,7 +22,6 @@ android {
             )
             buildConfigField("String", "BASE_URL", "\"https://boilerplate.com/\"")
         }
-
         getByName(AndroidConfig.debug) {
             buildConfigField("String", "BASE_URL", "\"https://dev.boilerplate.com/\"")
         }
@@ -61,6 +60,6 @@ dependencies {
     ksp(Libraries.Room.compiler)
     implementation(Libraries.Room.ktx)
 
-	// Security
-	implementation(Libraries.Security.crypto)
+    // Security
+    implementation(Libraries.Security.crypto)
 }
