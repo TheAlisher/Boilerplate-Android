@@ -29,7 +29,7 @@ fun AppCompatActivity.initNavController(@IdRes navHostId: Int): NavController {
 }
 
 /**
- * Get activity nav controller with [mainNavHostId][R.id.nav_host_fragment] & [mainNavGraph][R.navigation.nav_graph]
+ * Get activity nav controller with [MainNavHostId][R.id.nav_host_fragment]
  *
  * @receiver [Fragment]
  *
