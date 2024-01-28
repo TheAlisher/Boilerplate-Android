@@ -10,7 +10,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import com.alish.boilerplate.R
+import com.alish.boilerplate.presentation.R
 
 /**
  * Init [NavController]

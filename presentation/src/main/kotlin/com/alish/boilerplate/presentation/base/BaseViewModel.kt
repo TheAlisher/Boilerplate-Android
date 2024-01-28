@@ -7,7 +7,7 @@ import androidx.paging.cachedIn
 import androidx.paging.map
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.domain.core.NetworkError
-import com.alish.boilerplate.presentation.ui.state.UIState
+import com.alish.boilerplate.presentation.state.UIState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -40,7 +40,7 @@ abstract class BaseViewModel : ViewModel() {
      * @receiver [collectEither]
      */
     protected fun <T> Flow<Either<NetworkError, T>>.collectNetworkRequest(
-        state: MutableStateFlow<UIState<T>>
+        state: MutableStateFlow<UIState<T>>,
     ) = collectEither(state) {
         UIState.Success(it)
     }
@@ -52,7 +52,7 @@ abstract class BaseViewModel : ViewModel() {
      */
     protected fun <T, S> Flow<Either<NetworkError, T>>.collectNetworkRequest(
         state: MutableStateFlow<UIState<S>>,
-        mapToUI: (T) -> S
+        mapToUI: (T) -> S,
     ) = collectEither(state) {
         UIState.Success(mapToUI(it))
     }
@@ -72,7 +72,7 @@ abstract class BaseViewModel : ViewModel() {
      */
     private fun <T, S> Flow<Either<NetworkError, T>>.collectEither(
         state: MutableStateFlow<UIState<S>>,
-        successful: (T) -> UIState.Success<S>
+        successful: (T) -> UIState.Success<S>,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             state.value = UIState.Loading()
@@ -95,7 +95,7 @@ abstract class BaseViewModel : ViewModel() {
      * @param mapToUI high-order function for setup mapper functions
      */
     protected fun <T, S> Flow<T>.collectLocalRequest(
-        mapToUI: (T) -> S
+        mapToUI: (T) -> S,
     ): Flow<S> = map { value: T ->
         mapToUI(value)
     }
@@ -110,7 +110,7 @@ abstract class BaseViewModel : ViewModel() {
      * @param mapToUI high-order function for setup mapper functions
      */
     protected fun <T, S> Flow<List<T>>.collectLocalRequestForList(
-        mapToUI: (T) -> S
+        mapToUI: (T) -> S,
     ): Flow<List<S>> = map { value: List<T> ->
         value.map { data: T ->
             mapToUI(data)
@@ -130,7 +130,7 @@ abstract class BaseViewModel : ViewModel() {
      * @see viewModelScope
      */
     protected fun <T : Any, S : Any> Flow<PagingData<T>>.collectPagingRequest(
-        mapToUI: (T) -> S
+        mapToUI: (T) -> S,
     ): Flow<PagingData<S>> = map { value: PagingData<T> ->
         value.map { data: T ->
             mapToUI(data)

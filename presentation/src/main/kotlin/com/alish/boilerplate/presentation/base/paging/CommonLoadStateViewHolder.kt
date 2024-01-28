@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
-import com.alish.boilerplate.R
-import com.alish.boilerplate.databinding.LoadStateFooterViewItemBinding
+import com.alish.boilerplate.presentation.R
+import com.alish.boilerplate.presentation.databinding.LoadStateFooterViewItemBinding
 
 class CommonLoadStateViewHolder(
     private val binding: LoadStateFooterViewItemBinding,
-    retry: () -> Unit
+    retry: () -> Unit,
 ) : RecyclerView.ViewHolder(binding.root) {
 
     init {
@@ -29,8 +29,11 @@ class CommonLoadStateViewHolder(
 
     companion object {
         fun create(parent: ViewGroup, retry: () -> Unit): CommonLoadStateViewHolder {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.load_state_footer_view_item, parent, false)
+            val view = LayoutInflater.from(
+                parent.context
+            ).inflate(
+                R.layout.load_state_footer_view_item, parent, false
+            )
             val binding = LoadStateFooterViewItemBinding.bind(view)
             return CommonLoadStateViewHolder(binding, retry)
         }

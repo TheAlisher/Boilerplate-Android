@@ -5,11 +5,11 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 
 class CommonLoadStateAdapter(
-    private val retry: () -> Unit
+    private val retry: () -> Unit,
 ) : LoadStateAdapter<CommonLoadStateViewHolder>() {
 
     override fun onCreateViewHolder(
-        parent: ViewGroup, loadState: LoadState
+        parent: ViewGroup, loadState: LoadState,
     ): CommonLoadStateViewHolder {
         return CommonLoadStateViewHolder.create(parent, retry)
     }

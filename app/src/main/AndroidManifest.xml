@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoilerplateAndroid">
         <activity
-            android:name="com.alish.boilerplate.presentation.activity.MainActivity"
+            android:name="com.alish.boilerplate.activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.BoilerplateAndroid.Starting">
             <intent-filter>
