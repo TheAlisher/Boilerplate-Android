@@ -3,8 +3,8 @@ package com.alish.boilerplate.features.foo.ui
 import com.alish.boilerplate.presentation.base.BaseViewModel
 import com.alish.boilerplate.domain.usecases.foo.FetchFooUseCase
 import com.alish.boilerplate.domain.usecases.foo.GetFooUseCase
-import com.alish.boilerplate.features.foo.models.foo.FooUI
-import com.alish.boilerplate.features.foo.models.foo.toUI
+import com.alish.boilerplate.features.foo.models.FooUI
+import com.alish.boilerplate.features.foo.models.toUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
