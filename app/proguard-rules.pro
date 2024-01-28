@@ -21,7 +21,7 @@
 #-renamesourcefileattribute SourceFile
 
 # Rules for DataMapper
--keep class * implements com.alish.boilerplate.data.utils.DataMapper
+-keep class * implements com.alish.boilerplate.data.core.utils.DataMapper
 
 # Rules for Navigation Component Safe Args, Parcelable
 -keep class * implements android.os.Parcelable

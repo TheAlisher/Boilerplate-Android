@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.utils
+package com.alish.boilerplate.data.core.utils
 
 /**
  * Base mapper interface
