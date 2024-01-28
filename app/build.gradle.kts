@@ -56,11 +56,6 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":presentation"))
 
-    // UI Components
-    implementation(Libraries.UIComponents.material)
-    implementation(Libraries.UIComponents.constraintLayout)
-    implementation(Libraries.UIComponents.vbpd)
-
     // Hilt
     implementation(Libraries.Hilt.android)
     ksp(Libraries.Hilt.compiler)

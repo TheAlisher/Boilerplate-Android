@@ -42,6 +42,11 @@ dependencies {
     // Kotlin
     api(Libraries.Coroutines.android)
 
+    // UI Components
+    api(Libraries.UIComponents.material)
+    api(Libraries.UIComponents.constraintLayout)
+    api(Libraries.UIComponents.vbpd)
+
     // Core
     api(Libraries.Core.core)
     api(Libraries.Core.splashscreen)
