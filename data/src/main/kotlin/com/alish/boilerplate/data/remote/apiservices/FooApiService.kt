@@ -1,7 +1,7 @@
 package com.alish.boilerplate.data.remote.apiservices
 
 import com.alish.boilerplate.data.remote.dtos.foo.FooDto
-import com.alish.boilerplate.data.remote.dtos.foo.FooPagingResponse
+import com.alish.boilerplate.data.remote.dtos.BoilerplatePagingResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -18,5 +18,5 @@ interface FooApiService {
     suspend fun fetchFooList(): Response<List<FooDto>>
 
     @GET("/api/foo")
-    suspend fun fetchFooPaging(@Query("page") page: Int): Response<FooPagingResponse<FooDto>>
+    suspend fun fetchFooPaging(@Query("page") page: Int): Response<BoilerplatePagingResponse<FooDto>>
 }
