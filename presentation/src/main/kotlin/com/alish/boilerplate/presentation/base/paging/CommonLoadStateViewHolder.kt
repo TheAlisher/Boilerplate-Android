@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.ui.adapters.paging
+package com.alish.boilerplate.presentation.base.paging
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

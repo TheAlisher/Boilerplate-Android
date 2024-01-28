@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.ui.state
+package com.alish.boilerplate.presentation.state
 
 import com.alish.boilerplate.domain.core.NetworkError
 

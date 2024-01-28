@@ -10,7 +10,7 @@ import com.alish.boilerplate.databinding.FragmentFooPagingBinding
 import com.alish.boilerplate.presentation.base.BaseFragment
 import com.alish.boilerplate.presentation.extensions.showToastLong
 import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
-import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
+import com.alish.boilerplate.presentation.base.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.InterruptedIOException
 
