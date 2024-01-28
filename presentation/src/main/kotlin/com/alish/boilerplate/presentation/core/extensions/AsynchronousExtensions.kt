@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
  */
 internal fun LifecycleOwner.launchRepeatOnLifecycle(
     state: Lifecycle.State,
-    block: suspend CoroutineScope.() -> Unit,
+    block: suspend CoroutineScope.() -> Unit
 ) {
     this.lifecycleScope.launch {
         this@launchRepeatOnLifecycle.repeatOnLifecycle(state, block)
@@ -32,7 +32,7 @@ internal fun LifecycleOwner.launchRepeatOnLifecycle(
 fun <T> Flow<T>.collectSafely(
     viewLifecycleOwner: LifecycleOwner,
     state: Lifecycle.State = Lifecycle.State.STARTED,
-    collector: (T) -> Unit,
+    collector: (T) -> Unit
 ) {
     viewLifecycleOwner.launchRepeatOnLifecycle(state) {
         this@collectSafely.collect {
