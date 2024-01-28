@@ -20,4 +20,5 @@ include(
     ":app",
     ":data",
     ":domain",
+    ":presentation"
 )
