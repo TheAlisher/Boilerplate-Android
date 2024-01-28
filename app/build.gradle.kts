@@ -45,7 +45,6 @@ android {
         jvmTarget = Options.kotlinOptions
     }
     buildFeatures {
-        buildConfig = true
         viewBinding = true
     }
 }
