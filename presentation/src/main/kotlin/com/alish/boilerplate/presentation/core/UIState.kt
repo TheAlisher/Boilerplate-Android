@@ -6,6 +6,7 @@ import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.presentation.core.extensions.collectSafely
 import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
@@ -35,6 +36,19 @@ sealed class UIState<T> {
      * State if request is success and return data
      */
     class Success<T>(val data: T) : UIState<T>()
+}
+
+/**
+ * Creates a [MutableStateFlow] with [UIState] and the given initial value [UIState.Idle]
+ */
+@Suppress("FunctionName")
+fun <T> MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
+
+/**
+ * Reset [MutableUIStateFlow] to [UIState.Idle]
+ */
+fun <T> MutableStateFlow<UIState<T>>.reset() {
+    this.value = UIState.Idle()
 }
 
 /**
