@@ -12,7 +12,6 @@ import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
-import com.alish.boilerplate.presentation.core.extensions.collectSafely
 import com.alish.boilerplate.presentation.core.extensions.launchRepeatOnLifecycle
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputLayout
@@ -49,32 +48,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     protected open fun setupSubscribers() {
-    }
-
-    /**
-     * Collect [UIState] with [launchRepeatOnLifecycle]
-     *
-     * @receiver [StateFlow] with [UIState]
-     *
-     * @param state optional, for working with all states
-     * @param onError for error handling
-     * @param onSuccess for working with data
-     */
-    protected fun <T> StateFlow<UIState<T>>.collectUIState(
-        lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-        state: ((UIState<T>) -> Unit)? = null,
-        onError: ((error: NetworkError) -> Unit),
-        onSuccess: ((data: T) -> Unit),
-    ) {
-        this.collectSafely(viewLifecycleOwner, lifecycleState) {
-            state?.invoke(it)
-            when (it) {
-                is UIState.Idle -> {}
-                is UIState.Loading -> {}
-                is UIState.Error -> onError.invoke(it.error)
-                is UIState.Success -> onSuccess.invoke(it.data)
-            }
-        }
     }
 
     /**
