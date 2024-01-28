@@ -13,7 +13,7 @@ import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.extensions.showToastLong
-import com.alish.boilerplate.presentation.ui.state.UIState
+import com.alish.boilerplate.presentation.state.UIState
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
@@ -66,14 +66,16 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         state: ((UIState<T>) -> Unit)? = null,
         onError: ((error: NetworkError) -> Unit),
-        onSuccess: ((data: T) -> Unit)
+        onSuccess: ((data: T) -> Unit),
     ) {
         launchRepeatOnLifecycle(lifecycleState) {
             this@collectUIState.collect {
                 state?.invoke(it)
                 when (it) {
                     is UIState.Idle -> {}
+
                     is UIState.Loading -> {}
+
                     is UIState.Error -> onError.invoke(it.error)
                     is UIState.Success -> onSuccess.invoke(it.data)
                 }
@@ -88,7 +90,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      */
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-        action: suspend (value: PagingData<T>) -> Unit
+        action: suspend (value: PagingData<T>) -> Unit,
     ) {
         launchRepeatOnLifecycle(lifecycleState) { this@collectPaging.collectLatest { action(it) } }
     }
@@ -101,7 +103,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      * @param willShowViewIfSuccess whether to show views if the request is successful
      */
     protected fun <T> UIState<T>.setupViewVisibility(
-        group: Group, loader: CircularProgressIndicator, willShowViewIfSuccess: Boolean = true
+        group: Group, loader: CircularProgressIndicator, willShowViewIfSuccess: Boolean = true,
     ) {
         fun showLoader(isVisible: Boolean) {
             group.isVisible = !isVisible
@@ -110,6 +112,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
         when (this) {
             is UIState.Idle -> {}
+
             is UIState.Loading -> showLoader(true)
             is UIState.Error -> showLoader(false)
             is UIState.Success -> showLoader(!willShowViewIfSuccess)
@@ -125,9 +128,11 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         is NetworkError.Unexpected -> {
             showToastLong(this.error)
         }
+
         is NetworkError.Api -> {
             this.error?.let { showToastLong(it) }
         }
+
         is NetworkError.ApiInputs -> {
             for (input in inputs) {
                 error?.get(input.tag).also { error ->
@@ -140,6 +145,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
                 }
             }
         }
+
         is NetworkError.Timeout -> {
             showToastLong("Timeout")
         }
@@ -150,7 +156,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      */
     protected fun <T> Flow<T>.collectSafely(
         state: Lifecycle.State = Lifecycle.State.STARTED,
-        collector: (T) -> Unit
+        collector: (T) -> Unit,
     ) {
         launchRepeatOnLifecycle(state) {
             this@collectSafely.collect {
@@ -169,7 +175,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      */
     private fun launchRepeatOnLifecycle(
         state: Lifecycle.State,
-        block: suspend CoroutineScope.() -> Unit
+        block: suspend CoroutineScope.() -> Unit,
     ) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(state) {

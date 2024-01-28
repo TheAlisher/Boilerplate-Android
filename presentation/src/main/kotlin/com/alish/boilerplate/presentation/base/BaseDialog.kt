@@ -15,7 +15,7 @@ abstract class BaseDialog<Binding : ViewBinding>(
     protected abstract val binding: Binding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(layoutId, container, false)
     }

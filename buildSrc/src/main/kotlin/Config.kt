@@ -14,6 +14,7 @@ object Namespaces {
 
     const val app = "com.alish.boilerplate"
     const val data = "${app}.data"
+    const val presentation = "${app}.presentation"
 }
 
 object Options {
