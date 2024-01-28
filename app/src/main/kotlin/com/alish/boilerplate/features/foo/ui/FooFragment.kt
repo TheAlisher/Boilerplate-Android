@@ -1,4 +1,4 @@
-package com.alish.boilerplate.features.ui.fragments.foo
+package com.alish.boilerplate.features.foo.ui
 
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding

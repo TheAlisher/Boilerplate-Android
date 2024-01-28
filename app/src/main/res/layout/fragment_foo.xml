@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.ui.fragments.foo.FooFragment">
+    tools:context=".features.foo.ui.FooFragment">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/loader_foo"

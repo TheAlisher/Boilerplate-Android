@@ -1,4 +1,4 @@
-package com.alish.boilerplate.features.ui.fragments.foopaging
+package com.alish.boilerplate.features.foo.ui.paging
 
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -9,7 +9,7 @@ import com.alish.boilerplate.R
 import com.alish.boilerplate.databinding.FragmentFooPagingBinding
 import com.alish.boilerplate.presentation.base.BaseFragment
 import com.alish.boilerplate.presentation.extensions.showToastLong
-import com.alish.boilerplate.features.ui.adapters.FooPagingAdapter
+import com.alish.boilerplate.features.foo.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.InterruptedIOException
