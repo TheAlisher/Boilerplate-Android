@@ -5,35 +5,40 @@ import androidx.lifecycle.LifecycleOwner
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.presentation.core.extensions.collectSafely
-import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 
 /**
- * Base state for fragments
+ * The [UIState] class represents the screen state in response to various actions,
+ * such as requesting data, awaiting a response, handling errors, and successfully completing a request with data.
  *
+ * @param T The type of data associated with the state.
  * @see [Either]
  */
 sealed class UIState<T> {
 
     /**
-     * State when open fragment
+     * [Idle] - The default state when there are no active data requests, and the screen has just been opened.
      */
     class Idle<T> : UIState<T>()
 
     /**
-     * State when we do request and show loader
+     * [Loading] - The state after sending a data request and waiting for a response.
      */
     class Loading<T> : UIState<T>()
 
     /**
-     * State if request return error
+     * [Error] - The state in case of an error occurring during a data request.
+     *
+     * @param error The network error associated with the current state.
+     * @see NetworkError
      */
     class Error<T>(val error: NetworkError) : UIState<T>()
 
     /**
-     * State if request is success and return data
+     * [Success] - The state when a data request is successful, and data is returned.
+     *
+     * @param data The data returned as a result of a successful request.
      */
     class Success<T>(val data: T) : UIState<T>()
 }
