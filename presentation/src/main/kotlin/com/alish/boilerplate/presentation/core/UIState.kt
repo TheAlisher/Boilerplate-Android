@@ -72,7 +72,7 @@ fun <T> StateFlow<UIState<T>>.collectUIState(
     onError: ((error: NetworkError) -> Unit),
     onSuccess: ((data: T) -> Unit)
 ) {
-    this.collectSafely(viewLifecycleOwner, lifecycleState) {
+    collectSafely(viewLifecycleOwner, lifecycleState) {
         state?.invoke(it)
         when (it) {
             is UIState.Idle -> {}
