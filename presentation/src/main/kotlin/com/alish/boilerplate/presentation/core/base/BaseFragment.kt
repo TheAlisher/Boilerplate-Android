@@ -26,8 +26,7 @@ import kotlinx.coroutines.flow.*
  * @author Alish
  */
 abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
-    @LayoutRes
-    layoutId: Int,
+    @LayoutRes layoutId: Int
 ) : Fragment(layoutId) {
 
     protected abstract val viewModel: ViewModel
