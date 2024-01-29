@@ -7,8 +7,8 @@ import androidx.paging.cachedIn
 import androidx.paging.map
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.domain.core.NetworkError
-import com.alish.boilerplate.presentation.core.MutableUIStateFlow
 import com.alish.boilerplate.presentation.core.UIState
+import com.alish.boilerplate.presentation.core.reset
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,7 +28,7 @@ abstract class BaseViewModel : ViewModel() {
      * @receiver [collectEither]
      */
     protected fun <T> Flow<Either<NetworkError, T>>.collectNetworkRequest(
-        state: MutableUIStateFlow<T>,
+        state: MutableStateFlow<UIState<T>>,
         resetStateAfterCollect: Boolean = false
     ) = collectEither(state, resetStateAfterCollect) {
         UIState.Success(it)
@@ -40,7 +40,7 @@ abstract class BaseViewModel : ViewModel() {
      * @receiver [collectEither]
      */
     protected fun <T, S> Flow<Either<NetworkError, T>>.collectNetworkRequest(
-        state: MutableUIStateFlow<S>,
+        state: MutableStateFlow<UIState<S>>,
         resetStateAfterCollect: Boolean = false,
         mapToUI: (T) -> S
     ) = collectEither(state, resetStateAfterCollect) {
@@ -61,7 +61,7 @@ abstract class BaseViewModel : ViewModel() {
      * @see [Flow.collect]
      */
     private fun <T, S> Flow<Either<NetworkError, T>>.collectEither(
-        state: MutableUIStateFlow<S>,
+        state: MutableStateFlow<UIState<S>>,
         resetStateAfterCollect: Boolean,
         successful: (T) -> UIState.Success<S>
     ) {

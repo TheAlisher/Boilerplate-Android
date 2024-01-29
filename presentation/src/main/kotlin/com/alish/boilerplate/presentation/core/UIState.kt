@@ -1,13 +1,9 @@
 package com.alish.boilerplate.presentation.core
 
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.presentation.core.base.BaseViewModel
-import com.alish.boilerplate.presentation.core.extensions.launchAndCollect
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 
 /**
  * The [UIState] class represents the screen state in response to various actions,
@@ -45,50 +41,12 @@ sealed class UIState<T> {
 }
 
 /**
- * The [MutableUIStateFlow] is wrapper for [MutableStateFlow] with [UIState]
- *
- * @param T value type
- */
-interface MutableUIStateFlow<T> : MutableStateFlow<UIState<T>> {
-
-    /**
-     * Reset [MutableUIStateFlow] to [UIState.Idle]
-     */
-    fun reset() {
-        this.value = UIState.Idle()
-    }
-}
-
-/**
  * Creates a [MutableStateFlow] with [UIState] and the given initial value [UIState.Idle]
  */
-fun <T> BaseViewModel.MutableUIStateFlow(): MutableUIStateFlow<T> {
-    return MutableStateFlow<UIState<T>>(UIState.Idle()) as MutableUIStateFlow<T>
-}
+@Suppress("FunctionName")
+fun <T> BaseViewModel.MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
 
 /**
- * Collect [UIState] with [launchAndCollect]
- *
- * @receiver [StateFlow] with [UIState]
- *
- * @param state optional, for working with all states
- * @param onError for error handling
- * @param onSuccess for working with data
+ * Reset [MutableUIStateFlow] to [UIState.Idle]
  */
-inline fun <T> StateFlow<UIState<T>>.collectAsUIState(
-    viewLifecycleOwner: LifecycleOwner,
-    lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-    noinline state: ((UIState<T>) -> Unit)? = null,
-    crossinline onError: ((error: NetworkError) -> Unit),
-    crossinline onSuccess: ((data: T) -> Unit)
-) {
-    launchAndCollect(viewLifecycleOwner, lifecycleState) {
-        state?.invoke(it)
-        when (it) {
-            is UIState.Idle -> {}
-            is UIState.Loading -> {}
-            is UIState.Error -> onError.invoke(it.error)
-            is UIState.Success -> onSuccess.invoke(it.data)
-        }
-    }
-}
+fun <T> MutableStateFlow<UIState<T>>.reset() { this.value = UIState.Idle() }

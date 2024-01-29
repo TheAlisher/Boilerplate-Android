@@ -5,6 +5,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.R
 import com.alish.boilerplate.presentation.core.base.BaseFragment
 import com.alish.boilerplate.databinding.FragmentFooBinding
+import com.alish.boilerplate.presentation.core.extensions.launchAndCollect
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,7 +27,7 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun subscribeToFoo() = with(binding) {
-        viewModel.fooState.collectUIState(
+        viewModel.fooState.collectAsUIState(
             state = {
                 it.setupViewVisibility(groupFoo, loaderFoo)
             },
@@ -38,7 +39,7 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
             }
         )
 
-        viewModel.getFoo().collectSafely {
+        viewModel.getFoo().launchAndCollect(viewLifecycleOwner) {
             it.map { data ->
                 textFoo.text = data.bar
             }
