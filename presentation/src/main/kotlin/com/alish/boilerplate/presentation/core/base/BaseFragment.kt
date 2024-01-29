@@ -128,7 +128,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         is NetworkError.Api -> this.errorMessage?.let { showToastLong(it) }
 
         is NetworkError.ApiInputs -> {
-            for (input in inputs) {
+            inputs.forEach { input ->
                 inputErrors?.get(input.tag).also { message ->
                     if (message == null) {
                         input.isErrorEnabled = false
