@@ -11,6 +11,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.alish.boilerplate.presentation.R
+import com.alish.boilerplate.presentation.core.base.BaseFlowFragment
 
 /**
  * Init [NavController]
@@ -100,7 +101,7 @@ fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback.() -> Un
 }
 
 /**
- * Get parent fragment if parent fragment is [FlowFragment][com.alish.boilerplate.presentation.base.BaseFlowFragment].
+ * Get parent fragment if [parentFragment][Fragment.getParentFragment] is [BaseFlowFragment].
  *
  * &nbsp
  *
