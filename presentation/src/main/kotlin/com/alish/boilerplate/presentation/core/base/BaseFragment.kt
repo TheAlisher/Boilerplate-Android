@@ -12,7 +12,7 @@ import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
-import com.alish.boilerplate.presentation.core.extensions.collectAsUIState
+import com.alish.boilerplate.presentation.core.collectAsUIState
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollect
 import com.alish.boilerplate.presentation.core.extensions.launchWithRepeatOnLifecycle
 import com.google.android.material.progressindicator.CircularProgressIndicator

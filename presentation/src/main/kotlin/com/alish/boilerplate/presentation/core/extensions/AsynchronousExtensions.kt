@@ -51,30 +51,3 @@ inline fun <T> Flow<T>.launchAndCollect(
 ) = viewLifecycleOwner.launchWithRepeatOnLifecycle(state) {
     collect { collector(it) }
 }
-
-/**
- * Collect [UIState] with [collectSafely]
- *
- * @receiver [StateFlow] with [UIState]
- *
- * @param state optional, for working with all states
- * @param onError for error handling
- * @param onSuccess for working with data
- */
-inline fun <T> StateFlow<UIState<T>>.collectAsUIState(
-    viewLifecycleOwner: LifecycleOwner,
-    lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-    noinline state: ((UIState<T>) -> Unit)? = null,
-    crossinline onError: ((error: NetworkError) -> Unit),
-    crossinline onSuccess: ((data: T) -> Unit)
-) {
-    launchAndCollect(viewLifecycleOwner, lifecycleState) {
-        state?.invoke(it)
-        when (it) {
-            is UIState.Idle -> {}
-            is UIState.Loading -> {}
-            is UIState.Error -> onError.invoke(it.error)
-            is UIState.Success -> onSuccess.invoke(it.data)
-        }
-    }
-}
