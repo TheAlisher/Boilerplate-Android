@@ -41,7 +41,7 @@ inline fun LifecycleOwner.launchWithRepeatOnLifecycle(
 }
 
 /**
- * [collect] flow safely with [launchWithRepeatOnLifecycle]
+ * [Collect][collect] [flow][Flow] safely with [launchWithRepeatOnLifecycle]
  */
 inline fun <T> Flow<T>.launchAndCollectIn(
     viewLifecycleOwner: LifecycleOwner,
@@ -52,7 +52,7 @@ inline fun <T> Flow<T>.launchAndCollectIn(
 }
 
 /**
- * [collectLatest] flow safely with [launchWithRepeatOnLifecycle]
+ * [CollectLatest][collectLatest] [flow][Flow] safely with [launchWithRepeatOnLifecycle]
  */
 inline fun <T> Flow<T>.launchAndCollectLatestIn(
     viewLifecycleOwner: LifecycleOwner,
