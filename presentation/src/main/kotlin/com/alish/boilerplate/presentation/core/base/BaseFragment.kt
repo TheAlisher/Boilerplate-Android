@@ -80,7 +80,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     /**
-     * Collect [PagingData] with [launchWithRepeatOnLifecycle]
+     * Collect [PagingData] with [launchAndCollectIn]
      *
      * @receiver [Flow] with [PagingData]
      */
