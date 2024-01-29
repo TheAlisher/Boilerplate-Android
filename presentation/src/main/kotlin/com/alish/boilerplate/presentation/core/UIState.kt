@@ -4,6 +4,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.domain.core.Either
+import com.alish.boilerplate.presentation.core.base.BaseViewModel
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollect
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -61,7 +62,9 @@ interface MutableUIStateFlow<T> : MutableStateFlow<UIState<T>> {
 /**
  * Creates a [MutableStateFlow] with [UIState] and the given initial value [UIState.Idle]
  */
-fun <T> MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle()) as MutableUIStateFlow<T>
+fun <T> BaseViewModel.MutableUIStateFlow(): MutableUIStateFlow<T> {
+    return MutableStateFlow<UIState<T>>(UIState.Idle()) as MutableUIStateFlow<T>
+}
 
 /**
  * Collect [UIState] with [launchAndCollect]
