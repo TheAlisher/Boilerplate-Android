@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 /**
- * [AsynchronousExtensions] = only for docs and links
+ * [AsynchronousExtensions] - only for docs and links
  *
  * Must read:
  * [repeatOnLifecycle API design story](https://medium.com/androiddevelopers/repeatonlifecycle-api-design-story-8670d1a7d333)
