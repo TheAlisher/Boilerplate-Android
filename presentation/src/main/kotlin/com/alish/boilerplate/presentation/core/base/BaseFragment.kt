@@ -12,9 +12,12 @@ import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
-import com.alish.boilerplate.presentation.core.extensions.launchAndRepeatOnLifecycle
+import com.alish.boilerplate.presentation.core.extensions.collectAsUIState
+import com.alish.boilerplate.presentation.core.extensions.launchAndCollect
+import com.alish.boilerplate.presentation.core.extensions.launchWithRepeatOnLifecycle
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 
 /**
@@ -23,7 +26,8 @@ import kotlinx.coroutines.flow.*
  * @author Alish
  */
 abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
-    @LayoutRes layoutId: Int
+    @LayoutRes
+    layoutId: Int,
 ) : Fragment(layoutId) {
 
     protected abstract val viewModel: ViewModel
@@ -51,15 +55,47 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     /**
+     * @see [collectAsUIState]
+     * */
+    protected inline fun <T> StateFlow<UIState<T>>.collectUIState(
+        lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
+        noinline state: ((UIState<T>) -> Unit)? = null,
+        crossinline onError: ((error: NetworkError) -> Unit),
+        crossinline onSuccess: ((data: T) -> Unit)
+    ) {
+        collectAsUIState(
+            viewLifecycleOwner = viewLifecycleOwner,
+            lifecycleState = lifecycleState,
+            state = state,
+            onError = onError,
+            onSuccess = onSuccess
+        )
+    }
+
+    /**
+     * @see [launchAndCollect]
+     */
+    protected inline fun <T> Flow<T>.collectSafely(
+        state: Lifecycle.State = Lifecycle.State.STARTED,
+        crossinline collector: suspend CoroutineScope.(T) -> Unit
+    ) {
+        launchAndCollect(
+            viewLifecycleOwner = viewLifecycleOwner,
+            state = state,
+            collector = collector
+        )
+    }
+
+    /**
      * Collect [PagingData] with [launchRepeatOnLifecycle]
      *
      * @receiver [Flow] with [PagingData]
      */
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-        action: suspend (value: PagingData<T>) -> Unit,
+        action: suspend (value: PagingData<T>) -> Unit
     ) {
-        viewLifecycleOwner.launchAndRepeatOnLifecycle(
+        viewLifecycleOwner.launchWithRepeatOnLifecycle(
             lifecycleState
         ) { this@collectPaging.collectLatest { action(it) } }
     }
@@ -72,7 +108,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      * @param willShowViewIfSuccess whether to show views if the request is successful
      */
     protected fun <T> UIState<T>.setupViewVisibility(
-        group: Group, loader: CircularProgressIndicator, willShowViewIfSuccess: Boolean = true,
+        group: Group,
+        loader: CircularProgressIndicator,
+        willShowViewIfSuccess: Boolean = true
     ) {
         fun showLoader(isVisible: Boolean) {
             group.isVisible = !isVisible

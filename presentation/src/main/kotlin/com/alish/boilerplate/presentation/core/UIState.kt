@@ -1,12 +1,8 @@
 package com.alish.boilerplate.presentation.core
 
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.domain.core.Either
-import com.alish.boilerplate.presentation.core.extensions.collectSafely
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 
 /**
  * The [UIState] class represents the screen state in response to various actions,
@@ -54,31 +50,4 @@ fun <T> MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
  */
 fun <T> MutableStateFlow<UIState<T>>.reset() {
     this.value = UIState.Idle()
-}
-
-/**
- * Collect [UIState] with [collectSafely]
- *
- * @receiver [StateFlow] with [UIState]
- *
- * @param state optional, for working with all states
- * @param onError for error handling
- * @param onSuccess for working with data
- */
-fun <T> StateFlow<UIState<T>>.collectUIState(
-    viewLifecycleOwner: LifecycleOwner,
-    lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-    state: ((UIState<T>) -> Unit)? = null,
-    onError: ((error: NetworkError) -> Unit),
-    onSuccess: ((data: T) -> Unit)
-) {
-    collectSafely(viewLifecycleOwner, lifecycleState) {
-        state?.invoke(it)
-        when (it) {
-            is UIState.Idle -> {}
-            is UIState.Loading -> {}
-            is UIState.Error -> onError.invoke(it.error)
-            is UIState.Success -> onSuccess.invoke(it.data)
-        }
-    }
 }
