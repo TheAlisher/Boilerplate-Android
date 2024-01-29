@@ -97,12 +97,12 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      *
      * @receiver [UIState]
      *
-     * @param willShowViewIfSuccess whether to show views if the request is successful
+     * @param showViewIfSuccess whether to show views if the request is successful
      */
     protected fun <T> UIState<T>.setupViewVisibility(
         group: Group,
         loader: CircularProgressIndicator,
-        willShowViewIfSuccess: Boolean = true
+        showViewIfSuccess: Boolean = true
     ) {
         fun showLoader(isVisible: Boolean) {
             group.isVisible = !isVisible
@@ -113,7 +113,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
             is UIState.Idle -> {}
             is UIState.Loading -> showLoader(true)
             is UIState.Error -> showLoader(false)
-            is UIState.Success -> showLoader(!willShowViewIfSuccess)
+            is UIState.Success -> showLoader(!showViewIfSuccess)
         }
     }
 
