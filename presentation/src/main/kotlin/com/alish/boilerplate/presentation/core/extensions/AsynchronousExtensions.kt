@@ -4,11 +4,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.alish.boilerplate.domain.core.NetworkError
-import com.alish.boilerplate.presentation.core.UIState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 /**
@@ -42,12 +41,23 @@ inline fun LifecycleOwner.launchWithRepeatOnLifecycle(
 }
 
 /**
- * Collect flow safely with [launchWithRepeatOnLifecycle]
+ * [collect] flow safely with [launchWithRepeatOnLifecycle]
  */
-inline fun <T> Flow<T>.launchAndCollect(
+inline fun <T> Flow<T>.launchAndCollectIn(
     viewLifecycleOwner: LifecycleOwner,
     state: Lifecycle.State = Lifecycle.State.STARTED,
     crossinline collector: suspend CoroutineScope.(T) -> Unit
 ) = viewLifecycleOwner.launchWithRepeatOnLifecycle(state) {
     collect { collector(it) }
+}
+
+/**
+ * [collectLatest] flow safely with [launchWithRepeatOnLifecycle]
+ */
+inline fun <T> Flow<T>.launchAndCollectLatestIn(
+    viewLifecycleOwner: LifecycleOwner,
+    state: Lifecycle.State = Lifecycle.State.STARTED,
+    crossinline collector: suspend CoroutineScope.(T) -> Unit
+) = viewLifecycleOwner.launchWithRepeatOnLifecycle(state) {
+    collectLatest { collector(it) }
 }
