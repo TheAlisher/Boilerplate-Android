@@ -2,6 +2,7 @@ package com.alish.boilerplate.presentation.core.base
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
@@ -122,22 +123,44 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      *
      * @receiver [NetworkError]
      */
-    protected fun NetworkError.setupApiErrors(vararg inputs: TextInputLayout) = when (this) {
+    protected fun NetworkError.setupApiErrors() = when (this) {
         is NetworkError.Timeout -> showToastLong("Timeout")
         is NetworkError.Unexpected -> showToastLong(this.errorMessage)
         is NetworkError.Api -> this.errorMessage?.let { showToastLong(it) }
 
         is NetworkError.ApiInputs -> {
-            inputs.forEach { input ->
+            (binding.root as ViewGroup).getChildInputLayouts().forEach { input ->
                 inputErrors?.get(input.tag).also { message ->
-                    if (message == null) {
-                        input.isErrorEnabled = false
-                    } else {
-                        input.error = message.joinToString()
-                        this.inputErrors?.remove(input.tag)
+                    when {
+                        message == null -> {
+                            input.isErrorEnabled = false
+                        }
+
+                        message.isNotEmpty() -> {
+                            input.error = message.joinToString()
+                            this.inputErrors?.remove(input.tag)
+                        }
                     }
                 }
             }
         }
+    }
+
+    /**
+     * @return [List] with [TextInputLayout] in fragments xml
+     */
+    private fun ViewGroup.getChildInputLayouts(): List<TextInputLayout> {
+        val inputs = mutableListOf<TextInputLayout>()
+        for (i in 0 until childCount) {
+            val childView = getChildAt(i)
+            if (childView is TextInputLayout) {
+                inputs.add(childView)
+            }
+            val childViewGroup = childView as? ViewGroup
+            if (childViewGroup !is TextInputLayout) {
+                childViewGroup?.getChildInputLayouts()
+            }
+        }
+        return inputs
     }
 }
