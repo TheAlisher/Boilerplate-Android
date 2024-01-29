@@ -62,7 +62,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      * @param onError for error handling
      * @param onSuccess for working with data
      */
-    inline fun <T> StateFlow<UIState<T>>.collectAsUIState(
+    protected inline fun <T> StateFlow<UIState<T>>.collectAsUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         noinline state: ((UIState<T>) -> Unit)? = null,
         crossinline onError: ((error: NetworkError) -> Unit),
