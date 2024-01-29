@@ -7,9 +7,6 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 
-
-// region Fragment extensions
-
 /**
  * Fast show [Toast]
  *
@@ -69,5 +66,3 @@ fun Fragment.hideKeyboard() {
     ) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(requireView().windowToken, 0)
 }
-
-// endregion
