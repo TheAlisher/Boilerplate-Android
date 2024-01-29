@@ -8,6 +8,11 @@ package com.alish.boilerplate.domain.core
 sealed class NetworkError {
 
     /**
+     * State for Timeout exceptions
+     */
+    data object Timeout : NetworkError()
+
+    /**
      * State for unexpected exceptions, for example «HTTP code - 500» or exceptions when mapping models
      */
     class Unexpected(val error: String) : NetworkError()
@@ -25,9 +30,4 @@ sealed class NetworkError {
      * Map [Value][kotlin.collections.Map.Entry.value] is errors from server side
      */
     class ApiInputs(val error: MutableMap<String, List<String>>?) : NetworkError()
-
-    /**
-     * State for Timeout exceptions
-     */
-    data object Timeout : NetworkError()
 }
