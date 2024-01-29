@@ -29,11 +29,8 @@ abstract class BaseViewModel : ViewModel() {
      */
     protected fun <T> Flow<Either<NetworkError, T>>.collectNetworkRequest(
         state: MutableUIStateFlow<T>,
-        resetStateAfterSuccess: Boolean = false
-    ) = collectEither(state) {
-        if (resetStateAfterSuccess) {
-            state.reset()
-        }
+        resetStateAfterCollect: Boolean = false
+    ) = collectEither(state, resetStateAfterCollect) {
         UIState.Success(it)
     }
 
@@ -44,12 +41,9 @@ abstract class BaseViewModel : ViewModel() {
      */
     protected fun <T, S> Flow<Either<NetworkError, T>>.collectNetworkRequest(
         state: MutableUIStateFlow<S>,
-        resetStateAfterSuccess: Boolean = false,
+        resetStateAfterCollect: Boolean = false,
         mapToUI: (T) -> S
-    ) = collectEither(state) {
-        if (resetStateAfterSuccess) {
-            state.reset()
-        }
+    ) = collectEither(state, resetStateAfterCollect) {
         UIState.Success(mapToUI(it))
     }
 
@@ -68,6 +62,7 @@ abstract class BaseViewModel : ViewModel() {
      */
     private fun <T, S> Flow<Either<NetworkError, T>>.collectEither(
         state: MutableUIStateFlow<S>,
+        resetStateAfterCollect: Boolean,
         successful: (T) -> UIState.Success<S>
     ) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -77,6 +72,9 @@ abstract class BaseViewModel : ViewModel() {
                     is Either.Left -> state.value = UIState.Error(it.value)
                     is Either.Right -> state.value = successful(it.value)
                 }
+            }
+            if (resetStateAfterCollect) {
+                state.reset()
             }
         }
     }
