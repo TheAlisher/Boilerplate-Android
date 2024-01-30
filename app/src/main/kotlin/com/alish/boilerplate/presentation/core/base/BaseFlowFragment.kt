@@ -7,6 +7,7 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.alish.boilerplate.presentation.core.extensions.flowNavController
 
 /**
  * Base class for FlowFragments
@@ -21,7 +22,7 @@ import androidx.navigation.fragment.NavHostFragment
  *
  * @author Alish
  *
- * @see [com.alish.boilerplate.presentation.extensions.flowNavController]
+ * @see [flowNavController]
  */
 abstract class BaseFlowFragment(
     @LayoutRes layoutId: Int,
