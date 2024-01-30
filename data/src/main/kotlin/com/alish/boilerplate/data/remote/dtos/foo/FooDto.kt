@@ -1,6 +1,6 @@
 package com.alish.boilerplate.data.remote.dtos.foo
 
-import com.alish.boilerplate.data.utils.DataMapper
+import com.alish.boilerplate.data.core.utils.DataMapper
 import com.alish.boilerplate.domain.models.foo.Foo
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
