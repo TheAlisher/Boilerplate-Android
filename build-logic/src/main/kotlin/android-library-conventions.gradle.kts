@@ -3,6 +3,10 @@ plugins {
     kotlin("android")
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 android {
     compileSdk = 34
 
