@@ -6,14 +6,12 @@ plugins {
 }
 
 android {
-    namespace = Namespaces.data
-
     buildTypes {
-        getByName(AndroidConfig.release) {
+        getByName("release") {
             buildConfigField("String", "BASE_URL", "\"https://boilerplate.com/\"")
         }
 
-        getByName(AndroidConfig.debug) {
+        getByName("debug") {
             buildConfigField("String", "BASE_URL", "\"https://dev.boilerplate.com/\"")
         }
     }
