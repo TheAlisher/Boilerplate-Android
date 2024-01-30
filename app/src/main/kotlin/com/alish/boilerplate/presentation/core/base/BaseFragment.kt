@@ -15,6 +15,7 @@ import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
+import com.alish.boilerplate.presentation.core.extensions.launchAndCollectLatestIn
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
@@ -81,7 +82,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     /**
-     * Collect [PagingData] with [launchRepeatOnLifecycle]
+     * Collect [PagingData] with [launchAndCollectIn]
      *
      * @receiver [Flow] with [PagingData]
      */
@@ -89,7 +90,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         action: suspend (value: PagingData<T>) -> Unit
     ) {
-        launchRepeatOnLifecycle(lifecycleState) { this@collectPaging.collectLatest { action(it) } }
+        launchAndCollectLatestIn(viewLifecycleOwner, lifecycleState) {
+            action(it)
+        }
     }
 
     /**
