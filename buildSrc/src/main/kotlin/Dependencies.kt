@@ -104,6 +104,7 @@ object Libraries {
         const val runtime = "androidx.room:room-runtime:${Versions.room}"
         const val compiler = "androidx.room:room-compiler:${Versions.room}"
         const val ktx = "androidx.room:room-ktx:${Versions.room}"
+        const val common = "androidx.room:room-common:${Versions.room}"
     }
 
     object Paging {
@@ -146,5 +147,9 @@ object Plugins {
         const val androidApp = "android-app-conventions"
         const val androidLibrary = "android-library-conventions"
         const val androidUiLibrary = "android-ui-library-conventions"
+
+        const val featureData = "feature-data-conventions"
+        const val featureDomain = "feature-domain-conventions"
+        const val featurePresentation = "feature-presentation-conventions"
     }
 }

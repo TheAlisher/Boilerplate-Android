@@ -5,18 +5,17 @@ import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.alish.boilerplate.R
 import com.alish.boilerplate.presentation.core.extensions.initNavController
-import com.alish.boilerplate.presentation.R as presentationR
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val navController by lazy { initNavController(presentationR.id.nav_host_fragment) }
+    private val navController by lazy { initNavController(R.id.nav_host_fragment) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
-        setContentView(presentationR.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
         setupNavigation()
     }

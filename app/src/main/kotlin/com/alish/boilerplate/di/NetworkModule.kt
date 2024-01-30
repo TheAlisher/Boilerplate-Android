@@ -1,5 +1,8 @@
 package com.alish.boilerplate.di
 
+import com.alish.boilerplate.data.network.ProviderFooApiService
+import com.alish.boilerplate.data.network.ProviderBarApiService
+import com.alish.boilerplate.data.network.ProviderBazApiService
 import com.alish.boilerplate.data.remote.client.NetworkClient
 import dagger.Module
 import dagger.Provides
@@ -20,6 +23,18 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideFooApiService(
-        networkClient: NetworkClient,
-    ) = networkClient.provideFooApiService()
+        providerFooApiService: ProviderFooApiService,
+    ) = providerFooApiService()
+
+    @Singleton
+    @Provides
+    fun provideBarApiService(
+        providerBarApiService: ProviderBarApiService,
+    ) = providerBarApiService()
+
+    @Singleton
+    @Provides
+    fun provideBazApiService(
+        providerBazApiService: ProviderBazApiService,
+    ) = providerBazApiService()
 }

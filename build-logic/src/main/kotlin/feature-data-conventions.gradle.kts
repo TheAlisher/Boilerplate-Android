@@ -2,7 +2,11 @@ plugins {
     id("android-library-conventions")
 }
 
+android {
+    namespace = "com.alish.boilerplate.data"
+}
+
 dependencies {
 
-    implementation(project(":data"))
+    implementation(project(":core:data"))
 }

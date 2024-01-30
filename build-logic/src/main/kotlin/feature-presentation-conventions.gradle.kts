@@ -1,8 +1,16 @@
 plugins {
-    id("android-ui-library-conventions")
+    id("android-library-conventions")
+}
+
+android {
+    namespace = "com.alish.boilerplate.presentation"
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
 
-    implementation(project(":presentation"))
+    implementation(project(":core:presentation"))
 }
