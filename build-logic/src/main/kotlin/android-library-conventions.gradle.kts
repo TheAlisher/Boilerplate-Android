@@ -14,14 +14,6 @@ android {
         minSdk = 29
     }
 
-    buildTypes {
-        getByName("release") {
-            buildConfigField("String", "BASE_URL", "\"https://boilerplate.com/\"")
-        }
-        getByName("debug") {
-            buildConfigField("String", "BASE_URL", "\"https://dev.boilerplate.com/\"")
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
