@@ -15,6 +15,16 @@ import com.alish.boilerplate.R
 /**
  * Init [NavController]
  *
+ * &nbsp
+ *
+ * ## How to use:
+ * ```
+ * class Activity : AppCompatActivity() {
+ *
+ *     private val navController by lazy { initNavController(R.id.nav_host_fragment) }
+ * }
+ * ```
+ *
  * @receiver [AppCompatActivity]
  *
  * @param navHostId Fragment Container view id
@@ -29,7 +39,7 @@ fun AppCompatActivity.initNavController(@IdRes navHostId: Int): NavController {
 }
 
 /**
- * Get activity nav controller with [mainNavHostId][R.id.nav_host_fragment] & [mainNavGraph][R.navigation.nav_graph]
+ * Get activity nav controller with [MainNavHostId][R.id.nav_host_fragment]
  *
  * @receiver [Fragment]
  *
