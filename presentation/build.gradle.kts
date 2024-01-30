@@ -8,7 +8,7 @@ android {
 
 dependencies {
 
-    implementation(project(":domain"))
+    api(project(":domain"))
 
     // Kotlin
     api(Libraries.Coroutines.android)
