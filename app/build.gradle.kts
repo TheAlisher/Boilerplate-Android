@@ -12,8 +12,6 @@ plugins {
 }
 
 android {
-    namespace = Namespaces.app
-
     buildFeatures {
         viewBinding = true
     }
