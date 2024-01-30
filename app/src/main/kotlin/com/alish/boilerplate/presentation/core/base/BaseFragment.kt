@@ -8,8 +8,6 @@ import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
@@ -17,12 +15,9 @@ import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectLatestIn
-import com.alish.boilerplate.presentation.core.extensions.launchWithRepeatOnLifecycle
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 
 /**
  * Base class for [Fragment]s that work with data
