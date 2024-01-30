@@ -140,3 +140,9 @@ object Plugins {
         const val android = "com.google.dagger.hilt.android"
     }
 }
+
+object Conventions {
+
+    const val kotlinLibrary = "kotlin-library-conventions"
+    const val androidLibrary = "android-library-conventions"
+}

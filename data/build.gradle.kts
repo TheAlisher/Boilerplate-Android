@@ -1,6 +1,5 @@
 plugins {
-    id(Plugins.AGP.library)
-    kotlin(Plugins.Kotlin.android)
+    id(Conventions.androidLibrary)
 
     // KSP
     id(Plugins.KSP.ksp)
@@ -8,31 +7,6 @@ plugins {
 
 android {
     namespace = Namespaces.data
-    compileSdk = AndroidConfig.compileSdk
-
-    defaultConfig {
-        minSdk = AndroidConfig.minSdk
-    }
-
-    buildTypes {
-        getByName(AndroidConfig.release) {
-            isMinifyEnabled = true
-            buildConfigField("String", "BASE_URL", "\"https://boilerplate.com/\"")
-        }
-        getByName(AndroidConfig.debug) {
-            buildConfigField("String", "BASE_URL", "\"https://dev.boilerplate.com/\"")
-        }
-    }
-    compileOptions {
-        sourceCompatibility = Options.compileOptions
-        targetCompatibility = Options.compileOptions
-    }
-    kotlinOptions {
-        jvmTarget = Options.kotlinOptions
-    }
-    buildFeatures {
-        buildConfig = true
-    }
 }
 
 dependencies {
