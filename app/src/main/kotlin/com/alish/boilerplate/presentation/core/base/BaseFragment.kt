@@ -17,6 +17,7 @@ import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectLatestIn
+import com.alish.boilerplate.presentation.core.extensions.launchWithRepeatOnLifecycle
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
@@ -164,38 +165,5 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
             }
         }
         return inputs
-    }
-
-    /**
-     * Collect flow safely with [launchRepeatOnLifecycle]
-     */
-    protected fun <T> Flow<T>.collectSafely(
-        state: Lifecycle.State = Lifecycle.State.STARTED,
-        collector: (T) -> Unit
-    ) {
-        launchRepeatOnLifecycle(state) {
-            this@collectSafely.collect {
-                collector(it)
-            }
-        }
-    }
-
-    /**
-     * Launch coroutine with [repeatOnLifecycle] API
-     *
-     * @param state [Lifecycle.State][androidx.lifecycle.Lifecycle.State] in which `block` runs in a new coroutine. That coroutine
-     * will cancel if the lifecycle falls below that state, and will restart if it's in that state
-     * again.
-     * @param block The block to run when the lifecycle is at least in [state] state.
-     */
-    private fun launchRepeatOnLifecycle(
-        state: Lifecycle.State,
-        block: suspend CoroutineScope.() -> Unit
-    ) {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(state) {
-                block()
-            }
-        }
     }
 }
