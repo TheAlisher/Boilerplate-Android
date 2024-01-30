@@ -15,10 +15,3 @@ object Namespaces {
     const val app = "com.alish.boilerplate"
     const val data = "${app}.data"
 }
-
-object Options {
-
-    const val jvmToolchain = 17
-    val compileOptions = JavaVersion.VERSION_17
-    const val kotlinOptions = "17"
-}
