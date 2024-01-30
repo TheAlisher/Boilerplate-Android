@@ -26,7 +26,7 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun subscribeToFoo() = with(binding) {
-        viewModel.fooState.collectUIState(
+        viewModel.fooState.collectAsUIState(
             state = {
                 it.setupViewVisibility(groupFoo, loaderFoo)
             },

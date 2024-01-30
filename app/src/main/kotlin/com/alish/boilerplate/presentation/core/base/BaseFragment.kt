@@ -62,14 +62,14 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      * @param onError for error handling
      * @param onSuccess for working with data
      */
-    protected fun <T> StateFlow<UIState<T>>.collectUIState(
+    protected fun <T> StateFlow<UIState<T>>.collectAsUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         state: ((UIState<T>) -> Unit)? = null,
         onError: ((error: NetworkError) -> Unit),
         onSuccess: ((data: T) -> Unit)
     ) {
         launchRepeatOnLifecycle(lifecycleState) {
-            this@collectUIState.collect {
+            this@collectAsUIState.collect {
                 state?.invoke(it)
                 when (it) {
                     is UIState.Idle -> {}
