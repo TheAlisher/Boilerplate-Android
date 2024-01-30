@@ -125,27 +125,26 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      *
      * @receiver [NetworkError]
      */
-    protected fun NetworkError.setupApiErrors(vararg inputs: TextInputLayout) = when (this) {
-        is NetworkError.Unexpected -> {
-            showToastLong(this.error)
-        }
-        is NetworkError.Api -> {
-            this.error?.let { showToastLong(it) }
-        }
+    protected fun NetworkError.setupApiErrors() = when (this) {
+        is NetworkError.Timeout -> showToastLong("Timeout")
+        is NetworkError.Unexpected -> showToastLong(this.errorMessage)
+        is NetworkError.Api -> this.errorMessage?.let { showToastLong(it) }
+
         is NetworkError.ApiInputs -> {
-            for (input in inputs) {
-                error?.get(input.tag).also { error ->
-                    if (error == null) {
-                        input.isErrorEnabled = false
-                    } else {
-                        input.error = error.joinToString()
-                        this.error?.remove(input.tag)
+            (binding.root as ViewGroup).getChildInputLayouts().forEach { input ->
+                inputErrors?.get(input.tag).also { message ->
+                    when {
+                        message == null -> {
+                            input.isErrorEnabled = false
+                        }
+
+                        message.isNotEmpty() -> {
+                            input.error = message.joinToString()
+                            this.inputErrors?.remove(input.tag)
+                        }
                     }
                 }
             }
-        }
-        is NetworkError.Timeout -> {
-            showToastLong("Timeout")
         }
     }
 
