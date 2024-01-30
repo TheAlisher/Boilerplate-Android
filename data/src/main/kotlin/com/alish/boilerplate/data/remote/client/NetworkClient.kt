@@ -13,7 +13,7 @@ class NetworkClient @Inject constructor(
     authorizationInterceptor: AuthorizationInterceptor
 ) {
 
-    private val provideRetrofit = provideRetrofit(
+    val provideRetrofit = provideRetrofit(
         provideOkHttpClientBuilder().apply {
             authenticator(authenticator)
             addInterceptor(authorizationInterceptor)
