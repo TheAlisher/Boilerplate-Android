@@ -14,6 +14,7 @@ import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
+import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
@@ -54,7 +55,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     }
 
     /**
-     * Collect [UIState] with [launchRepeatOnLifecycle]
+     * Collect [UIState] with [launchAndCollectIn]
      *
      * @receiver [StateFlow] with [UIState]
      *
@@ -62,21 +63,19 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      * @param onError for error handling
      * @param onSuccess for working with data
      */
-    protected fun <T> StateFlow<UIState<T>>.collectAsUIState(
+    protected inline fun <T> StateFlow<UIState<T>>.collectAsUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-        state: ((UIState<T>) -> Unit)? = null,
-        onError: ((error: NetworkError) -> Unit),
-        onSuccess: ((data: T) -> Unit)
+        noinline state: ((UIState<T>) -> Unit)? = null,
+        crossinline onError: ((error: NetworkError) -> Unit),
+        crossinline onSuccess: ((data: T) -> Unit)
     ) {
-        launchRepeatOnLifecycle(lifecycleState) {
-            this@collectAsUIState.collect {
-                state?.invoke(it)
-                when (it) {
-                    is UIState.Idle -> {}
-                    is UIState.Loading -> {}
-                    is UIState.Error -> onError.invoke(it.error)
-                    is UIState.Success -> onSuccess.invoke(it.data)
-                }
+        launchAndCollectIn(viewLifecycleOwner, lifecycleState) {
+            state?.invoke(it)
+            when (it) {
+                is UIState.Idle -> {}
+                is UIState.Loading -> {}
+                is UIState.Error -> onError.invoke(it.error)
+                is UIState.Success -> onSuccess.invoke(it.data)
             }
         }
     }
