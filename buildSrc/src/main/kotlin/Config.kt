@@ -19,6 +19,7 @@ object Namespaces {
 
 object Options {
 
+    const val jvmToolchain = 17
     val compileOptions = JavaVersion.VERSION_17
     const val kotlinOptions = "17"
 }
