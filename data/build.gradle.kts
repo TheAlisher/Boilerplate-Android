@@ -65,6 +65,6 @@ dependencies {
     ksp(Libraries.Room.compiler)
     implementation(Libraries.Room.ktx)
 
-	// Security
-	implementation(Libraries.Security.crypto)
+    // Security
+    implementation(Libraries.Security.crypto)
 }
