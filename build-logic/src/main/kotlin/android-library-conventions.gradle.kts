@@ -1,10 +1,5 @@
 plugins {
-    id("com.android.library")
-    kotlin("android")
-}
-
-kotlin {
-    jvmToolchain(17)
+    id("options-conventions")
 }
 
 android {
@@ -22,13 +17,6 @@ android {
         getByName("debug") {
             buildConfigField("String", "BASE_URL", "\"https://dev.boilerplate.com/\"")
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = "17"
     }
     buildFeatures {
         buildConfig = true
