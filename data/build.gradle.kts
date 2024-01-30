@@ -1,5 +1,5 @@
 plugins {
-    id(Conventions.androidLibrary)
+    id(Plugins.Conventions.androidLibrary)
 
     // KSP
     id(Plugins.KSP.ksp)

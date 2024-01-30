@@ -1,5 +1,5 @@
 plugins {
-    id(Conventions.androidApp)
+    id(Plugins.Conventions.androidApp)
 
     // Navigation Safe Args
     id(Plugins.Navigation.safeArgs)
