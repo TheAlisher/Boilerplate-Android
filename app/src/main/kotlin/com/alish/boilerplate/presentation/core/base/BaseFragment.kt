@@ -2,6 +2,7 @@ package com.alish.boilerplate.presentation.core.base
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
@@ -145,6 +146,24 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         is NetworkError.Timeout -> {
             showToastLong("Timeout")
         }
+    }
+
+    /**
+     * @return [List] with [TextInputLayout] in fragments xml
+     */
+    private fun ViewGroup.getChildInputLayouts(): List<TextInputLayout> {
+        val inputs = mutableListOf<TextInputLayout>()
+        for (i in 0 until childCount) {
+            val childView = getChildAt(i)
+            if (childView is TextInputLayout) {
+                inputs.add(childView)
+            }
+            val childViewGroup = childView as? ViewGroup
+            if (childViewGroup !is TextInputLayout) {
+                childViewGroup?.getChildInputLayouts()
+            }
+        }
+        return inputs
     }
 
     /**
