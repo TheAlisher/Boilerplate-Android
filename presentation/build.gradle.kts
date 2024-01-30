@@ -4,6 +4,10 @@ plugins {
 
 android {
     namespace = Namespaces.presentation
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
