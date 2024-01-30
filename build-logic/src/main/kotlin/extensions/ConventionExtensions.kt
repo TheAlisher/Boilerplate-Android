@@ -26,3 +26,9 @@ internal val VersionCatalog.minSdk: Int
 
 internal val VersionCatalog.targetSdk: Int
     get() = 34
+
+internal object Namespaces {
+
+    const val app = "com.alish.boilerplate"
+    const val data = "${app}.data"
+}

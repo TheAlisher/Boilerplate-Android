@@ -10,6 +10,7 @@ kotlin {
 }
 
 android {
+    namespace = Namespaces.data
     compileSdk = config.compileSdk
 
     defaultConfig {
