@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.base
+package com.alish.boilerplate.presentation.core.base
 
 import androidx.recyclerview.widget.DiffUtil
 

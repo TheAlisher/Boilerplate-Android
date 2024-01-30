@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.extensions
+package com.alish.boilerplate.presentation.core.extensions
 
 import android.app.Activity
 import android.view.View

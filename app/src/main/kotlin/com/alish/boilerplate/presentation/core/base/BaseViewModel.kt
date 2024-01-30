@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.base
+package com.alish.boilerplate.presentation.core.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
