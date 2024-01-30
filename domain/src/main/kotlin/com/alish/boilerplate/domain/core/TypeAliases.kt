@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
  * @see Either
  * @see NetworkError
  */
-internal typealias RemoteWrapper<T> = Flow<Either<NetworkError, T>>
+typealias RemoteWrapper<T> = Flow<Either<NetworkError, T>>
 
 /**
  * Simple wrapper for convenience of network paging requests in repositories
@@ -18,4 +18,4 @@ internal typealias RemoteWrapper<T> = Flow<Either<NetworkError, T>>
  * @see Flow
  * @see PagingData
  */
-internal typealias RemotePagingWrapper<T> = Flow<PagingData<T>>
+typealias RemotePagingWrapper<T> = Flow<PagingData<T>>
