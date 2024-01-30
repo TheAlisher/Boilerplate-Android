@@ -1,34 +1,9 @@
 plugins {
-    id(Plugins.AGP.library)
-    kotlin(Plugins.Kotlin.android)
+    id(Plugins.Conventions.androidUiLibrary)
 }
 
 android {
     namespace = Namespaces.presentation
-    compileSdk = AndroidConfig.compileSdk
-
-    defaultConfig {
-        minSdk = AndroidConfig.minSdk
-    }
-
-    buildTypes {
-        getByName(AndroidConfig.release) {
-            isMinifyEnabled = true
-        }
-        getByName(AndroidConfig.debug) {
-            //
-        }
-    }
-    compileOptions {
-        sourceCompatibility = Options.compileOptions
-        targetCompatibility = Options.compileOptions
-    }
-    kotlinOptions {
-        jvmTarget = Options.kotlinOptions
-    }
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {

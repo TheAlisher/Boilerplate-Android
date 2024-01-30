@@ -1,10 +1,5 @@
 plugins {
-    kotlin(Plugins.Kotlin.jvm)
-}
-
-java {
-    sourceCompatibility = Options.compileOptions
-    targetCompatibility = Options.compileOptions
+    id(Plugins.Conventions.kotlinLibrary)
 }
 
 dependencies {
