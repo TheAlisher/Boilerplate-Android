@@ -2,6 +2,8 @@ package com.alish.boilerplate.presentation.core
 
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.domain.core.NetworkError
+import com.alish.boilerplate.presentation.core.base.BaseViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 
 /**
  * The [UIState] class represents the screen state in response to various actions,
@@ -37,3 +39,14 @@ sealed class UIState<T> {
      */
     class Success<T>(val data: T) : UIState<T>()
 }
+
+/**
+ * Creates a [MutableStateFlow] with [UIState] and the given initial value [UIState.Idle]
+ */
+@Suppress("FunctionName")
+fun <T> BaseViewModel.MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
+
+/**
+ * Reset [MutableUIStateFlow] to [UIState.Idle]
+ */
+fun <T> MutableStateFlow<UIState<T>>.reset() { this.value = UIState.Idle() }
