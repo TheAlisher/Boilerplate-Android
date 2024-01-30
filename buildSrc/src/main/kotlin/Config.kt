@@ -1,5 +1,3 @@
-import org.gradle.api.JavaVersion
-
 object AndroidConfig {
 
     const val compileSdk = 34
