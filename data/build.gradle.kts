@@ -6,6 +6,10 @@ plugins {
     id(Plugins.KSP.ksp)
 }
 
+kotlin {
+    jvmToolchain(Options.jvmToolchain)
+}
+
 android {
     namespace = Namespaces.data
     compileSdk = AndroidConfig.compileSdk

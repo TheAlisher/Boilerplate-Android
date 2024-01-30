@@ -2,6 +2,10 @@ plugins {
     kotlin(Plugins.Kotlin.jvm)
 }
 
+kotlin {
+    jvmToolchain(Options.jvmToolchain)
+}
+
 java {
     sourceCompatibility = Options.compileOptions
     targetCompatibility = Options.compileOptions
