@@ -8,6 +8,7 @@ import androidx.paging.map
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.core.UIState
+import com.alish.boilerplate.presentation.core.reset
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,8 +28,9 @@ abstract class BaseViewModel : ViewModel() {
      * @receiver [collectEither]
      */
     protected fun <T> Flow<Either<NetworkError, T>>.collectNetworkRequest(
-        state: MutableStateFlow<UIState<T>>
-    ) = collectEither(state) {
+        state: MutableStateFlow<UIState<T>>,
+        resetStateAfterCollect: Boolean = false
+    ) = collectEither(state, resetStateAfterCollect) {
         UIState.Success(it)
     }
 
@@ -39,8 +41,9 @@ abstract class BaseViewModel : ViewModel() {
      */
     protected fun <T, S> Flow<Either<NetworkError, T>>.collectNetworkRequest(
         state: MutableStateFlow<UIState<S>>,
+        resetStateAfterCollect: Boolean = false,
         mapToUI: (T) -> S
-    ) = collectEither(state) {
+    ) = collectEither(state, resetStateAfterCollect) {
         UIState.Success(mapToUI(it))
     }
 
@@ -59,6 +62,7 @@ abstract class BaseViewModel : ViewModel() {
      */
     private fun <T, S> Flow<Either<NetworkError, T>>.collectEither(
         state: MutableStateFlow<UIState<S>>,
+        resetStateAfterCollect: Boolean,
         successful: (T) -> UIState.Success<S>
     ) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -68,6 +72,9 @@ abstract class BaseViewModel : ViewModel() {
                     is Either.Left -> state.value = UIState.Error(it.value)
                     is Either.Right -> state.value = successful(it.value)
                 }
+            }
+            if (resetStateAfterCollect) {
+                state.reset()
             }
         }
     }
