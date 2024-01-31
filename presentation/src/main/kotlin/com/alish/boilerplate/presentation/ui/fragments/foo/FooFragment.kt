@@ -2,10 +2,10 @@ package com.alish.boilerplate.presentation.ui.fragments.foo
 
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.alish.boilerplate.R
 import com.alish.boilerplate.presentation.core.base.BaseFragment
-import com.alish.boilerplate.databinding.FragmentFooBinding
+import com.alish.boilerplate.presentation.R
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
+import com.alish.boilerplate.presentation.databinding.FragmentFooBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
