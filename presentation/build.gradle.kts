@@ -17,34 +17,34 @@ android {
 
 dependencies {
 
-    implementation(project(":domain"))
+    api(project(":domain"))
 
     // Kotlin
-    implementation(Libraries.Coroutines.android)
+    api(Libraries.Coroutines.android)
 
     // UI Components
-    implementation(Libraries.UIComponents.material)
-    implementation(Libraries.UIComponents.constraintLayout)
-    implementation(Libraries.UIComponents.vbpd)
+    api(Libraries.UIComponents.material)
+    api(Libraries.UIComponents.constraintLayout)
+    api(Libraries.UIComponents.vbpd)
 
     // Core
-    implementation(Libraries.Core.core)
-    implementation(Libraries.Core.splashscreen)
+    api(Libraries.Core.core)
+    api(Libraries.Core.splashscreen)
 
     // Activity
-    implementation(Libraries.Activity.activity)
+    api(Libraries.Activity.activity)
 
     // Fragment
-    implementation(Libraries.Fragment.fragment)
+    api(Libraries.Fragment.fragment)
 
     // Lifecycle
-    implementation(Libraries.Lifecycle.viewModel)
-    implementation(Libraries.Lifecycle.runtime)
+    api(Libraries.Lifecycle.viewModel)
+    api(Libraries.Lifecycle.runtime)
 
     // Navigation
-    implementation(Libraries.Navigation.fragment)
-    implementation(Libraries.Navigation.ui)
+    api(Libraries.Navigation.fragment)
+    api(Libraries.Navigation.ui)
 
     // Paging
-    implementation(Libraries.Paging.runtime)
+    api(Libraries.Paging.runtime)
 }
