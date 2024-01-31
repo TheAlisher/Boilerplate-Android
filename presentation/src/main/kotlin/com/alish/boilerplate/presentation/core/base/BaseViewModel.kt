@@ -66,10 +66,10 @@ abstract class BaseViewModel : ViewModel() {
         successful: (T) -> UIState.Success<S>
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            state.value = com.alish.boilerplate.presentation.core.UIState.Loading()
+            state.value = UIState.Loading()
             this@collectEither.collect {
                 when (it) {
-                    is Either.Left -> state.value = com.alish.boilerplate.presentation.core.UIState.Error(it.value)
+                    is Either.Left -> state.value = UIState.Error(it.value)
                     is Either.Right -> state.value = successful(it.value)
                 }
             }
