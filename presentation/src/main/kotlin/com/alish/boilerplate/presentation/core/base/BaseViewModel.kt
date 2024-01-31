@@ -31,7 +31,7 @@ abstract class BaseViewModel : ViewModel() {
         state: MutableStateFlow<UIState<T>>,
         resetStateAfterCollect: Boolean = false
     ) = collectEither(state, resetStateAfterCollect) {
-        UIState.Success(it)
+        com.alish.boilerplate.presentation.core.UIState.Success(it)
     }
 
     /**
@@ -44,7 +44,7 @@ abstract class BaseViewModel : ViewModel() {
         resetStateAfterCollect: Boolean = false,
         mapToUI: (T) -> S
     ) = collectEither(state, resetStateAfterCollect) {
-        UIState.Success(mapToUI(it))
+        com.alish.boilerplate.presentation.core.UIState.Success(mapToUI(it))
     }
 
     /**
@@ -66,10 +66,10 @@ abstract class BaseViewModel : ViewModel() {
         successful: (T) -> UIState.Success<S>
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            state.value = UIState.Loading()
+            state.value = com.alish.boilerplate.presentation.core.UIState.Loading()
             this@collectEither.collect {
                 when (it) {
-                    is Either.Left -> state.value = UIState.Error(it.value)
+                    is Either.Left -> state.value = com.alish.boilerplate.presentation.core.UIState.Error(it.value)
                     is Either.Right -> state.value = successful(it.value)
                 }
             }
