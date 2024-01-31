@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
-import com.alish.boilerplate.R
-import com.alish.boilerplate.databinding.LoadStateFooterViewItemBinding
+import com.alish.boilerplate.presentation.R
+import com.alish.boilerplate.presentation.databinding.LoadStateFooterViewItemBinding
 
 class CommonLoadStateViewHolder(
     private val binding: LoadStateFooterViewItemBinding,

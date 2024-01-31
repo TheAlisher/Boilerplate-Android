@@ -1,11 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
-    <style name="Theme.BoilerplateAndroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/White</item>
-        <!-- Customize your theme here. -->
-        <item name="android:windowLightStatusBar">true</item>
-    </style>
 
     <style name="Theme.BoilerplateAndroid.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/White</item>
