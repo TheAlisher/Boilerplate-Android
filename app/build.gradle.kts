@@ -8,12 +8,6 @@ plugins {
     id(Plugins.KSP.ksp)
 }
 
-android {
-    buildFeatures {
-        viewBinding = true
-    }
-}
-
 dependencies {
 
     implementation(project(":data"))
