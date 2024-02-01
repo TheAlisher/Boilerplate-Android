@@ -31,6 +31,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected abstract val viewModel: ViewModel
     protected abstract val binding: Binding
 
+	private val screenInputs by lazy { (binding.root as ViewGroup).getChildInputLayouts() }
+
     final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -128,7 +130,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         is NetworkError.Api -> this.errorMessage?.let { showToastLong(it) }
 
         is NetworkError.ApiInputs -> {
-            (binding.root as ViewGroup).getChildInputLayouts().forEach { input ->
+            screenInputs.forEach { input ->
                 inputErrors?.get(input.tag).also { message ->
                     when {
                         message == null -> {
