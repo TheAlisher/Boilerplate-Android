@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote.dtos
+package com.alish.boilerplate.data.core.base
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
