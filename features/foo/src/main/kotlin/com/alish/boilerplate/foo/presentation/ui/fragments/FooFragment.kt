@@ -1,4 +1,4 @@
-package com.alish.boilerplate.foo.presentation.ui.fragments.foo
+package com.alish.boilerplate.foo.presentation.ui.fragments
 
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
