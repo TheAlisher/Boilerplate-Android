@@ -10,9 +10,7 @@ plugins {
 
 dependencies {
 
-    implementation(project(":data"))
-    implementation(project(":domain"))
-    implementation(project(":presentation"))
+    implementation(project(":features:foo"))
 
     // Hilt
     implementation(Libraries.Hilt.android)
