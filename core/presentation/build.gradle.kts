@@ -2,15 +2,6 @@ import extensions.Namespaces
 
 plugins {
     id(Plugins.Conventions.androidLibrary)
-
-    // Navigation Safe Args
-    id(Plugins.Navigation.safeArgs)
-
-    // Hilt
-    id(Plugins.Hilt.android)
-
-    // KSP
-    id(Plugins.KSP.ksp)
 }
 
 android {
@@ -53,8 +44,4 @@ dependencies {
 
     // Paging
     api(Libraries.Paging.runtime)
-
-    // Hilt
-    api(Libraries.Hilt.android)
-    ksp(Libraries.Hilt.compiler)
 }
