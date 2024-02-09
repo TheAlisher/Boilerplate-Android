@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fooFragment"
-        android:name="com.alish.boilerplate.presentation.ui.fragments.foo.FooFragment"
+        android:name="com.alish.boilerplate.foo.presentation.ui.fragments.foo.FooFragment"
         android:label="fragment_foo"
         tools:layout="@layout/fragment_foo" />
 
