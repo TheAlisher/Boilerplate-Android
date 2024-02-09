@@ -2,7 +2,6 @@ package com.alish.boilerplate.presentation.core.base
 
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
@@ -11,11 +10,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
-import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
-import com.alish.boilerplate.presentation.core.extensions.getChildInputLayouts
-import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
-import com.alish.boilerplate.presentation.core.extensions.launchAndCollectLatestIn
+import com.alish.boilerplate.presentation.core.extensions.*
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import kotlinx.coroutines.flow.*
 
@@ -31,7 +27,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected abstract val viewModel: ViewModel
     protected abstract val binding: Binding
 
-	private val screenInputs by lazy { (binding.root as ViewGroup).getChildInputLayouts() }
+	private val screenInputs by lazy { binding.screenInputs }
 
     final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
