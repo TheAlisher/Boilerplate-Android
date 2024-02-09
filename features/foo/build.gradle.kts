@@ -3,6 +3,9 @@ import extensions.Namespaces
 plugins {
     id(Plugins.Conventions.androidFeature)
 
+    // Navigation Safe Args
+    id(Plugins.Navigation.safeArgs)
+
     // Hilt
     id(Plugins.Hilt.android)
 
@@ -16,6 +19,6 @@ android {
 
 dependencies {
 
-    api(Libraries.Hilt.android)
+    implementation(Libraries.Hilt.android)
     ksp(Libraries.Hilt.compiler)
 }
