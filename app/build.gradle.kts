@@ -10,11 +10,14 @@ plugins {
 
 dependencies {
 
-    implementation(project(":data"))
-    implementation(project(":domain"))
-    implementation(project(":presentation"))
+    implementation(project(":core:data"))
+    implementation(project(":core:presentation"))
+    implementation(project(":features:foo"))
 
     // Hilt
     implementation(Libraries.Hilt.android)
     ksp(Libraries.Hilt.compiler)
+
+    // Room
+    ksp(Libraries.Room.compiler)
 }

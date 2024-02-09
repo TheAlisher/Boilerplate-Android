@@ -20,7 +20,11 @@ dependencyResolutionManagement {
 rootProject.name = "Boilerplate-Android"
 include(
     ":app",
-    ":data",
-    ":domain",
-    ":presentation"
+    ":core",
+    ":core:data",
+    ":core:domain",
+    ":core:presentation",
+    ":features"
 )
+
+include(":features:foo")
