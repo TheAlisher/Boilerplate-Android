@@ -17,4 +17,9 @@ dependencies {
     // Hilt
     implementation(Libraries.Hilt.android)
     ksp(Libraries.Hilt.compiler)
+
+    // Room
+    implementation(Libraries.Room.runtime)
+    ksp(Libraries.Room.compiler)
+    implementation(Libraries.Room.ktx)
 }
