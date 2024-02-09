@@ -31,9 +31,6 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
             state = {
                 it.setupViewVisibility(groupFoo, loaderFoo)
             },
-            onError = {
-                it.setupApiErrors()
-            },
             onSuccess = {
                 textFoo.text = it.bar
             }
