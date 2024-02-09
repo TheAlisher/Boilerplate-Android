@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class BoilerplatePagingResponse<T>(
+class BasePagingResponse<T>(
     @Json(name = "prev")
     val prev: Int?,
     @Json(name = "next")
