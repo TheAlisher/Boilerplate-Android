@@ -55,6 +55,6 @@ dependencies {
     api(Libraries.Paging.runtime)
 
     // Hilt
-    implementation(Libraries.Hilt.android)
+    api(Libraries.Hilt.android)
     ksp(Libraries.Hilt.compiler)
 }
