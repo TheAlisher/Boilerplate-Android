@@ -13,10 +13,10 @@ import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.core.UIState
+import com.alish.boilerplate.presentation.core.extensions.getChildInputLayouts
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectLatestIn
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.flow.*
 
 /**
@@ -154,23 +154,5 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
                 }
             }
         }
-    }
-
-    /**
-     * @return [List] with [TextInputLayout] in fragments xml
-     */
-    private fun ViewGroup.getChildInputLayouts(): List<TextInputLayout> {
-        val inputs = mutableListOf<TextInputLayout>()
-        for (i in 0 until childCount) {
-            val childView = getChildAt(i)
-            if (childView is TextInputLayout) {
-                inputs.add(childView)
-            }
-            val childViewGroup = childView as? ViewGroup
-            if (childViewGroup !is TextInputLayout) {
-                childViewGroup?.getChildInputLayouts()
-            }
-        }
-        return inputs
     }
 }
