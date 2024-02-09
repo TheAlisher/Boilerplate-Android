@@ -63,11 +63,11 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      * @param onError for error handling
      * @param onSuccess for working with data
      */
-    protected inline fun <T> StateFlow<UIState<T>>.collectAsUIState(
+    protected fun <T> StateFlow<UIState<T>>.collectAsUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-        noinline state: ((UIState<T>) -> Unit)? = null,
-        noinline onError: ((error: NetworkError) -> Unit)? = null,
-        crossinline onSuccess: ((data: T) -> Unit)
+        state: ((UIState<T>) -> Unit)? = null,
+        onError: ((error: NetworkError) -> Unit)? = null,
+        onSuccess: ((data: T) -> Unit)
     ) {
         launchAndCollectIn(viewLifecycleOwner, lifecycleState) {
             state?.invoke(it)
@@ -129,7 +129,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      *
      * @receiver [NetworkError]
      */
-    protected fun NetworkError.setupApiErrors() = when (this) {
+    private fun NetworkError.setupApiErrors() = when (this) {
         is NetworkError.Timeout -> showToastLong("Timeout")
         is NetworkError.Unexpected -> showToastLong(this.errorMessage)
         is NetworkError.Api -> this.errorMessage?.let { showToastLong(it) }
