@@ -1,11 +1,11 @@
-package com.alish.boilerplate.presentation.ui.fragments.foo
+package com.alish.boilerplate.foo.presentation.ui.fragments.foo
 
 import com.alish.boilerplate.presentation.core.base.BaseViewModel
 import com.alish.boilerplate.domain.usecases.foo.FetchFooUseCase
 import com.alish.boilerplate.domain.usecases.foo.GetFooUseCase
 import com.alish.boilerplate.presentation.core.MutableUIStateFlow
-import com.alish.boilerplate.presentation.models.foo.FooUI
-import com.alish.boilerplate.presentation.models.foo.toUI
+import com.alish.boilerplate.foo.presentation.models.foo.FooUI
+import com.alish.boilerplate.foo.presentation.models.foo.toUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject

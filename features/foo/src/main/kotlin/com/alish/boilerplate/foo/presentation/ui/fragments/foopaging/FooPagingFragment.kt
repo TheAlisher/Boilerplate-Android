@@ -1,16 +1,16 @@
-package com.alish.boilerplate.presentation.ui.fragments.foopaging
+package com.alish.boilerplate.foo.presentation.ui.fragments.foopaging
 
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.alish.boilerplate.presentation.R
+import com.alish.boilerplate.feature.foo.R
+import com.alish.boilerplate.feature.foo.databinding.FragmentFooPagingBinding
 import com.alish.boilerplate.presentation.core.base.BaseFragment
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
-import com.alish.boilerplate.presentation.databinding.FragmentFooPagingBinding
-import com.alish.boilerplate.presentation.ui.adapters.FooPagingAdapter
-import com.alish.boilerplate.presentation.ui.adapters.paging.CommonLoadStateAdapter
+import com.alish.boilerplate.foo.presentation.ui.adapters.FooPagingAdapter
+import com.alish.boilerplate.presentation.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.InterruptedIOException
 

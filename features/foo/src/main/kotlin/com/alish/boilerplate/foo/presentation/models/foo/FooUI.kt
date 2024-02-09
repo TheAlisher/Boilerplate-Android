@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.models.foo
+package com.alish.boilerplate.foo.presentation.models.foo
 
 import com.alish.boilerplate.domain.models.foo.Foo
 import com.alish.boilerplate.presentation.core.base.IBaseDiffModel
