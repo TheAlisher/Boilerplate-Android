@@ -1,3 +1,5 @@
+import extensions.Namespaces
+
 plugins {
     id(Plugins.Conventions.androidLibrary)
 
@@ -6,6 +8,8 @@ plugins {
 }
 
 android {
+    namespace = Namespaces.data
+
     buildTypes {
         getByName("release") {
             buildConfigField("String", "BASE_URL", "\"https://boilerplate.com/\"")
