@@ -10,6 +10,10 @@ import com.google.android.material.textfield.TextInputLayout
  */
 val TextInputEditText.fullText: String get() = this.text.toString().trim()
 
+/**
+ * @receiver [ViewBinding]
+ * @see [getChildInputLayouts]
+ */
 val ViewBinding.screenInputs get() = (this.root as ViewGroup).getChildInputLayouts()
 
 /**
