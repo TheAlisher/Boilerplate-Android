@@ -68,19 +68,17 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         state: ((UIState<T>) -> Unit)? = null,
         onError: ((error: NetworkError) -> Unit)? = null,
         onSuccess: ((data: T) -> Unit)
-    ) {
-        launchAndCollectIn(viewLifecycleOwner, lifecycleState) {
-            state?.invoke(it)
-            when (it) {
-                is UIState.Idle -> {}
-                is UIState.Loading -> {}
-                is UIState.Error -> {
-                    onError?.invoke(it.error)
-                    it.error.setupApiErrors()
-                }
-                is UIState.Success -> {
-                    onSuccess.invoke(it.data)
-                }
+    ) = launchAndCollectIn(viewLifecycleOwner, lifecycleState) {
+        state?.invoke(it)
+        when (it) {
+            is UIState.Idle -> {}
+            is UIState.Loading -> {}
+            is UIState.Error -> {
+                onError?.invoke(it.error)
+                it.error.setupApiErrors()
+            }
+            is UIState.Success -> {
+                onSuccess.invoke(it.data)
             }
         }
     }
@@ -93,10 +91,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         action: suspend (value: PagingData<T>) -> Unit
-    ) {
-        launchAndCollectLatestIn(viewLifecycleOwner, lifecycleState) {
-            action(it)
-        }
+    ) = launchAndCollectLatestIn(viewLifecycleOwner, lifecycleState) {
+        action(it)
     }
 
     /**
