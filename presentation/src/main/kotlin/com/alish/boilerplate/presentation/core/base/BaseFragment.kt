@@ -130,9 +130,17 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
      * @receiver [NetworkError]
      */
     private fun NetworkError.setupApiErrors() = when (this) {
-        is NetworkError.Timeout -> showToastLong("Timeout")
-        is NetworkError.Unexpected -> showToastLong(this.errorMessage)
-        is NetworkError.Api -> this.errorMessage?.let { showToastLong(it) }
+        is NetworkError.Timeout -> {
+            showToastLong("Timeout")
+        }
+
+        is NetworkError.Unexpected -> {
+            showToastLong(this.errorMessage)
+        }
+
+        is NetworkError.Api -> {
+            this.errorMessage?.let { showToastLong(it) }
+        }
 
         is NetworkError.ApiInputs -> {
             screenInputs.forEach { input ->
