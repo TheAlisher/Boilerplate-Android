@@ -20,12 +20,12 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideAuthenticatorApiService(
-        authenticatorClient: NetworkClient.AuthenticatorClient
-    ) = authenticatorClient.provideAuthenticatorApiService()
+        client: NetworkClient.AuthenticatorClient
+    ) = client.provideAuthenticatorApiService()
 
     @Singleton
     @Provides
     fun provideFooApiService(
-        networkClient: NetworkClient
-    ): FooApiService = networkClient.provide()
+        client: NetworkClient
+    ): FooApiService = client.provide()
 }
