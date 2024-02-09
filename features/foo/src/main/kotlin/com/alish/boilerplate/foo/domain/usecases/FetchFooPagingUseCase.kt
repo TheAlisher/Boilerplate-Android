@@ -1,6 +1,6 @@
-package com.alish.boilerplate.domain.usecases.foopaging
+package com.alish.boilerplate.foo.domain.usecases
 
-import com.alish.boilerplate.domain.repositories.FooRepository
+import com.alish.boilerplate.foo.domain.repositories.FooRepository
 import javax.inject.Inject
 
 class FetchFooPagingUseCase @Inject constructor(

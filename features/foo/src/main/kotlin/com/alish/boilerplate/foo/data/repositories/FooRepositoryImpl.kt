@@ -1,11 +1,11 @@
-package com.alish.boilerplate.data.repositories
+package com.alish.boilerplate.foo.data.repositories
 
-import com.alish.boilerplate.data.remote.apiservices.FooApiService
-import com.alish.boilerplate.data.repositories.pagingsources.FooPagingSource
+import com.alish.boilerplate.foo.data.pagingsources.FooPagingSource
 import com.alish.boilerplate.data.core.base.BaseRepository
-import com.alish.boilerplate.data.local.db.daos.FooDao
-import com.alish.boilerplate.data.local.db.entities.foo.toEntity
-import com.alish.boilerplate.domain.repositories.FooRepository
+import com.alish.boilerplate.foo.data.db.daos.FooDao
+import com.alish.boilerplate.foo.data.db.entities.toEntity
+import com.alish.boilerplate.foo.data.network.apiservices.FooApiService
+import com.alish.boilerplate.foo.domain.repositories.FooRepository
 import javax.inject.Inject
 
 class FooRepositoryImpl @Inject constructor(

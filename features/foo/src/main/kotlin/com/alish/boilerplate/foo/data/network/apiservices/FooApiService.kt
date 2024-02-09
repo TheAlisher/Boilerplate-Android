@@ -1,6 +1,6 @@
-package com.alish.boilerplate.data.remote.apiservices
+package com.alish.boilerplate.foo.data.network.apiservices
 
-import com.alish.boilerplate.data.remote.dtos.foo.FooDto
+import com.alish.boilerplate.foo.data.network.dtos.FooDto
 import com.alish.boilerplate.data.remote.dtos.BoilerplatePagingResponse
 import retrofit2.Response
 import retrofit2.http.GET

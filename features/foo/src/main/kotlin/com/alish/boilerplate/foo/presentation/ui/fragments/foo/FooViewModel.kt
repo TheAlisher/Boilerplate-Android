@@ -1,8 +1,8 @@
 package com.alish.boilerplate.foo.presentation.ui.fragments.foo
 
 import com.alish.boilerplate.presentation.core.base.BaseViewModel
-import com.alish.boilerplate.domain.usecases.foo.FetchFooUseCase
-import com.alish.boilerplate.domain.usecases.foo.GetFooUseCase
+import com.alish.boilerplate.foo.domain.usecases.FetchFooUseCase
+import com.alish.boilerplate.foo.domain.usecases.GetFooUseCase
 import com.alish.boilerplate.presentation.core.MutableUIStateFlow
 import com.alish.boilerplate.foo.presentation.models.foo.FooUI
 import com.alish.boilerplate.foo.presentation.models.foo.toUI

@@ -1,4 +1,4 @@
-package com.alish.boilerplate.domain.models.foo
+package com.alish.boilerplate.foo.domain.models
 
 class Foo(
     val id: Long,

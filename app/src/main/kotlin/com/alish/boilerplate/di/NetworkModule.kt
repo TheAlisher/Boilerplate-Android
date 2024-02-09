@@ -2,6 +2,7 @@ package com.alish.boilerplate.di
 
 import androidx.lifecycle.MutableLiveData
 import com.alish.boilerplate.data.remote.client.NetworkClient
+import com.alish.boilerplate.foo.data.network.apiservices.FooApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +27,5 @@ object NetworkModule {
     @Provides
     fun provideFooApiService(
         networkClient: NetworkClient
-    ) = networkClient.provideFooApiService()
+    ): FooApiService = networkClient.provide()
 }

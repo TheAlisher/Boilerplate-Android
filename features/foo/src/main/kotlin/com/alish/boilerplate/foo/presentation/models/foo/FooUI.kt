@@ -1,6 +1,6 @@
 package com.alish.boilerplate.foo.presentation.models.foo
 
-import com.alish.boilerplate.domain.models.foo.Foo
+import com.alish.boilerplate.foo.domain.models.Foo
 import com.alish.boilerplate.presentation.core.base.IBaseDiffModel
 
 data class FooUI(
