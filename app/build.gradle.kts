@@ -10,8 +10,8 @@ plugins {
 
 dependencies {
 
-    implementation(project(":data"))
-    implementation(project(":presentation"))
+    implementation(project(":core:data"))
+    implementation(project(":core:presentation"))
     implementation(project(":features:foo"))
 
     // Hilt

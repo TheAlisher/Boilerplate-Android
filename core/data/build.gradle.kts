@@ -19,7 +19,7 @@ android {
 
 dependencies {
 
-    implementation(project(":domain"))
+    implementation(project(":core:domain"))
 
     // Retrofit
     api(Libraries.Retrofit.retrofit)

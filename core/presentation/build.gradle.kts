@@ -23,7 +23,7 @@ android {
 
 dependencies {
 
-    api(project(":domain"))
+    api(project(":core:domain"))
 
     // Kotlin
     api(Libraries.Coroutines.android)

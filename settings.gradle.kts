@@ -21,9 +21,9 @@ rootProject.name = "Boilerplate-Android"
 include(
     ":app",
     ":core",
-    ":data",
-    ":domain",
-    ":presentation",
+    ":core:data",
+    ":core:domain",
+    ":core:presentation",
     ":features"
 )
 
