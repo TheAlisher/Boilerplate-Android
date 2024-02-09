@@ -22,12 +22,12 @@ dependencies {
     implementation(project(":domain"))
 
     // Retrofit
-    implementation(Libraries.Retrofit.retrofit)
-    implementation(Libraries.Retrofit.converterMoshi)
+    api(Libraries.Retrofit.retrofit)
+    api(Libraries.Retrofit.converterMoshi)
 
     // Moshi
-    implementation(Libraries.Moshi.moshi)
-    implementation(Libraries.Moshi.kotlin)
+    api(Libraries.Moshi.moshi)
+    api(Libraries.Moshi.kotlin)
 
     // OkHttp
     implementation(platform(Libraries.OkHttp.bom))
@@ -35,9 +35,9 @@ dependencies {
     implementation(Libraries.OkHttp.loggingInterceptor)
 
     // Room
-    implementation(Libraries.Room.runtime)
+    api(Libraries.Room.runtime)
     ksp(Libraries.Room.compiler)
-    implementation(Libraries.Room.ktx)
+    api(Libraries.Room.ktx)
 
     // Security
     implementation(Libraries.Security.crypto)
