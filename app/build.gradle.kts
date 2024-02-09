@@ -10,6 +10,7 @@ plugins {
 
 dependencies {
 
+    implementation(project(":data"))
     implementation(project(":presentation"))
     implementation(project(":features:foo"))
 
