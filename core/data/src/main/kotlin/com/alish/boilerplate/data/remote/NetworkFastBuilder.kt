@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote.client
+package com.alish.boilerplate.data.remote
 
 import com.alish.boilerplate.data.BuildConfig
 import com.squareup.moshi.Moshi
