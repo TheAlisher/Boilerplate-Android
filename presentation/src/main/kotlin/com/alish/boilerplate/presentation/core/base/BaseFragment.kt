@@ -66,7 +66,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected inline fun <T> StateFlow<UIState<T>>.collectAsUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         noinline state: ((UIState<T>) -> Unit)? = null,
-        crossinline onError: ((error: NetworkError) -> Unit),
+        noinline onError: ((error: NetworkError) -> Unit)? = null,
         crossinline onSuccess: ((data: T) -> Unit)
     ) {
         launchAndCollectIn(viewLifecycleOwner, lifecycleState) {
@@ -74,8 +74,13 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
             when (it) {
                 is UIState.Idle -> {}
                 is UIState.Loading -> {}
-                is UIState.Error -> onError.invoke(it.error)
-                is UIState.Success -> onSuccess.invoke(it.data)
+                is UIState.Error -> {
+                    onError?.invoke(it.error)
+                    it.error.setupApiErrors()
+                }
+                is UIState.Success -> {
+                    onSuccess.invoke(it.data)
+                }
             }
         }
     }
