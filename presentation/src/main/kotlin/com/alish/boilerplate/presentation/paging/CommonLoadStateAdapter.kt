@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.ui.adapters.paging
+package com.alish.boilerplate.presentation.paging
 
 import android.view.ViewGroup
 import androidx.paging.LoadState
