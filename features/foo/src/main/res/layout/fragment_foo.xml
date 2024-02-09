@@ -38,5 +38,11 @@
         android:layout_height="0dp"
         app:constraint_referenced_ids="text_foo" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_foo_paging"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_foo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
