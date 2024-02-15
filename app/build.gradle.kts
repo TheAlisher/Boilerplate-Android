@@ -8,6 +8,10 @@ plugins {
     id(Plugins.KSP.ksp)
 }
 
+android {
+    namespace = Namespaces.app
+}
+
 dependencies {
 
     implementation(project(":core:data"))
