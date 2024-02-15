@@ -1,10 +1,10 @@
-package com.alish.boilerplate.data.remote.dtos
+package com.alish.boilerplate.data.core.base
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class BoilerplatePagingResponse<T>(
+class BasePagingResponse<T>(
     @Json(name = "prev")
     val prev: Int?,
     @Json(name = "next")

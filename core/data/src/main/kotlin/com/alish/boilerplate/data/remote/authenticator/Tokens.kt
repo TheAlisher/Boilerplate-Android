@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote.dtos.tokens
+package com.alish.boilerplate.data.remote.authenticator
 
 class Tokens(
     val accessToken: String,
