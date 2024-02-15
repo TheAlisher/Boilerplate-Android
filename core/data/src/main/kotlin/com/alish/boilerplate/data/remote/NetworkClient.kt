@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote.client
+package com.alish.boilerplate.data.remote
 
 import com.alish.boilerplate.data.remote.authenticator.AuthenticatorApiService
 import com.alish.boilerplate.data.remote.authenticator.TokenAuthenticator
