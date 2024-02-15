@@ -12,7 +12,7 @@ object Versions {
     const val activity = "1.8.2"
     const val fragment = "1.6.2"
     const val lifecycle = "2.7.0"
-    const val navigation = "2.7.6"
+    const val navigation = "2.7.7"
     const val dagger = "2.50"
     const val retrofit = "2.9.0"
     const val moshi = "1.15.0"
