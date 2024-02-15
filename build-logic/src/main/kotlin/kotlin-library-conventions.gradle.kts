@@ -1,14 +1,12 @@
-import extensions.*
-
 plugins {
     kotlin("jvm")
 }
 
 kotlin {
-    jvmToolchain(jdkVersion = config.jvmToolchain)
+    jvmToolchain(jdkVersion = Config.jvmToolchain)
 }
 
 java {
-    sourceCompatibility = config.javaVersion
-    targetCompatibility = config.javaVersion
+    sourceCompatibility = Config.javaVersion
+    targetCompatibility = Config.javaVersion
 }

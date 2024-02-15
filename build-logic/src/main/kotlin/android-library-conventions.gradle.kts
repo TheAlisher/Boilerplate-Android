@@ -1,27 +1,25 @@
-import extensions.*
-
 plugins {
     id("com.android.library")
     kotlin("android")
 }
 
 kotlin {
-    jvmToolchain(jdkVersion = config.jvmToolchain)
+    jvmToolchain(jdkVersion = Config.jvmToolchain)
 }
 
 android {
-    compileSdk = config.compileSdk
+    compileSdk = Config.compileSdk
 
     defaultConfig {
-        minSdk = config.minSdk
+        minSdk = Config.minSdk
     }
 
     compileOptions {
-        sourceCompatibility = config.javaVersion
-        targetCompatibility = config.javaVersion
+        sourceCompatibility = Config.javaVersion
+        targetCompatibility = Config.javaVersion
     }
     kotlinOptions {
-        jvmTarget = config.jvmTarget
+        jvmTarget = Config.jvmTarget
     }
     buildFeatures {
         buildConfig = true

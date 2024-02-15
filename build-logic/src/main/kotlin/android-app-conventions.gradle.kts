@@ -1,22 +1,19 @@
-import extensions.*
-
 plugins {
     id("com.android.application")
     kotlin("android")
 }
 
 kotlin {
-    jvmToolchain(config.jvmToolchain)
+    jvmToolchain(Config.jvmToolchain)
 }
 
 android {
-    namespace = Namespaces.app
-    compileSdk = config.compileSdk
+    compileSdk = Config.compileSdk
 
     defaultConfig {
         applicationId = "com.alish.boilerplate"
-        minSdk = config.minSdk
-        targetSdk = config.targetSdk
+        minSdk = Config.minSdk
+        targetSdk = Config.targetSdk
         versionCode = 1
         versionName = "1.0"
     }
@@ -35,11 +32,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = config.javaVersion
-        targetCompatibility = config.javaVersion
+        sourceCompatibility = Config.javaVersion
+        targetCompatibility = Config.javaVersion
     }
     kotlinOptions {
-        jvmTarget = config.jvmTarget
+        jvmTarget = Config.jvmTarget
     }
     buildFeatures {
         viewBinding = true
