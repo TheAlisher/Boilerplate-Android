@@ -3,10 +3,10 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(jdkVersion = jvmToolchain)
+    jvmToolchain(jdkVersion = Config.jvmToolchain)
 }
 
 java {
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
+    sourceCompatibility = Config.javaVersion
+    targetCompatibility = Config.javaVersion
 }

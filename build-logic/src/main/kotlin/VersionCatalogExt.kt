@@ -1,28 +1,7 @@
-import org.gradle.api.JavaVersion
 import org.gradle.api.Project
-import org.gradle.api.artifacts.MinimalExternalModuleDependency
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.getByType
-
-internal val jvmToolchain: Int
-    get() = 17
-
-internal val javaVersion: JavaVersion
-    get() = JavaVersion.VERSION_17
-
-internal val jvmTarget: String
-    get() = jvmToolchain.toString()
-
-internal val compileSdk: Int
-    get() = 34
-
-internal val minSdk: Int
-    get() = 29
-
-internal val targetSdk: Int
-    get() = 34
 
 /**
  * Workaround from this
