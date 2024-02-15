@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote.apiservices
+package com.alish.boilerplate.data.remote.authenticator
 
 import com.alish.boilerplate.data.remote.dtos.tokens.RefreshToken
 import com.alish.boilerplate.data.remote.dtos.tokens.Tokens
