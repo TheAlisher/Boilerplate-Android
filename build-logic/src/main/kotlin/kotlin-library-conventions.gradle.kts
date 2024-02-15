@@ -1,5 +1,3 @@
-import extensions.*
-
 plugins {
     kotlin("jvm")
 }

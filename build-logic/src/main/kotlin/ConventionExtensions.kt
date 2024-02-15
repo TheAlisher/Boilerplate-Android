@@ -1,5 +1,3 @@
-package extensions
-
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
@@ -33,6 +31,6 @@ object Namespaces {
     const val data = "$app.data"
     const val presentation = "$app.presentation"
 
-    private const val feature = "${app}.feature"
-    const val featureFoo = "${feature}.foo"
+    private const val feature = "$app.feature"
+    const val featureFoo = "$feature.foo"
 }

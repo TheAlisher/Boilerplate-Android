@@ -1,5 +1,3 @@
-import extensions.*
-
 plugins {
     id("com.android.application")
     kotlin("android")

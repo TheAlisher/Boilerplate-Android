@@ -1,5 +1,3 @@
-import extensions.Namespaces
-
 plugins {
     id(Plugins.Conventions.androidFeature)
 
