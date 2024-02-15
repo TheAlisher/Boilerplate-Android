@@ -2,13 +2,6 @@
 kotlin = "1.9.22"
 androidGradlePlugin = "8.2.2"
 
-# Dagger / Hilt
-dagger = "2.50"
-
 [libraries]
 kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
-
-# Dagger / Hilt
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger" }
