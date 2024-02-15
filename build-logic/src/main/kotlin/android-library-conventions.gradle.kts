@@ -11,7 +11,7 @@ android {
     compileSdk = Config.compileSdk
 
     defaultConfig {
-        minSdk = minSdk
+        minSdk = Config.minSdk
     }
 
     compileOptions {
