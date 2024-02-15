@@ -8,7 +8,6 @@ kotlin {
 }
 
 android {
-    namespace = Namespaces.app
     compileSdk = compileSdk
 
     defaultConfig {
