@@ -1,15 +1,15 @@
 package com.alish.boilerplate.data.remote.client
 
 import com.alish.boilerplate.data.remote.authenticator.AuthenticatorApiService
-import com.alish.boilerplate.data.remote.client.authenticator.TokenAuthenticator
+import com.alish.boilerplate.data.remote.authenticator.TokenAuthenticator
 import com.alish.boilerplate.data.remote.client.interceptors.AuthorizationInterceptor
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class NetworkClient @Inject constructor(
-    authenticator: TokenAuthenticator,
-    authorizationInterceptor: AuthorizationInterceptor
+	authenticator: TokenAuthenticator,
+	authorizationInterceptor: AuthorizationInterceptor
 ) {
 
     val provideRetrofit = provideRetrofit(
