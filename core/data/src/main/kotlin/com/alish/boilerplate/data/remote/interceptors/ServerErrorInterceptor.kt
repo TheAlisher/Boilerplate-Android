@@ -9,8 +9,6 @@ import javax.inject.Inject
 
 /**
  * Interceptor for handling server errors during network requests.
- *
- * @constructor Creates a [ServerErrorInterceptor].
  */
 class ServerErrorInterceptor @Inject constructor() : Interceptor {
 
