@@ -115,19 +115,6 @@ abstract class BaseRepository {
     }.flowOn(Dispatchers.IO)
 
     /**
-     * Convert network error from server side
-     *
-     * @receiver [ResponseBody]
-     * @see Response.errorBody
-     * @see fromJson
-     */
-    private inline fun <reified T> ResponseBody?.toApiError(): T {
-        return this?.let { fromJson<T>(it.string()) } ?: throw NullPointerException(
-            "JsonUtil can not converted fromJson: ${T::class.java.simpleName}"
-        )
-    }
-
-    /**
      * Get non-nullable body from network request
      *
      * &nbsp
