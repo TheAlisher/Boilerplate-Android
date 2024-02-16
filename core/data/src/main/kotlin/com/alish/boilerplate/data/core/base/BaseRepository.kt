@@ -67,7 +67,7 @@ abstract class BaseRepository {
      * @receiver [doNetworkRequest]
      */
     protected fun <T> doNetworkRequestUnit(
-        request: suspend () -> Response<T>
+        request: suspend () -> T
     ): Flow<Either<NetworkError, Unit>> = doNetworkRequest(request) {
         Either.Right(Unit)
     }
