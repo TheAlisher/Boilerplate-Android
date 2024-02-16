@@ -90,7 +90,7 @@ abstract class BaseRepository {
         successful: (T) -> Either.Right<S>
     ) = flow<Either<NetworkError, S>> {
         emit(successful.invoke(request()))
-    }.catch { exception ->
+    }.flowOn(Dispatchers.IO).catch { exception ->
         when (exception) {
             is InterruptedIOException -> {
                 emit(Either.Left(NetworkError.Timeout))
@@ -106,11 +106,13 @@ abstract class BaseRepository {
 
             else -> {
                 val message = exception.localizedMessage ?: "Error Occurred!"
-                if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
                 emit(Either.Left(NetworkError.Unexpected(message)))
             }
         }
-    }.flowOn(Dispatchers.IO)
+    }.onCompletion { cause ->
+        val message = cause?.localizedMessage ?: "Error Occurred!"
+        if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
+    }
 
     /**
      * Get non-nullable body from network request
