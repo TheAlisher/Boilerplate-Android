@@ -7,7 +7,6 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.alish.boilerplate.data.BuildConfig
 import com.alish.boilerplate.data.core.utils.DataMapper
-import com.alish.boilerplate.data.core.utils.fromJson
 import com.alish.boilerplate.data.remote.exceptions.ServerException
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.domain.core.NetworkError
@@ -16,7 +15,6 @@ import kotlinx.coroutines.flow.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.ResponseBody
 import retrofit2.Response
 import java.io.File
 import java.io.InterruptedIOException
@@ -98,7 +96,7 @@ abstract class BaseRepository {
                 emit(Either.Left(NetworkError.Timeout))
             }
 
-            is ServerException.ApiInputException -> {
+            is ServerException.ApiInputsException -> {
                 emit(Either.Left(NetworkError.ApiInputs(exception.data.toMutableMap())))
             }
 
