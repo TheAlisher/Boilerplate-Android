@@ -18,11 +18,6 @@ sealed class NetworkError {
     class Unexpected(val message: String) : NetworkError()
 
     /**
-     * State for default errors from server size
-     */
-    class Api(val message: String) : NetworkError()
-
-    /**
      * State for displaying errors in input fields
      *
      * @param errors
@@ -30,4 +25,9 @@ sealed class NetworkError {
      * Map [Value][kotlin.collections.Map.Entry.value] is errors from server side
      */
     class ApiInputs(val errors: MutableMap<String, List<String>>) : NetworkError()
+
+    /**
+     * State for default errors from server size
+     */
+    class Api(val message: String) : NetworkError()
 }
