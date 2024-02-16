@@ -1,6 +1,8 @@
 package com.alish.boilerplate.data.remote.exceptions
 
-sealed class ServerException : Exception() {
+import java.io.IOException
+
+sealed class ServerException : IOException() {
 
     class ApiInputsException(val data: Map<String, List<String>>) : ServerException()
 
