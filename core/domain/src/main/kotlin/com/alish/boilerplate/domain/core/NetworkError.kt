@@ -13,11 +13,6 @@ sealed class NetworkError {
     data object Timeout : NetworkError()
 
     /**
-     * State for unexpected exceptions, for example «HTTP code - 500» or exceptions when mapping models
-     */
-    class Unexpected(val message: String) : NetworkError()
-
-    /**
      * State for displaying errors in input fields
      *
      * @param errors
@@ -30,4 +25,9 @@ sealed class NetworkError {
      * State for default errors from server size
      */
     class Api(val message: String) : NetworkError()
+
+    /**
+     * State for unexpected exceptions, for example «HTTP code - 500» or exceptions when mapping models
+     */
+    class Unexpected(val message: String) : NetworkError()
 }
