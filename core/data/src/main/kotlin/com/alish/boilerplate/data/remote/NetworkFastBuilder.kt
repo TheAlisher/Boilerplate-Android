@@ -1,8 +1,7 @@
 package com.alish.boilerplate.data.remote
 
 import com.alish.boilerplate.data.BuildConfig
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.alish.boilerplate.data.core.utils.moshi
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -13,7 +12,7 @@ internal fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Bu
     .baseUrl(BuildConfig.BASE_URL)
     .client(okHttpClient)
     .addConverterFactory(
-        MoshiConverterFactory.create(Moshi.Builder().add(KotlinJsonAdapterFactory()).build())
+        MoshiConverterFactory.create(moshi)
     )
     .build()
 
