@@ -132,7 +132,7 @@ abstract class BaseRepository {
      * @see let
      */
     protected inline fun <T> T.onSuccess(block: (T) -> Unit): T {
-        this?.also(block)
+        this.let(block)
         return this
     }
 
