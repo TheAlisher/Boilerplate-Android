@@ -42,3 +42,9 @@ android {
         viewBinding = true
     }
 }
+
+dependencies {
+
+    implementation(project(":core:data"))
+    implementation(project(":core:presentation"))
+}
