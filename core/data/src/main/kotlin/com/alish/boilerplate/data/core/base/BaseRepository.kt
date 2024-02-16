@@ -144,8 +144,8 @@ abstract class BaseRepository {
      * @see Response.body
      * @see let
      */
-    protected inline fun <T : Response<S>, S> T.onSuccess(block: (S) -> Unit): T {
-        this.body()?.let(block)
+    protected inline fun <T> T.onSuccess(block: (T) -> Unit): T {
+        this?.also(block)
         return this
     }
 
