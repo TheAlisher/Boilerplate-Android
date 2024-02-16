@@ -5,11 +5,21 @@ import com.alish.boilerplate.data.remote.exceptions.ServerException
 import okhttp3.Interceptor
 import okhttp3.Response
 import okhttp3.ResponseBody
-import java.io.IOException
 import javax.inject.Inject
 
+/**
+ * Interceptor for handling server errors during network requests.
+ *
+ * @constructor Creates a [ServerErrorInterceptor].
+ */
 class ServerErrorInterceptor @Inject constructor() : Interceptor {
 
+    /**
+     * Intercepts the network request and handles server errors.
+     *
+     * @param chain The interceptor chain.
+     * @return The response if successful, or throws an appropriate [ServerException] for encountered errors.
+     */
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         val response = chain.proceed(request)
@@ -27,21 +37,21 @@ class ServerErrorInterceptor @Inject constructor() : Interceptor {
             }
 
             else -> {
-                throw IOException(response.message)
+                throw ServerException.getByHTTPCats(response.code)
             }
         }
     }
 
     /**
-     * Convert network error from server side
+     * Converts the response body to a specific API error type.
      *
-     * @receiver [ResponseBody]
-     * @throws NullPointerException if can not convert [errorBody][ResponseBody]
-     * @see fromJson
+     * @receiver [ResponseBody] The response body.
+     * @return The API error object.
+     * @throws NullPointerException if the response body cannot be converted.
      */
     private inline fun <reified T> ResponseBody?.toApiError(): T {
         return this?.let { fromJson<T>(it.string()) } ?: throw NullPointerException(
-            "JsonUtil can not converted fromJson: ${T::class.java.simpleName}"
+            "JsonUtil cannot convert fromJson: ${T::class.java.simpleName}"
         )
     }
 }
