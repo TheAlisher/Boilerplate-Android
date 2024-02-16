@@ -46,6 +46,7 @@ class ServerErrorInterceptor @Inject constructor() : Interceptor {
      * @receiver [ResponseBody] The response body.
      * @return The API error object.
      * @throws NullPointerException if the response body cannot be converted.
+     * @see fromJson
      */
     private inline fun <reified T> ResponseBody?.toApiError(): T {
         return this?.let { fromJson<T>(it.string()) } ?: throw NullPointerException(
