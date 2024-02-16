@@ -9,7 +9,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
  *
  * @see KotlinJsonAdapterFactory
  */
-private val moshi: Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+val moshi: Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
 /**
  * Convert from json
