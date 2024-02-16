@@ -27,5 +27,5 @@ object NetworkModule {
     @Provides
     fun provideFooApiService(
         client: NetworkClient
-    ): FooApiService = client.provide()
+    ): FooApiService = client.provideApiService()
 }

@@ -22,7 +22,7 @@ class NetworkClient @Inject constructor(
         }.build()
     )
 
-    inline fun <reified T> provide(): T = provideRetrofit.create(T::class.java)
+    inline fun <reified T> provideApiService(): T = provideRetrofit.create(T::class.java)
 
     class AuthenticatorClient @Inject constructor() {
 
