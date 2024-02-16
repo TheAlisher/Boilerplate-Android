@@ -4,7 +4,7 @@ import java.io.IOException
 
 sealed class ServerException : IOException() {
 
-    class ApiInputsException(val data: Map<String, List<String>>) : ServerException()
+    class ApiInputs(val data: Map<String, List<String>>) : ServerException()
 
-    class ApiException(override val message: String) : ServerException()
+    class Api(override val message: String) : ServerException()
 }

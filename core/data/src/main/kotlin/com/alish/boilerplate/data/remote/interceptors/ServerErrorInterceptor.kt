@@ -19,11 +19,11 @@ class ServerErrorInterceptor @Inject constructor() : Interceptor {
             }
 
             !response.isSuccessful && response.code == 422 -> {
-                throw response.body.toApiError<ServerException.ApiInputsException>()
+                throw response.body.toApiError<ServerException.ApiInputs>()
             }
 
             !response.isSuccessful -> {
-                throw response.body.toApiError<ServerException.ApiException>()
+                throw response.body.toApiError<ServerException.Api>()
             }
 
             else -> {

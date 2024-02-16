@@ -96,11 +96,11 @@ abstract class BaseRepository {
                 emit(Either.Left(NetworkError.Timeout))
             }
 
-            is ServerException.ApiInputsException -> {
+            is ServerException.ApiInputs -> {
                 emit(Either.Left(NetworkError.ApiInputs(exception.data.toMutableMap())))
             }
 
-            is ServerException.ApiException -> {
+            is ServerException.Api -> {
                 emit(Either.Left(NetworkError.Api(exception.message)))
             }
 
