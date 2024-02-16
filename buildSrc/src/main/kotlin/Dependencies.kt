@@ -90,7 +90,6 @@ object Libraries {
     }
 
     object Moshi {
-        const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
         const val kotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     }
 
