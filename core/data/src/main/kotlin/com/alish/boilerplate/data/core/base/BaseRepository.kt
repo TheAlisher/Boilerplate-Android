@@ -96,6 +96,14 @@ abstract class BaseRepository {
                 emit(Either.Left(NetworkError.Timeout))
             }
 
+            is ServerException.InternalServerError -> {
+                // emit InternalServerError
+            }
+
+            is ServerException.ServiceUnavailable -> {
+                // emit ServiceUnavailable
+            }
+
             is ServerException.ApiInputs -> {
                 emit(Either.Left(NetworkError.ApiInputs(exception.data.toMutableMap())))
             }
