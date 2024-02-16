@@ -8,6 +8,7 @@ import androidx.paging.PagingData
 import com.alish.boilerplate.data.BuildConfig
 import com.alish.boilerplate.data.core.utils.DataMapper
 import com.alish.boilerplate.data.core.utils.fromJson
+import com.alish.boilerplate.data.remote.exceptions.ServerException
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.domain.core.NetworkError
 import kotlinx.coroutines.Dispatchers
@@ -33,7 +34,7 @@ abstract class BaseRepository {
      * @receiver [doNetworkRequest]
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestWithMapping(
-        request: suspend () -> Response<T>
+        request: suspend () -> T
     ): Flow<Either<NetworkError, S>> = doNetworkRequest(request) { body ->
         Either.Right(body.mapToDomain())
     }
@@ -44,7 +45,7 @@ abstract class BaseRepository {
      * @receiver [doNetworkRequest]
      */
     protected fun <T> doNetworkRequestWithoutMapping(
-        request: suspend () -> Response<T>
+        request: suspend () -> T
     ): Flow<Either<NetworkError, T>> = doNetworkRequest(request) { body ->
         Either.Right(body)
     }
@@ -55,7 +56,7 @@ abstract class BaseRepository {
      * @receiver [doNetworkRequest]
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestForList(
-        request: suspend () -> Response<List<T>>
+        request: suspend () -> List<T>
     ): Flow<Either<NetworkError, List<S>>> = doNetworkRequest(request) { body ->
         Either.Right(body.map { it.mapToDomain() })
     }
@@ -66,7 +67,7 @@ abstract class BaseRepository {
      * @receiver [doNetworkRequest]
      */
     protected fun <T> doNetworkRequestUnit(
-        request: suspend () -> Response<T>
+        request: suspend () -> T
     ): Flow<Either<NetworkError, Unit>> = doNetworkRequest(request) {
         Either.Right(Unit)
     }
@@ -81,34 +82,28 @@ abstract class BaseRepository {
      *
      * @return [NetworkError] or [Response.body] in [Flow] with [Either]
      *
-     * @see [Response]
      * @see [Flow]
      * @see [Either]
      * @see [NetworkError]
+     * @see [ServerException]
      */
     private fun <T, S> doNetworkRequest(
-        request: suspend () -> Response<T>,
+        request: suspend () -> T,
         successful: (T) -> Either.Right<S>
-    ) = flow {
-        request().let {
-            when {
-                it.isSuccessful && it.body() != null -> {
-                    emit(successful.invoke(it.body()!!))
-                }
-
-                !it.isSuccessful && it.code() == 422 -> {
-                    emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiError())))
-                }
-
-                else -> {
-                    emit(Either.Left(NetworkError.Api(it.errorBody().toApiError())))
-                }
-            }
-        }
-    }.flowOn(Dispatchers.IO).catch { exception ->
+    ) = flow<Either<NetworkError, S>> {
+        emit(successful.invoke(request()))
+    }.catch { exception ->
         when (exception) {
             is InterruptedIOException -> {
                 emit(Either.Left(NetworkError.Timeout))
+            }
+
+            is ServerException.ApiInputException -> {
+                emit(Either.Left(NetworkError.ApiInputs(exception.data.toMutableMap())))
+            }
+
+            is ServerException.ApiException -> {
+                emit(Either.Left(NetworkError.Api(exception.message)))
             }
 
             else -> {
@@ -117,18 +112,7 @@ abstract class BaseRepository {
                 emit(Either.Left(NetworkError.Unexpected(message)))
             }
         }
-    }
-
-    /**
-     * Convert network error from server side
-     *
-     * @receiver [ResponseBody]
-     * @see Response.errorBody
-     * @see fromJson
-     */
-    private inline fun <reified T> ResponseBody?.toApiError(): T? {
-        return this?.string()?.let { fromJson<T>(it) }
-    }
+    }.flowOn(Dispatchers.IO)
 
     /**
      * Get non-nullable body from network request
@@ -147,8 +131,8 @@ abstract class BaseRepository {
      * @see Response.body
      * @see let
      */
-    protected inline fun <T : Response<S>, S> T.onSuccess(block: (S) -> Unit): T {
-        this.body()?.let(block)
+    protected inline fun <T> T.onSuccess(block: (T) -> Unit): T {
+        this.let(block)
         return this
     }
 

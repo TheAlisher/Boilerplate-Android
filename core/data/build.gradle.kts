@@ -28,8 +28,9 @@ dependencies {
     api(Libraries.Retrofit.converterMoshi)
 
     // Moshi
-    api(Libraries.Moshi.moshi)
     api(Libraries.Moshi.kotlin)
+    api(Libraries.Moshi.adapters)
+    api(Libraries.Moshi.codegen)
 
     // OkHttp
     implementation(platform(Libraries.OkHttp.bom))

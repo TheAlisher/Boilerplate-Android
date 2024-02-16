@@ -9,13 +9,13 @@ import retrofit2.http.Query
 interface FooApiService {
 
     @GET("/api/foo")
-    suspend fun fetchFoo(): Response<FooDto>
+    suspend fun fetchFoo(): FooDto
 
     @GET("/api/foo")
-    suspend fun fetchPrimitives(): Response<String>
+    suspend fun fetchPrimitives(): String
 
     @GET("/api/foo")
-    suspend fun fetchFooList(): Response<List<FooDto>>
+    suspend fun fetchFooList(): List<FooDto>
 
     @GET("/api/foo")
     suspend fun fetchFooPaging(@Query("page") page: Int): Response<BasePagingResponse<FooDto>>
