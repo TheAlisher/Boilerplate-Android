@@ -126,8 +126,10 @@ abstract class BaseRepository {
      * @see Response.errorBody
      * @see fromJson
      */
-    private inline fun <reified T> ResponseBody?.toApiError(): T? {
-        return this?.string()?.let { fromJson<T>(it) }
+    private inline fun <reified T> ResponseBody?.toApiError(): T {
+        return this?.let { fromJson<T>(it.string()) } ?: throw NullPointerException(
+            "JsonUtil can not converted fromJson: ${T::class.java.simpleName}"
+        )
     }
 
     /**
