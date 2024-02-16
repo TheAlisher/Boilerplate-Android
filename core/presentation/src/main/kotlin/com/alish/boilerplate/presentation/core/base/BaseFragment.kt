@@ -127,16 +127,16 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         }
 
         is NetworkError.Unexpected -> {
-            showToastLong(this.errorMessage)
+            showToastLong(this.message)
         }
 
         is NetworkError.Api -> {
-            this.errorMessage?.let { showToastLong(it) }
+            this.message?.let { showToastLong(it) }
         }
 
         is NetworkError.ApiInputs -> {
             screenInputs.forEach { input ->
-                inputErrors?.get(input.tag).also { message ->
+                errors?.get(input.tag).also { message ->
                     when {
                         message == null -> {
                             input.isErrorEnabled = false
@@ -144,7 +144,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
                         message.isNotEmpty() -> {
                             input.error = message.joinToString()
-                            this.inputErrors?.remove(input.tag)
+                            this.errors?.remove(input.tag)
                         }
                     }
                 }
