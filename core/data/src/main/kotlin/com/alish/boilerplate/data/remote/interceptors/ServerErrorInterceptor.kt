@@ -36,7 +36,7 @@ class ServerErrorInterceptor @Inject constructor() : Interceptor {
      * Convert network error from server side
      *
      * @receiver [ResponseBody]
-     * @throws NullPointerException if can not convert [errorBody][retrofit2.Response.errorBody]
+     * @throws NullPointerException if can not convert [errorBody][ResponseBody]
      * @see fromJson
      */
     private inline fun <reified T> ResponseBody?.toApiError(): T {
