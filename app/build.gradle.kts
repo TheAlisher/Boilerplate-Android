@@ -14,14 +14,13 @@ android {
 
 dependencies {
 
-    implementation(project(":core:data"))
-    implementation(project(":core:presentation"))
-    implementation(project(":features:foo"))
-
     // Hilt
     implementation(Libraries.Hilt.android)
     ksp(Libraries.Hilt.compiler)
 
     // Room
     ksp(Libraries.Room.compiler)
+
+    // Features
+    implementation(project(":features:foo"))
 }
