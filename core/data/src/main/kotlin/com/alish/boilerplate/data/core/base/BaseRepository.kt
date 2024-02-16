@@ -110,8 +110,10 @@ abstract class BaseRepository {
             }
         }
     }.onCompletion { cause ->
-        val message = cause?.localizedMessage ?: "Error Occurred!"
-        if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
+        cause?.let {
+            val message = cause.localizedMessage ?: "Error Occurred!"
+            if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
+        }
     }
 
     /**
