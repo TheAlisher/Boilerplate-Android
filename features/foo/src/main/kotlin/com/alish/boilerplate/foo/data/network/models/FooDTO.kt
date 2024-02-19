@@ -6,7 +6,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class FooDto(
+class FooDTO(
     @Json(name = "id")
     val id: Long,
     @Json(name = "bar")
