@@ -1,4 +1,4 @@
-package com.alish.boilerplate.foo.data.network.dtos
+package com.alish.boilerplate.foo.data.network.models
 
 import com.alish.boilerplate.data.core.utils.DataMapper
 import com.alish.boilerplate.foo.domain.models.Foo
