@@ -13,5 +13,5 @@ class FooDTO(
     val bar: String
 ) : DataMapper<Foo> {
 
-    override fun mapToDomain() = Foo(id, bar)
+    override fun toDomain() = Foo(id, bar)
 }
