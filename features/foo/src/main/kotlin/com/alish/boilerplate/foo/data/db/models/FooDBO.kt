@@ -7,7 +7,7 @@ import com.alish.boilerplate.foo.data.network.models.FooDTO
 import com.alish.boilerplate.foo.domain.models.Foo
 
 @Entity(tableName = "foo")
-class FooEntity(
+class FooDBO(
     @PrimaryKey
     val id: Long,
     val bar: String
@@ -16,4 +16,4 @@ class FooEntity(
     override fun mapToDomain() = Foo(id, bar)
 }
 
-fun FooDTO.toEntity() = FooEntity(id, bar)
+fun FooDTO.toEntity() = FooDBO(id, bar)

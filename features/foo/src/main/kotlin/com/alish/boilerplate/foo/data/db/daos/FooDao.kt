@@ -1,15 +1,15 @@
 package com.alish.boilerplate.foo.data.db.daos
 
 import androidx.room.*
-import com.alish.boilerplate.foo.data.db.models.FooEntity
+import com.alish.boilerplate.foo.data.db.models.FooDBO
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FooDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertFoo(foo: FooEntity)
+    suspend fun insertFoo(foo: FooDBO)
 
     @Query("SELECT * FROM foo")
-    fun getAllFoo(): Flow<List<FooEntity>>
+    fun getAllFoo(): Flow<List<FooDBO>>
 }
