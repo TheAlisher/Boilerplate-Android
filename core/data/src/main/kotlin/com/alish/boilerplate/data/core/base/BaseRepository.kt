@@ -27,14 +27,14 @@ import java.io.InterruptedIOException
 abstract class BaseRepository {
 
     /**
-     * Do network request with [DataMapper.mapToDomain]
+     * Do network request with [DataMapper.toDomain]
      *
      * @receiver [doNetworkRequest]
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestWithMapping(
         request: suspend () -> T
     ): Flow<Either<NetworkError, S>> = doNetworkRequest(request) { body ->
-        Either.Right(body.mapToDomain())
+        Either.Right(body.toDomain())
     }
 
     /**
@@ -56,7 +56,7 @@ abstract class BaseRepository {
     protected fun <T : DataMapper<S>, S> doNetworkRequestForList(
         request: suspend () -> List<T>
     ): Flow<Either<NetworkError, List<S>>> = doNetworkRequest(request) { body ->
-        Either.Right(body.map { it.mapToDomain() })
+        Either.Right(body.map { it.toDomain() })
     }
 
     /**
@@ -216,20 +216,20 @@ abstract class BaseRepository {
     }
 
     /**
-     * Do request to local database with [DataMapper.mapToDomain]
+     * Do request to local database with [DataMapper.toDomain]
      *
      * @param request high-order function for request to database
      */
     protected fun <T : DataMapper<S>, S> doLocalRequest(
         request: () -> Flow<T>
-    ): Flow<S> = request().map { data -> data.mapToDomain() }
+    ): Flow<S> = request().map { data -> data.toDomain() }
 
     /**
-     * Do request to local database with [DataMapper.mapToDomain] for [List]
+     * Do request to local database with [DataMapper.toDomain] for [List]
      *
      * @param request high-order function for request to database
      */
     protected fun <T : DataMapper<S>, S> doLocalRequestForList(
         request: () -> Flow<List<T>>
-    ): Flow<List<S>> = request().map { list -> list.map { data -> data.mapToDomain() } }
+    ): Flow<List<S>> = request().map { list -> list.map { data -> data.toDomain() } }
 }
