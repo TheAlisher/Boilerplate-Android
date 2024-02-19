@@ -3,7 +3,7 @@ package com.alish.boilerplate.foo.data.repositories
 import com.alish.boilerplate.foo.data.pagingsources.FooPagingSource
 import com.alish.boilerplate.data.core.base.BaseRepository
 import com.alish.boilerplate.foo.data.db.daos.FooDao
-import com.alish.boilerplate.foo.data.db.entities.toEntity
+import com.alish.boilerplate.foo.data.db.models.toEntity
 import com.alish.boilerplate.foo.data.network.apiservices.FooApiService
 import com.alish.boilerplate.foo.domain.repositories.FooRepository
 import javax.inject.Inject

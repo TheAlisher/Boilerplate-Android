@@ -1,4 +1,4 @@
-package com.alish.boilerplate.foo.data.db.entities
+package com.alish.boilerplate.foo.data.db.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

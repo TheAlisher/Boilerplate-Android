@@ -3,7 +3,7 @@ package com.alish.boilerplate.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.alish.boilerplate.foo.data.db.daos.FooDao
-import com.alish.boilerplate.foo.data.db.entities.FooEntity
+import com.alish.boilerplate.foo.data.db.models.FooEntity
 
 /**
  * Must to read
