@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.conventions.androidLibrary)
+    kotlin("plugin.serialization")
 
     // KSP
     alias(libs.plugins.ksp)
@@ -23,9 +24,13 @@ dependencies {
 
     implementation(project(":core:domain"))
 
+    // Kotlin
+    api(libs.kotlinx.serialization)
+
     // Retrofit
     api(libs.retrofit)
     api(libs.retrofit.converterMoshi)
+    api(libs.retrofit.kotlinx.serialization.converter)
 
     // Moshi
     api(libs.moshi.kotlin)

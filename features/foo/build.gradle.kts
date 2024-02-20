@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.conventions.androidFeature)
+    kotlin("plugin.serialization")
 
     // Navigation Safe Args
     alias(libs.plugins.androidx.navigation.safeArgs)
