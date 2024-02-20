@@ -1,6 +1,11 @@
 package com.alish.boilerplate.data.core.utils
 
 import android.content.Context
+import kotlinx.serialization.json.Json
+
+internal val jsonClient = Json {
+    prettyPrint = true
+}
 
 /**
  * Get Json from [assets][Context.getAssets]

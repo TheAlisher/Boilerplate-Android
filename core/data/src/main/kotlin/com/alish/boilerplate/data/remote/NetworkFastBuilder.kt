@@ -1,8 +1,8 @@
 package com.alish.boilerplate.data.remote
 
 import com.alish.boilerplate.data.BuildConfig
+import com.alish.boilerplate.data.core.utils.jsonClient
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.json.Json
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,7 +13,7 @@ internal fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Bu
     .baseUrl(BuildConfig.BASE_URL)
     .client(okHttpClient)
     .addConverterFactory(
-        Json.asConverterFactory("application/json".toMediaType())
+        jsonClient.asConverterFactory("application/json".toMediaType())
     )
     .build()
 
