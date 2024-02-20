@@ -3,10 +3,6 @@ plugins {
     kotlin("android")
 }
 
-kotlin {
-    jvmToolchain(jdkVersion = Config.jvmToolchain)
-}
-
 android {
     compileSdk = Config.compileSdk
 
@@ -24,4 +20,8 @@ android {
     buildFeatures {
         buildConfig = true
     }
+}
+
+kotlin {
+    jvmToolchain(jdkVersion = Config.jvmToolchain)
 }

@@ -3,10 +3,6 @@ plugins {
     kotlin("android")
 }
 
-kotlin {
-    jvmToolchain(Config.jvmToolchain)
-}
-
 android {
     compileSdk = Config.compileSdk
 
@@ -47,4 +43,8 @@ dependencies {
 
     implementation(project(":core:data"))
     implementation(project(":core:presentation"))
+}
+
+kotlin {
+    jvmToolchain(Config.jvmToolchain)
 }
