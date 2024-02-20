@@ -1,5 +1,5 @@
 plugins {
-    id(Plugins.Conventions.androidLibrary)
+    alias(libs.plugins.conventions.androidLibrary)
 }
 
 android {
@@ -15,31 +15,31 @@ dependencies {
     api(project(":core:domain"))
 
     // Kotlin
-    api(Libraries.Coroutines.android)
+    api(libs.coroutines.android)
 
     // UI Components
-    api(Libraries.UIComponents.material)
-    api(Libraries.UIComponents.constraintLayout)
-    api(Libraries.UIComponents.vbpd)
+    api(libs.android.material)
+    api(libs.androidx.constraintLayout)
+    api(libs.android.vbpd)
 
     // Core
-    api(Libraries.Core.core)
-    api(Libraries.Core.splashscreen)
+    api(libs.androidx.core)
+    api(libs.androidx.core.splashscreen)
 
     // Activity
-    api(Libraries.Activity.activity)
+    api(libs.androidx.activity)
 
     // Fragment
-    api(Libraries.Fragment.fragment)
+    api(libs.androidx.fragment)
 
     // Lifecycle
-    api(Libraries.Lifecycle.viewModel)
-    api(Libraries.Lifecycle.runtime)
+    api(libs.androidx.lifecycle.viewModel)
+    api(libs.androidx.lifecycle.runtime)
 
     // Navigation
-    api(Libraries.Navigation.fragment)
-    api(Libraries.Navigation.ui)
+    api(libs.androidx.navigation.fragment)
+    api(libs.androidx.navigation.ui)
 
     // Paging
-    api(Libraries.Paging.runtime)
+    api(libs.androidx.paging.runtime)
 }

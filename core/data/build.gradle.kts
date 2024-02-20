@@ -1,8 +1,8 @@
 plugins {
-    id(Plugins.Conventions.androidLibrary)
+    alias(libs.plugins.conventions.androidLibrary)
 
     // KSP
-    id(Plugins.KSP.ksp)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -24,24 +24,24 @@ dependencies {
     implementation(project(":core:domain"))
 
     // Retrofit
-    api(Libraries.Retrofit.retrofit)
-    api(Libraries.Retrofit.converterMoshi)
+    api(libs.retrofit)
+    api(libs.retrofit.converterMoshi)
 
     // Moshi
-    api(Libraries.Moshi.kotlin)
-    api(Libraries.Moshi.adapters)
-    api(Libraries.Moshi.codegen)
+    api(libs.moshi.kotlin)
+    api(libs.moshi.adapters)
+    api(libs.moshi.codegen)
 
     // OkHttp
-    implementation(platform(Libraries.OkHttp.bom))
-    implementation(Libraries.OkHttp.okHttp)
-    implementation(Libraries.OkHttp.loggingInterceptor)
+    implementation(platform(libs.okHttp.bom))
+    implementation(libs.okHttp)
+    implementation(libs.okHttp.loggingInterceptor)
 
     // Room
-    api(Libraries.Room.runtime)
-    ksp(Libraries.Room.compiler)
-    api(Libraries.Room.ktx)
+    api(libs.room.runtime)
+    ksp(libs.room.compiler)
+    api(libs.room.ktx)
 
     // Security
-    implementation(Libraries.Security.crypto)
+    implementation(libs.security.crypto)
 }

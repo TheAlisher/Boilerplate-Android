@@ -3,25 +3,25 @@ plugins {
     kotlin("android")
 }
 
-kotlin {
-    jvmToolchain(jdkVersion = Config.jvmToolchain)
-}
-
 android {
-    compileSdk = Config.compileSdk
+    compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
-        minSdk = Config.minSdk
+        minSdk = AndroidConfig.minSdk
     }
 
     compileOptions {
-        sourceCompatibility = Config.javaVersion
-        targetCompatibility = Config.javaVersion
+        sourceCompatibility = LangOptions.javaVersion
+        targetCompatibility = LangOptions.javaVersion
     }
     kotlinOptions {
-        jvmTarget = Config.jvmTarget
+        jvmTarget = LangOptions.jvmTarget
     }
     buildFeatures {
         buildConfig = true
     }
+}
+
+kotlin {
+    jvmToolchain(jdkVersion = LangOptions.jvmToolchain)
 }

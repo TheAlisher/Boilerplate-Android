@@ -2,11 +2,11 @@ plugins {
     kotlin("jvm")
 }
 
-kotlin {
-    jvmToolchain(jdkVersion = Config.jvmToolchain)
+java {
+    sourceCompatibility = LangOptions.javaVersion
+    targetCompatibility = LangOptions.javaVersion
 }
 
-java {
-    sourceCompatibility = Config.javaVersion
-    targetCompatibility = Config.javaVersion
+kotlin {
+    jvmToolchain(jdkVersion = LangOptions.jvmToolchain)
 }

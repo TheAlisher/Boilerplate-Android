@@ -1,14 +1,14 @@
 plugins {
-    id(Plugins.Conventions.androidFeature)
+    alias(libs.plugins.conventions.androidFeature)
 
     // Navigation Safe Args
-    id(Plugins.Navigation.safeArgs)
+    alias(libs.plugins.androidx.navigation.safeArgs)
 
     // Hilt
-    id(Plugins.Hilt.android)
+    alias(libs.plugins.hilt.android)
 
     // KSP
-    id(Plugins.KSP.ksp)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -17,6 +17,6 @@ android {
 
 dependencies {
 
-    implementation(Libraries.Hilt.android)
-    ksp(Libraries.Hilt.compiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }

@@ -1,13 +1,13 @@
 plugins {
-    id(Plugins.AGP.application) version Versions.AGP apply false
-    kotlin(Plugins.Kotlin.android) version Versions.kotlin apply false
+    alias(libs.plugins.android.application) apply false
+    kotlin("android") version libs.versions.kotlin apply false
 
     // Navigation Safe Args
-    id(Plugins.Navigation.safeArgs) version Versions.navigation apply false
+    alias(libs.plugins.androidx.navigation.safeArgs) apply false
 
     // Hilt
-    id(Plugins.Hilt.android) version Versions.dagger apply false
+    alias(libs.plugins.hilt.android) apply false
 
     // KSP
-    id(Plugins.KSP.ksp) version Versions.KSP apply false
+    alias(libs.plugins.ksp) apply false
 }

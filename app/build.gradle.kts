@@ -1,11 +1,11 @@
 plugins {
-    id(Plugins.Conventions.androidApp)
+    alias(libs.plugins.conventions.androidApp)
 
     // Hilt
-    id(Plugins.Hilt.android)
+    alias(libs.plugins.hilt.android)
 
     // KSP
-    id(Plugins.KSP.ksp)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -15,11 +15,11 @@ android {
 dependencies {
 
     // Hilt
-    implementation(Libraries.Hilt.android)
-    ksp(Libraries.Hilt.compiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     // Room
-    ksp(Libraries.Room.compiler)
+    ksp(libs.room.compiler)
 
     // Features
     implementation(project(":features:foo"))
