@@ -1,6 +1,5 @@
 package com.alish.boilerplate.data.remote.interceptors
 
-import com.alish.boilerplate.data.core.utils.fromJson
 import com.alish.boilerplate.data.remote.exceptions.ServerException
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
