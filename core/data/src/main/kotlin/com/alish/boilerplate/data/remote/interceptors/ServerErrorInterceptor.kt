@@ -2,6 +2,7 @@ package com.alish.boilerplate.data.remote.interceptors
 
 import com.alish.boilerplate.data.core.utils.fromJson
 import com.alish.boilerplate.data.remote.exceptions.ServerException
+import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
 import okhttp3.Response
 import okhttp3.ResponseBody
@@ -49,7 +50,7 @@ class ServerErrorInterceptor @Inject constructor() : Interceptor {
      * @see fromJson
      */
     private inline fun <reified T> ResponseBody?.toApiError(): T {
-        return this?.let { fromJson<T>(it.string()) } ?: throw NullPointerException(
+        return this?.let { Json.decodeFromString<T>(it.string()) } ?: throw NullPointerException(
             "JsonUtil cannot convert fromJson: ${T::class.java.simpleName}"
         )
     }

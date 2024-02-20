@@ -1,7 +1,7 @@
 package com.alish.boilerplate.data.remote.exceptions
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import java.io.IOException
 
 /**
@@ -24,16 +24,16 @@ sealed class ServerException : IOException() {
      *
      * @property data The data associated with the API error, typically containing input validation errors.
      */
-    @JsonClass(generateAdapter = true)
-    class ApiInputs(@Json(name = "data") val data: Map<String, List<String>>) : ServerException()
+    @Serializable
+    class ApiInputs(@SerialName("data") val data: Map<String, List<String>>) : ServerException()
 
     /**
      * Represents a generic API error with a custom message.
      *
      * @param message The error message.
      */
-    @JsonClass(generateAdapter = true)
-    class Api(@Json(name = "message") override val message: String) : ServerException()
+    @Serializable
+    class Api(@SerialName("message") override val message: String) : ServerException()
 
     companion object {
 

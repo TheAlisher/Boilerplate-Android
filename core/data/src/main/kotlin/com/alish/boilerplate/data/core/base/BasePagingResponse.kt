@@ -1,14 +1,14 @@
 package com.alish.boilerplate.data.core.base
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 class BasePagingResponse<T>(
-    @Json(name = "prev")
+    @SerialName("prev")
     val prev: Int?,
-    @Json(name = "next")
+    @SerialName("next")
     val next: Int?,
-    @Json(name = "data")
+    @SerialName("data")
     val data: MutableList<T>
 )
