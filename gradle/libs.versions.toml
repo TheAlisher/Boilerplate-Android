@@ -1,7 +1,112 @@
 [versions]
-kotlin = "1.9.22"
 androidGradlePlugin = "8.2.2"
+kotlin = "1.9.22"
+coroutines = "1.8.0"
+ksp = "1.9.22-1.0.17"
+material = "1.11.0"
+constraintLayout = "2.1.4"
+vbpd = "1.5.9"
+core = "1.12.0"
+splashscreen = "1.0.1"
+activity = "1.8.2"
+fragment = "1.6.2"
+lifecycle = "2.7.0"
+navigation = "2.7.7"
+dagger = "2.50"
+retrofit = "2.9.0"
+moshi = "1.15.0"
+okHttp = "5.0.0-alpha.12"
+room = "2.6.1"
+paging = "3.2.1"
+security = "1.1.0-alpha06"
 
 [libraries]
-kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+# Coroutines
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# UIComponents
+android-material = { module = "com.google.android.material:material", version.ref = "material" }
+android-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
+android-vbpd = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version.ref = "vbpd" }
+
+# Core
+android-core = { module = "androidx.core:core-ktx", version.ref = "core" }
+android-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
+
+# Activity
+android-activity = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
+
+# Fragment
+android-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment" }
+
+# Lifecycle
+lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+
+# Navigation
+navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+
+# Javax
+# [javax.inject package](https://docs.oracle.com/javaee/6/api/javax/inject/package-summary.html)
+# [JSR-330](https://javax-inject.github.io/javax-inject/)
+javax-inject = { module = "javax.inject:javax.inject", version = "1" }
+
+# Hilt
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger" }
+
+# Retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converterMoshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+
+# Moshi
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi" }
+moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+
+# OkHttp
+okHttp-bom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okHttp" }
+okHttp = { module = "com.squareup.okhttp3:okhttp" }
+loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor" }
+
+# Room
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+
+# Paging
+paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
+paging-runtime = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
+
+# Security
+security-crypto = { module = "androidx.security:security-crypto-ktx", version.ref = "security" }
+
+[plugins]
+
+# AGP - Android Gradle Plugin
+androidGradlePlugin-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+androidGradlePlugin-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+
+# Kotlin
+kotlin-android = { id = "android" }
+kotlin-jvm = { id = "jvm" }
+
+# KSP
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+# Navigation
+navigation-safeArgs = { id = "androidx.navigation.safeargs.kotlin" }
+
+# Hilt
+hilt-android = { id = "com.google.dagger.hilt.android" }
+
+# Conventions
+conventions-kotlin-library = { id = "kotlin-library-conventions" }
+conventions-android-app = { id = "android-app-conventions" }
+conventions-android-library = { id = "android-library-conventions" }
+conventions-android-feature = { id = "android-feature-conventions" }
