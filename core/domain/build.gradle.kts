@@ -1,15 +1,15 @@
 plugins {
-    id(Plugins.Conventions.kotlinLibrary)
+    alias(libs.plugins.conventions.kotlinLibrary)
 }
 
 dependencies {
 
     // Javax Inject
-    api(Libraries.Javax.inject)
+    api(libs.javax.inject)
 
     // Kotlin
-    api(Libraries.Coroutines.core)
+    api(libs.coroutines.core)
 
     // Paging
-    api(Libraries.Paging.common)
+    api(libs.paging.common)
 }
