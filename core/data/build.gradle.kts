@@ -29,13 +29,7 @@ dependencies {
 
     // Retrofit
     api(libs.retrofit)
-    api(libs.retrofit.converterMoshi)
     api(libs.retrofit.kotlinx.serialization.converter)
-
-    // Moshi
-    api(libs.moshi.kotlin)
-    api(libs.moshi.adapters)
-    api(libs.moshi.codegen)
 
     // OkHttp
     implementation(platform(libs.okHttp.bom))
