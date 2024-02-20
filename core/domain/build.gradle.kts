@@ -11,5 +11,5 @@ dependencies {
     api(libs.coroutines.core)
 
     // Paging
-    api(libs.paging.common)
+    api(libs.androidx.paging.common)
 }

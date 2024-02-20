@@ -3,7 +3,7 @@ plugins {
     kotlin("android") version libs.versions.kotlin apply false
 
     // Navigation Safe Args
-    alias(libs.plugins.navigation.safeArgs) apply false
+    alias(libs.plugins.androidx.navigation.safeArgs) apply false
 
     // Hilt
     alias(libs.plugins.hilt.android) apply false

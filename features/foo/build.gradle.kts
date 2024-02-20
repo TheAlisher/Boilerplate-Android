@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.conventions.androidFeature)
 
     // Navigation Safe Args
-    alias(libs.plugins.navigation.safeArgs)
+    alias(libs.plugins.androidx.navigation.safeArgs)
 
     // Hilt
     alias(libs.plugins.hilt.android)

@@ -19,27 +19,27 @@ dependencies {
 
     // UI Components
     api(libs.android.material)
-    api(libs.android.constraintLayout)
+    api(libs.androidx.constraintLayout)
     api(libs.android.vbpd)
 
     // Core
-    api(libs.android.core)
-    api(libs.android.core.splashscreen)
+    api(libs.androidx.core)
+    api(libs.androidx.core.splashscreen)
 
     // Activity
-    api(libs.android.activity)
+    api(libs.androidx.activity)
 
     // Fragment
-    api(libs.android.fragment)
+    api(libs.androidx.fragment)
 
     // Lifecycle
-    api(libs.lifecycle.viewModel)
-    api(libs.lifecycle.runtime)
+    api(libs.androidx.lifecycle.viewModel)
+    api(libs.androidx.lifecycle.runtime)
 
     // Navigation
-    api(libs.navigation.fragment)
-    api(libs.navigation.ui)
+    api(libs.androidx.navigation.fragment)
+    api(libs.androidx.navigation.ui)
 
     // Paging
-    api(libs.paging.runtime)
+    api(libs.androidx.paging.runtime)
 }
