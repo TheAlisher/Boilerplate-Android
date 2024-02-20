@@ -7,7 +7,7 @@ android {
     compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.alish.boilerplate"
+        applicationId = AndroidConfig.applicationId
         minSdk = AndroidConfig.minSdk
         targetSdk = AndroidConfig.targetSdk
         versionCode = 1
