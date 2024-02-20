@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk = Config.compileSdk
+    compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
         applicationId = "com.alish.boilerplate"
-        minSdk = Config.minSdk
-        targetSdk = Config.targetSdk
+        minSdk = AndroidConfig.minSdk
+        targetSdk = AndroidConfig.targetSdk
         versionCode = 1
         versionName = "1.0"
     }
@@ -28,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = Config.javaVersion
-        targetCompatibility = Config.javaVersion
+        sourceCompatibility = LangOptions.javaVersion
+        targetCompatibility = LangOptions.javaVersion
     }
     kotlinOptions {
-        jvmTarget = Config.jvmTarget
+        jvmTarget = LangOptions.jvmTarget
     }
     buildFeatures {
         viewBinding = true
@@ -46,5 +46,5 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(Config.jvmToolchain)
+    jvmToolchain(LangOptions.jvmToolchain)
 }

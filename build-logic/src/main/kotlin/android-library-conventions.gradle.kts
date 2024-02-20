@@ -4,18 +4,18 @@ plugins {
 }
 
 android {
-    compileSdk = Config.compileSdk
+    compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
-        minSdk = Config.minSdk
+        minSdk = AndroidConfig.minSdk
     }
 
     compileOptions {
-        sourceCompatibility = Config.javaVersion
-        targetCompatibility = Config.javaVersion
+        sourceCompatibility = LangOptions.javaVersion
+        targetCompatibility = LangOptions.javaVersion
     }
     kotlinOptions {
-        jvmTarget = Config.jvmTarget
+        jvmTarget = LangOptions.jvmTarget
     }
     buildFeatures {
         buildConfig = true
@@ -23,5 +23,5 @@ android {
 }
 
 kotlin {
-    jvmToolchain(jdkVersion = Config.jvmToolchain)
+    jvmToolchain(jdkVersion = LangOptions.jvmToolchain)
 }
