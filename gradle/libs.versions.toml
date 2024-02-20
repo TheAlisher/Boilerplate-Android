@@ -92,21 +92,18 @@ security-crypto = { module = "androidx.security:security-crypto-ktx", version.re
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 
-# Kotlin
-kotlin-android = { id = "android" }
-kotlin-jvm = { id = "jvm" }
-
 # KSP
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 # Navigation
-navigation-safeArgs = { id = "androidx.navigation.safeargs.kotlin" }
+navigation-safeArgs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
 
 # Hilt
-hilt-android = { id = "com.google.dagger.hilt.android" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
 
 # Conventions
-conventions-kotlin-library = { id = "kotlin-library-conventions" }
-conventions-android-app = { id = "android-app-conventions" }
-conventions-android-library = { id = "android-library-conventions" }
-conventions-android-feature = { id = "android-feature-conventions" }
+# version for workaround cause without this not working
+conventions-kotlinLibrary = { id = "kotlin-library-conventions", version = "1" }
+conventions-androidApp = { id = "android-app-conventions", version = "1" }
+conventions-androidLibrary = { id = "android-library-conventions", version = "1" }
+conventions-androidFeature = { id = "android-feature-conventions", version = "1" }
