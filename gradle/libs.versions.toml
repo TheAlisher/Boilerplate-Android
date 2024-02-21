@@ -1,5 +1,5 @@
 [versions]
-androidGradlePlugin = "8.2.2"
+agp = "8.2.2"
 kotlin = "1.9.22"
 kotlinx-serialization = "1.6.3"
 coroutines = "1.8.0"
@@ -22,7 +22,7 @@ paging = "3.2.1"
 security = "1.1.0-alpha06"
 
 [libraries]
-androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
+androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
 # Kotlin
@@ -88,8 +88,8 @@ security-crypto = { module = "androidx.security:security-crypto-ktx", version.re
 [plugins]
 
 # AGP - Android Gradle Plugin
-android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 
 # KSP
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
