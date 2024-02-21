@@ -19,7 +19,7 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     // Room
-    ksp(libs.room.compiler)
+    ksp(libs.androidx.room.compiler)
 
     // Features
     implementation(project(":features:foo"))

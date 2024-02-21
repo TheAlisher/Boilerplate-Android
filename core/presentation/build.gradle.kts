@@ -15,7 +15,7 @@ dependencies {
     api(project(":core:domain"))
 
     // Kotlin
-    api(libs.coroutines.android)
+    api(libs.kotlinx.coroutines.android)
 
     // UI Components
     api(libs.android.material)

@@ -37,10 +37,10 @@ dependencies {
     implementation(libs.okHttp.loggingInterceptor)
 
     // Room
-    api(libs.room.runtime)
-    ksp(libs.room.compiler)
-    api(libs.room.ktx)
+    api(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    api(libs.androidx.room.ktx)
 
     // Security
-    implementation(libs.security.crypto)
+    implementation(libs.androidx.security.crypto)
 }
