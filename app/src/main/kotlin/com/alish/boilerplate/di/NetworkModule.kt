@@ -15,10 +15,6 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideTokenErrorListener() = MutableLiveData<String>()
-
-    @Singleton
-    @Provides
     fun provideAuthenticatorApiService(
         client: NetworkClient.AuthenticatorClient
     ) = client.provideAuthenticatorApiService()
