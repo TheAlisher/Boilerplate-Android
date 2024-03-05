@@ -7,7 +7,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.alish.boilerplate.data.BuildConfig
 import com.alish.boilerplate.data.core.utils.DataMapper
-import com.alish.boilerplate.data.remote.exceptions.ServerException
+import com.alish.boilerplate.data.core.utils.jsonClient
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.domain.core.NetworkError
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.ResponseBody
 import retrofit2.Response
 import java.io.File
 import java.io.InterruptedIOException
@@ -32,7 +33,7 @@ abstract class BaseRepository {
      * @receiver [doNetworkRequest]
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestWithMapping(
-        request: suspend () -> T
+        request: suspend () -> Response<T>
     ): Flow<Either<NetworkError, S>> = doNetworkRequest(request) { body ->
         Either.Right(body.toDomain())
     }
@@ -43,7 +44,7 @@ abstract class BaseRepository {
      * @receiver [doNetworkRequest]
      */
     protected fun <T> doNetworkRequestWithoutMapping(
-        request: suspend () -> T
+        request: suspend () -> Response<T>
     ): Flow<Either<NetworkError, T>> = doNetworkRequest(request) { body ->
         Either.Right(body)
     }
@@ -54,7 +55,7 @@ abstract class BaseRepository {
      * @receiver [doNetworkRequest]
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestForList(
-        request: suspend () -> List<T>
+        request: suspend () -> Response<List<T>>
     ): Flow<Either<NetworkError, List<S>>> = doNetworkRequest(request) { body ->
         Either.Right(body.map { it.toDomain() })
     }
@@ -65,7 +66,7 @@ abstract class BaseRepository {
      * @receiver [doNetworkRequest]
      */
     protected fun <T> doNetworkRequestUnit(
-        request: suspend () -> T
+        request: suspend () -> Response<T>
     ): Flow<Either<NetworkError, Unit>> = doNetworkRequest(request) {
         Either.Right(Unit)
     }
@@ -86,42 +87,49 @@ abstract class BaseRepository {
      * @see [ServerException]
      */
     private fun <T, S> doNetworkRequest(
-        request: suspend () -> T,
+        request: suspend () -> Response<T>,
         successful: (T) -> Either.Right<S>
-    ) = flow<Either<NetworkError, S>> {
-        emit(successful.invoke(request()))
+    ) = flow {
+        request().let {
+            when {
+                it.isSuccessful && it.body() != null -> {
+                    emit(successful.invoke(it.body()!!))
+                }
+
+                !it.isSuccessful && it.code() == 422 -> {
+                    emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiError())))
+                }
+
+                else -> {
+                    emit(Either.Left(NetworkError.Api(it.errorBody().toApiError())))
+                }
+            }
+        }
     }.flowOn(Dispatchers.IO).catch { exception ->
         when (exception) {
             is InterruptedIOException -> {
                 emit(Either.Left(NetworkError.Timeout))
             }
 
-            is ServerException.InternalServerError -> {
-                // emit InternalServerError
-            }
-
-            is ServerException.ServiceUnavailable -> {
-                // emit ServiceUnavailable
-            }
-
-            is ServerException.ApiInputs -> {
-                emit(Either.Left(NetworkError.ApiInputs(exception.data.toMutableMap())))
-            }
-
-            is ServerException.Api -> {
-                emit(Either.Left(NetworkError.Api(exception.message)))
-            }
-
             else -> {
                 val message = exception.localizedMessage ?: "Error Occurred!"
+                if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
                 emit(Either.Left(NetworkError.Unexpected(message)))
             }
         }
-    }.onCompletion { cause ->
-        cause?.let {
-            val message = cause.localizedMessage ?: "Error Occurred!"
-            if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
-        }
+    }
+
+    /**
+     * Converts the response body to a specific API error type.
+     *
+     * @receiver [ResponseBody] The response body.
+     * @return The API error object.
+     * @throws NullPointerException if the response body cannot be converted.
+     */
+    private inline fun <reified T> ResponseBody?.toApiError(): T {
+        return this?.let { jsonClient.decodeFromString<T>(it.string()) } ?: throw NullPointerException(
+            "JsonUtil cannot convert fromJson: ${T::class.java.simpleName}"
+        )
     }
 
     /**
@@ -141,8 +149,8 @@ abstract class BaseRepository {
      * @see Response.body
      * @see let
      */
-    protected inline fun <T> T.onSuccess(block: (T) -> Unit): T {
-        this.let(block)
+    protected inline fun <T : Response<S>, S> T.onSuccess(block: (S) -> Unit): T {
+        this.body()?.let(block)
         return this
     }
 
