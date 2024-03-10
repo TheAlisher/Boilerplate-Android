@@ -1,27 +1,28 @@
-package com.alish.boilerplate.presentation.core.validators
+package com.alish.boilerplate.presentation.core.validation.usecase
 
 import android.content.Context
-import android.util.Patterns
 import com.alish.boilerplate.presentation.R
+import com.alish.boilerplate.presentation.core.validation.ValidationResult
 import javax.inject.Inject
 
-class ValidateEmail @Inject constructor(
+class ValidatePasswordConfirm @Inject constructor(
     private val context: Context,
 ) {
 
-    operator fun invoke(email: String): ValidationResult {
+    operator fun invoke(password: String, confirmPassword: String): ValidationResult {
         return when {
-            email.isEmpty() -> {
+            password.isEmpty() && confirmPassword.isEmpty() -> {
                 ValidationResult(
                     isSuccessful = false,
                     errorMessage = context.getString(R.string.field_must_be_filled)
                 )
             }
 
-            !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+            password != confirmPassword -> {
                 ValidationResult(
                     isSuccessful = false,
-                    errorMessage = context.getString(R.string.invalid_email)
+                    errorMessage = context.getString(R.string.password_do_not_match),
+                    isToast = true
                 )
             }
 

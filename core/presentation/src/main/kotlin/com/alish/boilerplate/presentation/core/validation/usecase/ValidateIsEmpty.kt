@@ -1,16 +1,18 @@
-package com.alish.boilerplate.presentation.core.validators
+package com.alish.boilerplate.presentation.core.validation.usecase
 
 import android.content.Context
 import com.alish.boilerplate.presentation.R
+import com.alish.boilerplate.presentation.core.validation.ValidationResult
+import com.alish.boilerplate.presentation.core.validation.Validator
 import javax.inject.Inject
 
 class ValidateIsEmpty @Inject constructor(
     private val context: Context,
-) {
+) : Validator {
 
-    operator fun invoke(email: String): ValidationResult {
+    override operator fun invoke(text: String): ValidationResult {
         return when {
-            email.isEmpty() -> {
+            text.isEmpty() -> {
                 ValidationResult(
                     isSuccessful = false,
                     errorMessage = context.getString(R.string.field_must_be_filled)

@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.presentation.R
-import com.alish.boilerplate.presentation.core.validators.ValidationResult
+import com.alish.boilerplate.presentation.core.validation.ValidationResult
+import com.alish.boilerplate.presentation.core.validation.Validator
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -40,23 +41,16 @@ private fun ViewGroup.getChildInputLayouts(): List<TextInputLayout> {
 }
 
 /**
- * Validates input fields associated with TextInputLayouts in a Fragment.
+ * Validates input fields within a Fragment using provided validators.
  *
  * &nbsp
  *
  * ## How to use:
  * ```
  * buttonSignIn.setOnClickListener {
- *     val emailResult = viewModel.validateEmail(
- *         inputEditSignInEmail.fullText
- *     )
- *     val passwordResult = viewModel.validatePassword(
- *         inputEditSignInPassword.fullText
- *     )
- *
  *     validateInputs(
- *         Pair(emailResult, inputLayoutSignInEmail),
- *         Pair(passwordResult, inputLayoutSignInPassword)
+ *         Pair(viewModel.validateEmail, inputLayoutSignInEmail),
+ *         Pair(viewModel.validatePassword, inputLayoutSignInPassword)
  *     ) {
  *         viewModel.signIn(
  *             inputEditSignInEmail.fullText,
@@ -66,31 +60,41 @@ private fun ViewGroup.getChildInputLayouts(): List<TextInputLayout> {
  * }
  * ```
  *
- * @param pairInputAndValidationResult Vararg of pairs consisting of ValidationResult and TextInputLayout.
- *                                     Each pair represents an input field and its validation result.
- * @param successful A lambda function to be executed when all input fields pass validation.
- *
+ * @param validatorWithInput a vararg list of pairs, each containing a Validator and a TextInputLayout.
+ * @param successful a function to be executed when validation succeeds.
  */
-@Deprecated("will refactor")
 fun Fragment.validateInputs(
-    vararg pairInputAndValidationResult: Pair<ValidationResult, TextInputLayout>,
+    vararg validatorWithInput: Pair<Validator, TextInputLayout>,
     successful: () -> Unit,
 ) {
-    // Extract validation results from the pairs
-    val validationResults = pairInputAndValidationResult.map { it.first }.toTypedArray()
+    // Perform validation for each validator-input pair
+    val validationResultsPair = validatorWithInput.map {
+        val validator = it.first
+        val inputLayout = it.second
+        val inputEdit = (inputLayout.editText as TextInputEditText)
 
-    // Check if there are any validation errors
+        Pair(validator.invoke(inputEdit.fullText), inputLayout)
+    }
+
+    // Extract validation results
+    val validationResults = validationResultsPair.map {
+        it.first
+    }.toTypedArray()
+
+    // Check if any validation result indicates error
     if (hasError(*validationResults)) {
-        // If there are errors, display error messages and enable error state for the associated TextInputLayouts
-        pairInputAndValidationResult.map {
-            if (it.first.isToast) {
-                showToastShort(it.first.errorMessage)
+        // Handle error for each input layout
+        validationResultsPair.map {
+            val validationResult = it.first
+            val inputLayout = it.second
+            if (validationResult.isToast) {
+                showToastShort(validationResult.errorMessage)
             }
-            it.second.error = it.first.errorMessage
+            inputLayout.error = validationResult.errorMessage
         }
     } else {
-        // If there are no errors, disable error state for the associated TextInputLayouts, hide keyboard, and execute the success callback
-        pairInputAndValidationResult.map {
+        // If no error, clear errors and execute success function
+        validationResultsPair.map {
             it.second.isErrorEnabled = false
         }
         hideKeyboard()
@@ -99,10 +103,10 @@ fun Fragment.validateInputs(
 }
 
 /**
- * Checks if any of the validation results indicate an error.
+ * Checks if any ValidationResult indicates an error.
  *
- * @param validationResults Array of ValidationResult objects to be checked for errors.
- * @return True if any ValidationResult in the array is unsuccessful (i.e., has an error), false otherwise.
+ * @param validationResults a vararg list of ValidationResult objects.
+ * @return true if any ValidationResult indicates an error, false otherwise.
  */
 private fun hasError(vararg validationResults: ValidationResult) = validationResults.any {
     !it.isSuccessful
@@ -184,7 +188,8 @@ fun TextInputLayout.setupPhoneValidator() = with(editText as TextInputEditText) 
             }
 
             !hasFocus && fullText.length < 18 -> {
-                this@setupPhoneValidator.error = context.getString(R.string.complete_your_phone_number)
+                this@setupPhoneValidator.error =
+                    context.getString(R.string.complete_your_phone_number)
             }
 
             hasFocus -> {

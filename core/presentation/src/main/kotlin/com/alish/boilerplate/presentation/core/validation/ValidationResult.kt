@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.core.validators
+package com.alish.boilerplate.presentation.core.validation
 
 class ValidationResult(
     val isSuccessful: Boolean,
