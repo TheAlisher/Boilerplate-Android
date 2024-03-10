@@ -2,7 +2,6 @@ package com.alish.boilerplate.presentation.core.extensions
 
 import android.util.Patterns
 import android.view.ViewGroup
-import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.presentation.R
