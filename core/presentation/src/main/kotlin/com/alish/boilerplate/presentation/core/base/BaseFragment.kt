@@ -136,7 +136,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
         is NetworkError.ApiInputs -> {
             screenInputs.forEach { input ->
-                errors.get(input.tag).also { message ->
+                errors[input.tag].also { message ->
                     when {
                         message == null -> {
                             input.isErrorEnabled = false
