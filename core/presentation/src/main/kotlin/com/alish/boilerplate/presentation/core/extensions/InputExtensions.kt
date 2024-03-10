@@ -2,6 +2,7 @@ package com.alish.boilerplate.presentation.core.extensions
 
 import android.util.Patterns
 import android.view.ViewGroup
+import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.presentation.R
@@ -111,12 +112,8 @@ private fun hasError(vararg validationResults: ValidationResult) = validationRes
 fun TextInputLayout.setupIsEmptyValidator() = with(editText as TextInputEditText) {
     setOnFocusChangeListener { _, hasFocus ->
         when {
-            !hasFocus && text.toString().trim().isEmpty() -> {
+            !hasFocus && fullText.isEmpty() -> {
                 this@setupIsEmptyValidator.error = context.getString(R.string.field_must_be_filled)
-            }
-
-            hasFocus -> {
-                this@setupIsEmptyValidator.isErrorEnabled = false
             }
 
             else -> {
@@ -129,16 +126,12 @@ fun TextInputLayout.setupIsEmptyValidator() = with(editText as TextInputEditText
 fun TextInputLayout.setupEmailValidator() = with(editText as TextInputEditText) {
     setOnFocusChangeListener { _, hasFocus ->
         when {
-            !hasFocus && text.toString().trim().isEmpty() -> {
+            !hasFocus && fullText.isEmpty() -> {
                 this@setupEmailValidator.error = context.getString(R.string.field_must_be_filled)
             }
 
-            !hasFocus && !Patterns.EMAIL_ADDRESS.matcher(text.toString().trim()).matches() -> {
+            !hasFocus && !Patterns.EMAIL_ADDRESS.matcher(fullText).matches() -> {
                 this@setupEmailValidator.error = context.getString(R.string.invalid_email)
-            }
-
-            hasFocus -> {
-                this@setupEmailValidator.isErrorEnabled = false
             }
 
             else -> {
@@ -150,7 +143,7 @@ fun TextInputLayout.setupEmailValidator() = with(editText as TextInputEditText) 
 
 fun TextInputLayout.setupNameValidator() = with(editText as TextInputEditText) {
     setOnFocusChangeListener { _, hasFocus ->
-        if (!hasFocus) with(text.toString().trim()) {
+        if (!hasFocus) with(fullText) {
             when {
                 this.isEmpty() -> {
                     this@setupNameValidator.error = context.getString(
@@ -186,14 +179,12 @@ fun TextInputLayout.setupNameValidator() = with(editText as TextInputEditText) {
 fun TextInputLayout.setupPhoneValidator() = with(editText as TextInputEditText) {
     setOnFocusChangeListener { _, hasFocus ->
         when {
-            !hasFocus && text.toString().trim().isEmpty() -> {
-                this@setupPhoneValidator.error =
-                    context.getString(R.string.field_must_be_filled)
+            !hasFocus && fullText.isEmpty() -> {
+                this@setupPhoneValidator.error = context.getString(R.string.field_must_be_filled)
             }
 
-            !hasFocus && text.toString().length < 18 -> {
-                this@setupPhoneValidator.error =
-                    context.getString(R.string.complete_your_phone_number)
+            !hasFocus && fullText.length < 18 -> {
+                this@setupPhoneValidator.error = context.getString(R.string.complete_your_phone_number)
             }
 
             hasFocus -> {
@@ -210,11 +201,11 @@ fun TextInputLayout.setupPhoneValidator() = with(editText as TextInputEditText) 
 fun TextInputLayout.setupPasswordValidator() = with(editText as TextInputEditText) {
     setOnFocusChangeListener { _, hasFocus ->
         when {
-            !hasFocus && text.toString().trim().isEmpty() -> {
+            !hasFocus && fullText.isEmpty() -> {
                 this@setupPasswordValidator.error = context.getString(R.string.field_must_be_filled)
             }
 
-            !hasFocus && text.toString().trim().length < 6 -> {
+            !hasFocus && fullText.length < 6 -> {
                 this@setupPasswordValidator.error = context.getString(
                     R.string.password_must_not_be_less_than_6_characters
                 )
