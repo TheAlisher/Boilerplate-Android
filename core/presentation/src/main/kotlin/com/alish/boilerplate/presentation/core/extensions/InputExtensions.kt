@@ -71,6 +71,7 @@ private fun ViewGroup.getChildInputLayouts(): List<TextInputLayout> {
  * @param successful A lambda function to be executed when all input fields pass validation.
  *
  */
+@Deprecated("will refactor")
 fun Fragment.validateInputs(
     vararg pairInputAndValidationResult: Pair<ValidationResult, TextInputLayout>,
     successful: () -> Unit,
