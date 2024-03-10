@@ -4,6 +4,7 @@
     <string name="field_must_be_filled">Поле должно быть заполнено</string>
     <string name="invalid_email">Неправильный адрес электронной почты</string>
     <string name="incorrect_name">Некорректное имя</string>
+    <string name="write_in_latin">Напишите на латинице: a-Z</string>
     <string name="name_must_contain_at_least_2_characters">Имя должно содержать минимум 2 символа</string>
     <string name="complete_your_phone_number">Допишите номер телефона до конца</string>
     <string name="please_accept_the_data_processing_policy">Пожалуйста примите политику обработки данных</string>
