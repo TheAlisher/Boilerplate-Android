@@ -12,3 +12,9 @@ plugins {
     // KSP
     alias(libs.plugins.ksp) apply false
 }
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        freeCompilerArgs = freeCompilerArgs + "-Xcontext-receivers"
+    }
+}
