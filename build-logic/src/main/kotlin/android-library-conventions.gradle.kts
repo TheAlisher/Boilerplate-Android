@@ -16,6 +16,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = LangOptions.jvmTarget
+        freeCompilerArgs = listOf("-Xcontext-receivers")
     }
     buildFeatures {
         buildConfig = true
