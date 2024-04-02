@@ -11,27 +11,25 @@ class ValidateEmail @Inject constructor(
     private val context: Context,
 ) : Validator {
 
-    override operator fun invoke(text: String): ValidationResult {
-        return when {
-            text.isEmpty() -> {
-                ValidationResult(
-                    isSuccessful = false,
-                    errorMessage = context.getString(R.string.field_must_be_filled)
-                )
-            }
+    override operator fun invoke(text: String): ValidationResult = when {
+        text.isEmpty() -> {
+            ValidationResult(
+                isSuccessful = false,
+                errorMessage = context.getString(R.string.field_must_be_filled)
+            )
+        }
 
-            !Patterns.EMAIL_ADDRESS.matcher(text).matches() -> {
-                ValidationResult(
-                    isSuccessful = false,
-                    errorMessage = context.getString(R.string.invalid_email)
-                )
-            }
+        !Patterns.EMAIL_ADDRESS.matcher(text).matches() -> {
+            ValidationResult(
+                isSuccessful = false,
+                errorMessage = context.getString(R.string.invalid_email)
+            )
+        }
 
-            else -> {
-                ValidationResult(
-                    isSuccessful = true
-                )
-            }
+        else -> {
+            ValidationResult(
+                isSuccessful = true
+            )
         }
     }
 }
