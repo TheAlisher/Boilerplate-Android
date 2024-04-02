@@ -47,8 +47,8 @@ private fun ViewGroup.getChildInputLayouts(): List<TextInputLayout> {
  * ```
  * buttonSignIn.setOnClickListener {
  *     validateInputs(
- *         Pair(viewModel.validateEmail, inputLayoutSignInEmail),
- *         Pair(viewModel.validatePassword, inputLayoutSignInPassword)
+ *         viewModel.validateEmail to inputLayoutSignInEmail,
+ *         viewModel.validatePassword to inputLayoutSignInPassword
  *     ) {
  *         viewModel.signIn(
  *             inputEditSignInEmail.fullText,
