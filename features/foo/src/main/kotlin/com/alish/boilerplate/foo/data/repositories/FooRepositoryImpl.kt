@@ -2,6 +2,7 @@ package com.alish.boilerplate.foo.data.repositories
 
 import com.alish.boilerplate.foo.data.pagingsources.FooPagingSource
 import com.alish.boilerplate.data.core.base.BaseRepository
+import com.alish.boilerplate.data.core.utils.onSuccess
 import com.alish.boilerplate.foo.data.db.daos.FooDao
 import com.alish.boilerplate.foo.data.network.apiservices.FooApiService
 import com.alish.boilerplate.foo.domain.repositories.FooRepository
