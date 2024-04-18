@@ -16,7 +16,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = LangOptions.jvmTarget
-        freeCompilerArgs = listOf("-Xcontext-receivers")
     }
     buildFeatures {
         buildConfig = true
@@ -25,4 +24,11 @@ android {
 
 kotlin {
     jvmToolchain(jdkVersion = LangOptions.jvmToolchain)
+}
+
+// Enable Context Receivers
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        freeCompilerArgs = freeCompilerArgs + "-Xcontext-receivers"
+    }
 }
