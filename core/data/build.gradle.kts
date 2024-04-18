@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.conventions.androidLibrary)
-    kotlin("plugin.serialization")
+
+    // Kotlinx Serialization
+    kotlin(libs.plugins.kotlinx.serialization.get().pluginId)
 
     // KSP
     alias(libs.plugins.ksp)
