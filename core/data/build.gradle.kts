@@ -24,7 +24,8 @@ android {
 
 dependencies {
 
-    implementation(project(":core:domain"))
+    // Modules
+    implementation(projects.core.domain)
 
     // Kotlin
     api(libs.kotlinx.serialization)
