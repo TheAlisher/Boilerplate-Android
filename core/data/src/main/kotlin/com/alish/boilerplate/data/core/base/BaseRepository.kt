@@ -22,7 +22,7 @@ import java.io.InterruptedIOException
 abstract class BaseRepository {
 
     /**
-     * Do network request with [DataMapper.toDomain]
+     * Do network request with [toDomain][DataMapper.toDomain]
      *
      * @receiver [doNetworkRequest]
      */
@@ -73,7 +73,7 @@ abstract class BaseRepository {
      * @param request http request function from api service
      * @param successful handle response body with custom mapping
      *
-     * @return [NetworkError] or [Response.body] in [Flow] with [Either]
+     * @return [NetworkError] or [body][Response.body] in [Flow] with [Either]
      *
      * @see [Flow]
      * @see [Either]
