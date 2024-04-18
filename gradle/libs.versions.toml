@@ -90,7 +90,7 @@ androidx-security-crypto = { module = "androidx.security:security-crypto-ktx", v
 
 # AGP - Android Gradle Plugin
 android-application = { id = "com.android.application", version.ref = "agp" }
-android-library = { id = "com.android.library", version.ref = "agp" }
+# android-library = { id = "com.android.library", version.ref = "agp" }
 
 # KSP
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
