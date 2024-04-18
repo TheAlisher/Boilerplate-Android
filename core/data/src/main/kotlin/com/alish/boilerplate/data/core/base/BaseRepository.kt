@@ -78,7 +78,6 @@ abstract class BaseRepository {
      * @see [Flow]
      * @see [Either]
      * @see [NetworkError]
-     * @see [ServerException]
      */
     private fun <T, S> doNetworkRequest(
         request: suspend () -> Response<T>,
