@@ -1,7 +1,9 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     kotlin("android") version libs.versions.kotlin apply false
-    kotlin("plugin.serialization") version libs.versions.kotlin apply false
+
+    // Kotlinx Serialization
+    alias(libs.plugins.kotlinx.serialization) apply false
 
     // Navigation Safe Args
     alias(libs.plugins.androidx.navigation.safeArgs) apply false

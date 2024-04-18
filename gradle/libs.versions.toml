@@ -93,7 +93,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 # android-library = { id = "com.android.library", version.ref = "agp" }
 
 # Kotlinx Serialization
-kotlinx-serialization = { id = "plugin.serialization" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 # KSP
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.conventions.androidFeature)
 
     // Kotlinx Serialization
-    kotlin(libs.plugins.kotlinx.serialization.get().pluginId)
+    alias(libs.plugins.kotlinx.serialization)
 
     // Navigation Safe Args
     alias(libs.plugins.androidx.navigation.safeArgs)
