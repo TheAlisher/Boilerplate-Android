@@ -3,13 +3,13 @@ package com.alish.boilerplate.foo.presentation.ui.fragments
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
-import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.feature.foo.R
 import com.alish.boilerplate.feature.foo.databinding.FragmentFooBinding
 import com.alish.boilerplate.foo.presentation.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.core.base.BaseFragment
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
+import com.alish.boilerplate.presentation.core.extensions.setupRecycler
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,12 +28,11 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
     }
 
     private fun setupPagingRecycler() = with(binding) {
-        with(recyclerFooPaging) {
-            layoutManager = LinearLayoutManager(context)
+        recyclerFooPaging.setupRecycler(
             adapter = fooPagingAdapter.withLoadStateFooter(
                 footer = CommonLoadStateAdapter { fooPagingAdapter.retry() }
             )
-        }
+        )
 
         fooPagingAdapter.addLoadStateListener { loadStates ->
             recyclerFooPaging.isVisible = loadStates.refresh is LoadState.NotLoading
