@@ -27,4 +27,7 @@ include(
     ":core:presentation"
 )
 include(":app", ":features")
-include(":features:foo")
+include(
+    ":features:foo",
+    ":features:bar"
+)
