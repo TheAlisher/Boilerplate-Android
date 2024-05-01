@@ -23,4 +23,5 @@ object Namespaces {
 
     private const val feature = "$app.feature"
     const val featureFoo = "$feature.foo"
+    const val featureBar = "$feature.bar"
 }
