@@ -22,5 +22,6 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     // Features
-    implementation(project(":features:foo"))
+    implementation(projects.features.foo)
+    implementation(projects.features.bar)
 }
