@@ -3,7 +3,7 @@ package com.alish.boilerplate.foo.presentation.ui.fragments
 import com.alish.boilerplate.foo.domain.usecases.FetchFooPagingUseCase
 import com.alish.boilerplate.presentation.core.base.BaseViewModel
 import com.alish.boilerplate.foo.domain.usecases.FetchFooUseCase
-import com.alish.boilerplate.foo.domain.usecases.GetFooUseCase
+import com.alish.boilerplate.foo.domain.usecases.GetFooListUseCase
 import com.alish.boilerplate.presentation.core.MutableUIStateFlow
 import com.alish.boilerplate.foo.presentation.models.FooUI
 import com.alish.boilerplate.foo.presentation.models.toUI
@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FooViewModel @Inject constructor(
     private val fetchFooUseCase: FetchFooUseCase,
-    private val getFooUseCase: GetFooUseCase,
+    private val getFooListUseCase: GetFooListUseCase,
     fetchFooPagingUseCase: FetchFooPagingUseCase
 ) : BaseViewModel() {
 
@@ -25,7 +25,7 @@ class FooViewModel @Inject constructor(
         fetchFooUseCase().collectNetworkRequest(_fooState) { it.toUI() }
     }
 
-    fun getFoo() = getFooUseCase().collectLocalRequestForList { it.toUI() }
+    fun getFooList() = getFooListUseCase().collectLocalRequestForList { it.toUI() }
 
     val fooPaging = fetchFooPagingUseCase().collectPagingRequest { it.toUI() }
 }

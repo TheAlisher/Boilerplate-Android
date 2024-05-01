@@ -75,7 +75,7 @@ class FooFragment : BaseFragment<FooViewModel, FragmentFooBinding>(R.layout.frag
             }
         )
 
-        viewModel.getFoo().launchAndCollectIn(viewLifecycleOwner) {
+        viewModel.getFooList().launchAndCollectIn(viewLifecycleOwner) {
             it.map { data ->
                 textFoo.text = data.bar
             }

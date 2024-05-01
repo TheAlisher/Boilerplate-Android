@@ -35,7 +35,7 @@ class FooRepositoryImpl @Inject constructor(
         FooPagingSource(service)
     })
 
-    override fun getFoo() = doLocalRequestForList {
+    override fun getFooList() = doLocalRequestForList {
         dao.getAllFoo()
     }
 }
