@@ -15,6 +15,9 @@ plugins {
 }
 
 android {
+    //TODO migrate from Namespaces to TYPESAFE_ACCESSORS namespace
+    project.logger.debug("ANIME ${projects.features.foo.toString()}")
+
     namespace = Namespaces.featureFoo
 }
 
