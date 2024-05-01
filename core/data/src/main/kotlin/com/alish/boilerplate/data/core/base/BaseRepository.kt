@@ -22,9 +22,12 @@ import java.io.InterruptedIOException
 abstract class BaseRepository {
 
     /**
-     * Do network request with [toDomain][DataMapper.toDomain]
+     * Perform a network request and map the response using the provided mapper function.
      *
-     * @receiver [doNetworkRequest]
+     * @param request The suspend function representing the network request.
+     * @return A [flow] emitting [Either] a [NetworkError] or the mapped [response object][T].
+     *
+     * @see doNetworkRequest
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestWithMapping(
         request: suspend () -> Response<T>
@@ -33,9 +36,12 @@ abstract class BaseRepository {
     }
 
     /**
-     * Do network request without mapping for primitive types
+     * Perform a network request without mapping for primitive types.
      *
-     * @receiver [doNetworkRequest]
+     * @param request The suspend function representing the network request.
+     * @return A [flow] emitting [Either] a [NetworkError] or the [response body][T].
+     *
+     * @see doNetworkRequest
      */
     protected fun <T> doNetworkRequestWithoutMapping(
         request: suspend () -> Response<T>
@@ -44,9 +50,12 @@ abstract class BaseRepository {
     }
 
     /**
-     * Do network request for [Response] with [List]
+     * Perform a network request for a list response and map each item using the provided mapper function.
      *
-     * @receiver [doNetworkRequest]
+     * @param request The suspend function representing the network request.
+     * @return A [flow] emitting [Either] a [NetworkError] or the list of mapped [response objects][T].
+     *
+     * @see doNetworkRequest
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestForList(
         request: suspend () -> Response<List<T>>
@@ -55,9 +64,12 @@ abstract class BaseRepository {
     }
 
     /**
-     * Do network request for and return [Unit]
+     * Perform a network request that does not expect any response body and returns [Unit].
      *
-     * @receiver [doNetworkRequest]
+     * @param request The suspend function representing the network request.
+     * @return A [flow] emitting [Either] a [NetworkError] or [Unit].
+     *
+     * @see doNetworkRequest
      */
     protected fun <T> doNetworkRequestUnit(
         request: suspend () -> Response<T>
@@ -66,18 +78,18 @@ abstract class BaseRepository {
     }
 
     /**
-     * Base function for do network requests
+     * Base function for performing network requests and handling responses.
      *
-     * @param T data layer model (DTO)
-     * @param S domain layer model
-     * @param request http request function from api service
-     * @param successful handle response body with custom mapping
-     *
-     * @return [NetworkError] or [body][Response.body] in [Flow] with [Either]
+     * @param T The type of the response body - data layer model (DTO).
+     * @param S The type of the domain model.
+     * @param request The suspend function representing the network http request.
+     * @param successful The function to handle successful responses and map the response body.
+     * @return A [flow] emitting [Either] a [NetworkError] or the mapped [response object][T].
      *
      * @see [Flow]
      * @see [Either]
      * @see [NetworkError]
+     * @see [toApiError]
      */
     private fun <T, S> doNetworkRequest(
         request: suspend () -> Response<T>,
