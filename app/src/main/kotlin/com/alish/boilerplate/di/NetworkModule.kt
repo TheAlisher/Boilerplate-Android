@@ -1,7 +1,6 @@
 package com.alish.boilerplate.di
 
 import com.alish.boilerplate.data.remote.NetworkClient
-import com.alish.boilerplate.foo.data.network.apiservices.FooApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,10 +16,4 @@ object NetworkModule {
     fun provideAuthenticatorApiService(
         client: NetworkClient.AuthenticatorClient
     ) = client.provideAuthenticatorApiService()
-
-    @Singleton
-    @Provides
-    fun provideFooApiService(
-        client: NetworkClient
-    ): FooApiService = client.provideApiService()
 }
