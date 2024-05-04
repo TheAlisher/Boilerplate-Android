@@ -16,7 +16,7 @@ navigation = "2.7.7"
 dagger = "2.51.1"
 retrofit = "2.11.0"
 okHttp = "5.0.0-alpha.14"
-room = "2.6.1"
+room = "2.7.0-alpha01"
 paging = "3.2.1"
 security = "1.1.0-alpha06"
 
@@ -76,7 +76,6 @@ okHttp-loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor
 # Room
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
-androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 # Paging
 androidx-paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
