@@ -4,19 +4,19 @@ kotlin = "2.0.0-RC2"
 kotlinx-serialization = "1.6.3"
 kotlinx-coroutines = "1.8.1-Beta"
 ksp = "2.0.0-RC2-1.0.20"
-material = "1.11.0"
+material = "1.12.0"
 constraintLayout = "2.1.4"
 vbpd = "1.5.9"
-core = "1.13.0"
+core = "1.13.1"
 splashscreen = "1.0.1"
 activity = "1.9.0"
-fragment = "1.6.2"
+fragment = "1.7.0"
 lifecycle = "2.7.0"
 navigation = "2.7.7"
 dagger = "2.51.1"
 retrofit = "2.11.0"
 okHttp = "5.0.0-alpha.14"
-room = "2.6.1"
+room = "2.7.0-alpha01"
 paging = "3.2.1"
 security = "1.1.0-alpha06"
 
@@ -76,7 +76,6 @@ okHttp-loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor
 # Room
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
-androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 # Paging
 androidx-paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
