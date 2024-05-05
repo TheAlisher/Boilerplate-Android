@@ -22,4 +22,6 @@ dependencies {
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.hilt.extensions)
+    ksp(libs.hilt.extensions.processor)
 }
