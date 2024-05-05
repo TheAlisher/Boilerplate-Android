@@ -1,10 +1,10 @@
-package com.alish.boilerplate.data.repository
+package com.alish.boilerplate.bar.data.repository
 
 import com.alish.boilerplate.data.core.base.BaseRepository
 import com.alish.boilerplate.data.core.utils.onSuccess
-import com.alish.boilerplate.data.db.dao.BarDao
-import com.alish.boilerplate.data.network.apiservice.BarApiService
-import com.alish.boilerplate.domain.repository.BarRepository
+import com.alish.boilerplate.bar.data.db.dao.BarDao
+import com.alish.boilerplate.bar.data.network.apiservice.BarApiService
+import com.alish.boilerplate.bar.domain.repository.BarRepository
 import javax.inject.Inject
 
 class BarRepositoryImpl @Inject constructor(
