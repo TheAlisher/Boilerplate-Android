@@ -7,9 +7,11 @@ import com.alish.boilerplate.foo.data.db.daos.FooDao
 import com.alish.boilerplate.foo.data.network.apiservices.FooApiService
 import com.alish.boilerplate.foo.domain.models.Foo
 import com.alish.boilerplate.foo.domain.repositories.FooRepository
+import it.czerwinski.android.hilt.annotations.BoundTo
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+@BoundTo(supertype = FooRepository::class)
 class FooRepositoryImpl @Inject constructor(
     private val service: FooApiService,
     private val dao: FooDao,
