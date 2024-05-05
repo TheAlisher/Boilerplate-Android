@@ -16,11 +16,11 @@ android {
 
     buildTypes {
         getByName("release") {
-            buildConfigField("String", "BASE_URL", "\"https://boilerplate.com/\"")
+            buildConfigField("String", "BASE_URL", AndroidConfig.PROD_BASE_URL)
         }
 
         getByName("debug") {
-            buildConfigField("String", "BASE_URL", "\"https://dev.boilerplate.com/\"")
+            buildConfigField("String", "BASE_URL", AndroidConfig.DEV_BASE_URL)
         }
     }
 }
