@@ -1,6 +1,6 @@
-package com.alish.boilerplate.data.network.apiservice
+package com.alish.boilerplate.bar.data.network.apiservice
 
-import com.alish.boilerplate.data.network.model.BarDTO
+import com.alish.boilerplate.bar.data.network.model.BarDTO
 import retrofit2.Response
 import retrofit2.http.GET
 

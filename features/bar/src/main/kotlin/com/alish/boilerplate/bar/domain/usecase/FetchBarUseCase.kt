@@ -1,6 +1,6 @@
-package com.alish.boilerplate.domain.usecase
+package com.alish.boilerplate.bar.domain.usecase
 
-import com.alish.boilerplate.domain.repository.BarRepository
+import com.alish.boilerplate.bar.domain.repository.BarRepository
 import javax.inject.Inject
 
 class FetchBarUseCase @Inject constructor(

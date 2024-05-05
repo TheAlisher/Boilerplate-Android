@@ -1,9 +1,9 @@
-package com.alish.boilerplate.di
+package com.alish.boilerplate.bar.di
 
-import com.alish.boilerplate.data.network.apiservice.BarApiService
+import com.alish.boilerplate.bar.data.network.apiservice.BarApiService
 import com.alish.boilerplate.data.remote.NetworkClient
-import com.alish.boilerplate.data.repository.BarRepositoryImpl
-import com.alish.boilerplate.domain.repository.BarRepository
+import com.alish.boilerplate.bar.data.repository.BarRepositoryImpl
+import com.alish.boilerplate.bar.domain.repository.BarRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

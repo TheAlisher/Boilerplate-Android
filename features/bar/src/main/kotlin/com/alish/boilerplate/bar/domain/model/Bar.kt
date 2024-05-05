@@ -1,4 +1,4 @@
-package com.alish.boilerplate.domain.model
+package com.alish.boilerplate.bar.domain.model
 
 class Bar(
     val id: Long,
