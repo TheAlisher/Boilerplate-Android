@@ -4,6 +4,9 @@ plugins {
     // Kotlinx Serialization
     alias(libs.plugins.kotlinx.serialization)
 
+    // Hilt
+    alias(libs.plugins.hilt.android)
+
     // KSP
     alias(libs.plugins.ksp)
 }
@@ -45,4 +48,8 @@ dependencies {
 
     // Security
     implementation(libs.androidx.security.crypto)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }
