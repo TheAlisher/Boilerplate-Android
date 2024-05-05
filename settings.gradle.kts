@@ -1,7 +1,6 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
-    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
@@ -20,11 +19,17 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Boilerplate-Android"
+includeBuild(
+    "build-logic"
+)
 include(
     ":core",
     ":core:data",
     ":core:domain",
     ":core:presentation"
 )
-include(":app", ":features")
-include(":features:foo")
+include(
+    ":app",
+    ":features",
+    ":features:foo"
+)
