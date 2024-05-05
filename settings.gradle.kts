@@ -31,5 +31,6 @@ include(
 include(
     ":app",
     ":features",
-    ":features:foo"
+    ":features:foo",
+    ":features:bar"
 )

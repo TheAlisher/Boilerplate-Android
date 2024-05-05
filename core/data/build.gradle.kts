@@ -4,6 +4,9 @@ plugins {
     // Kotlinx Serialization
     alias(libs.plugins.kotlinx.serialization)
 
+    // Hilt
+    alias(libs.plugins.hilt.android)
+
     // KSP
     alias(libs.plugins.ksp)
 }
@@ -13,11 +16,11 @@ android {
 
     buildTypes {
         getByName("release") {
-            buildConfigField("String", "BASE_URL", "\"https://boilerplate.com/\"")
+            buildConfigField("String", "BASE_URL", AndroidConfig.PROD_BASE_URL)
         }
 
         getByName("debug") {
-            buildConfigField("String", "BASE_URL", "\"https://dev.boilerplate.com/\"")
+            buildConfigField("String", "BASE_URL", AndroidConfig.DEV_BASE_URL)
         }
     }
 }
@@ -45,4 +48,8 @@ dependencies {
 
     // Security
     implementation(libs.androidx.security.crypto)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }

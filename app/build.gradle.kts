@@ -23,4 +23,5 @@ dependencies {
 
     // Features
     implementation(projects.features.foo)
+    implementation(projects.features.bar)
 }
