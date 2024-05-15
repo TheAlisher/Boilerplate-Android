@@ -3,21 +3,21 @@ agp = "8.4.0"
 kotlin = "2.0.0-RC3"
 kotlinx-serialization = "1.6.3"
 kotlinx-coroutines = "1.8.1"
-ksp = "2.0.0-RC2-1.0.20"
+ksp = "2.0.0-RC3-1.0.20"
 material = "1.12.0"
 constraintLayout = "2.1.4"
 vbpd = "1.5.9"
 core = "1.13.1"
 splashscreen = "1.0.1"
 activity = "1.9.0"
-fragment = "1.7.0"
-lifecycle = "2.7.0"
+fragment = "1.7.1"
+lifecycle = "2.8.0"
 navigation = "2.7.7"
 dagger = "2.51.1"
 retrofit = "2.11.0"
 okHttp = "5.0.0-alpha.14"
-room = "2.7.0-alpha01"
-paging = "3.2.1"
+room = "2.7.0-alpha02"
+paging = "3.3.0"
 security = "1.1.0-alpha06"
 
 [libraries]
@@ -48,8 +48,8 @@ androidx-activity = { module = "androidx.activity:activity", version.ref = "acti
 androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment" }
 
 # Lifecycle
-androidx-lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
-androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycle" }
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime", version.ref = "lifecycle" }
 
 # Navigation
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
