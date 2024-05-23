@@ -101,10 +101,3 @@ androidx-navigation-safeArgs = { id = "androidx.navigation.safeargs.kotlin", ver
 
 # Hilt
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
-
-# Conventions
-# version for workaround cause without this not working
-conventions-kotlinLibrary = { id = "kotlin-library-conventions", version = "1" }
-conventions-androidApp = { id = "android-app-conventions", version = "1" }
-conventions-androidLibrary = { id = "android-library-conventions", version = "1" }
-conventions-androidFeature = { id = "android-feature-conventions", version = "1" }
