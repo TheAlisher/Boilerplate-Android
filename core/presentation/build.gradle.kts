@@ -1,10 +1,8 @@
 plugins {
-    alias(libs.plugins.conventions.androidLibrary)
+    id(Conventions.androidLibrary)
 }
 
 android {
-    namespace = Namespaces.presentation
-
     buildFeatures {
         viewBinding = true
     }

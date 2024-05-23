@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.conventions.androidFeature)
+    id(Conventions.androidFeature)
 
     // Kotlinx Serialization
     alias(libs.plugins.kotlinx.serialization)
@@ -12,10 +12,6 @@ plugins {
 
     // KSP
     alias(libs.plugins.ksp)
-}
-
-android {
-    namespace = Namespaces.featureBar
 }
 
 dependencies {

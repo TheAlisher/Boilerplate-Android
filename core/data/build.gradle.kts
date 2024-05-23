@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.conventions.androidLibrary)
+    id(Conventions.androidLibrary)
 
     // Kotlinx Serialization
     alias(libs.plugins.kotlinx.serialization)
@@ -12,8 +12,6 @@ plugins {
 }
 
 android {
-    namespace = Namespaces.data
-
     buildTypes {
         getByName("release") {
             buildConfigField("String", "BASE_URL", AndroidConfig.PROD_BASE_URL)

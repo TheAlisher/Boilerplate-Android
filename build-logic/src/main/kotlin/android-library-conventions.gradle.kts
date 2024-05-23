@@ -4,6 +4,8 @@ plugins {
 }
 
 android {
+    namespace = AndroidConfig.applicationId + ".${project.name}"
+
     compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {

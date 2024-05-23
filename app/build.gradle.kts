@@ -1,15 +1,11 @@
 plugins {
-    alias(libs.plugins.conventions.androidApp)
+    id(Conventions.androidApp)
 
     // Hilt
     alias(libs.plugins.hilt.android)
 
     // KSP
     alias(libs.plugins.ksp)
-}
-
-android {
-    namespace = Namespaces.app
 }
 
 dependencies {

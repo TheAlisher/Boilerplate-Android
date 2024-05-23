@@ -4,8 +4,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.alish.boilerplate.feature.foo.R
-import com.alish.boilerplate.feature.foo.databinding.FragmentFooBinding
+import com.alish.boilerplate.foo.R
+import com.alish.boilerplate.foo.databinding.FragmentFooBinding
 import com.alish.boilerplate.foo.presentation.ui.adapters.FooPagingAdapter
 import com.alish.boilerplate.presentation.core.base.BaseFragment
 import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
