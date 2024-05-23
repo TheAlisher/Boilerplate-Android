@@ -14,10 +14,6 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-android {
-    namespace = Namespaces.featureBar
-}
-
 dependencies {
 
     implementation(libs.hilt.android)

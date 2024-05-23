@@ -12,8 +12,6 @@ plugins {
 }
 
 android {
-    namespace = Namespaces.data
-
     buildTypes {
         getByName("release") {
             buildConfigField("String", "BASE_URL", AndroidConfig.PROD_BASE_URL)

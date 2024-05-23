@@ -8,10 +8,6 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-android {
-    namespace = Namespaces.app
-}
-
 dependencies {
 
     // Hilt
