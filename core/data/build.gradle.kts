@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.conventions.androidLibrary)
+    id(Conventions.androidLibrary)
 
     // Kotlinx Serialization
     alias(libs.plugins.kotlinx.serialization)

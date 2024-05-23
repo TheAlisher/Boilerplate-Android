@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.conventions.androidApp)
+    id(Conventions.androidApp)
 
     // Hilt
     alias(libs.plugins.hilt.android)

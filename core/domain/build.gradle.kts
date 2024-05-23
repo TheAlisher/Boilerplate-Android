@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.conventions.kotlinLibrary)
+    id(Conventions.kotlinLibrary)
 }
 
 dependencies {
