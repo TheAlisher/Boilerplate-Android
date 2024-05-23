@@ -17,14 +17,3 @@ object AndroidConfig {
     const val PROD_BASE_URL = "\"https://boilerplate.com/\""
     const val DEV_BASE_URL = "\"https://dev.boilerplate.com/\""
 }
-
-object Namespaces {
-
-    const val app = AndroidConfig.applicationId
-    const val data = "$app.data"
-    const val presentation = "$app.presentation"
-
-    private const val feature = "$app.feature"
-    const val featureFoo = "$feature.foo"
-    const val featureBar = "$feature.bar"
-}
