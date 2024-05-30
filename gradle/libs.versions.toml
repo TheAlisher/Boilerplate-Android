@@ -85,14 +85,11 @@ androidx-paging-runtime = { module = "androidx.paging:paging-runtime-ktx", versi
 androidx-security-crypto = { module = "androidx.security:security-crypto-ktx", version.ref = "security" }
 
 [plugins]
-
-# Kotlin
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
 # AGP - Android Gradle Plugin
 android-application = { id = "com.android.application", version.ref = "agp" }
 
-# Kotlinx Serialization
+# Kotlin
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 # KSP
