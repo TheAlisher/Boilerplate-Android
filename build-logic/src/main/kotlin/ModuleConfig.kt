@@ -13,6 +13,8 @@ object AndroidConfig {
     const val compileSdk: Int = 34
     const val minSdk: Int = 29
     const val targetSdk: Int = 34
+    const val versionCode = 1
+    const val versionName = "1.0"
 
     const val PROD_BASE_URL = "\"https://boilerplate.com/\""
     const val DEV_BASE_URL = "\"https://dev.boilerplate.com/\""

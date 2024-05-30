@@ -12,8 +12,8 @@ android {
         applicationId = AndroidConfig.applicationId
         minSdk = AndroidConfig.minSdk
         targetSdk = AndroidConfig.targetSdk
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = AndroidConfig.versionCode
+        versionName = AndroidConfig.versionName
     }
 
     buildTypes {
