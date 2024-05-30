@@ -79,7 +79,7 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 
 # Paging
 androidx-paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
-androidx-paging-runtime = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
+androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
 
 # Security
 androidx-security-crypto = { module = "androidx.security:security-crypto-ktx", version.ref = "security" }
