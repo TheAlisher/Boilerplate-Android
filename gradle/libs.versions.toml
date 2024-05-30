@@ -86,9 +86,11 @@ androidx-security-crypto = { module = "androidx.security:security-crypto-ktx", v
 
 [plugins]
 
+# Kotlin
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
 # AGP - Android Gradle Plugin
 android-application = { id = "com.android.application", version.ref = "agp" }
-# android-library = { id = "com.android.library", version.ref = "agp" }
 
 # Kotlinx Serialization
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
