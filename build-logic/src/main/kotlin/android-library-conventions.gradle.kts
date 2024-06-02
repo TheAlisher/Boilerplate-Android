@@ -1,6 +1,17 @@
+import com.android.build.gradle.BaseExtension
+
 plugins {
     id("com.android.library")
     kotlin("android")
+}
+
+configure<BaseExtension> {
+    plugins {
+        // kotlinx-serialization
+        id("org.jetbrains.kotlin.plugin.serialization")
+        // ksp
+        id("com.google.devtools.ksp")
+    }
 }
 
 android {
