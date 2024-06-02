@@ -100,7 +100,7 @@ fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback.() -> Un
 }
 
 /**
- * Get parent fragment if parent fragment is [FlowFragment][com.alish.boilerplate.presentation.base.BaseFlowFragment].
+ * Get parent fragment if parent fragment is [FlowFragment][com.alish.boilerplate.presentation.core.base.BaseFlowFragment].
  *
  * &nbsp
  *
