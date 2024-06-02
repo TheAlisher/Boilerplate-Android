@@ -1,14 +1,8 @@
 plugins {
     id(Conventions.androidLibrary)
 
-    // Kotlinx Serialization
-    alias(libs.plugins.kotlinx.serialization)
-
     // Hilt
     alias(libs.plugins.hilt.android)
-
-    // KSP
-    alias(libs.plugins.ksp)
 }
 
 android {
