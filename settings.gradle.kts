@@ -1,4 +1,5 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+includeBuild("build-logic")
 
 pluginManagement {
     repositories {
@@ -19,9 +20,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Boilerplate-Android"
-includeBuild(
-    "build-logic"
-)
 include(
     ":core",
     ":core:data",
