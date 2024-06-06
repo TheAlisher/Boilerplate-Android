@@ -1,6 +1,7 @@
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.getByType
 
 /**
@@ -25,6 +26,9 @@ private fun VersionCatalog.findLibraryOrThrow(name: String) = findLibrary(name).
 private fun VersionCatalog.findVersionOrThrow(name: String) = findVersion(name).orElseThrow {
     NoSuchElementException("Version $name not found in version catalog")
 }.requiredVersion
+
+internal val DependencyHandlerScope.implementation get() = "implementation"
+internal val DependencyHandlerScope.ksp get() = "ksp"
 
 // Navigation
 internal fun VersionCatalog.plugNavSafeArgs() = findPluginOrThrow("androidx-navigation-safeArgs")

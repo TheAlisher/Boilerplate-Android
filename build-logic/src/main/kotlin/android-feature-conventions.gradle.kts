@@ -13,8 +13,8 @@ configure<BaseExtension> {
     }
 
     dependencies {
-        "implementation"(libs.libHiltAndroid())
-        "ksp"(libs.libHiltCompiler())
+        implementation(libs.libHiltAndroid())
+        ksp(libs.libHiltCompiler())
     }
 }
 
