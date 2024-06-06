@@ -15,19 +15,15 @@ import org.gradle.kotlin.dsl.getByType
 internal val Project.libs: VersionCatalog
     get() = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-private fun VersionCatalog.findPluginOrThrow(name: String) = findPlugin(name).orElseThrow {
-    NoSuchElementException("Plugin $name not found in version catalog")
-}.get().pluginId
-
-private fun VersionCatalog.findLibraryOrThrow(name: String) = findLibrary(name).orElseThrow {
-    NoSuchElementException("Library $name not found in version catalog")
-}.get()
-
-private fun VersionCatalog.findVersionOrThrow(name: String) = findVersion(name).orElseThrow {
-    NoSuchElementException("Version $name not found in version catalog")
-}.requiredVersion
-
+/**
+ * Workaround from
+ * [nowinandroid](https://github.com/android/nowinandroid/blob/main/build-logic/convention/src/main/kotlin/AndroidHiltConventionPlugin.kt)
+ */
 internal val DependencyHandlerScope.implementation get() = "implementation"
+/**
+ * Workaround from
+ * [nowinandroid](https://github.com/android/nowinandroid/blob/main/build-logic/convention/src/main/kotlin/AndroidHiltConventionPlugin.kt)
+ */
 internal val DependencyHandlerScope.ksp get() = "ksp"
 
 // Kotlin
@@ -43,3 +39,16 @@ internal fun VersionCatalog.plugNavSafeArgs() = findPluginOrThrow("androidx-navi
 internal fun VersionCatalog.plugHiltAndroid() = findPluginOrThrow("hilt-android")
 internal fun VersionCatalog.libHiltAndroid() = findLibraryOrThrow("hilt-android")
 internal fun VersionCatalog.libHiltCompiler() = findLibraryOrThrow("hilt-compiler")
+
+// – – –
+private fun VersionCatalog.findPluginOrThrow(name: String) = findPlugin(name).orElseThrow {
+    NoSuchElementException("Plugin $name not found in version catalog")
+}.get().pluginId
+
+private fun VersionCatalog.findLibraryOrThrow(name: String) = findLibrary(name).orElseThrow {
+    NoSuchElementException("Library $name not found in version catalog")
+}.get()
+
+private fun VersionCatalog.findVersionOrThrow(name: String) = findVersion(name).orElseThrow {
+    NoSuchElementException("Version $name not found in version catalog")
+}.requiredVersion
