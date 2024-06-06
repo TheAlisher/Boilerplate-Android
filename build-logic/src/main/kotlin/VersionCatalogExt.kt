@@ -30,6 +30,12 @@ private fun VersionCatalog.findVersionOrThrow(name: String) = findVersion(name).
 internal val DependencyHandlerScope.implementation get() = "implementation"
 internal val DependencyHandlerScope.ksp get() = "ksp"
 
+// Kotlin
+internal fun VersionCatalog.plugKotlinxSerialization() = findPluginOrThrow("kotlinx-serialization")
+
+// KSP
+internal fun VersionCatalog.plugKsp() = findPluginOrThrow("ksp")
+
 // Navigation
 internal fun VersionCatalog.plugNavSafeArgs() = findPluginOrThrow("androidx-navigation-safeArgs")
 
