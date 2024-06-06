@@ -5,11 +5,16 @@ plugins {
 }
 
 configure<BaseExtension> {
+    val libs = libs
+
     plugins {
-        // androidx-navigation-safeArgs
-        id("androidx.navigation.safeargs.kotlin")
-        // hilt-android
-        id("com.google.dagger.hilt.android")
+        id(libs.plugNavSafeArgs())
+        id(libs.plugHiltAndroid())
+    }
+
+    dependencies {
+        "implementation"(libs.libHiltAndroid())
+        "ksp"(libs.libHiltCompiler())
     }
 }
 
