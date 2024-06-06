@@ -6,11 +6,10 @@ plugins {
 }
 
 configure<BaseExtension> {
+    val libs = libs
     plugins {
-        // kotlinx-serialization
-        id("org.jetbrains.kotlin.plugin.serialization")
-        // ksp
-        id("com.google.devtools.ksp")
+        id(libs.plugKotlinxSerialization())
+        id(libs.plugKsp())
     }
 }
 
