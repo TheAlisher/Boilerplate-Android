@@ -26,6 +26,10 @@ private fun VersionCatalog.findVersionOrThrow(name: String) = findVersion(name).
     NoSuchElementException("Version $name not found in version catalog")
 }.requiredVersion
 
+// Navigation
+internal fun VersionCatalog.plugNavSafeArgs() = findPluginOrThrow("androidx-navigation-safeArgs")
+
 // Hilt
+internal fun VersionCatalog.plugHiltAndroid() = findPluginOrThrow("hilt-android")
 internal fun VersionCatalog.libHiltAndroid() = findLibraryOrThrow("hilt-android")
 internal fun VersionCatalog.libHiltCompiler() = findLibraryOrThrow("hilt-compiler")
