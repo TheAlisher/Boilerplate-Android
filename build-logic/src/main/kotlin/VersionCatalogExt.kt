@@ -20,12 +20,12 @@ private fun VersionCatalog.findPluginOrThrow(name: String) = findPlugin(name).or
 
 private fun VersionCatalog.findLibraryOrThrow(name: String) = findLibrary(name).orElseThrow {
     NoSuchElementException("Library $name not found in version catalog")
-}
+}.get()
 
 private fun VersionCatalog.findVersionOrThrow(name: String) = findVersion(name).orElseThrow {
     NoSuchElementException("Version $name not found in version catalog")
 }.requiredVersion
 
 // Hilt
-internal val VersionCatalog.libHiltAndroid get() = findLibraryOrThrow("hilt-android")
-internal val VersionCatalog.libHiltCompiler get() = findLibraryOrThrow("hilt-compiler")
+internal fun VersionCatalog.libHiltAndroid() = findLibraryOrThrow("hilt-android")
+internal fun VersionCatalog.libHiltCompiler() = findLibraryOrThrow("hilt-compiler")
