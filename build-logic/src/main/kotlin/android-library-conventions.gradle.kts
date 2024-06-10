@@ -39,4 +39,9 @@ android {
 
 kotlin {
     jvmToolchain(jdkVersion = LangOptions.jvmToolchain)
+
+    // Enable Explicit Backing Fields
+    sourceSets.all {
+        languageSettings.enableLanguageFeature("ExplicitBackingFields")
+    }
 }
