@@ -49,7 +49,3 @@ private fun VersionCatalog.findPluginOrThrow(name: String) = findPlugin(name).or
 private fun VersionCatalog.findLibraryOrThrow(name: String) = findLibrary(name).orElseThrow {
     NoSuchElementException("Library $name not found in version catalog")
 }.get()
-
-private fun VersionCatalog.findVersionOrThrow(name: String) = findVersion(name).orElseThrow {
-    NoSuchElementException("Version $name not found in version catalog")
-}.requiredVersion
