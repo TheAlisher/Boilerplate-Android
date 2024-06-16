@@ -3,6 +3,7 @@ package com.alish.boilerplate.di
 import android.content.Context
 import androidx.room.Room
 import com.alish.boilerplate.bar.data.db.dao.BarDao
+import com.alish.boilerplate.data.local.db.DatabaseConstants
 import com.alish.boilerplate.db.AppDatabase
 import com.alish.boilerplate.foo.data.db.daos.FooDao
 import dagger.Module
@@ -20,7 +21,7 @@ object DatabaseModule {
     fun provideAppDatabase(
         context: Context
     ): AppDatabase = Room
-        .databaseBuilder(context, AppDatabase::class.java, "boilerplate.db")
+        .databaseBuilder(context, AppDatabase::class.java, DatabaseConstants.NAME)
         .build()
 
     @Singleton
