@@ -19,12 +19,6 @@ internal val Project.libs: VersionCatalog
  * Workaround from
  * [nowinandroid](https://github.com/android/nowinandroid/blob/main/build-logic/convention/src/main/kotlin/AndroidHiltConventionPlugin.kt)
  */
-internal val DependencyHandlerScope.implementation get() = "implementation"
-
-/**
- * Workaround from
- * [nowinandroid](https://github.com/android/nowinandroid/blob/main/build-logic/convention/src/main/kotlin/AndroidHiltConventionPlugin.kt)
- */
 internal val DependencyHandlerScope.ksp get() = "ksp"
 
 // Kotlin
