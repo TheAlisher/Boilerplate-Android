@@ -19,7 +19,6 @@ configure<BaseExtension> {
     }
 }
 
-
 android {
     namespace = AndroidConfig.applicationId
 
@@ -58,12 +57,12 @@ android {
     }
 }
 
+kotlin {
+    jvmToolchain(LangOptions.jvmToolchain)
+}
+
 dependencies {
 
     implementation(project(":core:data"))
     implementation(project(":core:presentation"))
-}
-
-kotlin {
-    jvmToolchain(LangOptions.jvmToolchain)
 }
