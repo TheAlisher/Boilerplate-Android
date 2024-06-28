@@ -1,7 +1,24 @@
+import com.android.build.gradle.BaseExtension
+
 plugins {
     id("com.android.application")
     kotlin("android")
 }
+
+configure<BaseExtension> {
+    val libs = libs
+
+    plugins {
+        id(libs.plugHiltAndroid())
+        id(libs.plugKsp())
+    }
+
+    dependencies {
+        implementation(libs.libHiltAndroid())
+        ksp(libs.libHiltCompiler())
+    }
+}
+
 
 android {
     namespace = AndroidConfig.applicationId
