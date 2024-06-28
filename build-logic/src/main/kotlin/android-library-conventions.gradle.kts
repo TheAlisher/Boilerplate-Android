@@ -42,6 +42,6 @@ kotlin {
 
     // Enable Explicit Backing Fields
     sourceSets.all {
-        languageSettings.enableLanguageFeature("ExplicitBackingFields")
+        // languageSettings.enableLanguageFeature("ExplicitBackingFields")
     }
 }
