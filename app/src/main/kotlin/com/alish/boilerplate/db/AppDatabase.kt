@@ -4,8 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.alish.boilerplate.bar.data.db.dao.BarDao
 import com.alish.boilerplate.bar.data.db.model.BarDBO
-import com.alish.boilerplate.foo.data.db.daos.FooDao
-import com.alish.boilerplate.foo.data.db.models.FooDBO
+import com.alish.boilerplate.foo.data.db.dao.FooDao
+import com.alish.boilerplate.foo.data.db.model.FooDBO
 
 /**
  * Must to read

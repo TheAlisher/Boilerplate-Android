@@ -8,6 +8,6 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     // Features
-    implementation(projects.features.foo)
-    implementation(projects.features.bar)
+    implementation(projects.feature.foo)
+    implementation(projects.feature.bar)
 }
