@@ -1,6 +1,6 @@
-package com.alish.boilerplate.foo.domain.usecases
+package com.alish.boilerplate.foo.domain.usecase
 
-import com.alish.boilerplate.foo.domain.repositories.FooRepository
+import com.alish.boilerplate.foo.domain.repository.FooRepository
 import javax.inject.Inject
 
 class GetFooListUseCase @Inject constructor(

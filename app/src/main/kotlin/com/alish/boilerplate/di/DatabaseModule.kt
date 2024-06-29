@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.alish.boilerplate.bar.data.db.dao.BarDao
 import com.alish.boilerplate.data.local.db.DatabaseConstants
 import com.alish.boilerplate.db.AppDatabase
-import com.alish.boilerplate.foo.data.db.daos.FooDao
+import com.alish.boilerplate.foo.data.db.dao.FooDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

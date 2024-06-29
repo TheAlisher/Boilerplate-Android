@@ -1,9 +1,9 @@
 package com.alish.boilerplate.foo.di
 
 import com.alish.boilerplate.data.remote.NetworkClient
-import com.alish.boilerplate.foo.data.network.apiservices.FooApiService
-import com.alish.boilerplate.foo.data.repositories.FooRepositoryImpl
-import com.alish.boilerplate.foo.domain.repositories.FooRepository
+import com.alish.boilerplate.foo.data.network.apiservice.FooApiService
+import com.alish.boilerplate.foo.data.repository.FooRepositoryImpl
+import com.alish.boilerplate.foo.domain.repository.FooRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

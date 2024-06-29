@@ -1,9 +1,9 @@
-package com.alish.boilerplate.foo.data.network.models
+package com.alish.boilerplate.foo.data.network.model
 
 import com.alish.boilerplate.data.core.utils.DataMapper
 import com.alish.boilerplate.data.core.utils.DateSerializer
-import com.alish.boilerplate.foo.data.db.models.FooDBO
-import com.alish.boilerplate.foo.domain.models.Foo
+import com.alish.boilerplate.foo.data.db.model.FooDBO
+import com.alish.boilerplate.foo.domain.model.Foo
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.util.Date

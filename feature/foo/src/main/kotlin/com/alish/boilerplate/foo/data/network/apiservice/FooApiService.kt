@@ -1,6 +1,6 @@
-package com.alish.boilerplate.foo.data.network.apiservices
+package com.alish.boilerplate.foo.data.network.apiservice
 
-import com.alish.boilerplate.foo.data.network.models.FooDTO
+import com.alish.boilerplate.foo.data.network.model.FooDTO
 import com.alish.boilerplate.data.core.base.BasePagingResponse
 import retrofit2.Response
 import retrofit2.http.GET

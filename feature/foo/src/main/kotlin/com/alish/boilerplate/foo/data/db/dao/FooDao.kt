@@ -1,7 +1,7 @@
-package com.alish.boilerplate.foo.data.db.daos
+package com.alish.boilerplate.foo.data.db.dao
 
 import androidx.room.*
-import com.alish.boilerplate.foo.data.db.models.FooDBO
+import com.alish.boilerplate.foo.data.db.model.FooDBO
 import kotlinx.coroutines.flow.Flow
 
 @Dao
