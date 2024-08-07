@@ -4,8 +4,8 @@ plugins {
 
 dependencies {
 
-    // Room
-    ksp(libs.androidx.room.compiler)
+    // Database
+    implementation(projects.db)
 
     // Features
     implementation(projects.feature.foo)

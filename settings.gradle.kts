@@ -28,6 +28,7 @@ include(
 )
 include(
     ":app",
+    ":db",
     ":feature",
     ":feature:foo",
     ":feature:bar"
