@@ -1,10 +1,9 @@
-package com.alish.boilerplate.di
+package com.alish.boilerplate.db
 
 import android.content.Context
 import androidx.room.Room
 import com.alish.boilerplate.bar.data.db.dao.BarDao
 import com.alish.boilerplate.data.local.db.DatabaseConstants
-import com.alish.boilerplate.db.AppDatabase
 import com.alish.boilerplate.foo.data.db.dao.FooDao
 import dagger.Module
 import dagger.Provides
