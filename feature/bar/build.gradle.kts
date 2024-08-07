@@ -1,3 +1,3 @@
 plugins {
-    id(Conventions.androidFeature)
+    alias(libs.plugins.convention.android.feature)
 }

@@ -100,3 +100,9 @@ androidx-navigation-safeArgs = { id = "androidx.navigation.safeargs.kotlin", ver
 
 # Hilt
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+
+# Conventions
+convention-kotlin-library = { id = "kotlin-library-conventions", version = "1.0" }
+convention-android-app = { id = "android-app-conventions", version = "1.0" }
+convention-android-library = { id = "android-library-conventions", version = "1.0" }
+convention-android-feature = { id = "android-feature-conventions", version = "1.0" }
