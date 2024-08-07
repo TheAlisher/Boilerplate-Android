@@ -14,6 +14,7 @@ configure<BaseExtension> {
     }
 
     dependencies {
+        implementation(libs.libKotlinXSerialization())
         implementation(libs.libHiltAndroid())
         ksp(libs.libHiltCompiler())
     }
