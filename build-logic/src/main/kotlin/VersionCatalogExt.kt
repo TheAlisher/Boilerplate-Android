@@ -23,6 +23,7 @@ internal val DependencyHandlerScope.ksp get() = "ksp"
 
 // Kotlin
 internal fun VersionCatalog.plugKotlinxSerialization() = findPluginOrThrow("kotlinx-serialization")
+internal fun VersionCatalog.libKotlinXSerialization() = findLibraryOrThrow("kotlinx-serialization")
 
 // KSP
 internal fun VersionCatalog.plugKsp() = findPluginOrThrow("ksp")
