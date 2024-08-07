@@ -4,10 +4,11 @@ import android.content.Context
 import com.alish.boilerplate.presentation.R
 import com.alish.boilerplate.presentation.core.validation.ValidationResult
 import com.alish.boilerplate.presentation.core.validation.Validator
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class ValidatePassword @Inject constructor(
-    private val context: Context,
+    @ApplicationContext private val context: Context,
 ) : Validator {
 
     override operator fun invoke(text: String): ValidationResult = when {

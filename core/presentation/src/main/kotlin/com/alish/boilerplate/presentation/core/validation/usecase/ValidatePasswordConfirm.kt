@@ -3,11 +3,12 @@ package com.alish.boilerplate.presentation.core.validation.usecase
 import android.content.Context
 import com.alish.boilerplate.presentation.R
 import com.alish.boilerplate.presentation.core.validation.ValidationResult
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 // TODO: implement Validator
 class ValidatePasswordConfirm @Inject constructor(
-    private val context: Context,
+    @ApplicationContext private val context: Context,
 ) {
 
     operator fun invoke(password: String, confirmPassword: String): ValidationResult = when {

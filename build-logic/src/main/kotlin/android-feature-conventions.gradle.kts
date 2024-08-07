@@ -9,12 +9,6 @@ configure<BaseExtension> {
 
     plugins {
         id(libs.plugNavSafeArgs())
-        id(libs.plugHiltAndroid())
-    }
-
-    dependencies {
-        implementation(libs.libHiltAndroid())
-        ksp(libs.libHiltCompiler())
     }
 }
 

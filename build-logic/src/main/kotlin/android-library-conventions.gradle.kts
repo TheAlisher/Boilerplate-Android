@@ -10,6 +10,12 @@ configure<BaseExtension> {
     plugins {
         id(libs.plugKotlinxSerialization())
         id(libs.plugKsp())
+        id(libs.plugHiltAndroid())
+    }
+
+    dependencies {
+        implementation(libs.libHiltAndroid())
+        ksp(libs.libHiltCompiler())
     }
 }
 
