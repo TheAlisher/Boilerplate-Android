@@ -9,8 +9,8 @@ configure<BaseExtension> {
     val libs = libs
     plugins {
         id(libs.plugKotlinxSerialization())
-        id(libs.plugKsp())
         id(libs.plugHiltAndroid())
+        id(libs.plugKsp())
     }
 
     dependencies {
