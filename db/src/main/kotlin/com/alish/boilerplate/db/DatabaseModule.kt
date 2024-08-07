@@ -8,6 +8,7 @@ import com.alish.boilerplate.foo.data.db.dao.FooDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -18,7 +19,7 @@ object DatabaseModule {
     @Singleton
     @Provides
     fun provideAppDatabase(
-        context: Context
+        @ApplicationContext context: Context
     ): AppDatabase = Room
         .databaseBuilder(context, AppDatabase::class.java, DatabaseConstants.NAME)
         .build()
