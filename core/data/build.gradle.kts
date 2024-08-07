@@ -19,9 +19,6 @@ dependencies {
     // Modules
     implementation(projects.core.domain)
 
-    // Kotlin
-    api(libs.kotlinx.serialization)
-
     // Retrofit
     api(libs.retrofit)
     implementation(libs.retrofit.converter.kotlinx.serialization)
