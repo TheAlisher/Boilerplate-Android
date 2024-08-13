@@ -1,3 +1,5 @@
+import dev.iurysouza.modulegraph.Theme
+
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
@@ -13,4 +15,15 @@ plugins {
 
     // KSP
     alias(libs.plugins.ksp) apply false
+
+    // Module Graph
+    id("dev.iurysouza.modulegraph") version "0.10.0"
+}
+
+moduleGraphConfig {
+    readmePath.set("./GRAPH.md")
+    heading = "### Module Graph"
+    setStyleByModuleType.set(true)
+    rootModulesRegex.set(".*app.*")
+    theme.set(Theme.DARK)
 }
