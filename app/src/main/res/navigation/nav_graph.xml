@@ -5,11 +5,21 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/fooFragment">
 
+    <action
+        android:id="@+id/action_global_fooFragment"
+        app:destination="@id/fooFragment" />
+
     <fragment
         android:id="@+id/fooFragment"
         android:name="com.alish.boilerplate.foo.presentation.ui.fragment.FooFragment"
         android:label="fragment_foo"
         tools:layout="@layout/fragment_foo" />
+
+    <fragment
+        android:id="@+id/barFragment"
+        android:name="com.alish.boilerplate.bar.presentation.BarFragment"
+        android:label="fragment_bar"
+        tools:layout="@layout/fragment_bar" />
 
 
 </navigation>
