@@ -7,6 +7,8 @@ import com.alish.boilerplate.foo.domain.usecase.GetFooListUseCase
 import com.alish.boilerplate.presentation.core.MutableUIStateFlow
 import com.alish.boilerplate.foo.presentation.model.FooUI
 import com.alish.boilerplate.foo.presentation.model.toUI
+import com.alish.boilerplate.presentation.core.extensions.mapList
+import com.alish.boilerplate.presentation.core.extensions.mapPaging
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
@@ -25,7 +27,7 @@ class FooViewModel @Inject constructor(
         fetchFooUseCase().collectNetworkRequest(_fooState) { it.toUI() }
     }
 
-    fun getFooList() = getFooListUseCase().collectLocalRequestForList { it.toUI() }
+    fun getFooList() = getFooListUseCase().mapList { it.toUI() }
 
-    val fooPaging = fetchFooPagingUseCase().collectPagingRequest { it.toUI() }
+    val fooPaging = fetchFooPagingUseCase().mapPaging(this) { it.toUI() }
 }
