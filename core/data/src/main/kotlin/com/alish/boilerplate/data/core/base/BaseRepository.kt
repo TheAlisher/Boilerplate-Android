@@ -177,5 +177,5 @@ abstract class BaseRepository {
      */
     protected fun <T : DataMapper<S>, S> doLocalRequestForList(
         request: () -> Flow<List<T>>
-    ): Flow<List<S>> = request().mapList { data -> data.toDomain() } }
+    ): Flow<List<S>> = request().mapList { data -> data.toDomain() }
 }
