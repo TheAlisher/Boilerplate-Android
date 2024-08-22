@@ -9,6 +9,7 @@ import com.alish.boilerplate.data.core.utils.DataMapper
 import com.alish.boilerplate.data.core.utils.toApiError
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.domain.core.NetworkError
+import com.alish.boilerplate.domain.core.mapList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
@@ -176,5 +177,5 @@ abstract class BaseRepository {
      */
     protected fun <T : DataMapper<S>, S> doLocalRequestForList(
         request: () -> Flow<List<T>>
-    ): Flow<List<S>> = request().map { list -> list.map { data -> data.toDomain() } }
+    ): Flow<List<S>> = request().mapList { data -> data.toDomain() } }
 }
