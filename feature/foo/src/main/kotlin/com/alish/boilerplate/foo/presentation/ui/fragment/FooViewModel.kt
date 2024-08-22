@@ -1,5 +1,8 @@
 package com.alish.boilerplate.foo.presentation.ui.fragment
 
+import androidx.lifecycle.viewModelScope
+import com.alish.boilerplate.domain.core.mapList
+import com.alish.boilerplate.domain.core.mapPaging
 import com.alish.boilerplate.foo.domain.usecase.FetchFooPagingUseCase
 import com.alish.boilerplate.presentation.core.base.BaseViewModel
 import com.alish.boilerplate.foo.domain.usecase.FetchFooUseCase
@@ -7,8 +10,6 @@ import com.alish.boilerplate.foo.domain.usecase.GetFooListUseCase
 import com.alish.boilerplate.presentation.core.MutableUIStateFlow
 import com.alish.boilerplate.foo.presentation.model.FooUI
 import com.alish.boilerplate.foo.presentation.model.toUI
-import com.alish.boilerplate.presentation.core.extensions.mapList
-import com.alish.boilerplate.presentation.core.extensions.mapPaging
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
@@ -29,5 +30,5 @@ class FooViewModel @Inject constructor(
 
     fun getFooList() = getFooListUseCase().mapList { it.toUI() }
 
-    val fooPaging = fetchFooPagingUseCase().mapPaging(this) { it.toUI() }
+    val fooPaging = fetchFooPagingUseCase().mapPaging(viewModelScope) { it.toUI() }
 }
