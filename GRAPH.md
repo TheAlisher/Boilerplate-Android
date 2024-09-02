@@ -23,7 +23,6 @@ graph LR
   :db --> :feature:foo
   :db --> :feature:bar
   :feature:bar --> :core:data
-  :feature:bar --> :core:domain
   :feature:bar --> :core:presentation
   :app --> :core:data
   :app --> :core:presentation
@@ -31,7 +30,6 @@ graph LR
   :app --> :feature:foo
   :app --> :feature:bar
   :feature:foo --> :core:data
-  :feature:foo --> :core:domain
   :feature:foo --> :core:presentation
 
 classDef android-library fill:#3BD482,stroke:#fff,stroke-width:2px,color:#fff;
@@ -44,7 +42,6 @@ class :db android-library
 class :feature:foo android-library
 class :feature:bar android-library
 class :app android-application
-
 ```
 
 - - -
@@ -60,4 +57,3 @@ moduleGraphConfig {
     rootModulesRegex.set(".*app.*")
     theme.set(Theme.DARK)
 }
-```
