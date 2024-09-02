@@ -11,7 +11,7 @@ android {
 dependencies {
 
     // Modules
-    implementation(projects.core.domain)
+    api(projects.core.domain)
 
     // Kotlin
     api(libs.kotlinx.coroutines.android)

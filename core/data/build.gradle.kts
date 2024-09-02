@@ -17,7 +17,7 @@ android {
 dependencies {
 
     // Modules
-    implementation(projects.core.domain)
+    api(projects.core.domain)
 
     // Retrofit
     api(libs.retrofit)
