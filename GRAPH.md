@@ -24,7 +24,6 @@ graph LR
   :db --> :feature:bar
   :feature:bar --> :core:data
   :feature:bar --> :core:presentation
-  :app --> :core:data
   :app --> :core:presentation
   :app --> :db
   :app --> :feature:foo
