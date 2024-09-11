@@ -33,7 +33,7 @@ abstract class BaseRepository {
     protected fun <T : DataMapper<S>, S> doNetworkRequestWithMapping(
         request: suspend () -> Response<T>
     ): Flow<Either<NetworkError, S>> = doNetworkRequest(request) { body ->
-        Either.Right(body.toDomain())
+        body.toDomain()
     }
 
     /**
@@ -47,7 +47,7 @@ abstract class BaseRepository {
     protected fun <T> doNetworkRequestWithoutMapping(
         request: suspend () -> Response<T>
     ): Flow<Either<NetworkError, T>> = doNetworkRequest(request) { body ->
-        Either.Right(body)
+        body
     }
 
     /**
@@ -61,7 +61,7 @@ abstract class BaseRepository {
     protected fun <T : DataMapper<S>, S> doNetworkRequestForList(
         request: suspend () -> Response<List<T>>
     ): Flow<Either<NetworkError, List<S>>> = doNetworkRequest(request) { body ->
-        Either.Right(body.map { it.toDomain() })
+        body.map { it.toDomain() }
     }
 
     /**
@@ -75,7 +75,7 @@ abstract class BaseRepository {
     protected fun <T> doNetworkRequestUnit(
         request: suspend () -> Response<T>
     ): Flow<Either<NetworkError, Unit>> = doNetworkRequest(request) {
-        Either.Right(Unit)
+        Unit
     }
 
     /**
@@ -94,12 +94,12 @@ abstract class BaseRepository {
      */
     private fun <T, S> doNetworkRequest(
         request: suspend () -> Response<T>,
-        successful: (T) -> Either.Right<S>
+        successful: (T) -> S
     ) = flow {
         request().let {
             when {
                 it.isSuccessful && it.body() != null -> {
-                    emit(successful.invoke(it.body()!!))
+                    emit(Either.Right(successful.invoke(it.body()!!)))
                 }
 
                 !it.isSuccessful && it.code() == 422 -> {
