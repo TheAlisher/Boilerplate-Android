@@ -32,8 +32,8 @@ abstract class BaseRepository {
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestWithMapping(
         request: suspend () -> Response<T>
-    ): Flow<Either<NetworkError, S>> = doNetworkRequest(request) { body ->
-        body.toDomain()
+    ): Flow<Either<NetworkError, S>> = doNetworkRequest(request) { responseBody ->
+        responseBody.toDomain()
     }
 
     /**
@@ -46,8 +46,8 @@ abstract class BaseRepository {
      */
     protected fun <T> doNetworkRequestWithoutMapping(
         request: suspend () -> Response<T>
-    ): Flow<Either<NetworkError, T>> = doNetworkRequest(request) { body ->
-        body
+    ): Flow<Either<NetworkError, T>> = doNetworkRequest(request) { responseBody ->
+        responseBody
     }
 
     /**
@@ -60,8 +60,8 @@ abstract class BaseRepository {
      */
     protected fun <T : DataMapper<S>, S> doNetworkRequestForList(
         request: suspend () -> Response<List<T>>
-    ): Flow<Either<NetworkError, List<S>>> = doNetworkRequest(request) { body ->
-        body.map { it.toDomain() }
+    ): Flow<Either<NetworkError, List<S>>> = doNetworkRequest(request) { responseBody ->
+        responseBody.map { it.toDomain() }
     }
 
     /**
