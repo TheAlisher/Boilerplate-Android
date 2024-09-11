@@ -98,8 +98,10 @@ abstract class BaseRepository {
     ) = flow {
         request().let {
             when {
-                it.isSuccessful && it.body() != null -> {
-                    emit(Either.Right(successful.invoke(it.body()!!)))
+                it.isSuccessful -> {
+                    it.body()?.let { responseBody ->
+                        emit(Either.Right(successful.invoke(responseBody)))
+                    }
                 }
 
                 !it.isSuccessful && it.code() == 422 -> {
