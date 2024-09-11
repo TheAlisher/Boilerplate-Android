@@ -10,6 +10,6 @@ repositories {
 
 dependencies {
 
-    implementation(libs.kotlinGradlePlugin)
-    implementation(libs.androidGradlePlugin)
+    implementation(libs.kotlin.gradlePlugin)
+    implementation(libs.android.gradlePlugin)
 }
