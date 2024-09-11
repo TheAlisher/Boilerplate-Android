@@ -19,7 +19,7 @@ dependencies {
     // UI Components
     api(libs.android.material)
     api(libs.androidx.constraintLayout)
-    api(libs.android.vbpd)
+    api(libs.viewbinding.propertydelegate)
 
     // Core
     api(libs.androidx.core)

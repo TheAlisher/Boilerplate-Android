@@ -35,7 +35,7 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 # UIComponents
 android-material = { module = "com.google.android.material:material", version.ref = "material" }
 androidx-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
-android-vbpd = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version.ref = "vbpd" }
+viewbinding-propertydelegate = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version.ref = "vbpd" }
 
 # Core
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "core" }
