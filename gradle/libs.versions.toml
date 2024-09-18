@@ -16,7 +16,7 @@ navigation = "2.8.1"
 dagger = "2.52"
 retrofit = "2.11.0"
 okHttp = "5.0.0-alpha.14"
-room = "2.7.0-alpha07"
+room = "2.7.0-alpha08"
 paging = "3.3.2"
 security = "1.1.0-alpha06"
 
