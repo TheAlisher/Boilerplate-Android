@@ -35,6 +35,8 @@ internal fun VersionCatalog.plugNavSafeArgs() = findPluginOrThrow("androidx-navi
 internal fun VersionCatalog.plugHiltAndroid() = findPluginOrThrow("hilt-android")
 internal fun VersionCatalog.libHiltAndroid() = findLibraryOrThrow("hilt-android")
 internal fun VersionCatalog.libHiltCompiler() = findLibraryOrThrow("hilt-compiler")
+internal fun VersionCatalog.libHiltExtensions() = findLibraryOrThrow("hilt-extensions")
+internal fun VersionCatalog.libHiltExtensionsProcessor() = findLibraryOrThrow("hilt-extensions-processor")
 
 // – – –
 private fun VersionCatalog.findPluginOrThrow(name: String) = findPlugin(name).orElseThrow {
