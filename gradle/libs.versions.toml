@@ -14,6 +14,7 @@ fragment = "1.8.3"
 lifecycle = "2.8.6"
 navigation = "2.8.1"
 dagger = "2.52"
+hilt-extenions = "1.4.0"
 retrofit = "2.11.0"
 okHttp = "5.0.0-alpha.14"
 room = "2.7.0-alpha08"
@@ -63,6 +64,8 @@ javax-inject = { module = "javax.inject:javax.inject", version = "1" }
 # Hilt
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger" }
+hilt-extensions = { module = "it.czerwinski.android.hilt:hilt-extensions", version.ref = "hilt-extenions" }
+hilt-extensions-processor = { module = "it.czerwinski.android.hilt:hilt-processor-ksp", version.ref = "hilt-extenions" }
 
 # Retrofit
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
