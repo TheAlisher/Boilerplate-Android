@@ -14,3 +14,15 @@ interface DataMapper<T> {
      */
     fun toDomain(): T
 }
+
+/**
+ * Base mapper interface from DTO to DBO
+ *
+ * @param T entity model
+ *
+ * @author Alish
+ */
+interface DatabaseMapper<T> {
+
+    fun asDBO(): T
+}
