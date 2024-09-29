@@ -15,7 +15,7 @@ class FooRepositoryImpl @Inject constructor(
 
     override fun fetchFoo() = doNetworkRequestWithMapping {
         service.fetchFoo().onSuccess { data ->
-            dao.insertFoo(data.toDBO())
+            dao.insertFoo(data.asDBO())
         }
     }
 
