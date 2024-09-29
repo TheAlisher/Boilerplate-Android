@@ -19,19 +19,6 @@ private const val TIMEOUT_SECONDS: Long = 30
 private const val MEDIA_TYPE = "application/json; charset=UTF8"
 
 /**
- * Converts the response body to a specific API error type.
- *
- * @receiver [ResponseBody] - The response body.
- * @return [T] - The API error object.
- * @throws NullPointerException if the response body cannot be converted.
- */
-internal inline fun <reified T> ResponseBody?.toApiError(): T {
-    return this?.let { jsonClient.decodeFromString<T>(it.string()) } ?: throw NullPointerException(
-        "JsonUtil cannot convert fromJson: ${T::class.java.simpleName}"
-    )
-}
-
-/**
  * Get non-nullable body from network request
  *
  * &nbsp
@@ -119,4 +106,17 @@ private fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
     } else {
         HttpLoggingInterceptor.Level.NONE
     }
+}
+
+/**
+ * Converts the response body to a specific API error type.
+ *
+ * @receiver [ResponseBody] - The response body.
+ * @return [T] - The API error object.
+ * @throws NullPointerException if the response body cannot be converted.
+ */
+internal inline fun <reified T> ResponseBody?.toApiError(): T {
+    return this?.let { jsonClient.decodeFromString<T>(it.string()) } ?: throw NullPointerException(
+        "JsonUtil cannot convert fromJson: ${T::class.java.simpleName}"
+    )
 }
