@@ -9,7 +9,7 @@ import com.alish.boilerplate.foo.domain.usecase.FetchFooUseCase
 import com.alish.boilerplate.foo.domain.usecase.GetFooListUseCase
 import com.alish.boilerplate.presentation.core.MutableUIStateFlow
 import com.alish.boilerplate.foo.presentation.model.FooUI
-import com.alish.boilerplate.foo.presentation.model.toUI
+import com.alish.boilerplate.foo.presentation.model.asUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
@@ -25,10 +25,10 @@ class FooViewModel @Inject constructor(
     val fooState = _fooState.asStateFlow()
 
     fun fetchFoo() {
-        fetchFooUseCase().collectNetworkRequest(_fooState) { it.toUI() }
+        fetchFooUseCase().collectNetworkRequest(_fooState) { it.asUI() }
     }
 
-    fun getFooList() = getFooListUseCase().mapList { it.toUI() }
+    fun getFooList() = getFooListUseCase().mapList { it.asUI() }
 
-    val fooPaging = fetchFooPagingUseCase().mapPaging(viewModelScope) { it.toUI() }
+    val fooPaging = fetchFooPagingUseCase().mapPaging(viewModelScope) { it.asUI() }
 }

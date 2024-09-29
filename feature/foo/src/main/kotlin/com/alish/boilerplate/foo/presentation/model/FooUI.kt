@@ -8,4 +8,4 @@ data class FooUI(
     val bar: String
 ) : IBaseDiffModel<Long>
 
-fun Foo.toUI() = FooUI(id, bar)
+fun Foo.asUI() = FooUI(id, bar)
