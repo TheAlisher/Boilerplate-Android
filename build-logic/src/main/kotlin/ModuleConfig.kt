@@ -10,9 +10,9 @@ object LangOptions {
 object AndroidConfig {
 
     const val applicationId = "com.alish.boilerplate"
-    const val compileSdk: Int = 34
+    const val compileSdk: Int = 35
     const val minSdk: Int = 29
-    const val targetSdk: Int = 34
+    const val targetSdk: Int = 35
     const val versionCode = 1
     const val versionName = "1.0"
 
