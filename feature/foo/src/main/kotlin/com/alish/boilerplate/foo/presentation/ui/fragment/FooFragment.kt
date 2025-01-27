@@ -3,7 +3,6 @@ package com.alish.boilerplate.foo.presentation.ui.fragment
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
-import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alish.boilerplate.foo.R
 import com.alish.boilerplate.foo.databinding.FragmentFooBinding
 import com.alish.boilerplate.foo.presentation.ui.adapter.FooPagingAdapter
@@ -13,6 +12,7 @@ import com.alish.boilerplate.presentation.core.extensions.setupRecycler
 import com.alish.boilerplate.presentation.core.extensions.showToastLong
 import com.alish.boilerplate.presentation.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import dev.androidbroadcast.vbpd.viewBinding
 import java.io.InterruptedIOException
 
 @AndroidEntryPoint
