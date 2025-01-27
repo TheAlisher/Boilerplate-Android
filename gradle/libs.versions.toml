@@ -6,7 +6,7 @@ kotlinx-coroutines = "1.10.1"
 ksp = "2.1.0-1.0.29"
 material = "1.12.0"
 constraintLayout = "2.2.0"
-vbpd = "1.5.9"
+vbpd = "2.0.0"
 core = "1.15.0"
 splashscreen = "1.1.0-rc01"
 activity = "1.10.0"
@@ -36,7 +36,7 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 # UIComponents
 android-material = { module = "com.google.android.material:material", version.ref = "material" }
 androidx-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
-viewbinding-propertydelegate = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version.ref = "vbpd" }
+viewbinding-propertydelegate = { module = "dev.androidbroadcast.vbpd:vbpd", version.ref = "vbpd" }
 
 # Core
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "core" }
