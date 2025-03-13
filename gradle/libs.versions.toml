@@ -18,7 +18,7 @@ hilt-extenions = "1.4.0"
 retrofit = "2.11.0"
 okHttp = "5.0.0-alpha.14"
 room = "2.7.0-rc02"
-paging = "3.3.5"
+paging = "3.3.6"
 security = "1.1.0-alpha06"
 
 [libraries]
