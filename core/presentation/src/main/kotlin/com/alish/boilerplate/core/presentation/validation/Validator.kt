@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.core.validation
+package com.alish.boilerplate.core.presentation.validation
 
 interface Validator {
     operator fun invoke(text: String): ValidationResult

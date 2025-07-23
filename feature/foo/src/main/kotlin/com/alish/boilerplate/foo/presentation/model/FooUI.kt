@@ -1,7 +1,7 @@
 package com.alish.boilerplate.foo.presentation.model
 
 import com.alish.boilerplate.foo.domain.model.Foo
-import com.alish.boilerplate.presentation.core.base.IBaseDiffModel
+import com.alish.boilerplate.core.presentation.base.IBaseDiffModel
 
 data class FooUI(
     override val id: Long,

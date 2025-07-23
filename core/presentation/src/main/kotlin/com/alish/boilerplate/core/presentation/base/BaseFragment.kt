@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.core.base
+package com.alish.boilerplate.core.presentation.base
 
 import android.os.Bundle
 import android.view.View
@@ -10,10 +10,14 @@ import androidx.lifecycle.Lifecycle
 import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.core.domain.NetworkError
-import com.alish.boilerplate.presentation.core.UIState
-import com.alish.boilerplate.presentation.core.extensions.*
+import com.alish.boilerplate.core.presentation.extensions.launchAndCollectIn
+import com.alish.boilerplate.core.presentation.extensions.launchAndCollectLatestIn
+import com.alish.boilerplate.core.presentation.extensions.screenInputs
+import com.alish.boilerplate.core.presentation.extensions.showToastLong
+import com.alish.boilerplate.core.presentation.UIState
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import kotlinx.coroutines.flow.*
+import kotlin.collections.get
 
 /**
  * Base class for [Fragment]s that work with data

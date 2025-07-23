@@ -1,10 +1,10 @@
-package com.alish.boilerplate.presentation.core.extensions
+package com.alish.boilerplate.core.presentation.extensions
 
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.alish.boilerplate.presentation.core.validation.ValidationResult
-import com.alish.boilerplate.presentation.core.validation.Validator
+import com.alish.boilerplate.core.presentation.validation.ValidationResult
+import com.alish.boilerplate.core.presentation.validation.Validator
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 

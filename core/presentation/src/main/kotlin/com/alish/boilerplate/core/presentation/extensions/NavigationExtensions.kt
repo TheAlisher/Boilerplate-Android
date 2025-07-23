@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.core.extensions
+package com.alish.boilerplate.core.presentation.extensions
 
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
@@ -100,7 +100,7 @@ fun Fragment.overrideOnBackPressed(onBackPressed: OnBackPressedCallback.() -> Un
 }
 
 /**
- * Get parent fragment if parent fragment is [FlowFragment][com.alish.boilerplate.presentation.core.base.BaseFlowFragment].
+ * Get parent fragment if parent fragment is [FlowFragment][com.alish.boilerplate.core.presentation.base.BaseFlowFragment].
  *
  * &nbsp
  *

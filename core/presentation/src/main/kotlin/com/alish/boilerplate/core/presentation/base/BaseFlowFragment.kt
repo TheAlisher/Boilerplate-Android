@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.core.base
+package com.alish.boilerplate.core.presentation.base
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.alish.boilerplate.presentation.core.extensions.flowNavController
+import com.alish.boilerplate.core.presentation.extensions.flowNavController
 
 /**
  * Base class for FlowFragments
@@ -15,7 +15,7 @@ import com.alish.boilerplate.presentation.core.extensions.flowNavController
  * FlowFragment is [Fragment] that performs the functions of an activity in Single Activity Architecture, with its own
  * [FragmentContainerView][androidx.fragment.app.FragmentContainerView],
  * [NavGraph][androidx.navigation.NavGraph] and
- * [NavController][androidx.navigation.NavController]
+ * [NavController][NavController]
  *
  * @param layoutId fragment layout id
  * @param navHostFragmentId id [FragmentContainerView][androidx.fragment.app.FragmentContainerView]

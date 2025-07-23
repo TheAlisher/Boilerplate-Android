@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.core.base
+package com.alish.boilerplate.core.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

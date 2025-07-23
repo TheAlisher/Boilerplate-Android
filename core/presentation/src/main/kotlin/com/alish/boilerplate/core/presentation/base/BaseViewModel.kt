@@ -1,11 +1,11 @@
-package com.alish.boilerplate.presentation.core.base
+package com.alish.boilerplate.core.presentation.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alish.boilerplate.core.domain.Either
 import com.alish.boilerplate.core.domain.NetworkError
-import com.alish.boilerplate.presentation.core.UIState
-import com.alish.boilerplate.presentation.core.reset
+import com.alish.boilerplate.core.presentation.UIState
+import com.alish.boilerplate.core.presentation.reset
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

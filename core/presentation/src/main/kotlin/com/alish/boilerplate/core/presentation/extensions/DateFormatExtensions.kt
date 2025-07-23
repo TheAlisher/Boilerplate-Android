@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.core.extensions
+package com.alish.boilerplate.core.presentation.extensions
 
 import android.icu.text.SimpleDateFormat
 import java.util.*

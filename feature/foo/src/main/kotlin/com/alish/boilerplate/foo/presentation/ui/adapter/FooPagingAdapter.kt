@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.alish.boilerplate.foo.databinding.ItemFooBinding
-import com.alish.boilerplate.presentation.core.base.BaseDiffUtilItemCallback
+import com.alish.boilerplate.core.presentation.base.BaseDiffUtilItemCallback
 import com.alish.boilerplate.foo.presentation.model.FooUI
 
 class FooPagingAdapter : PagingDataAdapter<FooUI, FooPagingAdapter.FooPagingViewHolder>(

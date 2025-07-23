@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.core.extensions
+package com.alish.boilerplate.core.presentation.extensions
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView

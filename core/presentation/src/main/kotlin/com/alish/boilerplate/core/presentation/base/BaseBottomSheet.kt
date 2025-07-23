@@ -1,4 +1,4 @@
-package com.alish.boilerplate.presentation.core.base
+package com.alish.boilerplate.core.presentation.base
 
 import android.app.Dialog
 import android.content.DialogInterface
@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -29,7 +30,7 @@ abstract class BaseBottomSheet<Binding : ViewBinding>(
     private fun setupBottomSheetBackgroundTransparent(dialogInterface: DialogInterface) {
         val bottomSheetDialog = dialogInterface as BottomSheetDialog
         val bottomSheet = bottomSheetDialog.findViewById<View>(
-            com.google.android.material.R.id.design_bottom_sheet
+            R.id.design_bottom_sheet
         ) ?: return
         bottomSheet.setBackgroundColor(Color.TRANSPARENT)
     }
@@ -45,7 +46,7 @@ abstract class BaseBottomSheet<Binding : ViewBinding>(
     private fun setupDraggable(dialogInterface: DialogInterface, isDraggable: Boolean) {
         val bottomSheetDialog = dialogInterface as BottomSheetDialog
         val bottomSheet = bottomSheetDialog.findViewById<View>(
-            com.google.android.material.R.id.design_bottom_sheet
+            R.id.design_bottom_sheet
         ) ?: return
         bottomSheet.setBackgroundColor(Color.TRANSPARENT)
         val behavior: BottomSheetBehavior<*> = BottomSheetBehavior.from(bottomSheet)
