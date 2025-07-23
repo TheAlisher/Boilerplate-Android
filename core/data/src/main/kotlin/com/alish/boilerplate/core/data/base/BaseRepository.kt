@@ -7,9 +7,9 @@ import androidx.paging.PagingData
 import com.alish.boilerplate.data.BuildConfig
 import com.alish.boilerplate.core.data.utils.DataMapper
 import com.alish.boilerplate.core.data.utils.toApiError
-import com.alish.boilerplate.domain.core.Either
-import com.alish.boilerplate.domain.core.NetworkError
-import com.alish.boilerplate.domain.core.mapList
+import com.alish.boilerplate.core.domain.Either
+import com.alish.boilerplate.core.domain.NetworkError
+import com.alish.boilerplate.core.domain.mapList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import retrofit2.Response

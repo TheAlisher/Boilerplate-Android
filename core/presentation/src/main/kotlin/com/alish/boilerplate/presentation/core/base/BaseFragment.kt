@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
-import com.alish.boilerplate.domain.core.NetworkError
+import com.alish.boilerplate.core.domain.NetworkError
 import com.alish.boilerplate.presentation.core.UIState
 import com.alish.boilerplate.presentation.core.extensions.*
 import com.google.android.material.progressindicator.CircularProgressIndicator

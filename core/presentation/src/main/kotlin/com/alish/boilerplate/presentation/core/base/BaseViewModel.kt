@@ -2,8 +2,8 @@ package com.alish.boilerplate.presentation.core.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.alish.boilerplate.domain.core.Either
-import com.alish.boilerplate.domain.core.NetworkError
+import com.alish.boilerplate.core.domain.Either
+import com.alish.boilerplate.core.domain.NetworkError
 import com.alish.boilerplate.presentation.core.UIState
 import com.alish.boilerplate.presentation.core.reset
 import kotlinx.coroutines.Dispatchers

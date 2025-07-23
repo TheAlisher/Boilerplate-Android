@@ -1,8 +1,8 @@
 package com.alish.boilerplate.foo.presentation.ui.fragment
 
 import androidx.lifecycle.viewModelScope
-import com.alish.boilerplate.domain.core.mapList
-import com.alish.boilerplate.domain.core.mapPaging
+import com.alish.boilerplate.core.domain.mapList
+import com.alish.boilerplate.core.domain.mapPaging
 import com.alish.boilerplate.foo.domain.usecase.FetchFooPagingUseCase
 import com.alish.boilerplate.presentation.core.base.BaseViewModel
 import com.alish.boilerplate.foo.domain.usecase.FetchFooUseCase

@@ -1,4 +1,4 @@
-package com.alish.boilerplate.domain.core
+package com.alish.boilerplate.core.domain
 
 /**
  * Wrapper class for network errors
@@ -16,8 +16,8 @@ sealed class NetworkError {
      * State for displaying errors in input fields
      *
      * @param errors
-     * Map [Key][kotlin.collections.Map.Entry.key] is input name,
-     * Map [Value][kotlin.collections.Map.Entry.value] is errors from server side
+     * Map [Key][Map.Entry.key] is input name,
+     * Map [Value][Map.Entry.value] is errors from server side
      */
     class ApiInputs(val errors: MutableMap<String, List<String>>) : NetworkError()
 

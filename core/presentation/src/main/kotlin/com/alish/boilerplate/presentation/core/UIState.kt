@@ -1,7 +1,7 @@
 package com.alish.boilerplate.presentation.core
 
-import com.alish.boilerplate.domain.core.Either
-import com.alish.boilerplate.domain.core.NetworkError
+import com.alish.boilerplate.core.domain.Either
+import com.alish.boilerplate.core.domain.NetworkError
 import com.alish.boilerplate.presentation.core.base.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -1,4 +1,4 @@
-package com.alish.boilerplate.domain.core
+package com.alish.boilerplate.core.domain
 
 import androidx.paging.PagingData
 import androidx.paging.cachedIn

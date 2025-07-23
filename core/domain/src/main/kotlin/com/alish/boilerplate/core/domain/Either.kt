@@ -1,4 +1,4 @@
-package com.alish.boilerplate.domain.core
+package com.alish.boilerplate.core.domain
 
 /**
  * Either is used to short-circuit a computation upon the first error.
