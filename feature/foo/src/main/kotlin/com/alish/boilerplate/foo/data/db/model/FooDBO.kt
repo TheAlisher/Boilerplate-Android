@@ -2,7 +2,7 @@ package com.alish.boilerplate.foo.data.db.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.alish.boilerplate.data.core.utils.DataMapper
+import com.alish.boilerplate.core.data.utils.DataMapper
 import com.alish.boilerplate.foo.domain.model.Foo
 
 @Entity(tableName = "foo")

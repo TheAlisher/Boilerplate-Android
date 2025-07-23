@@ -1,6 +1,6 @@
 package com.alish.boilerplate.bar.data.network.model
 
-import com.alish.boilerplate.data.core.utils.DataMapper
+import com.alish.boilerplate.core.data.utils.DataMapper
 import com.alish.boilerplate.bar.data.db.model.BarDBO
 import com.alish.boilerplate.bar.domain.model.Bar
 import kotlinx.serialization.SerialName

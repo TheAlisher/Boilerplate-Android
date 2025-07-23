@@ -1,6 +1,6 @@
 package com.alish.boilerplate.foo.di
 
-import com.alish.boilerplate.data.remote.NetworkClient
+import com.alish.boilerplate.core.data.remote.NetworkClient
 import com.alish.boilerplate.foo.data.network.apiservice.FooApiService
 import dagger.Module
 import dagger.Provides

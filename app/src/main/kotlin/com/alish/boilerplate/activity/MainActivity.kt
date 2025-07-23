@@ -6,7 +6,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.alish.boilerplate.presentation.R.id.nav_host_fragment
 import com.alish.boilerplate.presentation.R.layout.activity_main
 import com.alish.boilerplate.R.navigation.nav_graph
-import com.alish.boilerplate.presentation.core.extensions.initNavController
+import com.alish.boilerplate.core.presentation.extensions.initNavController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

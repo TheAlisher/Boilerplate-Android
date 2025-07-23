@@ -1,8 +1,8 @@
 package com.alish.boilerplate.foo.domain.repository
 
 import com.alish.boilerplate.foo.domain.model.Foo
-import com.alish.boilerplate.domain.core.RemotePagingWrapper
-import com.alish.boilerplate.domain.core.RemoteWrapper
+import com.alish.boilerplate.core.domain.RemotePagingWrapper
+import com.alish.boilerplate.core.domain.RemoteWrapper
 import kotlinx.coroutines.flow.Flow
 
 interface FooRepository {

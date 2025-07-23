@@ -6,11 +6,11 @@ import androidx.paging.LoadState
 import com.alish.boilerplate.foo.R
 import com.alish.boilerplate.foo.databinding.FragmentFooBinding
 import com.alish.boilerplate.foo.presentation.ui.adapter.FooPagingAdapter
-import com.alish.boilerplate.presentation.core.base.BaseFragment
-import com.alish.boilerplate.presentation.core.extensions.launchAndCollectIn
-import com.alish.boilerplate.presentation.core.extensions.setupRecycler
-import com.alish.boilerplate.presentation.core.extensions.showToastLong
-import com.alish.boilerplate.presentation.paging.CommonLoadStateAdapter
+import com.alish.boilerplate.core.presentation.base.BaseFragment
+import com.alish.boilerplate.core.presentation.extensions.launchAndCollectIn
+import com.alish.boilerplate.core.presentation.extensions.setupRecycler
+import com.alish.boilerplate.core.presentation.extensions.showToastLong
+import com.alish.boilerplate.core.presentation.paging.CommonLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import dev.androidbroadcast.vbpd.viewBinding
 import java.io.InterruptedIOException

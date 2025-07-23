@@ -1,13 +1,13 @@
 package com.alish.boilerplate.foo.presentation.ui.fragment
 
 import androidx.lifecycle.viewModelScope
-import com.alish.boilerplate.domain.core.mapList
-import com.alish.boilerplate.domain.core.mapPaging
+import com.alish.boilerplate.core.domain.mapList
+import com.alish.boilerplate.core.domain.mapPaging
 import com.alish.boilerplate.foo.domain.usecase.FetchFooPagingUseCase
-import com.alish.boilerplate.presentation.core.base.BaseViewModel
+import com.alish.boilerplate.core.presentation.base.BaseViewModel
 import com.alish.boilerplate.foo.domain.usecase.FetchFooUseCase
 import com.alish.boilerplate.foo.domain.usecase.GetFooListUseCase
-import com.alish.boilerplate.presentation.core.MutableUIStateFlow
+import com.alish.boilerplate.core.presentation.MutableUIStateFlow
 import com.alish.boilerplate.foo.presentation.model.FooUI
 import com.alish.boilerplate.foo.presentation.model.asUI
 import dagger.hilt.android.lifecycle.HiltViewModel

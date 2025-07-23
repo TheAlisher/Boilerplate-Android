@@ -1,7 +1,7 @@
 package com.alish.boilerplate.bar.di
 
 import com.alish.boilerplate.bar.data.network.apiservice.BarApiService
-import com.alish.boilerplate.data.remote.NetworkClient
+import com.alish.boilerplate.core.data.remote.NetworkClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

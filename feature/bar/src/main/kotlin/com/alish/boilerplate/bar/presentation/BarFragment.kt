@@ -4,7 +4,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.alish.boilerplate.bar.R
 import com.alish.boilerplate.bar.databinding.FragmentBarBinding
-import com.alish.boilerplate.presentation.core.base.BaseFragment
+import com.alish.boilerplate.core.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import dev.androidbroadcast.vbpd.viewBinding
 import kotlinx.coroutines.delay
