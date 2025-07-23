@@ -1,6 +1,6 @@
-package com.alish.boilerplate.di
+package com.alish.boilerplate.core.di
 
-import com.alish.boilerplate.data.remote.NetworkClient
+import com.alish.boilerplate.core.data.remote.NetworkClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

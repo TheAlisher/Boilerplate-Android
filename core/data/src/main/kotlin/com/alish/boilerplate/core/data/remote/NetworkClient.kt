@@ -1,10 +1,10 @@
-package com.alish.boilerplate.data.remote
+package com.alish.boilerplate.core.data.remote
 
-import com.alish.boilerplate.data.core.utils.buildRetrofit
-import com.alish.boilerplate.data.core.utils.createOkHttpClientBuilder
-import com.alish.boilerplate.data.remote.authenticator.AuthenticatorApiService
-import com.alish.boilerplate.data.remote.authenticator.TokenAuthenticator
-import com.alish.boilerplate.data.remote.interceptors.AuthorizationInterceptor
+import com.alish.boilerplate.core.data.utils.buildRetrofit
+import com.alish.boilerplate.core.data.utils.createOkHttpClientBuilder
+import com.alish.boilerplate.core.data.remote.authenticator.AuthenticatorApiService
+import com.alish.boilerplate.core.data.remote.authenticator.TokenAuthenticator
+import com.alish.boilerplate.core.data.remote.interceptors.AuthorizationInterceptor
 import javax.inject.Inject
 import javax.inject.Singleton
 

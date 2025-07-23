@@ -1,8 +1,8 @@
 package com.alish.boilerplate.foo.data.repository
 
 import com.alish.boilerplate.foo.data.pagingsource.FooPagingSource
-import com.alish.boilerplate.data.core.base.BaseRepository
-import com.alish.boilerplate.data.core.utils.onSuccess
+import com.alish.boilerplate.core.data.base.BaseRepository
+import com.alish.boilerplate.core.data.utils.onSuccess
 import com.alish.boilerplate.foo.data.db.dao.FooDao
 import com.alish.boilerplate.foo.data.network.apiservice.FooApiService
 import com.alish.boilerplate.foo.domain.repository.FooRepository

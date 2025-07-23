@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote.authenticator
+package com.alish.boilerplate.core.data.remote.authenticator
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

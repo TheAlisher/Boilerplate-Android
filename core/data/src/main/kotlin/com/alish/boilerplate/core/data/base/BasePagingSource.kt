@@ -1,8 +1,8 @@
-package com.alish.boilerplate.data.core.base
+package com.alish.boilerplate.core.data.base
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.alish.boilerplate.data.core.utils.DataMapper
+import com.alish.boilerplate.core.data.utils.DataMapper
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException

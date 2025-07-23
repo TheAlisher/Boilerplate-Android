@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.local.preferences
+package com.alish.boilerplate.core.data.local.preferences
 
 import android.content.Context
 import android.content.SharedPreferences

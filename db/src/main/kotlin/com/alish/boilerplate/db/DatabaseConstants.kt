@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.local.db
+package com.alish.boilerplate.db
 
 object DatabaseConstants {
 

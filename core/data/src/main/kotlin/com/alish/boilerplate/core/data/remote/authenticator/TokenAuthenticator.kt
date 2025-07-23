@@ -1,6 +1,6 @@
-package com.alish.boilerplate.data.remote.authenticator
+package com.alish.boilerplate.core.data.remote.authenticator
 
-import com.alish.boilerplate.data.local.preferences.UserDataPreferences
+import com.alish.boilerplate.core.data.local.preferences.UserDataPreferences
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response

@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.core.base
+package com.alish.boilerplate.core.data.base
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.remote.authenticator
+package com.alish.boilerplate.core.data.remote.authenticator
 
 import retrofit2.Call
 import retrofit2.http.Body

@@ -1,4 +1,4 @@
-package com.alish.boilerplate.data.core.utils
+package com.alish.boilerplate.core.data.utils
 
 import android.webkit.MimeTypeMap
 import com.alish.boilerplate.data.BuildConfig

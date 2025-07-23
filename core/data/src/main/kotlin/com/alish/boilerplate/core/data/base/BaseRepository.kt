@@ -1,12 +1,12 @@
-package com.alish.boilerplate.data.core.base
+package com.alish.boilerplate.core.data.base
 
 import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.alish.boilerplate.data.BuildConfig
-import com.alish.boilerplate.data.core.utils.DataMapper
-import com.alish.boilerplate.data.core.utils.toApiError
+import com.alish.boilerplate.core.data.utils.DataMapper
+import com.alish.boilerplate.core.data.utils.toApiError
 import com.alish.boilerplate.domain.core.Either
 import com.alish.boilerplate.domain.core.NetworkError
 import com.alish.boilerplate.domain.core.mapList
