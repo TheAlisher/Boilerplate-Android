@@ -1,4 +1,4 @@
-package com.alish.boilerplate.core.di
+package com.alish.boilerplate.core.data.di
 
 import com.alish.boilerplate.core.data.remote.NetworkClient
 import dagger.Module
