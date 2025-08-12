@@ -1,5 +1,5 @@
 [versions]
-agp = "8.11.0"
+agp = "8.12.0"
 kotlin = "2.2.0"
 kotlinx-serialization = "1.9.0"
 kotlinx-coroutines = "1.10.2"
@@ -11,15 +11,15 @@ core = "1.16.0"
 splashscreen = "1.1.0-rc01"
 activity = "1.10.1"
 fragment = "1.8.8"
-lifecycle = "2.9.1"
-navigation = "2.9.1"
-dagger = "2.56.2"
+lifecycle = "2.9.2"
+navigation = "2.9.3"
+dagger = "2.57"
 hilt-extenions = "1.4.0"
 retrofit = "3.0.0"
-okHttp = "5.0.0"
+okHttp = "5.1.0"
 room = "2.7.2"
 paging = "3.3.6"
-security = "1.1.0-beta01"
+security = "1.1.0"
 
 [libraries]
 # Only for build-logic
