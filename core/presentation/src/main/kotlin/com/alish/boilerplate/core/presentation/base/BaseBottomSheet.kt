@@ -16,7 +16,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 abstract class BaseBottomSheet<Binding : ViewBinding>(
-    @LayoutRes private val layoutId: Int
+    @param:LayoutRes private val layoutId: Int
 ) : BottomSheetDialogFragment() {
 
     protected abstract val binding: Binding
