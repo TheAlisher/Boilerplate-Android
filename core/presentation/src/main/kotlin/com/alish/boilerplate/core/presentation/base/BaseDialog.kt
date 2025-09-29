@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseDialog<Binding : ViewBinding>(
-    @LayoutRes private val layoutId: Int
+    @param:LayoutRes private val layoutId: Int
 ) : AppCompatDialogFragment() {
 
     protected abstract val binding: Binding

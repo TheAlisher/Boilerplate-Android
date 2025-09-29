@@ -26,7 +26,7 @@ import com.alish.boilerplate.core.presentation.extensions.flowNavController
  */
 abstract class BaseFlowFragment(
     @LayoutRes layoutId: Int,
-    @IdRes private val navHostFragmentId: Int
+    @param:IdRes private val navHostFragmentId: Int
 ) : Fragment(layoutId) {
 
     final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

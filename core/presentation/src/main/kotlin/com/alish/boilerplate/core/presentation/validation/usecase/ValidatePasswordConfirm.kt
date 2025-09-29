@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 // TODO: implement Validator
 class ValidatePasswordConfirm @Inject constructor(
-    @ApplicationContext private val context: Context,
+    @param:ApplicationContext private val context: Context,
 ) {
 
     operator fun invoke(password: String, confirmPassword: String): ValidationResult = when {
