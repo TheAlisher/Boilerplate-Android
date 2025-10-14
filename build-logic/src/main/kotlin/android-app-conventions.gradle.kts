@@ -45,13 +45,12 @@ android {
             isDebuggable = true
         }
     }
+
     compileOptions {
         sourceCompatibility = LangOptions.javaVersion
         targetCompatibility = LangOptions.javaVersion
     }
-    kotlinOptions {
-        jvmTarget = LangOptions.jvmTarget
-    }
+
     buildFeatures {
         viewBinding = true
     }
