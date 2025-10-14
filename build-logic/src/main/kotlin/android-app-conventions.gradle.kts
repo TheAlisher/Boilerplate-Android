@@ -62,5 +62,5 @@ kotlin {
 
 dependencies {
 
-    implementation(project(":core:presentation"))
+    implementation(projectsWorkaround.core.presentation)
 }
