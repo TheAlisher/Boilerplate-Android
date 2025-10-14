@@ -35,9 +35,7 @@ android {
         sourceCompatibility = LangOptions.javaVersion
         targetCompatibility = LangOptions.javaVersion
     }
-    kotlinOptions {
-        jvmTarget = LangOptions.jvmTarget
-    }
+
     buildFeatures {
         buildConfig = true
     }
