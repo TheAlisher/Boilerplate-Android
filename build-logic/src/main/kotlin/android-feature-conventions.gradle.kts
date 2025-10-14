@@ -5,7 +5,7 @@ plugins {
 }
 
 configure<BaseExtension> {
-    val libs = libs
+    val libs = libsWorkaround
 
     plugins {
         id(libs.plugNavSafeArgs())
