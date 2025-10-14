@@ -37,9 +37,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = LangOptions.jvmTarget
-
-        // Enable Context Receivers
-        freeCompilerArgs = freeCompilerArgs + "-Xcontext-receivers"
     }
     buildFeatures {
         buildConfig = true
