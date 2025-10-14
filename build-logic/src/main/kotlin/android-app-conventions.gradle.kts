@@ -6,7 +6,7 @@ plugins {
 }
 
 configure<BaseExtension> {
-    val libs = libs
+    val libs = libsWorkaround
 
     plugins {
         id(libs.plugHiltAndroid())
@@ -15,7 +15,7 @@ configure<BaseExtension> {
 
     dependencies {
         implementation(libs.libHiltAndroid())
-        ksp(libs.libHiltCompiler())
+        kspWorkaround(libs.libHiltCompiler())
     }
 }
 
@@ -62,5 +62,5 @@ kotlin {
 
 dependencies {
 
-    implementation(project(":core:presentation"))
+    implementation(projectsWorkaround.core.presentation)
 }

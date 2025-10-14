@@ -5,7 +5,7 @@ plugins {
 }
 
 configure<BaseExtension> {
-    val libs = libs
+    val libs = libsWorkaround
 
     plugins {
         id(libs.plugNavSafeArgs())
@@ -21,6 +21,6 @@ android {
 
 dependencies {
 
-    implementation(project(":core:data"))
-    implementation(project(":core:presentation"))
+    implementation(projectsWorkaround.core.data)
+    implementation(projectsWorkaround.core.presentation)
 }

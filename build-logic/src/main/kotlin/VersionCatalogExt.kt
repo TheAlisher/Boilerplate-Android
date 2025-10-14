@@ -1,7 +1,8 @@
 import org.gradle.api.Project
+import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.kotlin.dsl.DependencyHandlerScope
+import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.kotlin.dsl.getByType
 
 /**
@@ -12,14 +13,16 @@ import org.gradle.kotlin.dsl.getByType
  * [article](https://proandroiddev.com/gradle-kotlin-convention-plugins-for-modularized-structure-shared-build-logic-e740e1f07e88)
  * [github](https://github.com/uteke/gradle-kotlin-convention-plugins/blob/main/build-logic/src/main/kotlin/VersionCatalogExtensions.kt)
  */
-internal val Project.libs: VersionCatalog
+internal val Project.libsWorkaround: VersionCatalog
     get() = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 /**
  * Workaround from
  * [nowinandroid](https://github.com/android/nowinandroid/blob/main/build-logic/convention/src/main/kotlin/AndroidHiltConventionPlugin.kt)
  */
-internal val DependencyHandlerScope.ksp get() = "ksp"
+internal fun DependencyHandler.kspWorkaround(dependencyNotation: Any): Dependency? = add(
+    "ksp", dependencyNotation
+)
 
 // Kotlin
 internal fun VersionCatalog.plugKotlinxSerialization() = findPluginOrThrow("kotlinx-serialization")
