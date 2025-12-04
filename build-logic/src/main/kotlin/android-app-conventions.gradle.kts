@@ -50,11 +50,6 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = LangOptions.javaVersion
-        targetCompatibility = LangOptions.javaVersion
-    }
-
     buildFeatures {
         viewBinding = true
     }

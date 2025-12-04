@@ -42,11 +42,6 @@ android {
         minSdk = AndroidConfig.minSdk
     }
 
-    compileOptions {
-        sourceCompatibility = LangOptions.javaVersion
-        targetCompatibility = LangOptions.javaVersion
-    }
-
     buildFeatures {
         buildConfig = true
     }
