@@ -34,12 +34,12 @@ configure<BaseExtension> {
 }
 
 android {
-    namespace = AndroidConfig.applicationId + ".${project.name}"
+    namespace = AndroidConfig.APPLICATION_ID + ".${project.name}"
 
-    compileSdk = AndroidConfig.compileSdk
+    compileSdk = AndroidConfig.COMPILE_SDK
 
     defaultConfig {
-        minSdk = AndroidConfig.minSdk
+        minSdk = AndroidConfig.MIN_SDK
     }
 
     buildFeatures {
@@ -48,5 +48,5 @@ android {
 }
 
 kotlin {
-    jvmToolchain(jdkVersion = LangOptions.jvmToolchain)
+    jvmToolchain(jdkVersion = LangOptions.JVM_TOOLCHAIN)
 }

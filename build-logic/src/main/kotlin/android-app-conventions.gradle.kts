@@ -24,16 +24,16 @@ configure<BaseExtension> {
 }
 
 android {
-    namespace = AndroidConfig.applicationId
+    namespace = AndroidConfig.APPLICATION_ID
 
-    compileSdk = AndroidConfig.compileSdk
+    compileSdk = AndroidConfig.COMPILE_SDK
 
     defaultConfig {
-        applicationId = AndroidConfig.applicationId
-        minSdk = AndroidConfig.minSdk
-        targetSdk = AndroidConfig.targetSdk
-        versionCode = AndroidConfig.versionCode
-        versionName = AndroidConfig.versionName
+        applicationId = AndroidConfig.APPLICATION_ID
+        minSdk = AndroidConfig.MIN_SDK
+        targetSdk = AndroidConfig.TARGET_SDK
+        versionCode = AndroidConfig.VERSION_CODE
+        versionName = AndroidConfig.VERSION_NAME
     }
 
     buildTypes {
@@ -56,7 +56,7 @@ android {
 }
 
 kotlin {
-    jvmToolchain(LangOptions.jvmToolchain)
+    jvmToolchain(LangOptions.JVM_TOOLCHAIN)
 }
 
 dependencies {
