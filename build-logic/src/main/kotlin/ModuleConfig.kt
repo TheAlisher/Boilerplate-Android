@@ -1,10 +1,6 @@
-import org.gradle.api.JavaVersion
-
 object LangOptions {
 
     const val jvmToolchain: Int = 17
-    val javaVersion: JavaVersion = JavaVersion.VERSION_17
-    const val jvmTarget: String = jvmToolchain.toString()
 }
 
 object AndroidConfig {
