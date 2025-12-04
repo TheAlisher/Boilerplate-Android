@@ -6,20 +6,30 @@ plugins {
 }
 
 configure<BaseExtension> {
-    val libs = libsWorkaround
-
     plugins {
-        id(libs.plugKotlinxSerialization())
-        id(libs.plugHiltAndroid())
-        id(libs.plugKsp())
+
+        // Kotlinx Serialization
+        alias(libsWorkaround.plugins.kotlinx.serialization)
+
+        // Hilt
+        alias(libsWorkaround.plugins.hilt.android)
+
+        // KSP
+        alias(libsWorkaround.plugins.ksp)
     }
 
     dependencies {
-        implementation(libs.libKotlinXSerialization())
-        implementation(libs.libHiltAndroid())
-        kspWorkaround(libs.libHiltCompiler())
-        implementation(libs.libHiltExtensions())
-        kspWorkaround(libs.libHiltExtensionsProcessor())
+
+        // Kotlinx Serialization
+        implementation(libsWorkaround.kotlinx.serialization)
+
+        // Hilt
+        implementation(libsWorkaround.hilt.android)
+        kspWorkaround(libsWorkaround.hilt.compiler)
+
+        // Hilt extensions
+        implementation(libsWorkaround.hilt.extensions)
+        kspWorkaround(libsWorkaround.hilt.extensions.processor)
     }
 }
 
