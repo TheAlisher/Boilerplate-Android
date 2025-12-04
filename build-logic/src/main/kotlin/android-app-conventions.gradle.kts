@@ -6,16 +6,20 @@ plugins {
 }
 
 configure<BaseExtension> {
-    val libs = libsWorkaround
-
     plugins {
-        id(libs.plugHiltAndroid())
-        id(libs.plugKsp())
+
+        // Hilt
+        alias(libsWorkaround.plugins.hilt.android)
+
+        // KSP
+        alias(libsWorkaround.plugins.ksp)
     }
 
     dependencies {
-        implementation(libs.libHiltAndroid())
-        kspWorkaround(libs.libHiltCompiler())
+
+        // Hilt
+        implementation(libsWorkaround.hilt.android)
+        kspWorkaround(libsWorkaround.hilt.compiler)
     }
 }
 

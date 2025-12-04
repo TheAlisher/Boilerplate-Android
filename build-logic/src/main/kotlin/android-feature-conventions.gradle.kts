@@ -5,10 +5,10 @@ plugins {
 }
 
 configure<BaseExtension> {
-    val libs = libsWorkaround
-
     plugins {
-        id(libs.plugNavSafeArgs())
+
+        // Navigation Safe Args
+        alias(libsWorkaround.plugins.androidx.navigation.safeArgs)
     }
 }
 
