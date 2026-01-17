@@ -1,7 +1,7 @@
 [versions]
 agp = "8.13.1"
 kotlin = "2.3.0"
-kotlinx-serialization = "1.9.0"
+kotlinx-serialization = "1.10.0-RC"
 kotlinx-coroutines = "1.10.2"
 ksp = "2.3.4"
 material = "1.13.0"
