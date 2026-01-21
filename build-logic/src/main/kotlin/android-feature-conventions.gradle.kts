@@ -1,18 +1,16 @@
-import com.android.build.gradle.BaseExtension
+import com.android.build.api.dsl.LibraryExtension
+import org.gradle.kotlin.dsl.configure
 
 plugins {
     id("android-library-conventions")
 }
 
-configure<BaseExtension> {
+extensions.configure<LibraryExtension> {
     plugins {
 
         // Navigation Safe Args
         alias(libsWorkaround.plugins.androidx.navigation.safeArgs)
     }
-}
-
-android {
 
     buildFeatures {
         viewBinding = true

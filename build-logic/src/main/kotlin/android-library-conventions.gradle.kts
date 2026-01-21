@@ -1,11 +1,11 @@
-import com.android.build.gradle.BaseExtension
+import com.android.build.api.dsl.LibraryExtension
 
 plugins {
     id("com.android.library")
-    kotlin("android")
 }
 
-configure<BaseExtension> {
+extensions.configure<LibraryExtension> {
+
     plugins {
 
         // Kotlinx Serialization
@@ -18,22 +18,6 @@ configure<BaseExtension> {
         alias(libsWorkaround.plugins.ksp)
     }
 
-    dependencies {
-
-        // Kotlinx Serialization
-        implementation(libsWorkaround.kotlinx.serialization)
-
-        // Hilt
-        implementation(libsWorkaround.hilt.android)
-        kspWorkaround(libsWorkaround.hilt.compiler)
-
-        // Hilt extensions
-        implementation(libsWorkaround.hilt.extensions)
-        kspWorkaround(libsWorkaround.hilt.extensions.processor)
-    }
-}
-
-android {
     namespace = AndroidConfig.APPLICATION_ID + ".${project.name}"
 
     compileSdk = AndroidConfig.COMPILE_SDK
@@ -49,4 +33,18 @@ android {
 
 kotlin {
     jvmToolchain(jdkVersion = LangOptions.JVM_TOOLCHAIN)
+}
+
+dependencies {
+
+    // Kotlinx Serialization
+    implementation(libsWorkaround.kotlinx.serialization)
+
+    // Hilt
+    implementation(libsWorkaround.hilt.android)
+    kspWorkaround(libsWorkaround.hilt.compiler)
+
+    // Hilt extensions
+    implementation(libsWorkaround.hilt.extensions)
+    kspWorkaround(libsWorkaround.hilt.extensions.processor)
 }
