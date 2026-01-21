@@ -43,8 +43,4 @@ dependencies {
     // Hilt
     implementation(libsWorkaround.hilt.android)
     kspWorkaround(libsWorkaround.hilt.compiler)
-
-    // Hilt extensions
-    implementation(libsWorkaround.hilt.extensions)
-    kspWorkaround(libsWorkaround.hilt.extensions.processor)
 }
