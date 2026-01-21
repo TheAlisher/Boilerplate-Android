@@ -1,11 +1,10 @@
-import com.android.build.gradle.BaseExtension
+import com.android.build.api.dsl.ApplicationExtension
 
 plugins {
     id("com.android.application")
-    kotlin("android")
 }
 
-configure<BaseExtension> {
+extensions.configure<ApplicationExtension> {
     plugins {
 
         // Hilt
@@ -15,15 +14,6 @@ configure<BaseExtension> {
         alias(libsWorkaround.plugins.ksp)
     }
 
-    dependencies {
-
-        // Hilt
-        implementation(libsWorkaround.hilt.android)
-        kspWorkaround(libsWorkaround.hilt.compiler)
-    }
-}
-
-android {
     namespace = AndroidConfig.APPLICATION_ID
 
     compileSdk = AndroidConfig.COMPILE_SDK
@@ -62,4 +52,8 @@ kotlin {
 dependencies {
 
     implementation(projectsWorkaround.core.presentation)
+
+    // Hilt
+    implementation(libsWorkaround.hilt.android)
+    kspWorkaround(libsWorkaround.hilt.compiler)
 }
