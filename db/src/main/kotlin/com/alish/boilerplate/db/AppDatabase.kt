@@ -6,8 +6,6 @@ import com.alish.boilerplate.bar.data.db.dao.BarDao
 import com.alish.boilerplate.bar.data.db.model.BarDBO
 import com.alish.boilerplate.foo.data.db.dao.FooDao
 import com.alish.boilerplate.foo.data.db.model.FooDBO
-import it.czerwinski.android.hilt.annotations.FactoryMethod
-import javax.inject.Singleton
 
 /**
  * Must to read
@@ -25,11 +23,7 @@ import javax.inject.Singleton
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    @FactoryMethod
-    @Singleton
     abstract fun fooDao(): FooDao
 
-    @FactoryMethod
-    @Singleton
     abstract fun barDao(): BarDao
 }
