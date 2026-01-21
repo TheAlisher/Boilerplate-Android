@@ -1,5 +1,12 @@
 plugins {
     alias(libs.plugins.convention.android.library)
+
+    // Room
+    alias(libs.plugins.androidx.room)
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 dependencies {
