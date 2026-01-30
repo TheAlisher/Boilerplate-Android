@@ -17,7 +17,7 @@ dagger = "2.59"
 retrofit = "3.0.0"
 okHttp = "5.3.2"
 room = "2.8.4"
-paging = "3.3.6"
+paging = "3.4.0"
 security = "1.1.0"
 
 [libraries]
