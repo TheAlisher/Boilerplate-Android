@@ -3,27 +3,29 @@ package com.alish.boilerplate.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.alish.boilerplate.presentation.R.id.nav_host_fragment
-import com.alish.boilerplate.presentation.R.layout.activity_main
-import com.alish.boilerplate.R.navigation.nav_graph
+import androidx.navigation.NavController
+import com.alish.boilerplate.R
+import com.alish.boilerplate.core.presentation.extensions.ActivityNavControllerProvider
 import com.alish.boilerplate.core.presentation.extensions.initNavController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ActivityNavControllerProvider {
 
-    private val navController by lazy { initNavController(nav_host_fragment) }
+    private val navController by lazy { initNavController(R.id.nav_host_fragment) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
-        setContentView(activity_main)
+        setContentView(R.layout.activity_main)
 
         setupNavigation()
     }
 
     private fun setupNavigation() {
-        val navGraph = navController.navInflater.inflate(nav_graph)
+        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
         navController.graph = navGraph
     }
+
+    override fun activityNavController(): NavController = navController
 }
