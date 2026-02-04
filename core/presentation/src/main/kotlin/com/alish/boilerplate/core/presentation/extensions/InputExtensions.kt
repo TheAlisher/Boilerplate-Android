@@ -2,7 +2,6 @@ package com.alish.boilerplate.core.presentation.extensions
 
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.core.presentation.validation.ValidationResult
 import com.alish.boilerplate.core.presentation.validation.Validator
 import com.google.android.material.textfield.TextInputEditText
@@ -14,28 +13,20 @@ import com.google.android.material.textfield.TextInputLayout
 val TextInputEditText.fullText: String get() = this.text.toString().trim()
 
 /**
- * @receiver [ViewBinding]
- * @see [getChildInputLayouts]
+ * Collects all [TextInputLayout] inside this [ViewGroup] (DFS traversal).
+ *
+ * @param out destination list to append found inputs.
  */
-val ViewBinding.screenInputs get() = (this.root as ViewGroup).getChildInputLayouts()
-
-/**
- * @receiver [ViewGroup]
- * @return [List] with [TextInputLayout] in fragments xml
- */
-private fun ViewGroup.getChildInputLayouts(): List<TextInputLayout> {
-    val inputs = mutableListOf<TextInputLayout>()
+fun ViewGroup.collectInputLayouts(out: MutableList<TextInputLayout>) {
     for (i in 0 until childCount) {
         val childView = getChildAt(i)
+
         if (childView is TextInputLayout) {
-            inputs.add(childView)
-        }
-        val childViewGroup = childView as? ViewGroup
-        if (childViewGroup !is TextInputLayout) {
-            childViewGroup?.getChildInputLayouts()
+            out.add(childView)
+        } else if (childView is ViewGroup) {
+            childView.collectInputLayouts(out)
         }
     }
-    return inputs
 }
 
 /**

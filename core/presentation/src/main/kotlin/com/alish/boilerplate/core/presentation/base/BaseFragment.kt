@@ -2,6 +2,7 @@ package com.alish.boilerplate.core.presentation.base
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
@@ -12,10 +13,11 @@ import androidx.viewbinding.ViewBinding
 import com.alish.boilerplate.core.domain.NetworkError
 import com.alish.boilerplate.core.presentation.extensions.launchAndCollectIn
 import com.alish.boilerplate.core.presentation.extensions.launchAndCollectLatestIn
-import com.alish.boilerplate.core.presentation.extensions.screenInputs
 import com.alish.boilerplate.core.presentation.extensions.showToastLong
 import com.alish.boilerplate.core.presentation.UIState
+import com.alish.boilerplate.core.presentation.extensions.collectInputLayouts
 import com.google.android.material.progressindicator.CircularProgressIndicator
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.flow.*
 import kotlin.collections.get
 
@@ -31,10 +33,11 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected abstract val viewModel: ViewModel
     protected abstract val binding: Binding
 
-	private val screenInputs by lazy { binding.screenInputs }
+    private var screenInputs: List<TextInputLayout> = emptyList()
 
     final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupScreenInputs()
 
         initialize()
         setupListeners()
@@ -42,16 +45,32 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         setupSubscribers()
     }
 
-    protected open fun initialize() {
+    private fun setupScreenInputs() {
+        val root = (binding.root as? ViewGroup)
+
+        if (root == null) {
+            // Log it with your logger
+            // This fragment root view is not ViewGroup, screenInputs will be empty"
+            println("")
+            return
+        }
+
+        screenInputs = buildList {
+            root.collectInputLayouts(this)
+        }
     }
 
-    protected open fun setupListeners() {
-    }
+    protected open fun initialize() {}
 
-    protected open fun setupRequests() {
-    }
+    protected open fun setupListeners() {}
 
-    protected open fun setupSubscribers() {
+    protected open fun setupRequests() {}
+
+    protected open fun setupSubscribers() {}
+
+    override fun onDestroyView() {
+        screenInputs = emptyList()
+        super.onDestroyView()
     }
 
     /**
@@ -77,6 +96,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
                 onError?.invoke(it.error)
                 it.error.setupApiErrors()
             }
+
             is UIState.Success -> {
                 onSuccess.invoke(it.data)
             }
