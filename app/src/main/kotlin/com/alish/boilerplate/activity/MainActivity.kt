@@ -24,6 +24,15 @@ class MainActivity : AppCompatActivity(), ActivityNavControllerProvider {
 
     private fun setupNavigation() {
         val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+        // Check start destination
+        // when {
+        //    isSomething -> {
+        //        navGraph.setStartDestination(R.id.some_flow_destination)
+        //    }
+        //    else -> {
+        //        navGraph.setStartDestination(R.id.some_other_flow_destination)
+        //    }
+        // }
         navController.graph = navGraph
     }
 
