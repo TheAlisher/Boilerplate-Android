@@ -10,24 +10,21 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import com.alish.boilerplate.presentation.R
 
 /**
  * Init [NavController]
- *
- * &nbsp
  *
  * ## How to use:
  * ```
  * class Activity : AppCompatActivity() {
  *
- *     private val navController by lazy { initNavController(R.id.nav_host_fragment) }
+ *     val navController by lazy { initNavController(R.id.nav_host_fragment) }
  * }
  * ```
  *
  * @receiver [AppCompatActivity]
  *
- * @param navHostId Fragment Container view id
+ * @param navHostId ID of the [NavHostFragment] container view (`FragmentContainerView`)
  *
  * @see [NavController]
  * @see [NavHostFragment]
@@ -39,20 +36,38 @@ fun AppCompatActivity.initNavController(@IdRes navHostId: Int): NavController {
 }
 
 /**
- * Get activity nav controller with [MainNavHostId][R.id.nav_host_fragment]
- *
- * @receiver [Fragment]
- *
- * @see [findNavController]
+ * A contract for activities that can provide a main [NavController]
  */
-fun Fragment.activityNavController() = requireActivity().findNavController(R.id.nav_host_fragment)
+fun interface ActivityNavControllerProvider {
+    fun activityNavController(): NavController
+}
 
 /**
- * Get flow nav controller with [FragmentContainerView][androidx.fragment.app.FragmentContainerView] id
+ * Returns the activity-level [NavController] from the current [Fragment]
+ *
+ * The hosting activity must implement [ActivityNavControllerProvider]
  *
  * @receiver [Fragment]
+ * @throws IllegalStateException if the activity does not implement [ActivityNavControllerProvider].
  *
- * @param navHostId flow container view id
+ * @see androidx.navigation.Navigation.findNavController
+ */
+fun Fragment.activityNavController(): NavController {
+    val activityNavControllerProvider = requireActivity() as? ActivityNavControllerProvider
+
+    return activityNavControllerProvider?.let {
+        activityNavControllerProvider.activityNavController()
+    } ?: error("MainActivity not implemented ActivityNavControllerProvider")
+}
+
+/**
+ * Returns a [NavController] for a nested/flow container view located in the activity
+ *
+ * @receiver [Fragment]
+ * @param navHostId ID of the flow container view (NavHostFragment container)
+ *
+ * @see androidx.navigation.Navigation.findNavController
+ * @see com.alish.boilerplate.core.presentation.base.BaseFlowFragment
  */
 fun Fragment.flowNavController(@IdRes navHostId: Int) = requireActivity().findNavController(
     navHostId
