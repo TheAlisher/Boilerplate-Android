@@ -12,29 +12,35 @@ class TokenAuthenticator @Inject constructor(
 	private val userData: UserDataPreferences,
 ) : Authenticator {
 
+    @Synchronized
     override fun authenticate(route: Route?, response: Response): Request? {
-        synchronized(this) {
-            val tokens = service.refreshToken(
-                RefreshToken(userData.refreshToken)
-            ).execute()
+        val currentToken = userData.accessToken
+        if (response.request.header("Authorization") != "Bearer $currentToken") {
+            return response.request.newBuilder()
+                .header("Authorization", "Bearer $currentToken")
+                .build()
+        }
 
-            return when {
-                tokens.isSuccessful && tokens.body() != null -> {
-                    with(userData) {
-                        accessToken = tokens.body()!!.accessToken
-                        refreshToken = tokens.body()!!.refreshToken
-                    }
+        val tokens = service.refreshToken(
+            RefreshToken(userData.refreshToken)
+        ).execute()
 
-                    response
-                        .request
-                        .newBuilder()
-                        .header("Authorization", "Bearer ${userData.accessToken}")
-                        .build()
+        return when {
+            tokens.isSuccessful && tokens.body() != null -> {
+                with(userData) {
+                    accessToken = tokens.body()!!.accessToken
+                    refreshToken = tokens.body()!!.refreshToken
                 }
 
-                else -> {
-                    null
-                }
+                response
+                    .request
+                    .newBuilder()
+                    .header("Authorization", "Bearer ${userData.accessToken}")
+                    .build()
+            }
+
+            else -> {
+                null
             }
         }
     }
