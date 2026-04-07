@@ -1,6 +1,6 @@
 object LangOptions {
 
-    const val JVM_TOOLCHAIN: Int = 17
+    const val JVM_TOOLCHAIN: Int = 21
 }
 
 object AndroidConfig {
