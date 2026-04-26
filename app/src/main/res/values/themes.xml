@@ -7,5 +7,9 @@
         <item name="postSplashScreenTheme">@style/Theme.BoilerplateAndroid</item>
     </style>
 
+    <style name="Theme.BoilerplateAndroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/White</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 
 </resources>
