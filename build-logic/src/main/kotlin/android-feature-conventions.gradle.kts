@@ -21,4 +21,5 @@ dependencies {
 
     implementation(projectsWorkaround.core.data)
     implementation(projectsWorkaround.core.presentation)
+    implementation(projectsWorkaround.designSystem)
 }

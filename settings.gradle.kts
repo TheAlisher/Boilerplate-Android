@@ -34,7 +34,8 @@ include(
     ":core",
     ":core:data",
     ":core:domain",
-    ":core:presentation"
+    ":core:presentation",
+    ":designSystem"
 )
 include(
     ":app",
