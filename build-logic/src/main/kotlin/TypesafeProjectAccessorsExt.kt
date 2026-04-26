@@ -6,7 +6,7 @@ internal val Project.projectsWorkaround: ProjectAccessors
 internal class ProjectAccessors(project: Project) {
 
     val core = Core(project)
-    val designSystem = project.project(":designSystem")
+    val designSystem = project.project(":design-system")
 
     class Core(private val project: Project) {
 

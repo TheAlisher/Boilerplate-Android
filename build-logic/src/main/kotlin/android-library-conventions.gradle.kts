@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.LibraryExtension
+import kotlin.text.replace
 
 plugins {
     id("com.android.library")
@@ -18,7 +19,7 @@ extensions.configure<LibraryExtension> {
         alias(libsWorkaround.plugins.ksp)
     }
 
-    namespace = AndroidConfig.APPLICATION_ID + ".${project.name}"
+    namespace = AndroidConfig.APPLICATION_ID + ".${project.name.replace("-", ".")}"
 
     compileSdk = AndroidConfig.COMPILE_SDK
 
