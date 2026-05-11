@@ -23,10 +23,6 @@ dependencies {
 
     // Core
     api(libs.androidx.core)
-    api(libs.androidx.core.splashscreen)
-
-    // Activity
-    api(libs.androidx.activity)
 
     // Fragment
     api(libs.androidx.fragment)

@@ -51,7 +51,14 @@ kotlin {
 
 dependencies {
 
+    // Modules
     implementation(projectsWorkaround.core.presentation)
+
+    // Activity
+    implementation(libsWorkaround.androidx.activity)
+
+    // Splash
+    implementation(libsWorkaround.androidx.core.splashscreen)
 
     // Hilt
     implementation(libsWorkaround.hilt.android)
