@@ -2,7 +2,6 @@ package com.alish.boilerplate.core.presentation.extensions
 
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.alish.boilerplate.core.presentation.validation.ValidationResult
 import com.alish.boilerplate.core.presentation.validation.Validator
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -54,49 +53,26 @@ fun ViewGroup.collectInputLayouts(out: MutableList<TextInputLayout>) {
  */
 fun Fragment.validateInputs(
     vararg validatorWithInput: Pair<Validator, TextInputLayout>,
-    successful: () -> Unit,
+    onSuccess: () -> Unit
 ) {
-    // Perform validation for each validator-input pair
-    val validationResultsPair = validatorWithInput.map {
-        val validator = it.first
-        val inputLayout = it.second
-        val inputEdit = (inputLayout.editText as TextInputEditText)
-
-        Pair(validator.invoke(inputEdit.fullText), inputLayout)
+    val validatorResults = validatorWithInput.map { (validator, inputLayout) ->
+        val text = (inputLayout.editText as TextInputEditText).fullText
+        validator(text) to inputLayout
     }
 
-    // Extract validation results
-    val validationResults = validationResultsPair.map {
-        it.first
-    }.toTypedArray()
+    val hasErrors = validatorResults.any { (result, _) -> !result.isSuccessful }
 
-    // Check if any validation result indicates error
-    if (hasError(*validationResults)) {
-        // Handle error for each input layout
-        validationResultsPair.map {
-            val validationResult = it.first
-            val inputLayout = it.second
-            if (validationResult.isToast) {
-                showToastShort(validationResult.errorMessage)
+    if (hasErrors) {
+        validatorResults.forEach { (result, inputLayout) ->
+            if (result.isToast) {
+                showToastShort(result.errorMessage)
+            } else {
+                inputLayout.error = result.errorMessage
             }
-            inputLayout.error = validationResult.errorMessage
         }
     } else {
-        // If no error, clear errors and execute success function
-        validationResultsPair.map {
-            it.second.isErrorEnabled = false
-        }
+        validatorResults.forEach { (_, inputLayout) -> inputLayout.isErrorEnabled = false }
         hideKeyboard()
-        successful()
+        onSuccess()
     }
-}
-
-/**
- * Checks if any ValidationResult indicates an error.
- *
- * @param validationResults a vararg list of ValidationResult objects.
- * @return true if any ValidationResult indicates an error, false otherwise.
- */
-private fun hasError(vararg validationResults: ValidationResult) = validationResults.any {
-    !it.isSuccessful
 }
