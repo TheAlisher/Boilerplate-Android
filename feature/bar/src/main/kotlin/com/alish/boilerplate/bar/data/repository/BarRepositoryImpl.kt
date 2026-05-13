@@ -16,7 +16,7 @@ class BarRepositoryImpl @Inject constructor(
 
     override fun fetchBar() = networkFlow {
         service.fetchBar().onSuccess { data ->
-            dao.insertBar(data.toDBO())
+            dao.insertBar(data.asDBO())
         }
     }
 }
