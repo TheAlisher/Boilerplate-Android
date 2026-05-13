@@ -20,7 +20,7 @@ class FooDTO(
     val date: Date
 ) : DataMapper<Foo>, DatabaseMapper<FooDBO> {
 
-    override fun toDomain() = Foo(id, bar)
+    override fun asDomain() = Foo(id, bar)
 
     override fun asDBO() = FooDBO(id, bar)
 }

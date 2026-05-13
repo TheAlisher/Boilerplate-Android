@@ -12,7 +12,7 @@ class BarDBO(
     val baz: String
 ) : DataMapper<Bar> {
 
-    override fun toDomain() = Bar(
+    override fun asDomain() = Bar(
         id = id,
         baz = baz
     )

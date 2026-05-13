@@ -12,7 +12,7 @@ interface DataMapper<T> {
     /**
      * Function for map data layer model to domain layer model
      */
-    fun toDomain(): T
+    fun asDomain(): T
 }
 
 /**

@@ -29,7 +29,7 @@ abstract class BasePagingSource<ValueDto : DataMapper<Value>, Value : Any>(
             val body = response.body()!!
 
             LoadResult.Page(
-                data = body.data.map { it.toDomain() },
+                data = body.data.map { it.asDomain() },
                 prevKey = null,
                 nextKey = body.next
             )
