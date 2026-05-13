@@ -36,7 +36,7 @@ abstract class BaseRepository(
     protected fun <T : DataMapper<S>, S> networkFlow(
         request: suspend () -> Response<T>
     ): RemoteWrapper<S> = doNetworkRequest(request) { responseBody ->
-        responseBody.toDomain()
+        responseBody.asDomain()
     }
 
     /**
@@ -64,7 +64,7 @@ abstract class BaseRepository(
     protected fun <T : DataMapper<S>, S> networkFlowList(
         request: suspend () -> Response<List<T>>
     ): RemoteWrapper<List<S>> = doNetworkRequest(request) { responseBody ->
-        responseBody.map { it.toDomain() }
+        responseBody.map { it.asDomain() }
     }
 
     /**
@@ -163,20 +163,20 @@ abstract class BaseRepository(
     ).flow
 
     /**
-     * Do request to local database with [DataMapper.toDomain]
+     * Do request to local database with [DataMapper.asDomain]
      *
      * @param request high-order function for request to database
      */
     protected fun <T : DataMapper<S>, S> dbFlow(
         request: () -> Flow<T>
-    ): Flow<S> = request().map { data -> data.toDomain() }
+    ): Flow<S> = request().map { data -> data.asDomain() }
 
     /**
-     * Do request to local database with [DataMapper.toDomain] for [List]
+     * Do request to local database with [DataMapper.asDomain] for [List]
      *
      * @param request high-order function for request to database
      */
     protected fun <T : DataMapper<S>, S> dbFlowList(
         request: () -> Flow<List<T>>
-    ): Flow<List<S>> = request().mapList { data -> data.toDomain() }
+    ): Flow<List<S>> = request().mapList { data -> data.asDomain() }
 }

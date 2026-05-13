@@ -12,5 +12,5 @@ class FooDBO(
     val bar: String
 ) : DataMapper<Foo> {
 
-    override fun toDomain() = Foo(id, bar)
+    override fun asDomain() = Foo(id, bar)
 }
