@@ -84,7 +84,7 @@ internal inline fun <reified T> ResponseBody?.toApiError(): T {
  * @see let
  */
 inline fun <T : Response<S>, S> T.onSuccess(block: (S) -> Unit): T {
-    this.body()?.let(block)
+    if (this.isSuccessful) this.body()?.let(block)
     return this
 }
 

@@ -9,8 +9,9 @@ import com.alish.boilerplate.core.data.utils.DataMapper
 import com.alish.boilerplate.core.data.utils.toApiError
 import com.alish.boilerplate.core.domain.Either
 import com.alish.boilerplate.core.domain.NetworkError
+import com.alish.boilerplate.core.domain.RemoteWrapper
 import com.alish.boilerplate.core.domain.mapList
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
 import java.io.InterruptedIOException
@@ -20,7 +21,9 @@ import java.io.InterruptedIOException
  *
  * @author Alish
  */
-abstract class BaseRepository {
+abstract class BaseRepository(
+    val ioDispatcher: CoroutineDispatcher
+) {
 
     /**
      * Perform a network request and map the response using the provided mapper function.
@@ -30,9 +33,9 @@ abstract class BaseRepository {
      *
      * @see doNetworkRequest
      */
-    protected fun <T : DataMapper<S>, S> doNetworkRequestWithMapping(
+    protected fun <T : DataMapper<S>, S> networkFlow(
         request: suspend () -> Response<T>
-    ): Flow<Either<NetworkError, S>> = doNetworkRequest(request) { responseBody ->
+    ): RemoteWrapper<S> = doNetworkRequest(request) { responseBody ->
         responseBody.toDomain()
     }
 
@@ -44,9 +47,9 @@ abstract class BaseRepository {
      *
      * @see doNetworkRequest
      */
-    protected fun <T> doNetworkRequestWithoutMapping(
+    protected fun <T> networkFlowRaw(
         request: suspend () -> Response<T>
-    ): Flow<Either<NetworkError, T>> = doNetworkRequest(request) { responseBody ->
+    ): RemoteWrapper<T> = doNetworkRequest(request) { responseBody ->
         responseBody
     }
 
@@ -58,9 +61,9 @@ abstract class BaseRepository {
      *
      * @see doNetworkRequest
      */
-    protected fun <T : DataMapper<S>, S> doNetworkRequestForList(
+    protected fun <T : DataMapper<S>, S> networkFlowList(
         request: suspend () -> Response<List<T>>
-    ): Flow<Either<NetworkError, List<S>>> = doNetworkRequest(request) { responseBody ->
+    ): RemoteWrapper<List<S>> = doNetworkRequest(request) { responseBody ->
         responseBody.map { it.toDomain() }
     }
 
@@ -72,11 +75,9 @@ abstract class BaseRepository {
      *
      * @see doNetworkRequest
      */
-    protected fun <T> doNetworkRequestUnit(
+    protected fun <T> networkFlowUnit(
         request: suspend () -> Response<T>
-    ): Flow<Either<NetworkError, Unit>> = doNetworkRequest(request) {
-        Unit
-    }
+    ): RemoteWrapper<Unit> = doNetworkRequest(request) {}
 
     /**
      * Base function for performing network requests and handling responses.
@@ -96,32 +97,37 @@ abstract class BaseRepository {
         request: suspend () -> Response<T>,
         successful: (T) -> S
     ) = flow {
-        request().let {
-            when {
-                it.isSuccessful -> {
-                    it.body()?.let { responseBody ->
-                        emit(Either.Right(successful.invoke(responseBody)))
-                    }
-                }
+        val response = request()
+        when {
+            response.isSuccessful -> {
+                val body = response.body()
 
-                !it.isSuccessful && it.code() == 422 -> {
-                    emit(Either.Left(NetworkError.ApiInputs(it.errorBody().toApiError())))
-                }
-
-                else -> {
-                    emit(Either.Left(NetworkError.Api(it.errorBody().toApiError())))
+                if (body != null) {
+                    emit(Either.Right(successful.invoke(body)))
+                } else {
+                    emit(Either.Left(NetworkError.Unexpected("Body is null WTF?")))
                 }
             }
+
+            !response.isSuccessful && response.code() == 422 -> {
+                emit(Either.Left(NetworkError.ApiInputs(response.errorBody().toApiError())))
+            }
+
+            else -> {
+                emit(Either.Left(NetworkError.Api(response.errorBody().toApiError())))
+            }
         }
-    }.flowOn(Dispatchers.IO).catch { exception ->
+    }.flowOn(ioDispatcher).catch { exception ->
         when (exception) {
             is InterruptedIOException -> {
                 emit(Either.Left(NetworkError.Timeout))
             }
 
+            // ...
+
             else -> {
-                val message = exception.localizedMessage ?: "Error Occurred!"
-                if (BuildConfig.DEBUG) Log.d(this@BaseRepository.javaClass.simpleName, message)
+                val message = exception.localizedMessage ?: "Unexpected Error! (check BaseRepo)"
+                if (BuildConfig.DEBUG) Log.e("BaseRepository", message)
                 emit(Either.Left(NetworkError.Unexpected(message)))
             }
         }
@@ -134,41 +140,34 @@ abstract class BaseRepository {
      *
      * ## How to use:
      * ```
-     * override fun fetchFooPaging() = doPagingRequest({ FooPagingSource(service) })
+     * override fun fetchFooPaging() = pagingFlow {
+     *     FooPagingSource(service)
+     * }
+     *
+     * // or
+     *
+     * override fun fetchFooPaging() = pagingFlow(
+     *     pagingConfig = PagingConfig(...),
+     *     pagingSource = { FooPagingSource(service) }
+     * )
      * ```
      *
      * @see BasePagingSource
      */
-    protected fun <ValueDto : DataMapper<Value>, Value : Any, PagingSource : BasePagingSource<ValueDto, Value>> doPagingRequest(
-        pagingSource: () -> PagingSource,
-        pageSize: Int = 10,
-        prefetchDistance: Int = pageSize,
-        enablePlaceholders: Boolean = true,
-        initialLoadSize: Int = pageSize * 3,
-        maxSize: Int = Int.MAX_VALUE,
-        jumpThreshold: Int = Int.MIN_VALUE
-    ): Flow<PagingData<Value>> {
-        return Pager(
-            config = PagingConfig(
-                pageSize,
-                prefetchDistance,
-                enablePlaceholders,
-                initialLoadSize,
-                maxSize,
-                jumpThreshold
-            ),
-            pagingSourceFactory = {
-                pagingSource()
-            }
-        ).flow
-    }
+    protected fun <ValueDto : DataMapper<Value>, Value : Any> pagingFlow(
+        pagingConfig: PagingConfig = PagingConfig(pageSize = 10),
+        pagingSource: () -> BasePagingSource<ValueDto, Value>
+    ): Flow<PagingData<Value>> = Pager(
+        config = pagingConfig,
+        pagingSourceFactory = pagingSource
+    ).flow
 
     /**
      * Do request to local database with [DataMapper.toDomain]
      *
      * @param request high-order function for request to database
      */
-    protected fun <T : DataMapper<S>, S> doLocalRequest(
+    protected fun <T : DataMapper<S>, S> dbFlow(
         request: () -> Flow<T>
     ): Flow<S> = request().map { data -> data.toDomain() }
 
@@ -177,7 +176,7 @@ abstract class BaseRepository {
      *
      * @param request high-order function for request to database
      */
-    protected fun <T : DataMapper<S>, S> doLocalRequestForList(
+    protected fun <T : DataMapper<S>, S> dbFlowList(
         request: () -> Flow<List<T>>
     ): Flow<List<S>> = request().mapList { data -> data.toDomain() }
 }
