@@ -22,7 +22,7 @@ import java.io.InterruptedIOException
  * @author Alish
  */
 abstract class BaseRepository(
-    val ioDispatcher: CoroutineDispatcher
+    private val ioDispatcher: CoroutineDispatcher
 ) {
 
     /**
