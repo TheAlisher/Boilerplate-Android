@@ -21,7 +21,7 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * Collect network request result without mapping for primitive types
      *
-     * @receiver [collectEither]
+     * @see collectEither
      */
     protected fun <T> Flow<Either<NetworkError, T>>.collectNetworkRequest(
         state: MutableStateFlow<UIState<T>>,
@@ -33,7 +33,7 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * Collect network request result with mapping
      *
-     * @receiver [collectEither]
+     * @see collectEither
      */
     protected fun <T, S> Flow<Either<NetworkError, T>>.collectNetworkRequest(
         state: MutableStateFlow<UIState<S>>,
@@ -62,14 +62,14 @@ abstract class BaseViewModel : ViewModel() {
         successful: (T) -> UIState.Success<S>
     ) {
         viewModelScope.launch(Dispatchers.IO) {
-            state.value = UIState.Loading()
+            state.value = UIState.Loading
             this@collectEither.collect {
                 when (it) {
                     is Either.Left -> state.value = UIState.Error(it.value)
                     is Either.Right -> state.value = successful(it.value)
                 }
             }
-            if (resetStateAfterCollect) {
+            if (resetStateAfterCollect && state.value is UIState.Success) {
                 state.reset()
             }
         }
