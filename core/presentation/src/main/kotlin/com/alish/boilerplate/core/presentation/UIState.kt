@@ -13,17 +13,17 @@ import kotlinx.coroutines.flow.StateFlow
  * @param T The type of data associated with the state.
  * @see [Either]
  */
-sealed class UIState<T> {
+sealed class UIState<out T> {
 
     /**
      * [Idle] - The default state when there are no active data requests, and the screen has just been opened.
      */
-    class Idle<T> : UIState<T>()
+    data object Idle : UIState<Nothing>()
 
     /**
      * [Loading] - The state after sending a data request and waiting for a response.
      */
-    class Loading<T> : UIState<T>()
+    data object Loading : UIState<Nothing>()
 
     /**
      * [Error] - The state in case of an error occurring during a data request.
@@ -31,14 +31,14 @@ sealed class UIState<T> {
      * @param error The network error associated with the current state.
      * @see NetworkError
      */
-    class Error<T>(val error: NetworkError) : UIState<T>()
+    data class Error(val error: NetworkError) : UIState<Nothing>()
 
     /**
      * [Success] - The state when a data request is successful, and data is returned.
      *
      * @param data The data returned as a result of a successful request.
      */
-    class Success<T>(val data: T) : UIState<T>()
+    data class Success<T>(val data: T) : UIState<T>()
 }
 
 /**
@@ -50,9 +50,9 @@ typealias UIStateFlow<T> = StateFlow<UIState<T>>
  * Creates a [MutableStateFlow] with [UIState] and the given initial value [UIState.Idle]
  */
 @Suppress("FunctionName")
-fun <T> BaseViewModel.MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
+fun <T> BaseViewModel.MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle)
 
 /**
  * Reset [MutableUIStateFlow] to [UIState.Idle]
  */
-fun <T> MutableStateFlow<UIState<T>>.reset() { this.value = UIState.Idle() }
+fun <T> MutableStateFlow<UIState<T>>.reset() { this.value = UIState.Idle }
