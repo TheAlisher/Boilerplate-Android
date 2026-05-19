@@ -6,7 +6,6 @@ import com.alish.boilerplate.core.domain.Either
 import com.alish.boilerplate.core.domain.NetworkError
 import com.alish.boilerplate.core.presentation.UIState
 import com.alish.boilerplate.core.presentation.reset
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -61,7 +60,7 @@ abstract class BaseViewModel : ViewModel() {
         resetStateAfterCollect: Boolean,
         successful: (T) -> UIState.Success<S>
     ) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             state.value = UIState.Loading
             this@collectEither.collect {
                 when (it) {
