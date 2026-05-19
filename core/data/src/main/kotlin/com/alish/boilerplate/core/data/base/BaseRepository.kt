@@ -117,7 +117,7 @@ abstract class BaseRepository(
                 emit(Either.Left(NetworkError.Api(response.errorBody().toApiError())))
             }
         }
-    }.flowOn(ioDispatcher).catch { exception ->
+    }.catch { exception ->
         when (exception) {
             is InterruptedIOException -> {
                 emit(Either.Left(NetworkError.Timeout))
@@ -131,7 +131,7 @@ abstract class BaseRepository(
                 emit(Either.Left(NetworkError.Unexpected(message)))
             }
         }
-    }
+    }.flowOn(ioDispatcher)
 
     /**
      * Do network paging request with default params
