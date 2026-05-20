@@ -34,6 +34,11 @@ extensions.configure<LibraryExtension> {
 
 kotlin {
     jvmToolchain(jdkVersion = LangOptions.JVM_TOOLCHAIN)
+
+    // TODO: remove this after stable API
+    compilerOptions {
+        freeCompilerArgs.add("-Xexplicit-backing-fields")
+    }
 }
 
 dependencies {
