@@ -35,7 +35,9 @@ extensions.configure<LibraryExtension> {
 kotlin {
     jvmToolchain(jdkVersion = LangOptions.JVM_TOOLCHAIN)
 
-    // TODO: remove this after stable API
+    // TODO: remove this after stable API – Stabled in Kotlin 2.4.0
+    // Support for using explicit backing fields in IntelliJ IDEA without the
+    // -Xexplicit-backing-fields compiler option will be available in 2026.1.4.
     compilerOptions {
         freeCompilerArgs.add("-Xexplicit-backing-fields")
     }
