@@ -18,7 +18,6 @@ retrofit = "3.0.0"
 okHttp = "5.4.0"
 room = "2.8.4"
 paging = "3.5.0"
-security = "1.1.0"
 
 [libraries]
 # Only for build-logic
@@ -80,9 +79,6 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 # Paging
 androidx-paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
 androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
-
-# Security
-androidx-security-crypto = { module = "androidx.security:security-crypto-ktx", version.ref = "security" }
 
 [plugins]
 # AGP - Android Gradle Plugin

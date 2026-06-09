@@ -31,7 +31,4 @@ dependencies {
     // Room
     api(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
-
-    // Security
-    implementation(libs.androidx.security.crypto)
 }
